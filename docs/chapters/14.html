@@ -1,0 +1,122 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f6f3eb"><title>14  Make a run reproducible and recoverable · Training Your Own Models</title><meta name="description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><link rel="canonical" href="https://mrscripty.github.io/training-your-own-models/chapters/14.html"><meta property="og:type" content="website"><meta property="og:site_name" content="Training Your Own Models"><meta property="og:title" content="14  Make a run reproducible and recoverable · Training Your Own Models"><meta property="og:description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><meta property="og:url" content="https://mrscripty.github.io/training-your-own-models/chapters/14.html"><meta property="og:image" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta property="og:image:secure_url" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1280"><meta property="og:image:height" content="640"><meta property="og:image:alt" content="Training Your Own Models. On One 24 GB GPU. Vibe Authored by Dr.Puma. Cream, blue and orange scientific cover artwork."><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="14  Make a run reproducible and recoverable · Training Your Own Models"><meta name="twitter:description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><meta name="twitter:image" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta name="twitter:image:alt" content="Training Your Own Models, Vibe Authored by Dr.Puma"><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/style.css"></head><body><a class="skip" href="#main">Skip to content</a><header class="topbar"><a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true">↗</span><span>Training Your<br>Own Models</span></a><nav aria-label="Main navigation"><a href="../chapters/start.html">Read the book</a><a href="../labs.html">Explore</a><a href="../search.html" aria-label="Search the book">Search</a><a href="../downloads.html">Downloads</a></nav></header><div class="reader"><aside class="sidebar"><nav aria-label="Book contents"><label class="nav-filter">Find a chapter<input type="search" class="chapter-filter" placeholder="Filter titles" aria-label="Filter chapter titles"></label><a class="chapter-link" href="../chapters/start.html"><span>→</span>Training Your Own Models on One 24 GB GPU</a><a class="chapter-link" href="../chapters/01.html"><span>1</span>Train your first model before learning the whole field</a><a class="chapter-link" href="../chapters/02.html"><span>2</span>Your computer and the training workspace</a><a class="chapter-link" href="../chapters/03.html"><span>3</span>Numbers tensors parameters and learning</a><a class="chapter-link" href="../chapters/04.html"><span>4</span>Project turn four sensor readings into a useful prediction</a><a class="chapter-link" href="../chapters/05.html"><span>5</span>Build a dataset that teaches the job</a><a class="chapter-link" href="../chapters/06.html"><span>6</span>Decide whether the model actually improved</a><a class="chapter-link" href="../chapters/07.html"><span>7</span>Move from feature columns to neural representations</a><a class="chapter-link" href="../chapters/08.html"><span>8</span>Project classify your own small image collection</a><a class="chapter-link" href="../chapters/09.html"><span>9</span>Project locate one object with a box</a><a class="chapter-link" href="../chapters/10.html"><span>10</span>Project predict a mask then extract an outline</a><a class="chapter-link" href="../chapters/11.html"><span>11</span>Train a miniature language model from random weights</a><a class="chapter-link" href="../chapters/12.html"><span>12</span>How a language model becomes a prediction machine</a><a class="chapter-link" href="../chapters/13.html"><span>13</span>Read and control the training loop</a><a class="chapter-link" href="../chapters/14.html" aria-current="page"><span>14</span>Make a run reproducible and recoverable</a><a class="chapter-link" href="../chapters/15.html"><span>15</span>The real memory and compute budget</a><a class="chapter-link" href="../chapters/16.html"><span>16</span>Project make related text easy to retrieve</a><a class="chapter-link" href="../chapters/17.html"><span>17</span>Choose a model by its actual structure and files</a><a class="chapter-link" href="../chapters/18.html"><span>18</span>Teach a small language model one useful behavior</a><a class="chapter-link" href="../chapters/19.html"><span>19</span>Repeat the project with every weight trainable</a><a class="chapter-link" href="../chapters/20.html"><span>20</span>Teach domain conventions without turning weights into a database</a><a class="chapter-link" href="../chapters/21.html"><span>21</span>Make a writing style reproducible without changing the facts</a><a class="chapter-link" href="../chapters/22.html"><span>22</span>Teach a tool decision and a complete tool interaction</a><a class="chapter-link" href="../chapters/23.html"><span>23</span>Study a small typed decision service</a><a class="chapter-link" href="../chapters/24.html"><span>24</span>From a language model to a decision model</a><a class="chapter-link" href="../chapters/25.html"><span>25</span>Add preferences and distillation only after supervised learning works</a><a class="chapter-link" href="../chapters/26.html"><span>26</span>Project teach an image generator a small visual style</a><a class="chapter-link" href="../chapters/27.html"><span>27</span>Speech recognition train a small model to hear your domain</a><a class="chapter-link" href="../chapters/28.html"><span>28</span>Project build a tiny sound generator from random weights</a><a class="chapter-link" href="../chapters/29.html"><span>29</span>Scale a working experiment toward one billion parameters</a><a class="chapter-link" href="../chapters/30.html"><span>30</span>Understand what a public training process really demonstrates</a><a class="chapter-link" href="../chapters/31.html"><span>31</span>Diagnose failures before making the model larger</a><a class="chapter-link" href="../chapters/32.html"><span>32</span>From small model to small device product</a><a class="chapter-link" href="../chapters/33.html"><span>33</span>Turn a checkpoint into a usable application</a><a class="chapter-link" href="../chapters/34.html"><span>34</span>Design your first independent model</a><a class="chapter-link" href="../chapters/35.html"><span>35</span>Understand larger models using the parts you already know</a><a class="chapter-link" href="../chapters/36.html"><span>36</span>Read MiMo GLM and other architecture families</a><a class="chapter-link" href="../chapters/37.html"><span>37</span>Connect architecture to data memory and deployment</a><a class="chapter-link" href="../chapters/38.html"><span>38</span>Learn from public training projects without copying their assumptions</a><a class="chapter-link" href="../chapters/39.html"><span>39</span>Exercise checkpoints and worked answers</a><a class="chapter-link" href="../chapters/40.html"><span>40</span>Companion guide and verification record</a><a class="chapter-link" href="../chapters/glossary.html"><span>A–Z</span>Glossary with links to explanations</a><a class="chapter-link" href="../chapters/references.html"><span>Ref</span>Works cited</a></nav></aside><main class="prose" id="main"><details class="mobile-toc"><summary>Browse the book</summary><nav aria-label="Book contents"><label class="nav-filter">Find a chapter<input type="search" class="chapter-filter" placeholder="Filter titles" aria-label="Filter chapter titles"></label><a class="chapter-link" href="../chapters/start.html"><span>→</span>Training Your Own Models on One 24 GB GPU</a><a class="chapter-link" href="../chapters/01.html"><span>1</span>Train your first model before learning the whole field</a><a class="chapter-link" href="../chapters/02.html"><span>2</span>Your computer and the training workspace</a><a class="chapter-link" href="../chapters/03.html"><span>3</span>Numbers tensors parameters and learning</a><a class="chapter-link" href="../chapters/04.html"><span>4</span>Project turn four sensor readings into a useful prediction</a><a class="chapter-link" href="../chapters/05.html"><span>5</span>Build a dataset that teaches the job</a><a class="chapter-link" href="../chapters/06.html"><span>6</span>Decide whether the model actually improved</a><a class="chapter-link" href="../chapters/07.html"><span>7</span>Move from feature columns to neural representations</a><a class="chapter-link" href="../chapters/08.html"><span>8</span>Project classify your own small image collection</a><a class="chapter-link" href="../chapters/09.html"><span>9</span>Project locate one object with a box</a><a class="chapter-link" href="../chapters/10.html"><span>10</span>Project predict a mask then extract an outline</a><a class="chapter-link" href="../chapters/11.html"><span>11</span>Train a miniature language model from random weights</a><a class="chapter-link" href="../chapters/12.html"><span>12</span>How a language model becomes a prediction machine</a><a class="chapter-link" href="../chapters/13.html"><span>13</span>Read and control the training loop</a><a class="chapter-link" href="../chapters/14.html" aria-current="page"><span>14</span>Make a run reproducible and recoverable</a><a class="chapter-link" href="../chapters/15.html"><span>15</span>The real memory and compute budget</a><a class="chapter-link" href="../chapters/16.html"><span>16</span>Project make related text easy to retrieve</a><a class="chapter-link" href="../chapters/17.html"><span>17</span>Choose a model by its actual structure and files</a><a class="chapter-link" href="../chapters/18.html"><span>18</span>Teach a small language model one useful behavior</a><a class="chapter-link" href="../chapters/19.html"><span>19</span>Repeat the project with every weight trainable</a><a class="chapter-link" href="../chapters/20.html"><span>20</span>Teach domain conventions without turning weights into a database</a><a class="chapter-link" href="../chapters/21.html"><span>21</span>Make a writing style reproducible without changing the facts</a><a class="chapter-link" href="../chapters/22.html"><span>22</span>Teach a tool decision and a complete tool interaction</a><a class="chapter-link" href="../chapters/23.html"><span>23</span>Study a small typed decision service</a><a class="chapter-link" href="../chapters/24.html"><span>24</span>From a language model to a decision model</a><a class="chapter-link" href="../chapters/25.html"><span>25</span>Add preferences and distillation only after supervised learning works</a><a class="chapter-link" href="../chapters/26.html"><span>26</span>Project teach an image generator a small visual style</a><a class="chapter-link" href="../chapters/27.html"><span>27</span>Speech recognition train a small model to hear your domain</a><a class="chapter-link" href="../chapters/28.html"><span>28</span>Project build a tiny sound generator from random weights</a><a class="chapter-link" href="../chapters/29.html"><span>29</span>Scale a working experiment toward one billion parameters</a><a class="chapter-link" href="../chapters/30.html"><span>30</span>Understand what a public training process really demonstrates</a><a class="chapter-link" href="../chapters/31.html"><span>31</span>Diagnose failures before making the model larger</a><a class="chapter-link" href="../chapters/32.html"><span>32</span>From small model to small device product</a><a class="chapter-link" href="../chapters/33.html"><span>33</span>Turn a checkpoint into a usable application</a><a class="chapter-link" href="../chapters/34.html"><span>34</span>Design your first independent model</a><a class="chapter-link" href="../chapters/35.html"><span>35</span>Understand larger models using the parts you already know</a><a class="chapter-link" href="../chapters/36.html"><span>36</span>Read MiMo GLM and other architecture families</a><a class="chapter-link" href="../chapters/37.html"><span>37</span>Connect architecture to data memory and deployment</a><a class="chapter-link" href="../chapters/38.html"><span>38</span>Learn from public training projects without copying their assumptions</a><a class="chapter-link" href="../chapters/39.html"><span>39</span>Exercise checkpoints and worked answers</a><a class="chapter-link" href="../chapters/40.html"><span>40</span>Companion guide and verification record</a><a class="chapter-link" href="../chapters/glossary.html"><span>A–Z</span>Glossary with links to explanations</a><a class="chapter-link" href="../chapters/references.html"><span>Ref</span>Works cited</a></nav></details><div class="chapter-meta"><span class="eyebrow">Chapter 14 / 40</span><span>4 min read</span></div><article class="manuscript"><a id="make-a-run-reproducible-and-recoverable"></a>
+<h1>14 Make a run
+reproducible and recoverable</h1>
+<a id="save-the-experiment-rather-than-only-the-weights"></a>
+<h2>Save the
+experiment rather than only the weights</h2>
+<p>A weight file is not a complete experiment. You also need
+architecture, tokenizer or feature mapping, preprocessing, data version,
+train/validation/test assignments, optimizer configuration, training
+duration, and inference settings. Without these, a future version of you
+may have a model that cannot be loaded correctly or evaluated
+fairly.</p>
+<p>For each run, save a resolved configuration rather than only
+command-line overrides. If a default changes in the library, the
+resolved value should remain visible. Record Python and package
+versions, GPU model, driver, numeric policy, attention backend when
+known, code revision, model revision, and hashes of input splits.</p>
+<p>A model repository name can point to changing contents. Resolve and
+retain a commit revision. A GitHub branch is similarly mutable. A tagged
+release is better for reproducibility, and an immutable commit hash is
+stronger evidence of exactly what was used. For a published training
+process, archive the relevant configuration and record local
+modifications.</p>
+<a id="randomness-has-several-sources"></a>
+<h2>Randomness has several
+sources</h2>
+<p>Initialization, shuffling, dropout, augmentation, sampling, and some
+GPU operations involve randomness or nondeterministic execution. Set the
+seeds used by Python, NumPy when present, PyTorch, and data-loader
+workers as appropriate. A dedicated random generator for dataset
+sampling can make its state easier to preserve.</p>
+<p>A seed does not guarantee identical results across software releases,
+devices, or platforms. Some algorithms are nondeterministic, and
+floating-point order can change. PyTorch explicitly cautions that
+complete cross-platform reproducibility is not guaranteed and that
+deterministic alternatives can cost performance. <a href="../chapters/references.html#source-f14">F14</a></p>
+<p>For a serious comparison, repeat the selected small experiment with
+more than one seed when affordable. If a claimed improvement disappears
+under a different initialization or shuffle, report its instability. For
+a first correctness exercise, deterministic fixed seeds are useful
+because they reduce distractions.</p>
+<a id="checkpoints-serve-different-purposes"></a>
+<h2>Checkpoints serve
+different purposes</h2>
+<p>An inference checkpoint contains enough to make predictions: weights,
+architecture configuration, tokenizer or preprocessing, and any required
+adapter or head metadata. A training-resume checkpoint additionally
+needs optimizer state, scheduler state, update number, gradient-scaler
+state where used, and relevant random and sampler states.</p>
+<p>An adapter checkpoint ordinarily does not contain the base model.
+Record the exact base identity and revision. Loading an adapter on a
+similarly named but different checkpoint may fail or silently change
+behavior. A merged export is a separate artifact with its own validation
+requirements.</p>
+<p>Checkpoint interval is a tradeoff. Saving too often consumes time and
+disk; saving too rarely risks losing work. Estimate the amount of
+recomputation you are willing to tolerate and choose an interval
+accordingly. Keep a last recoverable checkpoint and selected evaluation
+checkpoints. A retention policy should not delete the only known-good
+artifact before a replacement has been checked.</p>
+<a id="practice-interruption-on-a-tiny-run"></a>
+<h2>Practice interruption on a
+tiny run</h2>
+<p>Start a short run that saves twice. Stop it after the first save,
+resume, and verify that the next recorded step continues appropriately.
+Compare configuration and data hashes. Confirm that an intentionally
+mismatched architecture or dataset is rejected.</p>
+<p>A resumed run may differ from an uninterrupted run if data-loader
+state, random generators, or batch order were not restored. Be honest
+about that limit. 'Resumes without crashing' and 'continues the
+identical optimization trajectory' are different claims.</p>
+<p>Use atomic or transactional saving when possible: write to a
+temporary location, complete the write, then replace the designated
+checkpoint. Check free disk space. A full filesystem can produce a
+truncated artifact after hours of otherwise successful training.</p>
+<a id="logs-should-answer-operational-questions"></a>
+<h2>Logs should answer
+operational questions</h2>
+<p>At minimum, log update number, training loss, learning rate,
+evaluated validation metric, elapsed time, and throughput with clear
+units. For GPU work, include peak memory. Useful additional signals
+include gradient norm, supervised-token count, skipped nonfinite
+updates, truncation count, and examples per class or source.</p>
+<p>Do not write every private training example into a public experiment
+tracker. Some frameworks enable external reporting by default. Read the
+configuration for report_to, push_to_hub, telemetry, and upload
+behavior. Disable unneeded external reporting for a local experiment,
+and obtain appropriate permission before transmitting private data or
+model artifacts.</p>
+<p>Store a small, sanitized set of fixed qualitative evaluation outputs
+alongside metrics. Numbers can show that something changed; outputs
+often explain what changed. Keep the exact prompt, seed, decoding
+settings, and reference answer with each sample.</p>
+<a id="a-minimal-run-ledger"></a>
+<h2>A minimal run ledger</h2>
+<p>Use a record with fields for run name, question being tested,
+baseline, data version, model revision, code revision, environment file,
+configuration path, start and end time, status, measured memory,
+measured throughput, primary metric, guardrails, selected checkpoint,
+and next decision.</p>
+<p>A failed run still receives a record. State whether it failed before
+loading, during the first forward pass, during backward, at the
+optimizer step, during evaluation, or during export. That stage narrows
+the diagnosis. Do not erase failures and then claim the workflow was
+effortless or fully tested.</p>
+<a id="exercises-8"></a>
+<h2>Exercises</h2>
+<p>Take one checkpoint and load it in a fresh process with no variables
+left from the trainer. If you cannot reconstruct preprocessing and
+output decoding from saved files, add the missing metadata.</p>
+<p>Change a dataset file by one character and confirm its hash changes.
+Then explain why a filename is not a reliable dataset version.</p>
+<p>Review a public training script for external reporting, automatic
+uploads, downloads, remote-code execution, overwrite behavior, and
+unpinned dependencies before running it. A published example is evidence
+to inspect, not authority to execute everything it contains.</p>
+</article><nav class="pager" aria-label="Adjacent chapters"><a href="13.html"><small>← Previous</small>13  Read and control the training loop</a><a href="15.html"><small>Next →</small>15  The real memory and compute budget</a></nav></main><aside class="on-page"><h2>On this page</h2><a href="#save-the-experiment-rather-than-only-the-weights">Save the
+experiment rather than only the weights</a><a href="#randomness-has-several-sources">Randomness has several
+sources</a><a href="#checkpoints-serve-different-purposes">Checkpoints serve
+different purposes</a><a href="#practice-interruption-on-a-tiny-run">Practice interruption on a
+tiny run</a><a href="#logs-should-answer-operational-questions">Logs should answer
+operational questions</a><a href="#a-minimal-run-ledger">A minimal run ledger</a><a href="#exercises-8">Exercises</a></aside></div><footer class="footer"><div><strong>Training Your Own Models</strong><br>Vibe Authored by Dr.Puma · 2 October 2026</div><div><a href="../chapters/glossary.html">Glossary</a><a href="../chapters/references.html">References</a><a href="https://github.com/MrScripty/training-your-own-models">GitHub ↗</a></div></footer><script src="../assets/site.js" defer></script></body></html>

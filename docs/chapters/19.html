@@ -1,0 +1,210 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f6f3eb"><title>19  Repeat the project with every weight trainable · Training Your Own Models</title><meta name="description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><link rel="canonical" href="https://mrscripty.github.io/training-your-own-models/chapters/19.html"><meta property="og:type" content="website"><meta property="og:site_name" content="Training Your Own Models"><meta property="og:title" content="19  Repeat the project with every weight trainable · Training Your Own Models"><meta property="og:description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><meta property="og:url" content="https://mrscripty.github.io/training-your-own-models/chapters/19.html"><meta property="og:image" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta property="og:image:secure_url" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1280"><meta property="og:image:height" content="640"><meta property="og:image:alt" content="Training Your Own Models. On One 24 GB GPU. Vibe Authored by Dr.Puma. Cream, blue and orange scientific cover artwork."><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="19  Repeat the project with every weight trainable · Training Your Own Models"><meta name="twitter:description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><meta name="twitter:image" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta name="twitter:image:alt" content="Training Your Own Models, Vibe Authored by Dr.Puma"><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/style.css"></head><body><a class="skip" href="#main">Skip to content</a><header class="topbar"><a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true">↗</span><span>Training Your<br>Own Models</span></a><nav aria-label="Main navigation"><a href="../chapters/start.html">Read the book</a><a href="../labs.html">Explore</a><a href="../search.html" aria-label="Search the book">Search</a><a href="../downloads.html">Downloads</a></nav></header><div class="reader"><aside class="sidebar"><nav aria-label="Book contents"><label class="nav-filter">Find a chapter<input type="search" class="chapter-filter" placeholder="Filter titles" aria-label="Filter chapter titles"></label><a class="chapter-link" href="../chapters/start.html"><span>→</span>Training Your Own Models on One 24 GB GPU</a><a class="chapter-link" href="../chapters/01.html"><span>1</span>Train your first model before learning the whole field</a><a class="chapter-link" href="../chapters/02.html"><span>2</span>Your computer and the training workspace</a><a class="chapter-link" href="../chapters/03.html"><span>3</span>Numbers tensors parameters and learning</a><a class="chapter-link" href="../chapters/04.html"><span>4</span>Project turn four sensor readings into a useful prediction</a><a class="chapter-link" href="../chapters/05.html"><span>5</span>Build a dataset that teaches the job</a><a class="chapter-link" href="../chapters/06.html"><span>6</span>Decide whether the model actually improved</a><a class="chapter-link" href="../chapters/07.html"><span>7</span>Move from feature columns to neural representations</a><a class="chapter-link" href="../chapters/08.html"><span>8</span>Project classify your own small image collection</a><a class="chapter-link" href="../chapters/09.html"><span>9</span>Project locate one object with a box</a><a class="chapter-link" href="../chapters/10.html"><span>10</span>Project predict a mask then extract an outline</a><a class="chapter-link" href="../chapters/11.html"><span>11</span>Train a miniature language model from random weights</a><a class="chapter-link" href="../chapters/12.html"><span>12</span>How a language model becomes a prediction machine</a><a class="chapter-link" href="../chapters/13.html"><span>13</span>Read and control the training loop</a><a class="chapter-link" href="../chapters/14.html"><span>14</span>Make a run reproducible and recoverable</a><a class="chapter-link" href="../chapters/15.html"><span>15</span>The real memory and compute budget</a><a class="chapter-link" href="../chapters/16.html"><span>16</span>Project make related text easy to retrieve</a><a class="chapter-link" href="../chapters/17.html"><span>17</span>Choose a model by its actual structure and files</a><a class="chapter-link" href="../chapters/18.html"><span>18</span>Teach a small language model one useful behavior</a><a class="chapter-link" href="../chapters/19.html" aria-current="page"><span>19</span>Repeat the project with every weight trainable</a><a class="chapter-link" href="../chapters/20.html"><span>20</span>Teach domain conventions without turning weights into a database</a><a class="chapter-link" href="../chapters/21.html"><span>21</span>Make a writing style reproducible without changing the facts</a><a class="chapter-link" href="../chapters/22.html"><span>22</span>Teach a tool decision and a complete tool interaction</a><a class="chapter-link" href="../chapters/23.html"><span>23</span>Study a small typed decision service</a><a class="chapter-link" href="../chapters/24.html"><span>24</span>From a language model to a decision model</a><a class="chapter-link" href="../chapters/25.html"><span>25</span>Add preferences and distillation only after supervised learning works</a><a class="chapter-link" href="../chapters/26.html"><span>26</span>Project teach an image generator a small visual style</a><a class="chapter-link" href="../chapters/27.html"><span>27</span>Speech recognition train a small model to hear your domain</a><a class="chapter-link" href="../chapters/28.html"><span>28</span>Project build a tiny sound generator from random weights</a><a class="chapter-link" href="../chapters/29.html"><span>29</span>Scale a working experiment toward one billion parameters</a><a class="chapter-link" href="../chapters/30.html"><span>30</span>Understand what a public training process really demonstrates</a><a class="chapter-link" href="../chapters/31.html"><span>31</span>Diagnose failures before making the model larger</a><a class="chapter-link" href="../chapters/32.html"><span>32</span>From small model to small device product</a><a class="chapter-link" href="../chapters/33.html"><span>33</span>Turn a checkpoint into a usable application</a><a class="chapter-link" href="../chapters/34.html"><span>34</span>Design your first independent model</a><a class="chapter-link" href="../chapters/35.html"><span>35</span>Understand larger models using the parts you already know</a><a class="chapter-link" href="../chapters/36.html"><span>36</span>Read MiMo GLM and other architecture families</a><a class="chapter-link" href="../chapters/37.html"><span>37</span>Connect architecture to data memory and deployment</a><a class="chapter-link" href="../chapters/38.html"><span>38</span>Learn from public training projects without copying their assumptions</a><a class="chapter-link" href="../chapters/39.html"><span>39</span>Exercise checkpoints and worked answers</a><a class="chapter-link" href="../chapters/40.html"><span>40</span>Companion guide and verification record</a><a class="chapter-link" href="../chapters/glossary.html"><span>A–Z</span>Glossary with links to explanations</a><a class="chapter-link" href="../chapters/references.html"><span>Ref</span>Works cited</a></nav></aside><main class="prose" id="main"><details class="mobile-toc"><summary>Browse the book</summary><nav aria-label="Book contents"><label class="nav-filter">Find a chapter<input type="search" class="chapter-filter" placeholder="Filter titles" aria-label="Filter chapter titles"></label><a class="chapter-link" href="../chapters/start.html"><span>→</span>Training Your Own Models on One 24 GB GPU</a><a class="chapter-link" href="../chapters/01.html"><span>1</span>Train your first model before learning the whole field</a><a class="chapter-link" href="../chapters/02.html"><span>2</span>Your computer and the training workspace</a><a class="chapter-link" href="../chapters/03.html"><span>3</span>Numbers tensors parameters and learning</a><a class="chapter-link" href="../chapters/04.html"><span>4</span>Project turn four sensor readings into a useful prediction</a><a class="chapter-link" href="../chapters/05.html"><span>5</span>Build a dataset that teaches the job</a><a class="chapter-link" href="../chapters/06.html"><span>6</span>Decide whether the model actually improved</a><a class="chapter-link" href="../chapters/07.html"><span>7</span>Move from feature columns to neural representations</a><a class="chapter-link" href="../chapters/08.html"><span>8</span>Project classify your own small image collection</a><a class="chapter-link" href="../chapters/09.html"><span>9</span>Project locate one object with a box</a><a class="chapter-link" href="../chapters/10.html"><span>10</span>Project predict a mask then extract an outline</a><a class="chapter-link" href="../chapters/11.html"><span>11</span>Train a miniature language model from random weights</a><a class="chapter-link" href="../chapters/12.html"><span>12</span>How a language model becomes a prediction machine</a><a class="chapter-link" href="../chapters/13.html"><span>13</span>Read and control the training loop</a><a class="chapter-link" href="../chapters/14.html"><span>14</span>Make a run reproducible and recoverable</a><a class="chapter-link" href="../chapters/15.html"><span>15</span>The real memory and compute budget</a><a class="chapter-link" href="../chapters/16.html"><span>16</span>Project make related text easy to retrieve</a><a class="chapter-link" href="../chapters/17.html"><span>17</span>Choose a model by its actual structure and files</a><a class="chapter-link" href="../chapters/18.html"><span>18</span>Teach a small language model one useful behavior</a><a class="chapter-link" href="../chapters/19.html" aria-current="page"><span>19</span>Repeat the project with every weight trainable</a><a class="chapter-link" href="../chapters/20.html"><span>20</span>Teach domain conventions without turning weights into a database</a><a class="chapter-link" href="../chapters/21.html"><span>21</span>Make a writing style reproducible without changing the facts</a><a class="chapter-link" href="../chapters/22.html"><span>22</span>Teach a tool decision and a complete tool interaction</a><a class="chapter-link" href="../chapters/23.html"><span>23</span>Study a small typed decision service</a><a class="chapter-link" href="../chapters/24.html"><span>24</span>From a language model to a decision model</a><a class="chapter-link" href="../chapters/25.html"><span>25</span>Add preferences and distillation only after supervised learning works</a><a class="chapter-link" href="../chapters/26.html"><span>26</span>Project teach an image generator a small visual style</a><a class="chapter-link" href="../chapters/27.html"><span>27</span>Speech recognition train a small model to hear your domain</a><a class="chapter-link" href="../chapters/28.html"><span>28</span>Project build a tiny sound generator from random weights</a><a class="chapter-link" href="../chapters/29.html"><span>29</span>Scale a working experiment toward one billion parameters</a><a class="chapter-link" href="../chapters/30.html"><span>30</span>Understand what a public training process really demonstrates</a><a class="chapter-link" href="../chapters/31.html"><span>31</span>Diagnose failures before making the model larger</a><a class="chapter-link" href="../chapters/32.html"><span>32</span>From small model to small device product</a><a class="chapter-link" href="../chapters/33.html"><span>33</span>Turn a checkpoint into a usable application</a><a class="chapter-link" href="../chapters/34.html"><span>34</span>Design your first independent model</a><a class="chapter-link" href="../chapters/35.html"><span>35</span>Understand larger models using the parts you already know</a><a class="chapter-link" href="../chapters/36.html"><span>36</span>Read MiMo GLM and other architecture families</a><a class="chapter-link" href="../chapters/37.html"><span>37</span>Connect architecture to data memory and deployment</a><a class="chapter-link" href="../chapters/38.html"><span>38</span>Learn from public training projects without copying their assumptions</a><a class="chapter-link" href="../chapters/39.html"><span>39</span>Exercise checkpoints and worked answers</a><a class="chapter-link" href="../chapters/40.html"><span>40</span>Companion guide and verification record</a><a class="chapter-link" href="../chapters/glossary.html"><span>A–Z</span>Glossary with links to explanations</a><a class="chapter-link" href="../chapters/references.html"><span>Ref</span>Works cited</a></nav></details><div class="chapter-meta"><span class="eyebrow">Chapter 19 / 40</span><span>6 min read</span></div><article class="manuscript"><a id="repeat-the-project-with-every-weight-trainable"></a>
+<h1>19 Repeat the
+project with every weight trainable</h1>
+<p>For this chapter's commands, open a fresh terminal at the companion
+root, run <code>cd examples/llm</code>, then
+<code>source .venv-llm/bin/activate</code>. If you skipped the first
+small-language-model project, complete its explicit environment setup
+first. Do not run these relative paths from an earlier project
+directory.</p>
+<p>Now keep the same checkpoint, dataset and evaluation but set
+<code>--mode full</code>. This changes the number of trainable
+parameters, not the task. You are doing full fine-tuning of a pretrained
+model. You are not starting from random weights.</p>
+<pre class="bash"><code>CUDA_VISIBLE_DEVICES=0 python train_small_lm.py \
+  --train data/style_train.jsonl \
+  --eval data/style_valid.jsonl \
+  --out runs/style-full-smoke \
+  --mode full --steps 3</code></pre>
+<p>The recipe lowers the initial learning rate to <code>1e-5</code>,
+explicitly loads FP32 weights, keeps FP32 gradients and ordinary AdamW
+state, and uses BF16 autocast for suitable computations. These are
+reviewed implementation choices, not a promise that this learning rate
+wins. Full-update mode refuses models above one billion unique
+parameters. Adapter modes refuse more than three billion total
+parameters.</p>
+<a id="count-memory-before-you-spend-time"></a>
+<h2>Count memory before you
+spend time</h2>
+<p>Training memory is a sum of several different things:</p>
+<p><code>M_peak = M_weights + M_gradients + M_optimizer + M_master</code></p>
+<p><code>         + M_activations + M_temporary + M_runtime</code>.</p>
+<p><strong>Weights</strong> are the model’s learned numbers.
+<strong>Gradients</strong> describe the local direction in which the
+loss changes. AdamW maintains two optimizer tensors per trainable
+parameter: moving estimates of first and second gradient moments. A
+<strong>master copy</strong> is an extra high-precision copy used by
+some mixed-precision schemes. <strong>Activations</strong> are
+intermediate values needed for backward computation. Temporary tensors,
+attention workspaces, allocator reservation and the GPU runtime add
+further overhead. <a href="../chapters/references.html#source-l16">L16</a> <a href="../chapters/references.html#source-l17">L17</a></p>
+<p>“BF16 training uses two bytes per parameter” accounts only for one
+copy of the weights. It is not a training-memory estimate. Distinguish
+persistent parameter-related state from the peak that depends on the
+batch and implementation.</p>
+<p>The table uses decimal GB and hypothetical exact parameter counts. It
+contains calculated persistent-state totals, not measured VRAM:</p>
+<div aria-label="Scrollable table" class="table-scroll" role="region" tabindex="0"><table>
+<thead>
+<tr class="header">
+<th>Scheme and explicit assumptions</th>
+<th style="text-align: right;">Bytes per trainable parameter</th>
+<th style="text-align: right;">0.6B</th>
+<th style="text-align: right;">1.0B</th>
+<th style="text-align: right;">3.0B</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>BF16 weights and gradients, FP32 Adam moments, no separate master
+copy</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">7.2GB</td>
+<td style="text-align: right;">12GB</td>
+<td style="text-align: right;">36GB</td>
+</tr>
+<tr class="even">
+<td>FP32 weights and gradients, two FP32 moments, no extra master
+copy</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">9.6GB</td>
+<td style="text-align: right;">16GB</td>
+<td style="text-align: right;">48GB</td>
+</tr>
+<tr class="odd">
+<td>BF16 weights, FP32 gradients, FP32 master copy, two FP32
+moments</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">10.8GB</td>
+<td style="text-align: right;">18GB</td>
+<td style="text-align: right;">54GB</td>
+</tr>
+</tbody>
+</table></div>
+<p>These rows are different implementations, not three simultaneous
+charges. Do not add a master copy to a scheme whose FP32 weights already
+serve that purpose. Conversely, do not assume an optimizer uses FP32
+moments merely because the model was loaded in BF16; verify the
+implementation and actual state tensor dtypes.</p>
+<p>Our full-update example uses the middle row. At approximately 0.6B
+parameters, roughly 9.6GB is reserved for its parameter-related training
+state before activations and other overhead. Its actual unique parameter
+count is printed at runtime. This leaves a meaningful working margin on
+a 24GB-class card at a small microbatch and short sequence length, but
+only the smoke test can establish the real peak. At 3B, the same state
+alone is 48GB. Reducing sequence length cannot make those 48GB
+disappear.</p>
+<p>A one-billion-parameter full update is an advanced boundary, not an
+unconditional fit statement. The exact architecture, vocabulary size,
+gradient dtypes, optimizer implementation, sequence length and temporary
+buffers matter. An eight-bit optimizer or CPU optimizer offload can move
+that boundary, but changes the recipe and sometimes numerical behavior
+or speed. Benchmark such a configuration separately. Do not claim that
+every nominal “3B” model fits full AdamW training on one 24GB card.</p>
+<a id="sequence-length-can-dominate-the-surprise"></a>
+<h2>Sequence length can
+dominate the surprise</h2>
+<p>Let <code>B</code> be the microbatch size, <code>T</code> the
+sequence length, <code>d</code> the hidden width and <code>L</code> the
+number of layers. Many saved activations grow roughly with
+<code>B T d L</code>, with substantial architecture-dependent constants.
+A straightforward attention implementation can materialize score tensors
+proportional to <code>B H T²</code>, where <code>H</code> is the number
+of heads. Efficient attention kernels avoid storing the full quadratic
+score matrix, but do not remove every sequence-length-dependent
+cost.</p>
+<p>There is another large tensor: logits. An unchunked tensor for
+<code>B=1</code>, <code>T=2,048</code>, <code>V=151,936</code>
+vocabulary entries contains about 311 million values. At four bytes
+each, that is about 1.24GB for one tensor, before related intermediates.
+This is a calculated illustration, not a measurement of the supplied
+recipe. A model with a large multilingual vocabulary can have expensive
+logits even when its transformer blocks are small.</p>
+<p><strong>Gradient checkpointing</strong> saves fewer forward
+intermediates and recomputes them during backward. It exchanges compute
+for memory. <strong>Gradient accumulation</strong> computes several
+small microbatches before updating weights. On one GPU,
+<code>effective_examples ≈ microbatch × accumulation</code>;
+variable-length examples mean tokens per update vary. Neither technique
+removes full-model optimizer state. Accumulation also requires correct
+loss normalization when examples have different numbers of supervised
+tokens, which is one reason to use a reviewed trainer rather than
+improvising division by a batch count.</p>
+<p><code>use_cache=False</code> disables the generation KV cache during
+training. A <strong>KV cache</strong> stores past attention keys and
+values to accelerate autoregressive generation; it is not the same thing
+as the activations kept for backpropagation. Long advertised context
+windows describe architectural support, not affordable training lengths
+on your card.</p>
+<a id="measure-the-run-you-actually-made"></a>
+<h2>Measure the run you actually
+made</h2>
+<p>The script records <code>torch.cuda.max_memory_allocated()</code> and
+<code>max_memory_reserved()</code> in GiB, where one GiB is
+<code>2^30</code> bytes. Allocated memory is live tensor memory known to
+the allocator. Reserved memory includes its cached blocks. Neither alone
+captures every driver-level allocation, so also inspect
+<code>nvidia-smi</code> and leave headroom for your display or other
+processes.</p>
+<p>Record a warm-up and several complete optimizer steps. Some optimizer
+states appear only at the first update, so one forward pass is not a
+training fit test. Include validation and checkpoint saving in the
+check; those stages can fail even if the training step fits. Do not
+extrapolate throughput from one cold iteration that includes
+compilation, loading, or cache setup.</p>
+<p>If you hit out-of-memory, diagnose in this order:</p>
+<ol type="1">
+<li>Check other GPU processes and actual free memory</li>
+<li>Confirm the requested dtype and count trainable parameters</li>
+<li>Confirm there is only one training model and no unintended reference
+copy</li>
+<li>Keep microbatch at one and reduce sequence length</li>
+<li>Enable checkpointing and avoid storing evaluation logits</li>
+<li>Move to LoRA or QLoRA if persistent full-update state is the
+limiting term</li>
+<li>Consider a smaller model before adding complex offload
+machinery</li>
+</ol>
+<p><strong>Exercise.</strong> Repeat the same tiny run at sequence
+limits 256, 512 and 1,024 with examples that actually approach those
+lengths. Record allocated/reserved memory and tokens per second. A
+higher maximum alone does not lengthen short examples, so do not call
+that a sequence-length experiment unless the data changed
+accordingly.</p>
+<a id="when-qlora-earns-its-complexity"></a>
+<h2>When QLoRA earns its
+complexity</h2>
+<p>QLoRA keeps a quantized frozen base model and trains floating-point
+adapters through it. The original method combines four-bit NormalFloat
+storage, quantized quantization constants and paged optimizers to reduce
+memory pressure. Its published large-model results are method evidence,
+not a benchmark for your RTX or this example. <a href="../chapters/references.html#source-l18">L18</a></p>
+<p>The starter switch is:</p>
+<pre class="bash"><code>CUDA_VISIBLE_DEVICES=0 python train_small_lm.py \
+  --train data/style_train.jsonl \
+  --eval data/style_valid.jsonl \
+  --out runs/style-qlora-smoke \
+  --mode qlora --steps 3</code></pre>
+<p>The code uses NF4, double quantization, BF16 compute and ordinary
+AdamW for the relatively small adapters. It does not need a paged
+optimizer to qualify as adapter training over a quantized base.
+<code>prepare_model_for_kbit_training</code> freezes/prepares the base
+before adapters are attached. Loading a four-bit model and asking
+ordinary full fine-tuning to update all its quantized weights is not
+this recipe. <a href="../chapters/references.html#source-l19">L19</a> <a href="../chapters/references.html#source-l20">L20</a></p>
+<p>If <code>Pq</code> parameters are actually quantized to four bits,
+their ideal packed payload is <code>0.5 Pq</code> bytes. Add
+quantization scales, unquantized modules, adapters, gradients, optimizer
+state and activations. Some preparation paths upcast unquantized modules
+to FP32. An embedding-heavy small model may therefore save less than the
+simple “four bits everywhere” calculation suggests.</p>
+<p>For a 0.6B model, plain BF16 LoRA may already fit easily and be
+simpler. QLoRA becomes more attractive as you move toward the larger
+allowed checkpoints or longer sequences. Measure both before choosing.
+Quantization can change outputs and throughput; evaluate the exact
+deployed precision, not just the floating-point training checkpoint.</p>
+</article><nav class="pager" aria-label="Adjacent chapters"><a href="18.html"><small>← Previous</small>18  Teach a small language model one useful behavior</a><a href="20.html"><small>Next →</small>20  Teach domain conventions without turning weights into a database</a></nav></main><aside class="on-page"><h2>On this page</h2><a href="#count-memory-before-you-spend-time">Count memory before you
+spend time</a><a href="#sequence-length-can-dominate-the-surprise">Sequence length can
+dominate the surprise</a><a href="#measure-the-run-you-actually-made">Measure the run you actually
+made</a><a href="#when-qlora-earns-its-complexity">When QLoRA earns its
+complexity</a></aside></div><footer class="footer"><div><strong>Training Your Own Models</strong><br>Vibe Authored by Dr.Puma · 2 October 2026</div><div><a href="../chapters/glossary.html">Glossary</a><a href="../chapters/references.html">References</a><a href="https://github.com/MrScripty/training-your-own-models">GitHub ↗</a></div></footer><script src="../assets/site.js" defer></script></body></html>

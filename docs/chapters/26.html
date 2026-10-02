@@ -1,0 +1,735 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f6f3eb"><title>26  Project teach an image generator a small visual style · Training Your Own Models</title><meta name="description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><link rel="canonical" href="https://mrscripty.github.io/training-your-own-models/chapters/26.html"><meta property="og:type" content="website"><meta property="og:site_name" content="Training Your Own Models"><meta property="og:title" content="26  Project teach an image generator a small visual style · Training Your Own Models"><meta property="og:description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><meta property="og:url" content="https://mrscripty.github.io/training-your-own-models/chapters/26.html"><meta property="og:image" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta property="og:image:secure_url" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1280"><meta property="og:image:height" content="640"><meta property="og:image:alt" content="Training Your Own Models. On One 24 GB GPU. Vibe Authored by Dr.Puma. Cream, blue and orange scientific cover artwork."><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="26  Project teach an image generator a small visual style · Training Your Own Models"><meta name="twitter:description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><meta name="twitter:image" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta name="twitter:image:alt" content="Training Your Own Models, Vibe Authored by Dr.Puma"><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/style.css"></head><body><a class="skip" href="#main">Skip to content</a><header class="topbar"><a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true">↗</span><span>Training Your<br>Own Models</span></a><nav aria-label="Main navigation"><a href="../chapters/start.html">Read the book</a><a href="../labs.html">Explore</a><a href="../search.html" aria-label="Search the book">Search</a><a href="../downloads.html">Downloads</a></nav></header><div class="reader"><aside class="sidebar"><nav aria-label="Book contents"><label class="nav-filter">Find a chapter<input type="search" class="chapter-filter" placeholder="Filter titles" aria-label="Filter chapter titles"></label><a class="chapter-link" href="../chapters/start.html"><span>→</span>Training Your Own Models on One 24 GB GPU</a><a class="chapter-link" href="../chapters/01.html"><span>1</span>Train your first model before learning the whole field</a><a class="chapter-link" href="../chapters/02.html"><span>2</span>Your computer and the training workspace</a><a class="chapter-link" href="../chapters/03.html"><span>3</span>Numbers tensors parameters and learning</a><a class="chapter-link" href="../chapters/04.html"><span>4</span>Project turn four sensor readings into a useful prediction</a><a class="chapter-link" href="../chapters/05.html"><span>5</span>Build a dataset that teaches the job</a><a class="chapter-link" href="../chapters/06.html"><span>6</span>Decide whether the model actually improved</a><a class="chapter-link" href="../chapters/07.html"><span>7</span>Move from feature columns to neural representations</a><a class="chapter-link" href="../chapters/08.html"><span>8</span>Project classify your own small image collection</a><a class="chapter-link" href="../chapters/09.html"><span>9</span>Project locate one object with a box</a><a class="chapter-link" href="../chapters/10.html"><span>10</span>Project predict a mask then extract an outline</a><a class="chapter-link" href="../chapters/11.html"><span>11</span>Train a miniature language model from random weights</a><a class="chapter-link" href="../chapters/12.html"><span>12</span>How a language model becomes a prediction machine</a><a class="chapter-link" href="../chapters/13.html"><span>13</span>Read and control the training loop</a><a class="chapter-link" href="../chapters/14.html"><span>14</span>Make a run reproducible and recoverable</a><a class="chapter-link" href="../chapters/15.html"><span>15</span>The real memory and compute budget</a><a class="chapter-link" href="../chapters/16.html"><span>16</span>Project make related text easy to retrieve</a><a class="chapter-link" href="../chapters/17.html"><span>17</span>Choose a model by its actual structure and files</a><a class="chapter-link" href="../chapters/18.html"><span>18</span>Teach a small language model one useful behavior</a><a class="chapter-link" href="../chapters/19.html"><span>19</span>Repeat the project with every weight trainable</a><a class="chapter-link" href="../chapters/20.html"><span>20</span>Teach domain conventions without turning weights into a database</a><a class="chapter-link" href="../chapters/21.html"><span>21</span>Make a writing style reproducible without changing the facts</a><a class="chapter-link" href="../chapters/22.html"><span>22</span>Teach a tool decision and a complete tool interaction</a><a class="chapter-link" href="../chapters/23.html"><span>23</span>Study a small typed decision service</a><a class="chapter-link" href="../chapters/24.html"><span>24</span>From a language model to a decision model</a><a class="chapter-link" href="../chapters/25.html"><span>25</span>Add preferences and distillation only after supervised learning works</a><a class="chapter-link" href="../chapters/26.html" aria-current="page"><span>26</span>Project teach an image generator a small visual style</a><a class="chapter-link" href="../chapters/27.html"><span>27</span>Speech recognition train a small model to hear your domain</a><a class="chapter-link" href="../chapters/28.html"><span>28</span>Project build a tiny sound generator from random weights</a><a class="chapter-link" href="../chapters/29.html"><span>29</span>Scale a working experiment toward one billion parameters</a><a class="chapter-link" href="../chapters/30.html"><span>30</span>Understand what a public training process really demonstrates</a><a class="chapter-link" href="../chapters/31.html"><span>31</span>Diagnose failures before making the model larger</a><a class="chapter-link" href="../chapters/32.html"><span>32</span>From small model to small device product</a><a class="chapter-link" href="../chapters/33.html"><span>33</span>Turn a checkpoint into a usable application</a><a class="chapter-link" href="../chapters/34.html"><span>34</span>Design your first independent model</a><a class="chapter-link" href="../chapters/35.html"><span>35</span>Understand larger models using the parts you already know</a><a class="chapter-link" href="../chapters/36.html"><span>36</span>Read MiMo GLM and other architecture families</a><a class="chapter-link" href="../chapters/37.html"><span>37</span>Connect architecture to data memory and deployment</a><a class="chapter-link" href="../chapters/38.html"><span>38</span>Learn from public training projects without copying their assumptions</a><a class="chapter-link" href="../chapters/39.html"><span>39</span>Exercise checkpoints and worked answers</a><a class="chapter-link" href="../chapters/40.html"><span>40</span>Companion guide and verification record</a><a class="chapter-link" href="../chapters/glossary.html"><span>A–Z</span>Glossary with links to explanations</a><a class="chapter-link" href="../chapters/references.html"><span>Ref</span>Works cited</a></nav></aside><main class="prose" id="main"><details class="mobile-toc"><summary>Browse the book</summary><nav aria-label="Book contents"><label class="nav-filter">Find a chapter<input type="search" class="chapter-filter" placeholder="Filter titles" aria-label="Filter chapter titles"></label><a class="chapter-link" href="../chapters/start.html"><span>→</span>Training Your Own Models on One 24 GB GPU</a><a class="chapter-link" href="../chapters/01.html"><span>1</span>Train your first model before learning the whole field</a><a class="chapter-link" href="../chapters/02.html"><span>2</span>Your computer and the training workspace</a><a class="chapter-link" href="../chapters/03.html"><span>3</span>Numbers tensors parameters and learning</a><a class="chapter-link" href="../chapters/04.html"><span>4</span>Project turn four sensor readings into a useful prediction</a><a class="chapter-link" href="../chapters/05.html"><span>5</span>Build a dataset that teaches the job</a><a class="chapter-link" href="../chapters/06.html"><span>6</span>Decide whether the model actually improved</a><a class="chapter-link" href="../chapters/07.html"><span>7</span>Move from feature columns to neural representations</a><a class="chapter-link" href="../chapters/08.html"><span>8</span>Project classify your own small image collection</a><a class="chapter-link" href="../chapters/09.html"><span>9</span>Project locate one object with a box</a><a class="chapter-link" href="../chapters/10.html"><span>10</span>Project predict a mask then extract an outline</a><a class="chapter-link" href="../chapters/11.html"><span>11</span>Train a miniature language model from random weights</a><a class="chapter-link" href="../chapters/12.html"><span>12</span>How a language model becomes a prediction machine</a><a class="chapter-link" href="../chapters/13.html"><span>13</span>Read and control the training loop</a><a class="chapter-link" href="../chapters/14.html"><span>14</span>Make a run reproducible and recoverable</a><a class="chapter-link" href="../chapters/15.html"><span>15</span>The real memory and compute budget</a><a class="chapter-link" href="../chapters/16.html"><span>16</span>Project make related text easy to retrieve</a><a class="chapter-link" href="../chapters/17.html"><span>17</span>Choose a model by its actual structure and files</a><a class="chapter-link" href="../chapters/18.html"><span>18</span>Teach a small language model one useful behavior</a><a class="chapter-link" href="../chapters/19.html"><span>19</span>Repeat the project with every weight trainable</a><a class="chapter-link" href="../chapters/20.html"><span>20</span>Teach domain conventions without turning weights into a database</a><a class="chapter-link" href="../chapters/21.html"><span>21</span>Make a writing style reproducible without changing the facts</a><a class="chapter-link" href="../chapters/22.html"><span>22</span>Teach a tool decision and a complete tool interaction</a><a class="chapter-link" href="../chapters/23.html"><span>23</span>Study a small typed decision service</a><a class="chapter-link" href="../chapters/24.html"><span>24</span>From a language model to a decision model</a><a class="chapter-link" href="../chapters/25.html"><span>25</span>Add preferences and distillation only after supervised learning works</a><a class="chapter-link" href="../chapters/26.html" aria-current="page"><span>26</span>Project teach an image generator a small visual style</a><a class="chapter-link" href="../chapters/27.html"><span>27</span>Speech recognition train a small model to hear your domain</a><a class="chapter-link" href="../chapters/28.html"><span>28</span>Project build a tiny sound generator from random weights</a><a class="chapter-link" href="../chapters/29.html"><span>29</span>Scale a working experiment toward one billion parameters</a><a class="chapter-link" href="../chapters/30.html"><span>30</span>Understand what a public training process really demonstrates</a><a class="chapter-link" href="../chapters/31.html"><span>31</span>Diagnose failures before making the model larger</a><a class="chapter-link" href="../chapters/32.html"><span>32</span>From small model to small device product</a><a class="chapter-link" href="../chapters/33.html"><span>33</span>Turn a checkpoint into a usable application</a><a class="chapter-link" href="../chapters/34.html"><span>34</span>Design your first independent model</a><a class="chapter-link" href="../chapters/35.html"><span>35</span>Understand larger models using the parts you already know</a><a class="chapter-link" href="../chapters/36.html"><span>36</span>Read MiMo GLM and other architecture families</a><a class="chapter-link" href="../chapters/37.html"><span>37</span>Connect architecture to data memory and deployment</a><a class="chapter-link" href="../chapters/38.html"><span>38</span>Learn from public training projects without copying their assumptions</a><a class="chapter-link" href="../chapters/39.html"><span>39</span>Exercise checkpoints and worked answers</a><a class="chapter-link" href="../chapters/40.html"><span>40</span>Companion guide and verification record</a><a class="chapter-link" href="../chapters/glossary.html"><span>A–Z</span>Glossary with links to explanations</a><a class="chapter-link" href="../chapters/references.html"><span>Ref</span>Works cited</a></nav></details><div class="chapter-meta"><span class="eyebrow">Chapter 26 / 40</span><span>26 min read</span></div><article class="manuscript"><a id="project-teach-an-image-generator-a-small-visual-style"></a>
+<h1>26
+Project teach an image generator a small visual style</h1>
+<p>An image diffusion system generates a new image by iteratively
+transforming a noise-like tensor, usually guided by text or other
+inputs. It is useful when you want plausible visual alternatives:
+concept art, original asset variations, product-scene mockups, or
+controlled edits. It is unsuitable when invented details would be
+mistaken for evidence, such as filling in a supposedly factual medical
+or forensic image. For counting defects, recognizing objects or
+assigning a class to each pixel, a classifier, detector or segmentation
+model is usually the more direct design.</p>
+<p>Common application patterns are:</p>
+<ul>
+<li><strong>Text → candidate images → human selection.</strong> Inputs
+include prompt, dimensions, seed and generation settings. Outputs
+include image files and a generation record. Add checks for prohibited
+content, personal likenesses and downstream use; generating an image
+does not establish that it is accurate or rights-cleared.</li>
+<li><strong>Reference image → bounded variation.</strong> An
+image-to-image pipeline encodes a reference and introduces a chosen
+amount of noise before generation. Stronger modification can erase
+identity or layout. This is an inference pipeline choice, not proof that
+you trained a new subject.</li>
+<li><strong>Image plus aligned mask → localized edit.</strong> An
+inpainting-capable pipeline receives both. Specify which region may
+change, preserve the unedited source, and inspect edges and supposedly
+preserved regions afterward. The ordinary text-to-image LoRA trainer
+below does not learn this interface automatically.</li>
+<li><strong>Layout/depth/edge condition → controlled
+generation.</strong> A purpose-built conditioning model can guide
+structure. Keep the control map's coordinate system, resolution and
+semantics aligned with the image. Text prompts alone do not enforce
+exact geometry.</li>
+</ul>
+<p>A deployment contract should name the base revision, adapter
+revision, input types, supported sizes, expected latency, output format
+and limitations. Keep generation asynchronous when it takes longer than
+an interactive response. Save candidates with their settings, allow
+users to reject them, and separate a model's technical success from
+approval for publication. The first project covers the simplest pattern,
+text to image, with an adapter for a narrow visual style.</p>
+<p><strong>What you will make.</strong> A small adapter that nudges an
+existing image generator toward an original paper-card illustration
+style. You will create the training images locally, make a baseline
+image, train only a small fraction of the generator's weights, and
+compare the result with the unchanged model. Nothing is uploaded by the
+commands in this project.</p>
+<p><strong>Why start here?</strong> You can see whether the experiment
+works. The base generator already knows many objects, so you do not need
+to teach it the entire visual world. Later, the audio project removes
+this shortcut and builds a very small generator from random weights.</p>
+<p><strong>What is and is not verified.</strong> The companion data
+generators and data checks were executed on CPU; Python syntax and shell
+syntax were checked. The image training command was checked against the
+actual Diffusers v0.36.0 source. No GPU training or image generation was
+executed for this book. The software pins are a deliberately
+conservative candidate environment, not a claimed end-to-end tested
+lockfile. The single-process trainer supports a conservative one-GPU
+setup; a 24 GB RTX 3090/4090 is a candidate target for this Sana LoRA
+configuration, but you must measure the first run. The model choices
+were checked against primary sources on 2 October 2026.</p>
+<a id="image-project-step-1-create-something-the-model-can-learn"></a>
+<h2>Image
+project step 1 create something the model can learn</h2>
+<p>All commands in this project run from the extracted
+<code>examples/diffusion</code> folder. Set an absolute path once,
+replacing the placeholder with your actual extraction location, and
+return to it before beginning:</p>
+<pre class="bash"><code>export DIFFUSION_EXAMPLES="/absolute/path/to/extracted/examples/diffusion"
+cd "$DIFFUSION_EXAMPLES"</code></pre>
+<p>Do not paste the placeholder unchanged. If another project's virtual
+environment is active, run <code>deactivate</code> first. Use Linux or
+WSL2 with a working NVIDIA driver. A full CUDA toolkit is not normally
+required merely to run an official PyTorch CUDA wheel; custom compiled
+extensions can add that requirement. Do not install a random CUDA
+package to fix a driver problem.</p>
+<p>Make a virtual environment first. The base model is several
+gigabytes, and caches, checkpoints and a second environment add up: keep
+at least 50 GB of free SSD space for this chapter's experiments. That is
+a planning allowance, not the measured download size of a particular
+snapshot.</p>
+<pre class="bash"><code>python3.11 -m venv .venv-image
+source .venv-image/bin/activate
+python -m pip install --upgrade pip
+python -m pip install torch==2.7.1 torchvision==0.22.1 \
+  --index-url https://download.pytorch.org/whl/cu126
+python -m pip install -r requirements-image.txt
+python -m pip check
+python -c 'import torch,diffusers,peft,transformers; print(torch.__version__, torch.cuda.is_available()); print(diffusers.__version__,peft.__version__,transformers.__version__)'</code></pre>
+<p>The exact torchvision/PyTorch pair follows PyTorch's versioned
+installation instructions <a href="../chapters/references.html#source-d27">D27</a>. A newer driver
+can usually run a wheel built for an older supported CUDA runtime; check
+your driver rather than equating the number printed by
+<code>nvidia-smi</code> with an installed toolkit. The example targets
+Ampere/Ada cards, not every GPU sold with 24 GB.</p>
+<p><strong>Pin the trainer and the library together.</strong> The
+companion requirements use Diffusers 0.36.0, PEFT 0.17.1, Transformers
+4.55.4, Accelerate 1.10.1 and Hugging Face Hub 0.34.4, plus the
+tokenizer's SentencePiece dependency. These satisfy the inspected
+library's declared minimums, but the complete environment still needs
+the import and smoke tests on your machine <a href="../chapters/references.html#source-d34">D34</a>. Save the resolved environment with
+<code>python -m pip freeze &gt; image-environment.txt</code> after it
+works. This version is a reproducible recipe target, not a claim that it
+is the newest release.</p>
+<p>Sana's frozen text encoder and autoencoder are additional models,
+even though we train only adapters in the 1.648B-parameter image
+transformer. The complete pipeline exceeds three billion parameters.
+Budget system RAM as well as VRAM: 32 GB is a reasonable starting
+planning allowance and 64 GB offers more headroom for model loading and
+offloading, but neither is a measured requirement of this recipe. The
+trainer also prepares the processed image tensors in host memory. We
+print actual component parameter counts during the baseline load rather
+than labeling the whole pipeline “1.6B.”</p>
+<p>Create 240 small, original illustrations:</p>
+<pre class="bash"><code>python make_image_cards.py --out data/papercards --per-object 60
+python check_image_data.py data/papercards</code></pre>
+<p>The generator draws houses, mugs, flowers and balloons with a fixed
+paper-like treatment. It creates 192 training, 24 validation and 24 test
+images. Each file is rendered natively at 1,024 × 1,024 pixels, with
+geometry scaled to the larger canvas rather than upsampling a small
+picture. This is intentionally a limited exercise: success on four
+procedural object families does not demonstrate that you have trained a
+broad commercial illustration model. Open a contact sheet or at least
+several files from each split before training. The correct first test is
+whether you like, understand and can legally use the data.</p>
+<p>The layout is:</p>
+<pre class="text"><code>data/papercards/
+  provenance.json
+  train/
+    house_0000.png
+    ...
+    metadata.jsonl
+  val/
+    ...
+    metadata.jsonl
+  test/
+    ...
+    metadata.jsonl</code></pre>
+<p>One line of <code>metadata.jsonl</code> looks like this:</p>
+<pre class="json"><code>{"file_name":"house_0000.png","text":"a blue house, rivetpaper style, centered on cream paper","group":"house-0"}</code></pre>
+<p><code>file_name</code> connects a picture to its caption.
+<code>text</code> says what is visible and names the desired style.
+<code>group</code> keeps related originals out of different splits. The
+upstream imagefolder format reads the image-caption connection; the
+training script ignores our extra grouping field <a href="../chapters/references.html#source-d16">D16</a>. Keep the validation and test folders outside
+the training folder, and pass only <code>data/papercards/train</code> to
+the trainer. Pointing the trainer at the whole tree can change split
+discovery and risks training on unintended examples. Make the selected
+training directory explicit.</p>
+<a id="image-data-captions-groups-crops-and-masks"></a>
+<h3>Image data captions
+groups crops and masks</h3>
+<p>Replace the generated pictures with your own art or product photos
+after the pipeline works. A small style experiment might start with
+50-200 genuinely varied originals, but that is a project-size
+suggestion, not a statistical minimum. Two hundred near-identical frames
+do not provide two hundred independent examples.</p>
+<p>For a style adapter, vary object, background, layout and color.
+Otherwise the model can learn “this style means a centered red mug.”
+Describe visible differences in captions. For a subject adapter, capture
+the same subject from different views, distances and backgrounds so that
+identity and scenery are not inseparable. Split a photographic session
+or video into one partition as a group. Burst shots, crops of the same
+original, and lightly edited duplicates belong together.</p>
+<p>A trigger such as <code>rivetpaper style</code> is a consistent
+phrase, not a newly invented tokenizer token. It will be broken into
+existing tokens. The adapter learns associations involving those tokens;
+it does not magically add a dictionary entry. If every training caption
+includes the trigger, test both with and without it to see how much the
+style spreads into unrelated prompts.</p>
+<p>Resizing and cropping are changes to the example, not neutral
+housekeeping. The beginner command resizes the shorter edge and
+center-crops a square. A wide image of two people may lose one person; a
+caption that still says “two people” is then wrong. Inspect the
+processed crop. Do not flip images with lettering, asymmetric logos,
+medical laterality or other direction-sensitive meaning just because a
+tutorial enables random flips.</p>
+<p>An <strong>aspect-ratio bucket</strong> groups similarly shaped
+images into batches, such as portrait, square and landscape. It reduces
+destructive cropping without padding every image to the largest shape.
+The upstream script used here does not implement arbitrary aspect-ratio
+bucketing; adding a <code>--buckets</code> flag will not make it do so.
+Move to a trainer with explicit, verified bucket support only after the
+square experiment is understood. Hold total pixel area approximately
+constant when comparing bucket shapes because changing shape can also
+change memory requirements.</p>
+<p>A <strong>mask</strong> is an aligned map indicating a region, often
+one value for editable pixels and another for preserved pixels. It is
+needed for an inpainting-specific training objective, or for weighting a
+loss to a region. Merely placing a mask file beside an image does not
+activate masked training in this LoRA script. Edge maps, depth maps,
+segmentation maps and poses are other forms of conditioning. They
+require the corresponding model inputs and training procedure. A
+segmentation model that labels pixels is solving a different task from a
+diffusion model that generates pictures; use the discriminative-model
+project when labels, rather than invented pixels, are your goal.</p>
+<a id="image-project-step-2-download-a-fixed-base-and-make-a-baseline"></a>
+<h2>Image
+project step 2 download a fixed base and make a baseline</h2>
+<p>Use the official
+<code>Efficient-Large-Model/Sana_1600M_1024px_BF16_diffusers</code>
+checkpoint. Sana is a maintained efficient image-transformer family, and
+the official Diffusers adaptation example specifically targets this BF16
+checkpoint. Its card lists a 1.648B image transformer, a frozen
+Gemma2-2B-IT text encoder and a 32× spatial-compression DC-AE
+autoencoder. The Sana weights have Apache 2.0 terms, the Gemma component
+has additional terms, and the card states research-oriented intended
+use. Read the actual current terms and restrictions before use <a href="../chapters/references.html#source-d30">D30</a> <a href="../chapters/references.html#source-d35">D35</a> <a href="../chapters/references.html#source-d36">D36</a>.</p>
+<p>The official example establishes a real LoRA training route. It does
+not establish a measured 24 GB peak for our exact custom-caption
+dataset. Our single-process, batch-1, checkpointed/offloaded
+configuration is an unexecuted candidate designed to be measured before
+scaling. We chose the 1.6B BF16 variant because it is the dedicated
+checkpoint in that training recipe; a smaller 590M Sana variant exists,
+but substituting it also changes precision and model configuration and
+should be a separate experiment.</p>
+<p>Download a revision-pinned local snapshot. This code resolves the
+current model revision once, records it, and downloads that exact
+revision. The recorded SHA is what reproduces the selection later. It
+does not promise that every future run resolves the same
+<code>main</code> revision.</p>
+<pre class="bash"><code>python - &lt;&lt;'PY'
+import json
+from pathlib import Path
+from huggingface_hub import HfApi, snapshot_download
+repo = 'Efficient-Large-Model/Sana_1600M_1024px_BF16_diffusers'
+sha = HfApi().model_info(repo).sha
+path = snapshot_download(
+    repo_id=repo, revision=sha,
+    allow_patterns=['model_index.json', 'transformer/*', 'vae/*',
+                    'text_encoder/*', 'tokenizer/*', 'scheduler/*'],
+    ignore_patterns=['*.onnx', '*.msgpack', '*.h5'],
+)
+Path('base_path.txt').write_text(path)
+Path('base_revision.json').write_text(json.dumps({'repo':repo,'revision':sha},indent=2))
+print(path)
+PY
+export BASE="$(cat base_path.txt)"
+python sample_image_lora.py --base "$BASE" \
+  --prompt 'a blue house, rivetpaper style, centered on cream paper' \
+  --seed 17 --out samples/baseline-house.png</code></pre>
+<p>The download filter avoids unrelated root-level checkpoints, but
+component folders may contain multiple precision variants and consume
+substantial disk space. Our loader explicitly requests the BF16 variant;
+do not delete weight shards merely because their names look similar.
+Keep the model's configuration, scheduler, tokenizer, text encoder,
+autoencoder and denoiser together; a lone <code>.safetensors</code> file
+is not necessarily a complete pipeline.</p>
+<p>A <strong>seed</strong> initializes a pseudorandom number generator.
+Keeping it fixed makes a before/after comparison more informative
+because the starting noise is the same. It does not guarantee
+bit-for-bit output across different GPU architectures, library versions
+or kernels. Record the software, model revision, prompt, seed, image
+size, sampler and inference-step count.</p>
+<p>Before training, also generate a no-trigger prompt and one unfamiliar
+object, such as “a bicycle, rivetpaper style, centered on cream paper.”
+Keep these baseline files. If the base already does what you need, an
+adapter may be unnecessary.</p>
+<a id="image-project-step-3-one-small-training-run"></a>
+<h2>Image project step
+3 one small training run</h2>
+<p>Get the training script from the same version as the installed
+library:</p>
+<pre class="bash"><code>git clone --branch v0.36.0 --depth 1 https://github.com/huggingface/diffusers.git diffusers-src
+git -C diffusers-src rev-parse HEAD &gt; diffusers-source-commit.txt
+python patch_image_trainer.py diffusers-src
+git -C diffusers-src diff &gt; image-trainer.patch
+export DIFFUSERS_SRC="$PWD/diffusers-src"
+export DATA="$PWD/data/papercards"
+export OUT="$PWD/runs/papercard-smoke"
+STEPS=20 WARMUP=5 bash train_image_lora.sh</code></pre>
+<p>The small guarded patch skips the upstream trainer's final allocation
+of another full FP32 pipeline when neither final validation nor upload
+was requested. The adapter is already saved at that point. We evaluate
+in a fresh process using the matching BF16 pipeline instead, avoiding an
+unnecessary host-memory peak and the upstream final reload's different
+transformer dtype. Save the patch with the upstream source SHA <a href="../chapters/references.html#source-d31">D31</a>.</p>
+<p>This smoke test checks loading, preprocessing, forward computation,
+backward computation and saving. It is not long enough to establish
+image quality. A loss value appearing on screen is not sufficient:
+verify the run writes <code>pytorch_lora_weights.safetensors</code> and
+that <code>sample_image_lora.py</code> can load it. The command uses
+local TensorBoard logs and does not enable upload flags.</p>
+<p>Run the actual reload check now, before spending time on the longer
+run:</p>
+<pre class="bash"><code>python sample_image_lora.py --base "$BASE" --lora runs/papercard-smoke \
+  --prompt 'a blue house, rivetpaper style, centered on cream paper' \
+  --seed 17 --out samples/smoke-house.png</code></pre>
+<p>The smoke image is a file-loading/functionality check, not evidence
+that 20 steps learned the style. If either the adapter or its base
+manifest fails to load, fix that now.</p>
+<p>Then start a separate deliberate run:</p>
+<pre class="bash"><code>export OUT="$PWD/runs/papercard-lora"
+STEPS=1000 WARMUP=100 bash train_image_lora.sh</code></pre>
+<p>The wrapper saves <code>book_run_manifest.json</code>, binding the
+adapter to the exact base repository/revision, model configuration
+hashes, tagged-and-patched trainer, wrapper settings, caption metadata
+and training-image hashes. Resume rejects changes in those material
+inputs; inference checks the adapter/base binding before loading. Keep
+the base snapshot directory's revision name and
+<code>base_revision.json</code> when moving the experiment. The large
+base-weight files are treated as an immutable Hub snapshot rather than
+rehashed on every image request; do not edit them in place.</p>
+<p>The companion shell script expands to these important settings:
+1,024-square images, per-device batch 1, accumulation 4, rank and alpha
+8, learning rate 0.0001, BF16 mixed precision, gradient checkpointing
+and frozen-component offloading, and a checkpoint every 250 optimizer
+updates. All arguments were checked against the tagged Sana
+implementation <a href="../chapters/references.html#source-d31">D31</a>. We use
+<code>--dataset_name</code> pointing to the local imagefolder and
+<code>--caption_column=text</code>. The required
+<code>--instance_prompt</code> is a fallback; our nonempty per-image
+captions take precedence. Do not use <code>--instance_data_dir</code>
+for this metadata-bearing folder: that branch treats files as images
+rather than loading captions. The script is named DreamBooth, but also
+accepts a captioned style dataset without enabling prior
+preservation.</p>
+<a id="what-these-image-training-settings-actually-change"></a>
+<h3>What these
+image training settings actually change</h3>
+<ul>
+<li><strong>Batch 1:</strong> one image is processed at a time on the
+GPU. This is the first memory lever.</li>
+<li><strong>Accumulation 4:</strong> gradients from four successive
+microbatches are added before an optimizer update. With one GPU the
+effective batch is 4. It does not put four images in memory
+simultaneously and does not make a single oversized image fit.</li>
+<li><strong>1,000 optimizer steps:</strong> roughly 4,000 image
+presentations, or about 20.8 average passes over 192 examples. This is a
+starting experiment, not the correct number for every dataset. More
+training can make a model worse.</li>
+<li><strong>Rank 8:</strong> each selected weight update is constrained
+to a low-dimensional correction. Higher rank gives more adjustable
+capacity and increases adapter memory; it does not add training
+examples.</li>
+<li><strong>Learning rate 0.0001:</strong> the scale of parameter
+changes. A rate that works for LoRA is not automatically appropriate for
+updating every base weight.</li>
+<li><strong>Warmup 100:</strong> gradually reaches the selected learning
+rate during the first 100 optimizer steps. The learning-rate schedule
+controls optimizer updates. It is unrelated to the diffusion noise
+schedule.</li>
+<li><strong>BF16 mixed precision:</strong> uses bfloat16 for the image
+transformer and Gemma text encoder in this recipe; the autoencoder stays
+float32. These component-specific choices follow the inspected
+implementation. BF16 has a different numeric range/precision trade-off
+from FP16. A filename variant and a runtime arithmetic dtype are related
+but separate settings.</li>
+<li><strong>Gradient checkpointing:</strong> discards selected
+intermediate activations and recomputes them during backward. It
+exchanges more computation for less activation memory.</li>
+<li><strong>Offload:</strong> moves the frozen text encoder and
+autoencoder back to CPU when their turn is finished. This reduces
+simultaneous GPU residency and adds host RAM use and CPU-GPU transfers.
+It is not the same as training the text encoder or making the network
+smaller.</li>
+<li><strong>128 prompt tokens, no complex-human instruction:</strong>
+use the same limit and prompt preparation in training, baseline
+inference and adapted inference. The pipeline has an instruction-prefix
+default that this recipe deliberately disables; inconsistent
+preprocessing would confound the comparison.</li>
+<li><strong>Gradient clipping 1:</strong> bounds the gradient norm
+before updating, limiting unusually large updates. It does not repair an
+invalid objective or corrupted data.</li>
+<li><strong>Checkpoint every 250:</strong> saves resumable state. The
+final adapter is a deployment artifact; resumable checkpoints
+additionally preserve training state. Do not assume those files are
+interchangeable.</li>
+</ul>
+<p>With this script, resuming an interrupted run uses the same output
+folder and <code>RESUME=latest</code>. Keep the original configuration
+and dataset unchanged. Example:</p>
+<pre class="bash"><code>RESUME=latest STEPS=1000 WARMUP=100 bash train_image_lora.sh</code></pre>
+<p>Resume counts toward the total target of 1,000 steps, not 1,000
+additional steps. This upstream trainer resumes optimizer/model state
+but begins iterating from the stored epoch rather than exactly skipping
+to the next old minibatch. Treat it as recovery, not bit-for-bit replay
+of an uninterrupted data order. A finished checkpoint may be useful even
+if you ultimately choose an earlier one by evaluation. At this inspected
+tag, checkpoint folders also contain a saved LoRA file, so you can pass
+<code>--lora runs/papercard-lora/checkpoint-250</code> to the inference
+script for that candidate.</p>
+<a id="just-enough-diffusion-what-target-did-the-network-learn"></a>
+<h2>Just
+enough diffusion what target did the network learn</h2>
+<p>In next-token language modeling, a model predicts a distribution over
+next token IDs. The Sana denoiser predicts a continuous tensor that
+describes movement along a path between a clean image latent and noise.
+The caption guides the prediction but is not the output target.</p>
+<p>Let <code>z0</code> be a clean compressed image and
+<code>epsilon</code> be freshly sampled Gaussian noise of the same
+shape. Choose a schedule level <code>sigma</code> and mix them:</p>
+<pre class="text"><code>z_sigma = (1 - sigma) * z0 + sigma * epsilon
+training target = epsilon - z0</code></pre>
+<p>This is the flow-matching convention used by the inspected Sana
+trainer. At sigma zero the mixture is clean; at sigma one it is noise.
+The target is the derivative of that straight interpolation in the
+clean-to-noise direction. Generation follows the learned field in the
+reverse direction, using a compatible sampler. The network is not
+trained to predict a word or simply to emit the clean image in one step.
+Do not substitute a DDPM noise-prediction loss without also changing the
+model/objective contract <a href="../chapters/references.html#source-d03">D03</a> <a href="../chapters/references.html#source-d31">D31</a>.</p>
+<p>The trainer solves one randomly chosen path-level problem per
+example, using mean squared error against this movement target. Fresh
+noise and path levels create useful corruption variety, not new
+independent clean images. Generation instead begins with random noise
+and applies repeated model/solver updates. A thousand optimizer updates,
+a training schedule's available time levels and twenty inference steps
+are three different quantities.</p>
+<a id="the-latent-autoencoder-and-text-encoder-each-have-one-job"></a>
+<h3>The
+latent autoencoder and text encoder each have one job</h3>
+<p>Sana does not run its image transformer directly on every 1,024 ×
+1,024 × 3 color value. The pretrained <strong>DC-AE autoencoder</strong>
+compresses the image spatially by 32, and a decoder maps generated
+latents back to pixels. A 1,024-square image therefore has a 32 × 32
+latent spatial grid; channel count and scale come from the downloaded
+model configuration. DC-AE is not interchangeable with Stable
+Diffusion's older variational autoencoder. The Diffusers pipeline calls
+its autoencoder component <code>vae</code>, but that attribute name does
+not make every architecture a variational autoencoder <a href="../chapters/references.html#source-d30">D30</a> <a href="../chapters/references.html#source-d32">D32</a> <a href="../chapters/references.html#source-d33">D33</a>.</p>
+<p>The frozen <strong>Gemma text encoder</strong> converts the caption
+into contextual vectors and an attention mask. The denoiser uses these
+as a condition. It does not generate an enhanced caption in this recipe:
+both training and inference set
+<code>complex_human_instruction=None</code>, use the same tokenizer and
+cap the encoded caption at 128 tokens. Token IDs, hidden-state width,
+attention mask, negative-prompt convention and text normalization all
+belong to the conditioning contract.</p>
+<p>Caching can remove repeated work when representations are keyed to
+their source example. We deliberately do not set
+<code>--cache_latents</code> here: the inspected trainer caches by batch
+position while its loader shuffles. With distinct captions, that can
+pair a cached image latent with another image's caption on a later pass.
+Keeping the cache disabled preserves alignment without pretending the
+optimization is free. Any future cache should key image hash, caption,
+crop/augmentation, encoder revision, latent scaling and precision
+together <a href="../chapters/references.html#source-d31">D31</a>.</p>
+<p>The safe placement pattern in this script is: bring the text encoder
+to GPU for the current caption, move it back to CPU, bring the
+autoencoder to GPU for the current image, move it back, then perform the
+transformer update. Gradient checkpointing handles part of the remaining
+activation memory. This is slower than well-designed persistent caches,
+but simpler to inspect. The full models still exist in host or device
+memory; offloading does not erase their parameter counts.</p>
+<p>A useful representation test is an autoencoder round trip: encode an
+input, decode it, and inspect the reconstruction. If fine lettering or
+texture is lost in that representation, training the denoiser longer
+cannot recover information the latent does not retain. Improving or
+replacing the autoencoder is a separate project.</p>
+<a id="lora-is-an-update-method-dreambooth-is-a-personalization-method"></a>
+<h3>LoRA
+is an update method DreamBooth is a personalization method</h3>
+<p>A full fine-tune allows many or all denoiser weights to move.
+<strong>LoRA</strong> freezes the original weight matrix <code>W</code>
+and learns two thin matrices, often written <code>A</code> and
+<code>B</code>, whose product forms the correction:</p>
+<pre class="text"><code>W_effective = W + scale * (B @ A)</code></pre>
+<p>For a square 1,024 × 1,024 weight, full training has 1,048,576
+adjustable entries. Rank 8 uses
+<code>8 × 1024 + 1024 × 8 = 16,384</code> entries for the correction,
+before any additional adapter details. That is a simple parameter-count
+illustration, not total model memory. You still store the frozen network
+and run it to obtain gradients for the adapter. The official LoRA guide
+explains the supported Diffusers integration <a href="../chapters/references.html#source-d08">D08</a>.</p>
+<p><strong>DreamBooth</strong> is a strategy for associating a small
+collection of subject images with a prompt identifier, commonly
+including a class-based prior-preservation objective. It can be combined
+with LoRA or with fuller weight updates. Thus “LoRA or DreamBooth?” is
+not an either/or distinction. For ten images of one personal object,
+inspect a DreamBooth-specific recipe; for the captioned style dataset
+here, we use per-image captions and leave prior preservation disabled.
+Prior preservation helps resist replacing a broad class with one
+subject, but it does not guarantee against memorization <a href="../chapters/references.html#source-d07">D07</a>.</p>
+<p>Training the autoencoder, text encoder and denoiser together from
+scratch would ask the same small dataset to supply several kinds of
+knowledge. It greatly expands memory, data and debugging demands. A tiny
+32- or 64-pixel pixel-space diffusion model can be an excellent
+mechanics experiment on one GPU; a general text-to-image foundation
+model from scratch is not a realistic beginner target for one 24 GB
+card.</p>
+<a id="image-project-step-4-evaluate-adaptation-instead-of-cherry-picking"></a>
+<h2>Image
+project step 4 evaluate adaptation instead of cherry picking</h2>
+<pre class="bash"><code>python sample_image_lora.py --base "$BASE" --lora runs/papercard-lora \
+  --prompt 'a blue house, rivetpaper style, centered on cream paper' \
+  --seed 17 --out samples/adapted-house.png
+python sample_image_lora.py --base "$BASE" --lora runs/papercard-lora \
+  --prompt 'a bicycle, rivetpaper style, centered on cream paper' \
+  --seed 17 --out samples/adapted-bicycle.png</code></pre>
+<a id="image-inference-on-gpu-and-cpu"></a>
+<h3>Image inference on GPU and
+CPU</h3>
+<p>The inference script reconstructs the complete pipeline from the same
+local base snapshot and then loads the trained adapter. It uses the
+snapshot's tokenizer, text encoder, latent scaling, decoder and
+inference scheduler configuration. The training code constructs a
+flow-matching noise/path scheduler, while the pipeline can use a
+different compatible numerical solver at inference; matching the
+flow-prediction semantics is essential, not forcing identical scheduler
+class names. Text-to-image generation needs no input photograph; it
+starts from new noise, with the prompt encoded in the same vocabulary
+used during adaptation. The DC-AE decodes the final latent; the pipeline
+converts the image values to a PIL image and the script saves PNG. The
+adjacent JSON records prompt, device, dtype, seed, steps and scheduler
+configuration.</p>
+<p>GPU inference is the default above. The companion implementation
+offers CPU execution through ordinary PyTorch operations, with all
+components in float32. GPU execution uses BF16 for the transformer/text
+encoder, FP32 for DC-AE and model CPU offload. CPU uses no CUDA offload
+hooks and can need substantially more system RAM; it is not equivalent
+in speed or memory to the GPU path:</p>
+<pre class="bash"><code>python sample_image_lora.py --base "$BASE" --lora runs/papercard-lora \
+  --prompt 'a blue house, rivetpaper style, centered on cream paper' \
+  --seed 17 --device cpu --steps 20 --out samples/cpu-house.png</code></pre>
+<p>The CPU command is a float32 implementation path, not a measured
+latency or universal-kernel-support promise. The official model examples
+target CUDA. On CPU this multi-billion-parameter pipeline needs
+substantial RAM and can be very slow; it is an optional diagnostic
+fallback, not the recommended production path. A saved adapter does not
+require optimizer state for inference, but it still requires its
+compatible base. CPU and CUDA random generation and arithmetic may yield
+different pixels even with the same seed. Compare semantic behavior, not
+byte equality. Copy <code>base_revision.json</code>,
+<code>book_run_manifest.json</code>, the environment record, adapter and
+evaluation prompts together when moving the project to another
+machine.</p>
+<p>Make a fixed evaluation grid before deciding which checkpoint is
+best. Suggested rows are familiar objects with the style phrase,
+unfamiliar objects with the phrase, familiar objects without the phrase,
+and prompts that explicitly change the background, color or layout.
+Suggested columns are four fixed seeds. Generate the same grid with the
+base model and every serious checkpoint candidate.</p>
+<p>Score separate questions rather than giving one vague score:</p>
+<ol type="1">
+<li><strong>Content:</strong> is the requested object present? Are
+requested colors and counts respected?</li>
+<li><strong>Style:</strong> is the paper treatment learned beyond
+copying the training composition?</li>
+<li><strong>Control:</strong> can the prompt alter background and
+layout? Does the trigger have an understandable effect?</li>
+<li><strong>Diversity:</strong> do different seeds produce genuinely
+different acceptable designs?</li>
+<li><strong>Retention:</strong> do ordinary prompts without the trigger
+still work?</li>
+<li><strong>Memorization:</strong> does an output reproduce a particular
+training picture, including unusual placement or defects?</li>
+</ol>
+<a id="use-the-held-out-folders-in-checkpoint-selection"></a>
+<h3>Use the held
+out folders in checkpoint selection</h3>
+<p>The following commands read the actual validation
+<code>metadata.jsonl</code>, select eight evenly spaced records to cover
+the generator's object families, and create two fixed-seed samples per
+caption. The pipeline loads once per command. The helper writes a
+<code>cases.csv</code> linking each generated image to its held-out
+reference image, plus blank fields for your rubric scores. It does not
+invent scores.</p>
+<pre class="bash"><code>python evaluate_image_grid.py --base "$BASE" \
+  --metadata data/papercards/val/metadata.jsonl --split val \
+  --limit 8 --seeds 17,29 --out evaluations/base-val
+python evaluate_image_grid.py --base "$BASE" --lora runs/papercard-lora/checkpoint-250 \
+  --metadata data/papercards/val/metadata.jsonl --split val \
+  --limit 8 --seeds 17,29 --out evaluations/step250-val
+python evaluate_image_grid.py --base "$BASE" --lora runs/papercard-lora \
+  --metadata data/papercards/val/metadata.jsonl --split val \
+  --limit 8 --seeds 17,29 --out evaluations/step1000-val</code></pre>
+<p>Open each CSV's generated/reference paths and score content and style
+consistently. The reference picture is a style/content example for human
+review, not an input to the text-to-image model and not an exact pixel
+target. Compare diversity across the paired seeds and check suspicious
+outputs against the training set. The held-out drawings have new random
+visual variations, but their simple captions can repeat training
+captions. This validates narrow within-generator behavior, not new
+semantic categories. The separate bicycle/no-trigger/layout prompts
+probe broader transfer and control.</p>
+<p>Choose the checkpoint using validation only. Then generate the same
+untouched test-caption cases for that selected checkpoint and the base.
+For example, if checkpoint 250 won:</p>
+<pre class="bash"><code>python evaluate_image_grid.py --base "$BASE" \
+  --metadata data/papercards/test/metadata.jsonl --split test \
+  --limit 24 --seeds 17,29 --out evaluations/base-test
+python evaluate_image_grid.py --base "$BASE" --lora runs/papercard-lora/checkpoint-250 \
+  --metadata data/papercards/test/metadata.jsonl --split test \
+  --limit 24 --seeds 17,29 --out evaluations/selected-test</code></pre>
+<p>Review those test reference/generated pairs once with the same
+rubric. Report the outcome even if it is worse. Selecting another
+checkpoint based on the test results turns that split into more
+validation data. Use fresh output directories for each evaluation; the
+helper refuses to mingle new outputs with an existing nonempty run.</p>
+<p>Loss is useful for discovering broken training, but lower flow-target
+error does not automatically mean better pictures. For a tiny dataset, a
+large-sample distribution metric such as FID is unstable and can obscure
+the practical question. Start with reproducible side-by-side inspection,
+a clear rubric and nearest-neighbor review. Image-embedding similarity
+can help find suspicious training matches, but no threshold certifies
+originality.</p>
+<p>For memorization checks, compare outputs to all training images,
+including crops and resized versions. Exact file hashes catch duplicates
+in the dataset but not visually near-identical images. If the model
+repeatedly reconstructs a training composition, stop earlier, reduce the
+learning rate or rank, remove repeated images, and add more independent
+variety. Do not call a memorized output “a successful style transfer”
+simply because it looks polished.</p>
+<a id="guidance-belongs-mainly-to-sampling"></a>
+<h3>Guidance belongs mainly to
+sampling</h3>
+<p><strong>Classifier-free guidance</strong> combines two predictions,
+conditioned and unconditioned. A common convention is:</p>
+<pre class="text"><code>prediction = unconditioned + g * (conditioned - unconditioned)</code></pre>
+<p>At <code>g = 1</code>, this expression is simply the conditioned
+prediction; higher values extrapolate toward the condition. Training a
+new model for this mechanism usually includes dropping the condition on
+some examples, giving it an unconditional case to learn. The Sana
+adaptation script uses a pretrained guided model; do not assume it has a
+configurable caption-dropout flag. The audio script later implements
+condition dropout explicitly <a href="../chapters/references.html#source-d04">D04</a>.</p>
+<p>A high guidance setting can increase apparent prompt adherence while
+damaging naturalness or reducing diversity. Try a small fixed set, such
+as 3, 5 and 7, while holding the checkpoint and seed fixed. That is an
+experiment, not a universal quality ranking. Do not change guidance
+between baseline and adapter comparisons unless that change is itself
+the experiment. Some distilled models use different guidance mechanisms
+or expected values; their cards and scheduler settings take priority
+over this generic formula.</p>
+<a id="image-troubleshooting-and-a-24-gb-decision-ladder"></a>
+<h2>Image
+troubleshooting and a 24 GB decision ladder</h2>
+<p>First measure the running process with <code>nvidia-smi</code>.
+Record peak training use as well as separate sample-generation use. A
+run can train successfully and fail while creating a large validation
+batch. CUDA allocator reservations and process memory are related but
+different measurements; record which you used.</p>
+<div aria-label="Scrollable table" class="table-scroll" role="region" tabindex="0"><table>
+<thead>
+<tr class="header">
+<th>Symptom</th>
+<th>First checks</th>
+<th>Next controlled experiment</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Out of memory before the first update</td>
+<td>Other GPU processes, image resolution, wrong model family,
+precision</td>
+<td>Batch 1; turn on checkpointing; avoid simultaneous validation
+pipelines</td>
+</tr>
+<tr class="even">
+<td>Out of memory only during samples</td>
+<td>Number and size of generated samples, live training graph</td>
+<td>Generate one image after training has exited</td>
+</tr>
+<tr class="odd">
+<td>NaN or infinite loss</td>
+<td>Data range, DC-AE output, component dtypes, learning rate</td>
+<td>Reduce learning rate; isolate FP32 forward on a tiny batch; then
+inspect the exact failing component</td>
+</tr>
+<tr class="even">
+<td>Style appears but every image has the same object</td>
+<td>Dataset/caption entanglement</td>
+<td>Add independent objects and backgrounds; evaluate an earlier
+checkpoint</td>
+</tr>
+<tr class="odd">
+<td>Trigger seems ignored</td>
+<td>Wrong adapter loaded, weak/incorrect captions, insufficient
+variation</td>
+<td>Verify adapter file and base revision; test paired fixed-seed
+prompts</td>
+</tr>
+<tr class="even">
+<td>Fine detail is always poor</td>
+<td>Source resolution, crop damage, autoencoder reconstruction</td>
+<td>Improve data and representation before extending training</td>
+</tr>
+<tr class="odd">
+<td>Fast loss reduction but poorer generation</td>
+<td>Overfitting, repeated data, excessive guidance</td>
+<td>Compare earlier checkpoints and lower guidance separately</td>
+</tr>
+</tbody>
+</table></div>
+<p>The practical next-step ladder is:</p>
+<ul>
+<li><strong>This Sana 1.6B BF16 LoRA configuration:</strong> batch 1,
+rank/alpha 8, 1,024-square images, checkpointing, frozen-component
+offload. The official script and its memory options support the
+approach; the book does not supply a measured VRAM number. Test loading,
+first backward, optimizer allocation, saving and separate inference
+before a long run <a href="../chapters/references.html#source-d31">D31</a> <a href="../chapters/references.html#source-d36">D36</a>.</li>
+<li><strong>Sana 600M:</strong> the official card lists a 590M
+transformer with a 512-pixel variant. It still needs its Gemma text
+encoder and DC-AE, so it is not a 590M complete application. It uses a
+different preferred precision/variant. Treat switching as a new checked
+experiment, not just changing the model name <a href="../chapters/references.html#source-d37">D37</a>.</li>
+<li><strong>Full transformer fine-tuning:</strong> optimizer states and
+gradients increase sharply when you stop freezing the backbone. Prove a
+need beyond the adapter baseline, reduce scale and measure before
+assuming it fits. A small complete model such as the audio project is a
+better first from-scratch exercise.</li>
+</ul>
+<p>These are maintained practical choices rather than an exhaustive
+leaderboard. Older SD 1.x systems illustrate a U-Net and
+epsilon-prediction contrast, while Sana demonstrates a transformer and
+flow-matching target; their adapters, autoencoders, text encoders and
+samplers are not interchangeable. There is no detailed legacy training
+route in this package.</p>
+<a id="u-net-versus-dit-another-architecture-the-same-project-questions"></a>
+<h3>U
+Net versus DiT another architecture the same project questions</h3>
+<p>A <strong>U-Net</strong> reduces spatial resolution while building
+features, then upsamples while reusing earlier features through skip
+connections. This combines local detail with wider context. A
+<strong>diffusion transformer</strong>, or <strong>DiT</strong>,
+processes patches or latent tokens with transformer blocks. Attention
+lets positions exchange information, but large token counts increase
+computation and often memory. Neither name tells you whether the model
+predicts noise, clean data, a velocity parameterization or a flow field.
+Architecture and training objective are separate choices <a href="../chapters/references.html#source-d06">D06</a>.</p>
+<p>For practical adaptation, ask four questions before changing a
+command: What tensor enters the denoiser? What condition does it accept?
+What target was it pretrained to predict? Which parameters does this
+trainer actually update? The answers matter more than whether the
+model's name contains “diffusion.”</p>
+</article><nav class="pager" aria-label="Adjacent chapters"><a href="25.html"><small>← Previous</small>25  Add preferences and distillation only after supervised learning works</a><a href="27.html"><small>Next →</small>27  Speech recognition train a small model to hear your domain</a></nav></main><aside class="on-page"><h2>On this page</h2><a href="#image-project-step-1-create-something-the-model-can-learn">Image
+project step 1 create something the model can learn</a><a href="#image-project-step-2-download-a-fixed-base-and-make-a-baseline">Image
+project step 2 download a fixed base and make a baseline</a><a href="#image-project-step-3-one-small-training-run">Image project step
+3 one small training run</a><a href="#just-enough-diffusion-what-target-did-the-network-learn">Just
+enough diffusion what target did the network learn</a><a href="#image-project-step-4-evaluate-adaptation-instead-of-cherry-picking">Image
+project step 4 evaluate adaptation instead of cherry picking</a><a href="#image-troubleshooting-and-a-24-gb-decision-ladder">Image
+troubleshooting and a 24 GB decision ladder</a></aside></div><footer class="footer"><div><strong>Training Your Own Models</strong><br>Vibe Authored by Dr.Puma · 2 October 2026</div><div><a href="../chapters/glossary.html">Glossary</a><a href="../chapters/references.html">References</a><a href="https://github.com/MrScripty/training-your-own-models">GitHub ↗</a></div></footer><script src="../assets/site.js" defer></script></body></html>

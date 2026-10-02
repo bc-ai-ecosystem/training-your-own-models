@@ -1,0 +1,211 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f6f3eb"><title>12  How a language model becomes a prediction machine · Training Your Own Models</title><meta name="description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><link rel="canonical" href="https://mrscripty.github.io/training-your-own-models/chapters/12.html"><meta property="og:type" content="website"><meta property="og:site_name" content="Training Your Own Models"><meta property="og:title" content="12  How a language model becomes a prediction machine · Training Your Own Models"><meta property="og:description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><meta property="og:url" content="https://mrscripty.github.io/training-your-own-models/chapters/12.html"><meta property="og:image" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta property="og:image:secure_url" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1280"><meta property="og:image:height" content="640"><meta property="og:image:alt" content="Training Your Own Models. On One 24 GB GPU. Vibe Authored by Dr.Puma. Cream, blue and orange scientific cover artwork."><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="12  How a language model becomes a prediction machine · Training Your Own Models"><meta name="twitter:description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><meta name="twitter:image" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta name="twitter:image:alt" content="Training Your Own Models, Vibe Authored by Dr.Puma"><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/style.css"></head><body><a class="skip" href="#main">Skip to content</a><header class="topbar"><a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true">↗</span><span>Training Your<br>Own Models</span></a><nav aria-label="Main navigation"><a href="../chapters/start.html">Read the book</a><a href="../labs.html">Explore</a><a href="../search.html" aria-label="Search the book">Search</a><a href="../downloads.html">Downloads</a></nav></header><div class="reader"><aside class="sidebar"><nav aria-label="Book contents"><label class="nav-filter">Find a chapter<input type="search" class="chapter-filter" placeholder="Filter titles" aria-label="Filter chapter titles"></label><a class="chapter-link" href="../chapters/start.html"><span>→</span>Training Your Own Models on One 24 GB GPU</a><a class="chapter-link" href="../chapters/01.html"><span>1</span>Train your first model before learning the whole field</a><a class="chapter-link" href="../chapters/02.html"><span>2</span>Your computer and the training workspace</a><a class="chapter-link" href="../chapters/03.html"><span>3</span>Numbers tensors parameters and learning</a><a class="chapter-link" href="../chapters/04.html"><span>4</span>Project turn four sensor readings into a useful prediction</a><a class="chapter-link" href="../chapters/05.html"><span>5</span>Build a dataset that teaches the job</a><a class="chapter-link" href="../chapters/06.html"><span>6</span>Decide whether the model actually improved</a><a class="chapter-link" href="../chapters/07.html"><span>7</span>Move from feature columns to neural representations</a><a class="chapter-link" href="../chapters/08.html"><span>8</span>Project classify your own small image collection</a><a class="chapter-link" href="../chapters/09.html"><span>9</span>Project locate one object with a box</a><a class="chapter-link" href="../chapters/10.html"><span>10</span>Project predict a mask then extract an outline</a><a class="chapter-link" href="../chapters/11.html"><span>11</span>Train a miniature language model from random weights</a><a class="chapter-link" href="../chapters/12.html" aria-current="page"><span>12</span>How a language model becomes a prediction machine</a><a class="chapter-link" href="../chapters/13.html"><span>13</span>Read and control the training loop</a><a class="chapter-link" href="../chapters/14.html"><span>14</span>Make a run reproducible and recoverable</a><a class="chapter-link" href="../chapters/15.html"><span>15</span>The real memory and compute budget</a><a class="chapter-link" href="../chapters/16.html"><span>16</span>Project make related text easy to retrieve</a><a class="chapter-link" href="../chapters/17.html"><span>17</span>Choose a model by its actual structure and files</a><a class="chapter-link" href="../chapters/18.html"><span>18</span>Teach a small language model one useful behavior</a><a class="chapter-link" href="../chapters/19.html"><span>19</span>Repeat the project with every weight trainable</a><a class="chapter-link" href="../chapters/20.html"><span>20</span>Teach domain conventions without turning weights into a database</a><a class="chapter-link" href="../chapters/21.html"><span>21</span>Make a writing style reproducible without changing the facts</a><a class="chapter-link" href="../chapters/22.html"><span>22</span>Teach a tool decision and a complete tool interaction</a><a class="chapter-link" href="../chapters/23.html"><span>23</span>Study a small typed decision service</a><a class="chapter-link" href="../chapters/24.html"><span>24</span>From a language model to a decision model</a><a class="chapter-link" href="../chapters/25.html"><span>25</span>Add preferences and distillation only after supervised learning works</a><a class="chapter-link" href="../chapters/26.html"><span>26</span>Project teach an image generator a small visual style</a><a class="chapter-link" href="../chapters/27.html"><span>27</span>Speech recognition train a small model to hear your domain</a><a class="chapter-link" href="../chapters/28.html"><span>28</span>Project build a tiny sound generator from random weights</a><a class="chapter-link" href="../chapters/29.html"><span>29</span>Scale a working experiment toward one billion parameters</a><a class="chapter-link" href="../chapters/30.html"><span>30</span>Understand what a public training process really demonstrates</a><a class="chapter-link" href="../chapters/31.html"><span>31</span>Diagnose failures before making the model larger</a><a class="chapter-link" href="../chapters/32.html"><span>32</span>From small model to small device product</a><a class="chapter-link" href="../chapters/33.html"><span>33</span>Turn a checkpoint into a usable application</a><a class="chapter-link" href="../chapters/34.html"><span>34</span>Design your first independent model</a><a class="chapter-link" href="../chapters/35.html"><span>35</span>Understand larger models using the parts you already know</a><a class="chapter-link" href="../chapters/36.html"><span>36</span>Read MiMo GLM and other architecture families</a><a class="chapter-link" href="../chapters/37.html"><span>37</span>Connect architecture to data memory and deployment</a><a class="chapter-link" href="../chapters/38.html"><span>38</span>Learn from public training projects without copying their assumptions</a><a class="chapter-link" href="../chapters/39.html"><span>39</span>Exercise checkpoints and worked answers</a><a class="chapter-link" href="../chapters/40.html"><span>40</span>Companion guide and verification record</a><a class="chapter-link" href="../chapters/glossary.html"><span>A–Z</span>Glossary with links to explanations</a><a class="chapter-link" href="../chapters/references.html"><span>Ref</span>Works cited</a></nav></aside><main class="prose" id="main"><details class="mobile-toc"><summary>Browse the book</summary><nav aria-label="Book contents"><label class="nav-filter">Find a chapter<input type="search" class="chapter-filter" placeholder="Filter titles" aria-label="Filter chapter titles"></label><a class="chapter-link" href="../chapters/start.html"><span>→</span>Training Your Own Models on One 24 GB GPU</a><a class="chapter-link" href="../chapters/01.html"><span>1</span>Train your first model before learning the whole field</a><a class="chapter-link" href="../chapters/02.html"><span>2</span>Your computer and the training workspace</a><a class="chapter-link" href="../chapters/03.html"><span>3</span>Numbers tensors parameters and learning</a><a class="chapter-link" href="../chapters/04.html"><span>4</span>Project turn four sensor readings into a useful prediction</a><a class="chapter-link" href="../chapters/05.html"><span>5</span>Build a dataset that teaches the job</a><a class="chapter-link" href="../chapters/06.html"><span>6</span>Decide whether the model actually improved</a><a class="chapter-link" href="../chapters/07.html"><span>7</span>Move from feature columns to neural representations</a><a class="chapter-link" href="../chapters/08.html"><span>8</span>Project classify your own small image collection</a><a class="chapter-link" href="../chapters/09.html"><span>9</span>Project locate one object with a box</a><a class="chapter-link" href="../chapters/10.html"><span>10</span>Project predict a mask then extract an outline</a><a class="chapter-link" href="../chapters/11.html"><span>11</span>Train a miniature language model from random weights</a><a class="chapter-link" href="../chapters/12.html" aria-current="page"><span>12</span>How a language model becomes a prediction machine</a><a class="chapter-link" href="../chapters/13.html"><span>13</span>Read and control the training loop</a><a class="chapter-link" href="../chapters/14.html"><span>14</span>Make a run reproducible and recoverable</a><a class="chapter-link" href="../chapters/15.html"><span>15</span>The real memory and compute budget</a><a class="chapter-link" href="../chapters/16.html"><span>16</span>Project make related text easy to retrieve</a><a class="chapter-link" href="../chapters/17.html"><span>17</span>Choose a model by its actual structure and files</a><a class="chapter-link" href="../chapters/18.html"><span>18</span>Teach a small language model one useful behavior</a><a class="chapter-link" href="../chapters/19.html"><span>19</span>Repeat the project with every weight trainable</a><a class="chapter-link" href="../chapters/20.html"><span>20</span>Teach domain conventions without turning weights into a database</a><a class="chapter-link" href="../chapters/21.html"><span>21</span>Make a writing style reproducible without changing the facts</a><a class="chapter-link" href="../chapters/22.html"><span>22</span>Teach a tool decision and a complete tool interaction</a><a class="chapter-link" href="../chapters/23.html"><span>23</span>Study a small typed decision service</a><a class="chapter-link" href="../chapters/24.html"><span>24</span>From a language model to a decision model</a><a class="chapter-link" href="../chapters/25.html"><span>25</span>Add preferences and distillation only after supervised learning works</a><a class="chapter-link" href="../chapters/26.html"><span>26</span>Project teach an image generator a small visual style</a><a class="chapter-link" href="../chapters/27.html"><span>27</span>Speech recognition train a small model to hear your domain</a><a class="chapter-link" href="../chapters/28.html"><span>28</span>Project build a tiny sound generator from random weights</a><a class="chapter-link" href="../chapters/29.html"><span>29</span>Scale a working experiment toward one billion parameters</a><a class="chapter-link" href="../chapters/30.html"><span>30</span>Understand what a public training process really demonstrates</a><a class="chapter-link" href="../chapters/31.html"><span>31</span>Diagnose failures before making the model larger</a><a class="chapter-link" href="../chapters/32.html"><span>32</span>From small model to small device product</a><a class="chapter-link" href="../chapters/33.html"><span>33</span>Turn a checkpoint into a usable application</a><a class="chapter-link" href="../chapters/34.html"><span>34</span>Design your first independent model</a><a class="chapter-link" href="../chapters/35.html"><span>35</span>Understand larger models using the parts you already know</a><a class="chapter-link" href="../chapters/36.html"><span>36</span>Read MiMo GLM and other architecture families</a><a class="chapter-link" href="../chapters/37.html"><span>37</span>Connect architecture to data memory and deployment</a><a class="chapter-link" href="../chapters/38.html"><span>38</span>Learn from public training projects without copying their assumptions</a><a class="chapter-link" href="../chapters/39.html"><span>39</span>Exercise checkpoints and worked answers</a><a class="chapter-link" href="../chapters/40.html"><span>40</span>Companion guide and verification record</a><a class="chapter-link" href="../chapters/glossary.html"><span>A–Z</span>Glossary with links to explanations</a><a class="chapter-link" href="../chapters/references.html"><span>Ref</span>Works cited</a></nav></details><div class="chapter-meta"><span class="eyebrow">Chapter 12 / 40</span><span>8 min read</span></div><article class="manuscript"><a id="how-a-language-model-becomes-a-prediction-machine"></a>
+<h1>12 How a
+language model becomes a prediction machine</h1>
+<a id="from-text-to-token-identifiers"></a>
+<h2>From text to token
+identifiers</h2>
+<p>A language model does not receive a paragraph in the same way a
+person sees it. Its tokenizer converts text into a sequence of integer
+IDs. Depending on the tokenizer, an ID might represent a word, part of a
+word, punctuation, whitespace, a byte, or a special control marker. The
+vocabulary is the set of available IDs.</p>
+<p>Token count is not word count. The same sentence may have different
+token counts under different tokenizers. Languages, code, unusual names,
+and specialized notation can tokenize very differently. When budgeting a
+dataset or context window, use the actual model's tokenizer. A rough
+words-to-tokens estimate is useful only before you can measure.</p>
+<p>A tokenizer is part of the model interface. If you train weights with
+one token-to-ID mapping and later use another, the model may interpret
+each ID incorrectly. Adding tokens changes the embedding and output
+layers unless the framework provides a compatible mechanism. Preserve
+the tokenizer, its special-token definitions, and the chat template with
+every model artifact.</p>
+<p>The tiny transformer you just trained uses byte IDs from 0 through
+255. This makes the representation easy to inspect and avoids training a
+separate tokenizer. It is less efficient for many natural-language tasks
+than a good subword tokenizer. That tradeoff is appropriate for an
+educational model, not automatically for a larger pretraining run.</p>
+<a id="next-token-prediction-creates-many-examples"></a>
+<h2>Next token
+prediction creates many examples</h2>
+<p>Imagine the token sequence representing 'the cat sat'. During causal
+language modeling, one position predicts the next token using earlier
+positions. An input sequence of IDs [12, 34, 56] can be paired with
+targets [34, 56, 78], where 78 is the token immediately after the final
+input token. This shifted arrangement lets one forward pass calculate
+several next-token losses.</p>
+<p>A model cannot be allowed to inspect the target token through a
+future input position while predicting it. A causal attention mask
+prevents each position from attending to later positions. If the mask is
+wrong, training loss can look excellent because the answer leaks into
+the input computation. Generation will then fail because future tokens
+are unavailable at real prediction time.</p>
+<p>A next-token objective teaches a statistical continuation rule. A
+pretrained model may acquire broad patterns useful for many tasks
+because predicting text requires modeling many relationships in that
+text. Nevertheless, a low average next-token loss does not directly
+establish factual correctness, tool-use reliability, or
+instruction-following quality. Those need task-specific evaluations.</p>
+<p><img alt="Six position causal attention mask" loading="lazy" src="../assets/causal-mask.png"/></p>
+<p>Figure 4 Each position may read the present and earlier inputs. The
+target is the next token, so future positions must be blocked.</p>
+<a id="the-embedding-table-turns-ids-into-vectors"></a>
+<h2>The embedding table
+turns IDs into vectors</h2>
+<p>An embedding layer is a trainable lookup table. If the vocabulary
+contains 32,000 tokens and each token is represented by a vector of 512
+numbers, the table contains 16,384,000 parameters. Looking up token 34
+returns row 34. At initialization the vectors may be random; training
+changes them so the later computation can use them.</p>
+<p>An embedding vector is not a sentence definition written in numbers.
+Individual dimensions do not generally have simple names. Meaning comes
+from how the vectors participate in learned transformations. Similarity
+can be useful, but a raw token embedding and a sentence embedding
+trained for retrieval are different objects with different intended
+uses.</p>
+<p>The parameter count of an embedding table can be large relative to a
+small model. A model with modest transformer blocks and an enormous
+vocabulary may spend much of its capacity and memory on embeddings.
+Weight tying can reuse the input embedding matrix for the final
+vocabulary projection, reducing distinct parameters. It imposes a
+structural choice; it does not merely compress a file.</p>
+<a id="order-must-be-represented-somehow"></a>
+<h2>Order must be represented
+somehow</h2>
+<p>Without an order mechanism, a set of token vectors does not tell the
+model whether a sentence says 'the dog chased the cat' or 'the cat
+chased the dog'. Architectures add positional information in different
+ways. A simple educational model can use learned position embeddings:
+one vector for position zero, another for position one, and so on.</p>
+<p>Many modern language models use rotary position embeddings or other
+schemes. You do not need to implement every scheme to begin fine-tuning,
+but you must respect the chosen model's supported context and positional
+configuration. Changing a maximum-length field does not magically give a
+model reliable understanding at a much longer context. Positional
+behavior, training distribution, attention cost, and evaluation all
+matter.</p>
+<a id="attention-lets-a-position-combine-information"></a>
+<h2>Attention lets a
+position combine information</h2>
+<p>In self-attention, each position produces a query vector, a key
+vector, and a value vector through learned transformations. Query-key
+comparisons yield scores describing which available positions may be
+useful. Softmax normalizes the scores into weights, and a weighted
+combination of value vectors produces an updated representation.</p>
+<p>A concrete analogy is a question and a set of indexed notes, but the
+computation is numeric and learned. The network is not explicitly asking
+a human-readable question at every head. Attention weights are also not
+a complete explanation of why a final answer was produced.</p>
+<p>Multiple attention heads let a block compute several such
+combinations. The outputs are combined and projected back into the
+model's hidden dimension. A feed-forward network then transforms each
+position's representation. Residual connections and normalization
+connect these components into a trainable block. Stacking blocks repeats
+the process at increasing representational depth. The original
+Transformer paper introduced the attention-centered architecture;
+current families modify many details. <a href="../chapters/references.html#source-f03">F03</a></p>
+<p>Ordinary attention can materialize a score array whose size grows
+with sequence length squared. Doubling sequence length can therefore be
+much more expensive than doubling a small input file. Efficient
+attention implementations change memory behavior by avoiding unnecessary
+materialization, but they do not make long-context computation free.</p>
+<a id="the-output-head-decides-what-is-predicted"></a>
+<h2>The output head
+decides what is predicted</h2>
+<p>A causal language model normally ends with a vocabulary projection:
+each position's hidden vector becomes a score for every token in the
+vocabulary. The final position's scores can be converted into a
+distribution for the next token. Sampling or choosing a token extends
+the sequence, and the process repeats.</p>
+<p>This output head is one reason a language backbone can be adapted to
+a different task. A classifier may read a pooled representation and
+predict one of a few labels. A token classifier may predict a label at
+every position. An option-pointer model may score a set of provided
+choices rather than generate arbitrary vocabulary tokens. These are
+architectural changes to what is predicted, not merely different wording
+in a prompt.</p>
+<p>The task-specific chapters explain how to match the head, target, and
+loss. A backbone that was pretrained on language can provide useful
+representations even when the new output is not prose. Full-parameter
+training updates the backbone too; head-only training leaves it fixed.
+These are different experiments and should be described honestly.</p>
+<a id="training-and-generation-use-different-controls"></a>
+<h2>Training and
+generation use different controls</h2>
+<p>During training, a causal language model can process many known
+target positions in parallel. During ordinary generation, later tokens
+depend on earlier generated tokens, so output is produced sequentially.
+Temperature and top-p are generation controls, not replacements for
+learning rate and batch size.</p>
+<p>Temperature rescales logits before sampling. Lower positive
+temperature concentrates probability more strongly on favored tokens;
+higher temperature spreads it. Greedy decoding selects a highest-scoring
+token instead of sampling. Top-k keeps a fixed number of candidates;
+top-p keeps a probability-mass set. These choices change observed output
+without changing weights.</p>
+<p>A key-value cache stores useful attention state from earlier
+generated tokens so it need not be recomputed at every new token. It
+consumes inference memory, especially with long context and multiple
+concurrent requests. Training often disables this cache because it is
+not needed in the same way and can conflict with memory-saving
+strategies. Never infer training-memory requirements from a
+generation-only memory reading.</p>
+<a id="base-models-and-instruction-models"></a>
+<h2>Base models and instruction
+models</h2>
+<p>A base language model is primarily trained for continuation. An
+instruction model has usually undergone additional training intended to
+make it respond usefully to conversational or task instructions. The
+terms do not guarantee a particular quality level or safety behavior.
+Read the model card and evaluate the checkpoint you actually plan to
+use.</p>
+<p>Chat formatting is an interface contract. Role markers, message
+boundaries, end-of-turn tokens, and generation prefixes tell the model
+how a conversation is arranged. Writing a custom format that looks
+reasonable to a human can conflict with the pretrained model's expected
+format. Use the official tokenizer's chat template unless your
+experiment intentionally retrains the interface.</p>
+<p>When a training example includes a user message and an assistant
+response, you may want the loss only on the response. The prompt still
+influences the model through attention, but its tokens are not
+necessarily targets you want to reinforce. This requires a correct loss
+mask, distinct from an attention mask. The fine-tuning chapters show why
+this distinction is essential.</p>
+<a id="a-useful-architecture-reading-checklist"></a>
+<h2>A useful architecture
+reading checklist</h2>
+<p>When inspecting a model, identify the tokenizer and vocabulary size,
+total parameter count, hidden size, number of blocks, attention type,
+number of attention and key-value heads, positional scheme, context
+claims, output head, numeric dtype, license, and exact revision. Do not
+memorize all of these values. Learn what changing each could affect.</p>
+<p>For a mixture-of-experts model, distinguish total resident parameters
+from the subset activated for a token. For a hybrid recurrent-attention
+model, do not assume every block obeys an ordinary attention mask. For a
+multimodal model, distinguish text-only backbone size from the vision or
+audio components and projection layers. Marketing names are not memory
+accounting.</p>
+<a id="exercises-6"></a>
+<h2>Exercises</h2>
+<p>Write a five-token input and its shifted next-token targets. Mark
+which target positions are legal for each input position to inspect.
+Explain how a future-token leak would make the training score
+misleading.</p>
+<p>Calculate the parameter count of a 256-token vocabulary with
+128-dimensional embeddings. Then compare it with a 50,000-token
+vocabulary at the same dimension. The results are 32,768 and 6,400,000
+parameters, before any transformer block.</p>
+<p>Explain the difference between changing sampling temperature,
+training an adapter, and replacing the output head. Only the latter two
+change the trained model artifact; each changes a different part of the
+system.</p>
+</article><aside class="callout"><span class="eyebrow">Interactive companion</span><h2>Inspect a causal attention mask</h2><p>Change one assumption in a small, transparent browser example.</p><a href="../labs.html#attention">Open the learning tool →</a></aside><nav class="pager" aria-label="Adjacent chapters"><a href="11.html"><small>← Previous</small>11  Train a miniature language model from random weights</a><a href="13.html"><small>Next →</small>13  Read and control the training loop</a></nav></main><aside class="on-page"><h2>On this page</h2><a href="#from-text-to-token-identifiers">From text to token
+identifiers</a><a href="#next-token-prediction-creates-many-examples">Next token
+prediction creates many examples</a><a href="#the-embedding-table-turns-ids-into-vectors">The embedding table
+turns IDs into vectors</a><a href="#order-must-be-represented-somehow">Order must be represented
+somehow</a><a href="#attention-lets-a-position-combine-information">Attention lets a
+position combine information</a><a href="#the-output-head-decides-what-is-predicted">The output head
+decides what is predicted</a><a href="#training-and-generation-use-different-controls">Training and
+generation use different controls</a><a href="#base-models-and-instruction-models">Base models and instruction
+models</a><a href="#a-useful-architecture-reading-checklist">A useful architecture
+reading checklist</a><a href="#exercises-6">Exercises</a></aside></div><footer class="footer"><div><strong>Training Your Own Models</strong><br>Vibe Authored by Dr.Puma · 2 October 2026</div><div><a href="../chapters/glossary.html">Glossary</a><a href="../chapters/references.html">References</a><a href="https://github.com/MrScripty/training-your-own-models">GitHub ↗</a></div></footer><script src="../assets/site.js" defer></script></body></html>

@@ -1,0 +1,203 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f6f3eb"><title>8  Project classify your own small image collection · Training Your Own Models</title><meta name="description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><link rel="canonical" href="https://mrscripty.github.io/training-your-own-models/chapters/08.html"><meta property="og:type" content="website"><meta property="og:site_name" content="Training Your Own Models"><meta property="og:title" content="8  Project classify your own small image collection · Training Your Own Models"><meta property="og:description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><meta property="og:url" content="https://mrscripty.github.io/training-your-own-models/chapters/08.html"><meta property="og:image" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta property="og:image:secure_url" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1280"><meta property="og:image:height" content="640"><meta property="og:image:alt" content="Training Your Own Models. On One 24 GB GPU. Vibe Authored by Dr.Puma. Cream, blue and orange scientific cover artwork."><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="8  Project classify your own small image collection · Training Your Own Models"><meta name="twitter:description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><meta name="twitter:image" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta name="twitter:image:alt" content="Training Your Own Models, Vibe Authored by Dr.Puma"><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/style.css"></head><body><a class="skip" href="#main">Skip to content</a><header class="topbar"><a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true">↗</span><span>Training Your<br>Own Models</span></a><nav aria-label="Main navigation"><a href="../chapters/start.html">Read the book</a><a href="../labs.html">Explore</a><a href="../search.html" aria-label="Search the book">Search</a><a href="../downloads.html">Downloads</a></nav></header><div class="reader"><aside class="sidebar"><nav aria-label="Book contents"><label class="nav-filter">Find a chapter<input type="search" class="chapter-filter" placeholder="Filter titles" aria-label="Filter chapter titles"></label><a class="chapter-link" href="../chapters/start.html"><span>→</span>Training Your Own Models on One 24 GB GPU</a><a class="chapter-link" href="../chapters/01.html"><span>1</span>Train your first model before learning the whole field</a><a class="chapter-link" href="../chapters/02.html"><span>2</span>Your computer and the training workspace</a><a class="chapter-link" href="../chapters/03.html"><span>3</span>Numbers tensors parameters and learning</a><a class="chapter-link" href="../chapters/04.html"><span>4</span>Project turn four sensor readings into a useful prediction</a><a class="chapter-link" href="../chapters/05.html"><span>5</span>Build a dataset that teaches the job</a><a class="chapter-link" href="../chapters/06.html"><span>6</span>Decide whether the model actually improved</a><a class="chapter-link" href="../chapters/07.html"><span>7</span>Move from feature columns to neural representations</a><a class="chapter-link" href="../chapters/08.html" aria-current="page"><span>8</span>Project classify your own small image collection</a><a class="chapter-link" href="../chapters/09.html"><span>9</span>Project locate one object with a box</a><a class="chapter-link" href="../chapters/10.html"><span>10</span>Project predict a mask then extract an outline</a><a class="chapter-link" href="../chapters/11.html"><span>11</span>Train a miniature language model from random weights</a><a class="chapter-link" href="../chapters/12.html"><span>12</span>How a language model becomes a prediction machine</a><a class="chapter-link" href="../chapters/13.html"><span>13</span>Read and control the training loop</a><a class="chapter-link" href="../chapters/14.html"><span>14</span>Make a run reproducible and recoverable</a><a class="chapter-link" href="../chapters/15.html"><span>15</span>The real memory and compute budget</a><a class="chapter-link" href="../chapters/16.html"><span>16</span>Project make related text easy to retrieve</a><a class="chapter-link" href="../chapters/17.html"><span>17</span>Choose a model by its actual structure and files</a><a class="chapter-link" href="../chapters/18.html"><span>18</span>Teach a small language model one useful behavior</a><a class="chapter-link" href="../chapters/19.html"><span>19</span>Repeat the project with every weight trainable</a><a class="chapter-link" href="../chapters/20.html"><span>20</span>Teach domain conventions without turning weights into a database</a><a class="chapter-link" href="../chapters/21.html"><span>21</span>Make a writing style reproducible without changing the facts</a><a class="chapter-link" href="../chapters/22.html"><span>22</span>Teach a tool decision and a complete tool interaction</a><a class="chapter-link" href="../chapters/23.html"><span>23</span>Study a small typed decision service</a><a class="chapter-link" href="../chapters/24.html"><span>24</span>From a language model to a decision model</a><a class="chapter-link" href="../chapters/25.html"><span>25</span>Add preferences and distillation only after supervised learning works</a><a class="chapter-link" href="../chapters/26.html"><span>26</span>Project teach an image generator a small visual style</a><a class="chapter-link" href="../chapters/27.html"><span>27</span>Speech recognition train a small model to hear your domain</a><a class="chapter-link" href="../chapters/28.html"><span>28</span>Project build a tiny sound generator from random weights</a><a class="chapter-link" href="../chapters/29.html"><span>29</span>Scale a working experiment toward one billion parameters</a><a class="chapter-link" href="../chapters/30.html"><span>30</span>Understand what a public training process really demonstrates</a><a class="chapter-link" href="../chapters/31.html"><span>31</span>Diagnose failures before making the model larger</a><a class="chapter-link" href="../chapters/32.html"><span>32</span>From small model to small device product</a><a class="chapter-link" href="../chapters/33.html"><span>33</span>Turn a checkpoint into a usable application</a><a class="chapter-link" href="../chapters/34.html"><span>34</span>Design your first independent model</a><a class="chapter-link" href="../chapters/35.html"><span>35</span>Understand larger models using the parts you already know</a><a class="chapter-link" href="../chapters/36.html"><span>36</span>Read MiMo GLM and other architecture families</a><a class="chapter-link" href="../chapters/37.html"><span>37</span>Connect architecture to data memory and deployment</a><a class="chapter-link" href="../chapters/38.html"><span>38</span>Learn from public training projects without copying their assumptions</a><a class="chapter-link" href="../chapters/39.html"><span>39</span>Exercise checkpoints and worked answers</a><a class="chapter-link" href="../chapters/40.html"><span>40</span>Companion guide and verification record</a><a class="chapter-link" href="../chapters/glossary.html"><span>A–Z</span>Glossary with links to explanations</a><a class="chapter-link" href="../chapters/references.html"><span>Ref</span>Works cited</a></nav></aside><main class="prose" id="main"><details class="mobile-toc"><summary>Browse the book</summary><nav aria-label="Book contents"><label class="nav-filter">Find a chapter<input type="search" class="chapter-filter" placeholder="Filter titles" aria-label="Filter chapter titles"></label><a class="chapter-link" href="../chapters/start.html"><span>→</span>Training Your Own Models on One 24 GB GPU</a><a class="chapter-link" href="../chapters/01.html"><span>1</span>Train your first model before learning the whole field</a><a class="chapter-link" href="../chapters/02.html"><span>2</span>Your computer and the training workspace</a><a class="chapter-link" href="../chapters/03.html"><span>3</span>Numbers tensors parameters and learning</a><a class="chapter-link" href="../chapters/04.html"><span>4</span>Project turn four sensor readings into a useful prediction</a><a class="chapter-link" href="../chapters/05.html"><span>5</span>Build a dataset that teaches the job</a><a class="chapter-link" href="../chapters/06.html"><span>6</span>Decide whether the model actually improved</a><a class="chapter-link" href="../chapters/07.html"><span>7</span>Move from feature columns to neural representations</a><a class="chapter-link" href="../chapters/08.html" aria-current="page"><span>8</span>Project classify your own small image collection</a><a class="chapter-link" href="../chapters/09.html"><span>9</span>Project locate one object with a box</a><a class="chapter-link" href="../chapters/10.html"><span>10</span>Project predict a mask then extract an outline</a><a class="chapter-link" href="../chapters/11.html"><span>11</span>Train a miniature language model from random weights</a><a class="chapter-link" href="../chapters/12.html"><span>12</span>How a language model becomes a prediction machine</a><a class="chapter-link" href="../chapters/13.html"><span>13</span>Read and control the training loop</a><a class="chapter-link" href="../chapters/14.html"><span>14</span>Make a run reproducible and recoverable</a><a class="chapter-link" href="../chapters/15.html"><span>15</span>The real memory and compute budget</a><a class="chapter-link" href="../chapters/16.html"><span>16</span>Project make related text easy to retrieve</a><a class="chapter-link" href="../chapters/17.html"><span>17</span>Choose a model by its actual structure and files</a><a class="chapter-link" href="../chapters/18.html"><span>18</span>Teach a small language model one useful behavior</a><a class="chapter-link" href="../chapters/19.html"><span>19</span>Repeat the project with every weight trainable</a><a class="chapter-link" href="../chapters/20.html"><span>20</span>Teach domain conventions without turning weights into a database</a><a class="chapter-link" href="../chapters/21.html"><span>21</span>Make a writing style reproducible without changing the facts</a><a class="chapter-link" href="../chapters/22.html"><span>22</span>Teach a tool decision and a complete tool interaction</a><a class="chapter-link" href="../chapters/23.html"><span>23</span>Study a small typed decision service</a><a class="chapter-link" href="../chapters/24.html"><span>24</span>From a language model to a decision model</a><a class="chapter-link" href="../chapters/25.html"><span>25</span>Add preferences and distillation only after supervised learning works</a><a class="chapter-link" href="../chapters/26.html"><span>26</span>Project teach an image generator a small visual style</a><a class="chapter-link" href="../chapters/27.html"><span>27</span>Speech recognition train a small model to hear your domain</a><a class="chapter-link" href="../chapters/28.html"><span>28</span>Project build a tiny sound generator from random weights</a><a class="chapter-link" href="../chapters/29.html"><span>29</span>Scale a working experiment toward one billion parameters</a><a class="chapter-link" href="../chapters/30.html"><span>30</span>Understand what a public training process really demonstrates</a><a class="chapter-link" href="../chapters/31.html"><span>31</span>Diagnose failures before making the model larger</a><a class="chapter-link" href="../chapters/32.html"><span>32</span>From small model to small device product</a><a class="chapter-link" href="../chapters/33.html"><span>33</span>Turn a checkpoint into a usable application</a><a class="chapter-link" href="../chapters/34.html"><span>34</span>Design your first independent model</a><a class="chapter-link" href="../chapters/35.html"><span>35</span>Understand larger models using the parts you already know</a><a class="chapter-link" href="../chapters/36.html"><span>36</span>Read MiMo GLM and other architecture families</a><a class="chapter-link" href="../chapters/37.html"><span>37</span>Connect architecture to data memory and deployment</a><a class="chapter-link" href="../chapters/38.html"><span>38</span>Learn from public training projects without copying their assumptions</a><a class="chapter-link" href="../chapters/39.html"><span>39</span>Exercise checkpoints and worked answers</a><a class="chapter-link" href="../chapters/40.html"><span>40</span>Companion guide and verification record</a><a class="chapter-link" href="../chapters/glossary.html"><span>A–Z</span>Glossary with links to explanations</a><a class="chapter-link" href="../chapters/references.html"><span>Ref</span>Works cited</a></nav></details><div class="chapter-meta"><span class="eyebrow">Chapter 8 / 40</span><span>7 min read</span></div><article class="manuscript"><a id="project-classify-your-own-small-image-collection"></a>
+<h1>8 Project
+classify your own small image collection</h1>
+<p>Suppose your input is a photograph of one manufactured part and your
+output is one of three mutually exclusive classes: acceptable,
+scratched, or bent. The change from a row of numbers to an image is a
+change in representation: a color image becomes a tensor
+<code>[3, height, width]</code>; a batch becomes
+<code>[batch, 3, height, width]</code>. The class target remains one
+integer per image.</p>
+<p>Use photographs you own or are licensed to train on. First write
+labeling rules: how much of a scratch counts, what to do when the part
+is cropped, whether an image can belong to two categories, and how to
+label uncertain cases. If “scratched” and “bent” can both be true, use
+multilabel targets instead of forcing an exclusive label.</p>
+<p>Take images across sessions, viewpoints, lighting, and backgrounds.
+Keep every photograph of the same physical part in one split. If all
+acceptable parts were photographed on a blue desk and all defective
+parts on a red desk, the network can learn the desk. More rotations of
+the same pictures will not repair that confounding.</p>
+<p>Arrange the pre-split images as:</p>
+<pre class="text"><code>parts/
+  train/acceptable/...
+  train/scratched/...
+  train/bent/...
+  val/acceptable/...    # also scratched and bent
+  test/acceptable/...   # also scratched and bent</code></pre>
+<p>Open a fresh terminal at the companion root, then enter this project.
+Use Python 3.12 and a separate neural environment. Choose exactly one
+official torch/torchvision installation below, according to your device.
+The CUDA command requires a compatible NVIDIA GPU and driver; the CPU
+command needs no NVIDIA device. These are inspected reference versions,
+not an environment installed during preparation. <a href="../chapters/references.html#source-m21">M21</a> <a href="../chapters/references.html#source-f15">F15</a></p>
+<pre class="bash"><code>cd examples/tiny-ml
+python -m venv .venv-neural
+source .venv-neural/bin/activate
+
+# CPU choice
+python -m pip install torch==2.8.0 torchvision==0.23.0 --index-url https://download.pytorch.org/whl/cpu
+
+# OR compatible CUDA 12.6 choice in a separate environment
+# python -m pip install torch==2.8.0 torchvision==0.23.0 --index-url https://download.pytorch.org/whl/cu126
+
+python -m pip install -r requirements-cpu.txt</code></pre>
+<p>Before collecting real parts, run the complete pipeline on an
+original three-class geometric fixture. This tests file discovery,
+labels, training, saving and inference without requiring a photo
+collection. It does not establish real defect-detection quality.</p>
+<pre class="bash"><code>python make_classification_data.py --out data/classification-shapes \
+  --train 24 --val 8 --test 8
+python train_image_classifier.py --data data/classification-shapes \
+  --backbone tiny --epochs 2 --batch-size 8 --lr 0.001 \
+  --device cpu --out runs/shapes-classifier
+python predict_image_classifier.py runs/shapes-classifier \
+  data/classification-shapes/fresh-circle.png --device cpu</code></pre>
+<p>The generator uses separate split seeds, randomized position/size,
+and colors independent of shape class. The fresh circle is generated
+with a separate seed and is not part of a fitting or selection split.
+Its classes are circle, square, and triangle; the same trainer can later
+learn your separately defined part labels.</p>
+<p>Run the supplied scratch model first:</p>
+<pre class="bash"><code>python train_image_classifier.py --data parts --backbone tiny \
+  --epochs 10 --batch-size 16 --lr 0.001 --device cpu \
+  --out runs/parts-tiny</code></pre>
+<p><strong>API target:</strong> PyTorch 2.8.0 and torchvision 0.23.0, a
+documented matching pair. This script was syntax-checked only. Install
+the official PyTorch build appropriate for your operating system and GPU
+driver; do not assume a CUDA wheel from another machine is compatible.
+<a href="../chapters/references.html#source-m21">M21</a></p>
+<p><img alt="Classification detection and segmentation target representations" loading="lazy" src="../assets/vision-output-contracts.png"/></p>
+<p>Figure 3 The same original generated RGB input can teach different
+outputs. These are illustrations of target formats, not predictions from
+a trained model. Classification returns one label, detection adds a box,
+and segmentation predicts a pixel mask.</p>
+<a id="convolutions-features-and-the-output-head"></a>
+<h2>Convolutions features
+and the output head</h2>
+<p>The small CNN has three convolutional stages with 16, 32, and 64
+feature channels. A convolution reuses small spatial filters over an
+image, so a feature such as an edge can be detected at many positions.
+ReLU adds nonlinearity. Max pooling reduces spatial resolution. Global
+average pooling reduces each final channel to a number, and a linear
+head maps the 64 numbers to class logits.</p>
+<p>A <strong>logit</strong> is an unrestricted score before conversion
+into a probability. Training passes raw logits to cross entropy and
+integer class labels as targets. Do not apply softmax before this loss.
+At inference, softmax can turn logits into a class distribution; the
+largest logit and largest softmax probability identify the same class. A
+probability still needs calibration checks if you intend to use it for
+an accept/reject decision.</p>
+<p>The scratch route resizes images to 96 × 96 and scales RGB values to
+<code>[0,1]</code>. This is simple, but it distorts aspect ratio and can
+erase narrow scratches. That is a deliberate starting baseline. If
+defects occupy two original pixels, shrinking the image may remove the
+information before the network sees it. Try aspect-preserving resize
+with padding or carefully selected crops, and update the deployment
+preprocessing exactly.</p>
+<p><code>--epochs</code> counts passes through the training set.
+<code>--batch-size</code> controls how many images contribute to one
+update. <code>--lr</code> is the optimizer step size. AdamW uses weight
+decay 0.0001 in this example. <code>--out</code> identifies an
+experiment directory; <code>--device cuda</code> selects the GPU if a
+compatible installation is present. A fixed seed of 42 makes the example
+easier to compare but is not a guarantee of identical results on all
+hardware.</p>
+<a id="transfer-learning-before-a-bigger-scratch-network"></a>
+<h2>Transfer
+learning before a bigger scratch network</h2>
+<p>Try the alternative:</p>
+<pre class="bash"><code>python train_image_classifier.py --data parts --backbone mobilenet \
+  --epochs 10 --batch-size 16 --lr 0.001 --device cuda \
+  --out runs/parts-transfer</code></pre>
+<p>This downloads MobileNetV3-Small ImageNet weights, freezes the
+pretrained parameters, replaces the final classifier, and trains only
+that new layer. The pretrained weights' own preprocessing is used,
+rather than guessing normalization or crop rules. Frozen
+feature-extractor batch-normalization statistics stay in evaluation
+mode. The script keeps the rest of the classifier frozen; this is a
+conservative head-only baseline. <a href="../chapters/references.html#source-m06">M06</a></p>
+<p>With enough target-domain examples, the next experiment is to
+unfreeze a late block and use a substantially smaller learning rate,
+such as a candidate 0.00001 for pretrained weights while the new head
+uses a larger rate. Recreate the optimizer with the newly trainable
+parameters. Choose the rates on validation. If transfer hurts, check
+crop behavior, color channels, label mapping, and domain mismatch before
+concluding that pretraining is useless.</p>
+<p><strong>Rights checkpoint:</strong> torchvision code uses
+BSD-3-Clause, but that does not automatically license every dataset or
+pretrained weight for every use. Torchvision explicitly asks users to
+review model and dataset terms separately. The scratch option avoids
+pretrained-weight terms; your image rights still matter. Public
+availability is not permission to train or redistribute. <a href="../chapters/references.html#source-m11">M11</a></p>
+<a id="what-data-the-two-image-architectures-need"></a>
+<h2>What data the two
+image architectures need</h2>
+<p>The scratch CNN learns both visual features and the class decision
+from your examples. Its small capacity makes a tightly controlled visual
+task feasible, but it cannot invent the diversity of lighting, defects,
+and backgrounds absent from training. Transfer learning starts with
+general visual features and often makes better use of a small labeled
+collection; those features may still be inappropriate for unusual
+sensors, microscopic patterns, or very fine detail. Neither route
+removes the need for held-out acquisition sessions and examples of each
+class.</p>
+<p>Measure learning curves using increasing numbers of independent
+physical parts, not augmented copies. Compare the head-only model with
+partial fine-tuning only after labeling and preprocessing are credible.
+Select architecture based on the task's needed spatial detail and the
+available labeled variation, rather than a fixed “images per parameter”
+rule.</p>
+<a id="run-the-saved-image-classifier-on-an-unseen-photograph"></a>
+<h2>Run the
+saved image classifier on an unseen photograph</h2>
+<pre class="bash"><code>python predict_image_classifier.py runs/parts-tiny new_part.jpg --device cpu
+python predict_image_classifier.py runs/parts-tiny new_part.jpg --device cuda
+# The same commands work with runs/parts-transfer.</code></pre>
+<p>Both paths load <code>metrics.json</code> for architecture and class
+mapping, reconstruct the architecture, load <code>best.pt</code>, apply
+the original preprocessing, enter evaluation mode, and return class
+probabilities plus the top class. The CUDA path moves the model and
+input to CUDA; the checkpoint is initially loaded on CPU. Both use FP32,
+so there is no implicit CPU/GPU dtype mismatch. CUDA can give slightly
+different numerical results and should be validated. These neural
+inference commands are syntax-checked only.</p>
+<p>The transfer inference constructor uses <code>weights=None</code>
+because the saved checkpoint already contains the full weights; it does
+not redownload a baseline. A deployment must keep these companion
+metadata files with the checkpoint. The script does not impose a
+confidence-based rejection threshold because none has been validated for
+your dataset.</p>
+<a id="small-image-datasets-fail-in-recognizable-ways"></a>
+<h2>Small image
+datasets fail in recognizable ways</h2>
+<p>Read <code>metrics.json</code>, including class mapping, per-epoch
+validation loss, test macro-F1, and the confusion matrix. The lowest
+validation loss selects <code>best.pt</code>. Macro-F1 gives each class
+equal weight, so a rare class cannot disappear inside overall accuracy.
+Also inspect recall for the class whose mistakes are most costly.</p>
+<p>Start with no augmentation, then add transformations that preserve
+the real label. Horizontal flips can be valid for an unoriented part but
+invalid for reading left/right arrows. Color jitter can model lighting
+or destroy a color-coded fault signal. Random crops can remove the only
+defect while preserving the original defect label. Augmentation
+increases variation; it does not create independent evidence.</p>
+<p>When a rare class is ignored, first verify its labels and examples.
+Then consider class-weighted loss or controlled sampling. The weights
+should be derived from training data and the chosen cost model.
+Oversampling a handful of rare images repeatedly does not create new
+rare cases. Evaluate on the real prevalence expected after deployment,
+including completely unfamiliar objects if the product must reject
+them.</p>
+<p>Before a real training run, attempt to overfit eight clean examples.
+Failure to do so is a useful bug signal: wrong target type, wrong class
+ordering, detached gradients, a frozen head, inconsistent normalization,
+or labels unrelated to inputs. Passing this test does not establish
+generalization; it establishes that the learning machinery can fit
+something.</p>
+</article><nav class="pager" aria-label="Adjacent chapters"><a href="07.html"><small>← Previous</small>7  Move from feature columns to neural representations</a><a href="09.html"><small>Next →</small>9  Project locate one object with a box</a></nav></main><aside class="on-page"><h2>On this page</h2><a href="#convolutions-features-and-the-output-head">Convolutions features
+and the output head</a><a href="#transfer-learning-before-a-bigger-scratch-network">Transfer
+learning before a bigger scratch network</a><a href="#what-data-the-two-image-architectures-need">What data the two
+image architectures need</a><a href="#run-the-saved-image-classifier-on-an-unseen-photograph">Run the
+saved image classifier on an unseen photograph</a><a href="#small-image-datasets-fail-in-recognizable-ways">Small image
+datasets fail in recognizable ways</a></aside></div><footer class="footer"><div><strong>Training Your Own Models</strong><br>Vibe Authored by Dr.Puma · 2 October 2026</div><div><a href="../chapters/glossary.html">Glossary</a><a href="../chapters/references.html">References</a><a href="https://github.com/MrScripty/training-your-own-models">GitHub ↗</a></div></footer><script src="../assets/site.js" defer></script></body></html>

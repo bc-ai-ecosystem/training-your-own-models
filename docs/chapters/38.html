@@ -1,0 +1,344 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f6f3eb"><title>38  Learn from public training projects without copying their assumptions · Training Your Own Models</title><meta name="description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><link rel="canonical" href="https://mrscripty.github.io/training-your-own-models/chapters/38.html"><meta property="og:type" content="website"><meta property="og:site_name" content="Training Your Own Models"><meta property="og:title" content="38  Learn from public training projects without copying their assumptions · Training Your Own Models"><meta property="og:description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><meta property="og:url" content="https://mrscripty.github.io/training-your-own-models/chapters/38.html"><meta property="og:image" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta property="og:image:secure_url" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1280"><meta property="og:image:height" content="640"><meta property="og:image:alt" content="Training Your Own Models. On One 24 GB GPU. Vibe Authored by Dr.Puma. Cream, blue and orange scientific cover artwork."><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="38  Learn from public training projects without copying their assumptions · Training Your Own Models"><meta name="twitter:description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><meta name="twitter:image" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta name="twitter:image:alt" content="Training Your Own Models, Vibe Authored by Dr.Puma"><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/style.css"></head><body><a class="skip" href="#main">Skip to content</a><header class="topbar"><a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true">↗</span><span>Training Your<br>Own Models</span></a><nav aria-label="Main navigation"><a href="../chapters/start.html">Read the book</a><a href="../labs.html">Explore</a><a href="../search.html" aria-label="Search the book">Search</a><a href="../downloads.html">Downloads</a></nav></header><div class="reader"><aside class="sidebar"><nav aria-label="Book contents"><label class="nav-filter">Find a chapter<input type="search" class="chapter-filter" placeholder="Filter titles" aria-label="Filter chapter titles"></label><a class="chapter-link" href="../chapters/start.html"><span>→</span>Training Your Own Models on One 24 GB GPU</a><a class="chapter-link" href="../chapters/01.html"><span>1</span>Train your first model before learning the whole field</a><a class="chapter-link" href="../chapters/02.html"><span>2</span>Your computer and the training workspace</a><a class="chapter-link" href="../chapters/03.html"><span>3</span>Numbers tensors parameters and learning</a><a class="chapter-link" href="../chapters/04.html"><span>4</span>Project turn four sensor readings into a useful prediction</a><a class="chapter-link" href="../chapters/05.html"><span>5</span>Build a dataset that teaches the job</a><a class="chapter-link" href="../chapters/06.html"><span>6</span>Decide whether the model actually improved</a><a class="chapter-link" href="../chapters/07.html"><span>7</span>Move from feature columns to neural representations</a><a class="chapter-link" href="../chapters/08.html"><span>8</span>Project classify your own small image collection</a><a class="chapter-link" href="../chapters/09.html"><span>9</span>Project locate one object with a box</a><a class="chapter-link" href="../chapters/10.html"><span>10</span>Project predict a mask then extract an outline</a><a class="chapter-link" href="../chapters/11.html"><span>11</span>Train a miniature language model from random weights</a><a class="chapter-link" href="../chapters/12.html"><span>12</span>How a language model becomes a prediction machine</a><a class="chapter-link" href="../chapters/13.html"><span>13</span>Read and control the training loop</a><a class="chapter-link" href="../chapters/14.html"><span>14</span>Make a run reproducible and recoverable</a><a class="chapter-link" href="../chapters/15.html"><span>15</span>The real memory and compute budget</a><a class="chapter-link" href="../chapters/16.html"><span>16</span>Project make related text easy to retrieve</a><a class="chapter-link" href="../chapters/17.html"><span>17</span>Choose a model by its actual structure and files</a><a class="chapter-link" href="../chapters/18.html"><span>18</span>Teach a small language model one useful behavior</a><a class="chapter-link" href="../chapters/19.html"><span>19</span>Repeat the project with every weight trainable</a><a class="chapter-link" href="../chapters/20.html"><span>20</span>Teach domain conventions without turning weights into a database</a><a class="chapter-link" href="../chapters/21.html"><span>21</span>Make a writing style reproducible without changing the facts</a><a class="chapter-link" href="../chapters/22.html"><span>22</span>Teach a tool decision and a complete tool interaction</a><a class="chapter-link" href="../chapters/23.html"><span>23</span>Study a small typed decision service</a><a class="chapter-link" href="../chapters/24.html"><span>24</span>From a language model to a decision model</a><a class="chapter-link" href="../chapters/25.html"><span>25</span>Add preferences and distillation only after supervised learning works</a><a class="chapter-link" href="../chapters/26.html"><span>26</span>Project teach an image generator a small visual style</a><a class="chapter-link" href="../chapters/27.html"><span>27</span>Speech recognition train a small model to hear your domain</a><a class="chapter-link" href="../chapters/28.html"><span>28</span>Project build a tiny sound generator from random weights</a><a class="chapter-link" href="../chapters/29.html"><span>29</span>Scale a working experiment toward one billion parameters</a><a class="chapter-link" href="../chapters/30.html"><span>30</span>Understand what a public training process really demonstrates</a><a class="chapter-link" href="../chapters/31.html"><span>31</span>Diagnose failures before making the model larger</a><a class="chapter-link" href="../chapters/32.html"><span>32</span>From small model to small device product</a><a class="chapter-link" href="../chapters/33.html"><span>33</span>Turn a checkpoint into a usable application</a><a class="chapter-link" href="../chapters/34.html"><span>34</span>Design your first independent model</a><a class="chapter-link" href="../chapters/35.html"><span>35</span>Understand larger models using the parts you already know</a><a class="chapter-link" href="../chapters/36.html"><span>36</span>Read MiMo GLM and other architecture families</a><a class="chapter-link" href="../chapters/37.html"><span>37</span>Connect architecture to data memory and deployment</a><a class="chapter-link" href="../chapters/38.html" aria-current="page"><span>38</span>Learn from public training projects without copying their assumptions</a><a class="chapter-link" href="../chapters/39.html"><span>39</span>Exercise checkpoints and worked answers</a><a class="chapter-link" href="../chapters/40.html"><span>40</span>Companion guide and verification record</a><a class="chapter-link" href="../chapters/glossary.html"><span>A–Z</span>Glossary with links to explanations</a><a class="chapter-link" href="../chapters/references.html"><span>Ref</span>Works cited</a></nav></aside><main class="prose" id="main"><details class="mobile-toc"><summary>Browse the book</summary><nav aria-label="Book contents"><label class="nav-filter">Find a chapter<input type="search" class="chapter-filter" placeholder="Filter titles" aria-label="Filter chapter titles"></label><a class="chapter-link" href="../chapters/start.html"><span>→</span>Training Your Own Models on One 24 GB GPU</a><a class="chapter-link" href="../chapters/01.html"><span>1</span>Train your first model before learning the whole field</a><a class="chapter-link" href="../chapters/02.html"><span>2</span>Your computer and the training workspace</a><a class="chapter-link" href="../chapters/03.html"><span>3</span>Numbers tensors parameters and learning</a><a class="chapter-link" href="../chapters/04.html"><span>4</span>Project turn four sensor readings into a useful prediction</a><a class="chapter-link" href="../chapters/05.html"><span>5</span>Build a dataset that teaches the job</a><a class="chapter-link" href="../chapters/06.html"><span>6</span>Decide whether the model actually improved</a><a class="chapter-link" href="../chapters/07.html"><span>7</span>Move from feature columns to neural representations</a><a class="chapter-link" href="../chapters/08.html"><span>8</span>Project classify your own small image collection</a><a class="chapter-link" href="../chapters/09.html"><span>9</span>Project locate one object with a box</a><a class="chapter-link" href="../chapters/10.html"><span>10</span>Project predict a mask then extract an outline</a><a class="chapter-link" href="../chapters/11.html"><span>11</span>Train a miniature language model from random weights</a><a class="chapter-link" href="../chapters/12.html"><span>12</span>How a language model becomes a prediction machine</a><a class="chapter-link" href="../chapters/13.html"><span>13</span>Read and control the training loop</a><a class="chapter-link" href="../chapters/14.html"><span>14</span>Make a run reproducible and recoverable</a><a class="chapter-link" href="../chapters/15.html"><span>15</span>The real memory and compute budget</a><a class="chapter-link" href="../chapters/16.html"><span>16</span>Project make related text easy to retrieve</a><a class="chapter-link" href="../chapters/17.html"><span>17</span>Choose a model by its actual structure and files</a><a class="chapter-link" href="../chapters/18.html"><span>18</span>Teach a small language model one useful behavior</a><a class="chapter-link" href="../chapters/19.html"><span>19</span>Repeat the project with every weight trainable</a><a class="chapter-link" href="../chapters/20.html"><span>20</span>Teach domain conventions without turning weights into a database</a><a class="chapter-link" href="../chapters/21.html"><span>21</span>Make a writing style reproducible without changing the facts</a><a class="chapter-link" href="../chapters/22.html"><span>22</span>Teach a tool decision and a complete tool interaction</a><a class="chapter-link" href="../chapters/23.html"><span>23</span>Study a small typed decision service</a><a class="chapter-link" href="../chapters/24.html"><span>24</span>From a language model to a decision model</a><a class="chapter-link" href="../chapters/25.html"><span>25</span>Add preferences and distillation only after supervised learning works</a><a class="chapter-link" href="../chapters/26.html"><span>26</span>Project teach an image generator a small visual style</a><a class="chapter-link" href="../chapters/27.html"><span>27</span>Speech recognition train a small model to hear your domain</a><a class="chapter-link" href="../chapters/28.html"><span>28</span>Project build a tiny sound generator from random weights</a><a class="chapter-link" href="../chapters/29.html"><span>29</span>Scale a working experiment toward one billion parameters</a><a class="chapter-link" href="../chapters/30.html"><span>30</span>Understand what a public training process really demonstrates</a><a class="chapter-link" href="../chapters/31.html"><span>31</span>Diagnose failures before making the model larger</a><a class="chapter-link" href="../chapters/32.html"><span>32</span>From small model to small device product</a><a class="chapter-link" href="../chapters/33.html"><span>33</span>Turn a checkpoint into a usable application</a><a class="chapter-link" href="../chapters/34.html"><span>34</span>Design your first independent model</a><a class="chapter-link" href="../chapters/35.html"><span>35</span>Understand larger models using the parts you already know</a><a class="chapter-link" href="../chapters/36.html"><span>36</span>Read MiMo GLM and other architecture families</a><a class="chapter-link" href="../chapters/37.html"><span>37</span>Connect architecture to data memory and deployment</a><a class="chapter-link" href="../chapters/38.html" aria-current="page"><span>38</span>Learn from public training projects without copying their assumptions</a><a class="chapter-link" href="../chapters/39.html"><span>39</span>Exercise checkpoints and worked answers</a><a class="chapter-link" href="../chapters/40.html"><span>40</span>Companion guide and verification record</a><a class="chapter-link" href="../chapters/glossary.html"><span>A–Z</span>Glossary with links to explanations</a><a class="chapter-link" href="../chapters/references.html"><span>Ref</span>Works cited</a></nav></details><div class="chapter-meta"><span class="eyebrow">Chapter 38 / 40</span><span>12 min read</span></div><article class="manuscript"><a id="learn-from-public-training-projects-without-copying-their-assumptions"></a>
+<h1>38
+Learn from public training projects without copying their
+assumptions</h1>
+<p>The most useful tutorial is one you can interrogate. After a small
+experiment works, open a second implementation and ask why its data,
+shapes, objective, evaluation, and saved files differ from yours. This
+makes public repositories and lessons useful throughout the book instead
+of turning them into a large prerequisite list. Use the book’s
+current-model recipes for practical work. Older lessons appear here only
+as small concept exercises or brief comparisons that explain why a
+current practice matters; their model recommendations and installation
+commands are not a current shopping list.</p>
+<p>The reading path was checked on 2 October 2026 against repository
+code, configurations, tests, creator-written lesson material, and
+original YouTube descriptions. The video guidance relies on companion
+material and author-published chapter markers, not a claim of watching
+entire recordings or reading their caption transcripts. These sources
+were reviewed; their GPU workflows were not tested for this book.</p>
+<a id="stage-1-make-a-gradient-visible"></a>
+<h2>Stage 1 Make a gradient
+visible</h2>
+<p>Start after the book's first small model and its explanation of <a href="../chapters/03.html#what-one-training-step-actually-means">one training step</a>. You
+do not need a GPU to understand an update.</p>
+<p>Read the small <a href="https://github.com/karpathy/micrograd/blob/7bc720e951fe422b8f8814aa5aa1b64121d26b4c/micrograd/engine.py">micrograd
+engine</a> alongside its <a href="https://github.com/karpathy/micrograd/blob/7bc720e951fe422b8f8814aa5aa1b64121d26b4c/test/test_engine.py">comparison
+tests</a>. It represents scalar computations as a graph, orders that
+graph, and accumulates the contribution of every path into each
+gradient. The tests compare both outputs and gradients with PyTorch.
+This is a better first autograd exercise than implementing a large model
+whose wrong gradients can hide behind apparently plausible samples. <a href="../chapters/references.html#source-t01">T01</a>, <a href="../chapters/references.html#source-t02">T02</a></p>
+<p>Use Andrej Karpathy's <a href="https://www.youtube.com/watch?v=VMj-3S1tku0">micrograd lesson</a>
+selectively: <a href="https://www.youtube.com/watch?v=VMj-3S1tku0&amp;t=488s">08:08</a>
+for the first derivative, <a href="https://www.youtube.com/watch?v=VMj-3S1tku0&amp;t=4948s">1:22:28</a>
+for a reused-node bug, and <a href="https://www.youtube.com/watch?v=VMj-3S1tku0&amp;t=7272s">2:01:12</a>
+for the parameter-update walkthrough. The companion notebook explicitly
+corrects an <code>exp</code> backward assignment to accumulation. Prefer
+the corrected written implementation when it differs from a live
+recording. <a href="../chapters/references.html#source-t03">T03</a></p>
+<p><strong>Original exercise:</strong> evaluate <code>y = x*x + x</code>
+at <code>x = 3</code>. Its output is 12 and its derivative is 7. Check
+the derivative three ways: algebra, a small finite difference, and
+autograd. Next, deliberately overwrite rather than add a gradient
+contribution and explain why the answer changes. Then take a small step
+that reduces <code>(y - 8)^2</code>. This introduces derivative,
+gradient, graph, backward pass, and learning rate exactly when they
+become useful.</p>
+<p>Grant Sanderson's <a href="https://www.3blue1brown.com/lessons/gradient-descent/">gradient-descent
+lesson text</a> supplies a visual bridge from one adjustable value to
+many. It distinguishes the prediction function from the cost function
+whose inputs are parameters. Use that distinction when a beginner asks
+whether training changes the input examples or the model. The text is an
+official adaptation credited to Josh Pullen; it is not a transcript read
+from the video. <a href="../chapters/references.html#source-t04">T04</a></p>
+<p><strong>Advance when:</strong> you can name which values are data,
+parameters, predictions, loss, and gradients; explain why gradients are
+reset between ordinary optimizer steps; and check one derivative
+independently. Scalar autograd is an educational microscope, not a GPU
+implementation strategy. “Small ML” here should not be confused with
+TinyML deployment on a microcontroller.</p>
+<a id="stage-2-turn-text-into-supervised-examples"></a>
+<h2>Stage 2 Turn text
+into supervised examples</h2>
+<p>Karpathy's <a href="https://github.com/karpathy/nn-zero-to-hero/blob/73c3fcc741f0ec104ca850b1fb0df90e7e8d4cde/lectures/makemore/makemore_part2_mlp.ipynb">makemore
+MLP notebook</a> is valuable because it makes each next-character
+training pair visible. It shuffles whole names into training,
+development, and test partitions before producing overlapping context
+windows. Its embedding lookup, flattening, hidden layer, logits, and
+cross-entropy can be inspected separately. A shape shown in an
+exploratory notebook comment can become stale as a later cell changes
+dimensions: trust the actual tensor shape. <a href="../chapters/references.html#source-t05">T05</a></p>
+<p>The <a href="https://www.youtube.com/watch?v=TCH_1BHY58I">associated
+MLP lecture</a> is a follow-along companion, not something the beginner
+must finish before trying the project. The separate <a href="https://github.com/karpathy/makemore/tree/988aa59e4d8fefa526d06f3b453ad116258398d4">makemore
+executable repository</a> packages multiple model families in one file
+and defaults to a tiny transformer. Do not assume that running the
+repository default reproduces the MLP lecture. <a href="../chapters/references.html#source-t05">T05</a>, <a href="../chapters/references.html#source-t06">T06</a></p>
+<p><strong>Original exercise:</strong> use a small, permissioned list of
+invented product names. Split complete names first, build length-three
+context/next-character pairs, and print ten decoded pairs. Compare a
+count-based bigram against an MLP. Hold the split and evaluation code
+constant. Record held-out loss and samples, including malformed outputs
+and memorized names. This is the right moment to learn token,
+vocabulary, embedding lookup, context window, logit, cross-entropy,
+validation, and leakage.</p>
+<p><strong>Advance when:</strong> you can account for every row in a
+batch, explain what the target means, and explain why windows from the
+same source item must not casually cross dataset partitions.</p>
+<a id="stage-3-diagnose-a-network-before-enlarging-it"></a>
+<h2>Stage 3 Diagnose
+a network before enlarging it</h2>
+<p>In the <a href="https://github.com/karpathy/nn-zero-to-hero/blob/73c3fcc741f0ec104ca850b1fb0df90e7e8d4cde/lectures/makemore/makemore_part3_bn.ipynb">activation-and-gradient
+notebook</a>, the instructive artifacts are the activation histograms,
+saturation measurements, gradient histograms, and update-to-parameter
+ratios. Its running normalization statistics also show that a trained
+artifact can contain buffers as well as learnable parameters. These are
+reasons to inspect a model's state, not merely count its weights. <a href="../chapters/references.html#source-t07">T07</a></p>
+<p><strong>Original exercise:</strong> make a hidden layer's initial
+weights ten times larger, keep the data and seed fixed, and inspect the
+activation distribution and loss. Restore the initialization before
+testing a different learning rate. Record a hypothesis and one changed
+variable. Remove expensive debug hooks and retained intermediate
+gradients after the diagnostic run. Do not teach a numeric saturation
+percentage or update ratio as a universal pass/fail threshold.</p>
+<p>Read normalization only after the experiment makes its purpose
+concrete. BatchNorm in this MLP lesson does not imply that a GPT should
+receive BatchNorm; the transformer architecture uses its own
+normalization design.</p>
+<a id="stage-4-replace-fixed-context-with-causal-attention"></a>
+<h2>Stage 4
+Replace fixed context with causal attention</h2>
+<p>The corrected <a href="https://github.com/karpathy/ng-video-lecture/blob/52201428ed7b46804849dea0b3ccf0de9df1a5c3/gpt.py">GPT
+video companion</a> shows shifted targets, a causal mask, head-sized
+query/key/value projections, multi-head concatenation, residual paths,
+and a pre-normalized block. Keep this as a read-only comparison unless
+its licensing is clarified: no license was reported by GitHub for this
+repository at inspection. Independently written book code is safer to
+distribute. <a href="../chapters/references.html#source-t08">T08</a></p>
+<p>Karpathy's <a href="https://www.youtube.com/watch?v=kCc8FmEb1nY">GPT
+lesson</a> has particularly useful checkpoints at <a href="https://www.youtube.com/watch?v=kCc8FmEb1nY&amp;t=867s">14:27</a>,
+<a href="https://www.youtube.com/watch?v=kCc8FmEb1nY&amp;t=2831s">47:11</a>,
+<a href="https://www.youtube.com/watch?v=kCc8FmEb1nY&amp;t=3720s">1:02:00</a>,
+and <a href="https://www.youtube.com/watch?v=kCc8FmEb1nY&amp;t=5208s">1:26:48</a>.
+They connect batching, weighted aggregation, learned attention, and
+residual connections. Its description corrects two mistakes: future
+tokens must not influence earlier predictions, and attention
+normalization uses the head dimension. These corrections were read
+directly on the author's YouTube page. <a href="../chapters/references.html#source-t09">T09</a></p>
+<p><strong>Original exercise:</strong> choose a short token sequence.
+Print the allowed attention positions as a grid; change only a future
+token; verify that earlier-position logits do not change in evaluation
+mode. Then compare a one-head implementation with a vectorized
+multi-head implementation using matching weights. A numeric equivalence
+test is stronger evidence than two runs both producing plausible
+text.</p>
+<p>Sanderson's <a href="https://www.3blue1brown.com/lessons/attention/">attention lesson
+text</a> is helpful for visualizing a weighted update. It explicitly
+warns that its column-vector diagrams use a transposed convention
+relative to the original paper. Write tensor shapes beside every
+equation before porting it. Its adjective/noun example is an
+illustrative possible behavior, not a promise that every trained head
+has a clean human-readable purpose. <a href="../chapters/references.html#source-t10">T10</a></p>
+<p>Now read sections 3.2.1-3.2.3 of <a href="https://arxiv.org/html/1706.03762v7">Attention Is All You
+Need</a>. Identify the scaling, learned projections, and masking in your
+own code. The original work is an encoder-decoder translation system; a
+small decoder-only GPT is not an exact reproduction. Save the original
+training recipe until you can interpret its eight-P100 hardware premise.
+<a href="../chapters/references.html#source-t11">T11</a></p>
+<p><strong>Advance when:</strong> you can trace
+<code>[batch, time, channels]</code>, explain why targets are shifted
+once, distinguish self-attention from cross-attention, and pass the
+causal-leakage test.</p>
+<a id="stage-5-turn-a-notebook-into-a-recoverable-training-run"></a>
+<h2>Stage 5
+Turn a notebook into a recoverable training run</h2>
+<p>For a current public process reference, inspect <a href="https://github.com/karpathy/nanochat/blob/92d63d4e8bb4df75c3b71618f31ddde2378b2bcd/nanochat/checkpoint_manager.py">nanochat’s
+checkpoint manager</a> together with the checkpoint block in <a href="https://github.com/karpathy/nanochat/blob/92d63d4e8bb4df75c3b71618f31ddde2378b2bcd/scripts/base_train.py">base_train.py</a>.
+Model weights, optimizer state, model configuration, run arguments,
+data-loader state, and loop state play different roles. The load path
+also distinguishes training from evaluation mode and checks tokenizer
+vocabulary size. This is a process-reading exercise; its default large
+run is not the book’s one-RTX command. <a href="../chapters/references.html#source-t25">T25</a></p>
+<p>One historical comparison is useful: nanoGPT’s smaller checkpoint
+dictionary did not save every random/data-stream state. Its readable
+loop remains educational, but the repository is now explicitly
+deprecated. Do not use its old GPU timings or installation advice to
+plan a current run. <a href="../chapters/references.html#source-t12">T12</a>, <a href="../chapters/references.html#source-t13">T13</a></p>
+<p><a href="https://github.com/rasbt/LLMs-from-scratch/blob/faa6205602f487c0382295c698ffafe3d635af39/ch05/01_main-chapter-code/gpt_train.py">Raschka's
+standalone training script</a> offers another readable bridge. Its
+evaluation helper switches to evaluation mode and disables gradients
+before restoring training mode. It tracks tokens seen as well as
+optimizer steps. The short-story experiment is suitable for studying the
+loop and overfitting, not evidence that a small corpus creates a
+generally capable language model. <a href="../chapters/references.html#source-t14">T14</a></p>
+<p><strong>Original exercise:</strong> stop the same tiny run, reload
+it, and verify that evaluation logits agree before continuing.
+Separately test whether the resumed next optimization step matches an
+uninterrupted run. The first check verifies saved-model fidelity; the
+second requires optimizer, scheduler, random-state, and data-position
+accounting. Keep these claims separate in the experiment report.</p>
+<p><strong>Advance when:</strong> a fresh process can reconstruct the
+tokenizer and model, evaluate held-out data, generate with
+evaluation-mode settings, and explain the precise resume guarantee it
+does and does not provide.</p>
+<a id="stage-6-adapt-a-small-pretrained-model-with-auditable-labels"></a>
+<h2>Stage
+6 Adapt a small pretrained model with auditable labels</h2>
+<p>Read <a href="https://github.com/rasbt/LLMs-from-scratch/blob/faa6205602f487c0382295c698ffafe3d635af39/ch07/01_main-chapter-code/gpt_instruction_finetuning.py">Raschka's
+instruction collator</a> before hiding label construction behind a
+trainer. It shifts targets and masks repeated padding while retaining a
+terminal token. Its default objective includes the instruction text:
+padding masking and assistant-only masking are different choices. That
+distinction is the lesson to transfer. <a href="../chapters/references.html#source-t15">T15</a></p>
+<p>The <a href="https://github.com/huggingface/smol-course/blob/f445ae5d9dd83f355ce6a2b1c6c71b588c8e1541/units/en/unit1/3a.md">Hugging
+Face smol-course LoRA lesson</a> makes adapters, loading, and merging
+concrete. Pair it with the book's fixed small-model SFT recipe; do not
+import the course's entire changing environment into an already pinned
+setup. <a href="../chapters/references.html#source-t16">T16</a></p>
+<p><strong>Original exercise:</strong> before training, print one
+complete rendered conversation, its token IDs, attention mask, and loss
+mask. Color or label which tokens contribute to loss. Confirm that the
+answer has not been removed by truncation and that the chosen
+end-of-turn token remains supervised. Then overfit a tiny training-only
+slice as a plumbing test; a deliberately memorized slice is not the
+final evaluation.</p>
+<p>The course's <a href="https://github.com/huggingface/smol-course/blob/f445ae5d9dd83f355ce6a2b1c6c71b588c8e1541/units/en/unit1/4.md">v2
+hands-on page</a> deserves a version audit. Its root requirements pin
+Transformers 4.46.3 and TRL 0.12.1, while the page uses newer
+SmolLM3-era examples, Trackio, and
+<code>SFTConfig(max_length=...)</code>. The pinned TRL documentation
+instead uses <code>max_seq_length</code>. A later example passes
+<code>args=config</code> after defining <code>training_config</code>.
+Evaluation intervals alone do not create a held-out evaluation dataset.
+These are reasons to validate the precise chosen recipe, not evidence
+that the general method is wrong. <a href="../chapters/references.html#source-t17">T17</a>, <a href="../chapters/references.html#source-t18">T18</a></p>
+<p>Read <a href="https://arxiv.org/abs/2106.09685">LoRA</a> once you can
+identify frozen weights, trainable weights, and the dimensions of a
+low-rank update. Its large-model result is evidence about the adaptation
+method, not proof of your 24 GB configuration's fit. The LLM chapter
+provides the actual memory and objective discussion.</p>
+<p><strong>Advance when:</strong> you can report trainable parameter
+count, supervised token count, adapter/base revisions, maximum sequence
+length, measured peak memory, a baseline comparison, and reload
+behavior. A tutorial's word “small” is not a memory budget.</p>
+<a id="stage-7-train-an-embedding-for-a-real-retrieval-decision"></a>
+<h2>Stage
+7 Train an embedding for a real retrieval decision</h2>
+<p>The current <a href="https://github.com/huggingface/sentence-transformers/blob/4a3b5cd6ec718e421f57e824a41ed3fd99595df6/examples/sentence_transformer/training/nli/training_nli_v2.py">Sentence
+Transformers NLI training example</a> separates training loss from an
+embedding-similarity evaluator and evaluates the initial model. The <a href="https://github.com/huggingface/sentence-transformers/blob/4a3b5cd6ec718e421f57e824a41ed3fd99595df6/examples/sentence_transformer/training/ms_marco/train_bi_encoder_mnrl.py">MS
+MARCO example</a> adds mined negatives, teacher-score filtering, a
+no-duplicates sampler, normalized vectors, and cached contrastive loss.
+The full example has substantial dataset and host-RAM requirements; its
+mini-batch control only addresses part of memory usage. <a href="../chapters/references.html#source-t19">T19</a></p>
+<p><strong>Original exercise:</strong> begin with your small retrieval
+corpus and the book's exact-search evaluator. Write ten difficult
+queries and label all known acceptable documents. Inspect the top errors
+before mining harder negatives. Verify that a supposedly negative
+document is not a second valid answer. Compare retrieval metrics before
+and after adaptation, then rebuild the corpus embeddings using the new
+encoder. Use the embedding chapter's pinned API rather than mixing its
+v5 recipe with a newer main-branch import layout.</p>
+<p>This is where the meanings of embedding, pooling, bi-encoder, hard
+negative, false negative, in-batch negative, and Recall@k become
+operational. Read Sentence-BERT after observing why independently
+computed document vectors make retrieval possible. Do not require
+readers to retrain a generic embedding model from random weights before
+making a useful domain retriever.</p>
+<a id="stage-8-learn-denoising-before-adapting-an-image-or-audio-generator"></a>
+<h2>Stage
+8 Learn denoising before adapting an image or audio generator</h2>
+<p>Jonathan Whitaker's <a href="https://johnowhitaker.github.io/tglcourse/dm1.html">official
+diffusion lesson</a> links the creator's <a href="https://www.youtube.com/embed/09o5cv6u76c">video walkthrough</a>
+and the actual Hugging Face notebooks. The <a href="https://github.com/huggingface/diffusion-models-class/blob/57b371aea6d477644726653c3318c3f36afe461c/unit1/02_diffusion_models_from_scratch.ipynb">scratch
+notebook</a> deliberately starts with a tiny uniform-noise denoiser,
+then compares it with DDPM. Do not relabel the toy corruption rule as
+the DDPM forward process. Noise distribution, target parameterization,
+timestep conditioning, and sampler must be named separately. <a href="../chapters/references.html#source-t20">T20</a></p>
+<p><strong>Original exercise:</strong> on the book's synthetic small
+images, plot one clean example and several noised versions. Print the
+sampled timestep and target type. Verify the scheduler's forward-noise
+calculation numerically on one example. Only then compare learned
+denoising and generated samples on fixed seeds. Change one item at a
+time: model, target, schedule, or sampling steps.</p>
+<p>The <a href="https://github.com/huggingface/diffusion-models-class/blob/57b371aea6d477644726653c3318c3f36afe461c/unit4/02_diffusion_for_audio.ipynb">audio
+notebook</a> is useful for tracing waveform → resampling → spectrogram →
+denoising → audio reconstruction. This particular example diffuses
+spectrogram images; it is not a general description of every audio
+diffusion architecture, and it does not teach transcription. Its loop
+contains <code>loss.backward(loss)</code>. For ordinary scalar MSE
+training, use <code>loss.backward()</code>; the extra argument supplies
+an upstream gradient and multiplies the update signal by the loss value.
+<a href="../chapters/references.html#source-t21">T21</a>, <a href="../chapters/references.html#source-t22">T22</a></p>
+<p><strong>Advance when:</strong> you can state what the model predicts,
+which representation it sees, how a sample is reconstructed, and which
+held-out checks measure quality beyond a loss plot. Start an audio
+round-trip test before training: if representation conversion already
+damages the source substantially, more denoising updates cannot simply
+erase that limitation. For advanced image/audio architectures and
+adaptation, follow the image and audio chapters and their primary
+papers.</p>
+<a id="stage-9-study-faster-implementations-as-controlled-experiments"></a>
+<h2>Stage
+9 Study faster implementations as controlled experiments</h2>
+<p><a href="https://github.com/karpathy/llm.c/blob/f1e2ace651495b74ae22d45d1723443fd00ecd3a/doc/layernorm/layernorm.py">llm.c's
+LayerNorm study</a> recomputes a normalized activation in backward and
+compares manual derivatives with autograd. Its repository also validates
+C results against a PyTorch reference. The transferable practice is
+“prove equivalence, then optimize,” not “rewrite everything in CUDA
+first.” Its CPU starter is a short pretrained GPT-2 fine-tune, and its
+legacy single-GPU FP32 path is distinct from its modern reproduction
+process. <a href="../chapters/references.html#source-t23">T23</a></p>
+<p><a href="https://github.com/karpathy/nanochat/tree/92d63d4e8bb4df75c3b71618f31ddde2378b2bcd">nanochat</a>
+extends the public process across tokenizer training, pretraining, SFT,
+evaluation, and inference. Its default speedrun targets an eight-H100
+node. The README specifically warns that GPUs below 80 GB need
+configuration changes. Its <a href="https://github.com/karpathy/nanochat/blob/92d63d4e8bb4df75c3b71618f31ddde2378b2bcd/runs/runcpu.sh">CPU/MPS
+script</a> is explicitly educational and shrinks the model. Do not
+convert either example's reported duration into an RTX estimate. <a href="../chapters/references.html#source-t24">T24</a></p>
+<p><strong>Original exercise:</strong> keep model outputs and evaluation
+fixed while comparing two attention implementations or precision
+settings. Report numerical tolerance, peak memory, tokens per second,
+warm-up policy, and evaluation difference. Decide whether the
+improvement is worth the added setup and debugging cost. Architecture
+research, pipeline engineering, and raw-kernel engineering are different
+next projects; the beginner need not complete all three to become a
+useful practitioner.</p>
+<a id="a-compact-source-audit-checklist"></a>
+<h2>A compact source audit
+checklist</h2>
+<p>Before recommending a public command, inspect the actual file that
+will execute it.</p>
+<ol type="1">
+<li>Record a commit or released version, not just a default-branch
+URL</li>
+<li>Read the data loader and collator before the optimizer settings</li>
+<li>Identify every download, login, telemetry integration, and
+upload</li>
+<li>Check whether “optional” publishing is actually executed: the
+inspected Sentence Transformers examples attempt
+<code>push_to_hub</code> inside <code>try</code> blocks</li>
+<li>Separate a source-code license from book artwork, weights, data, and
+generated-artifact rights</li>
+<li>Compare the tutorial's API names with its dependency file and the
+matching versioned docs</li>
+<li>Keep GPU model, GPU count, precision, sequence length, batch size,
+and token budget beside any runtime claim</li>
+<li>Run a tiny smoke test and a reload test before a longer job</li>
+<li>Read later corrections and tests as carefully as the tutorial
+narrative</li>
+<li>Mark every unrun GPU workflow honestly; a successful source review
+is not a benchmark</li>
+</ol>
+</article><nav class="pager" aria-label="Adjacent chapters"><a href="37.html"><small>← Previous</small>37  Connect architecture to data memory and deployment</a><a href="39.html"><small>Next →</small>39  Exercise checkpoints and worked answers</a></nav></main><aside class="on-page"><h2>On this page</h2><a href="#stage-1-make-a-gradient-visible">Stage 1 Make a gradient
+visible</a><a href="#stage-2-turn-text-into-supervised-examples">Stage 2 Turn text
+into supervised examples</a><a href="#stage-3-diagnose-a-network-before-enlarging-it">Stage 3 Diagnose
+a network before enlarging it</a><a href="#stage-4-replace-fixed-context-with-causal-attention">Stage 4
+Replace fixed context with causal attention</a><a href="#stage-5-turn-a-notebook-into-a-recoverable-training-run">Stage 5
+Turn a notebook into a recoverable training run</a><a href="#stage-6-adapt-a-small-pretrained-model-with-auditable-labels">Stage
+6 Adapt a small pretrained model with auditable labels</a><a href="#stage-7-train-an-embedding-for-a-real-retrieval-decision">Stage
+7 Train an embedding for a real retrieval decision</a><a href="#stage-8-learn-denoising-before-adapting-an-image-or-audio-generator">Stage
+8 Learn denoising before adapting an image or audio generator</a><a href="#stage-9-study-faster-implementations-as-controlled-experiments">Stage
+9 Study faster implementations as controlled experiments</a><a href="#a-compact-source-audit-checklist">A compact source audit
+checklist</a></aside></div><footer class="footer"><div><strong>Training Your Own Models</strong><br>Vibe Authored by Dr.Puma · 2 October 2026</div><div><a href="../chapters/glossary.html">Glossary</a><a href="../chapters/references.html">References</a><a href="https://github.com/MrScripty/training-your-own-models">GitHub ↗</a></div></footer><script src="../assets/site.js" defer></script></body></html>

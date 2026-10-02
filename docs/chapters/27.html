@@ -1,0 +1,695 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f6f3eb"><title>27  Speech recognition train a small model to hear your domain · Training Your Own Models</title><meta name="description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><link rel="canonical" href="https://mrscripty.github.io/training-your-own-models/chapters/27.html"><meta property="og:type" content="website"><meta property="og:site_name" content="Training Your Own Models"><meta property="og:title" content="27  Speech recognition train a small model to hear your domain · Training Your Own Models"><meta property="og:description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><meta property="og:url" content="https://mrscripty.github.io/training-your-own-models/chapters/27.html"><meta property="og:image" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta property="og:image:secure_url" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1280"><meta property="og:image:height" content="640"><meta property="og:image:alt" content="Training Your Own Models. On One 24 GB GPU. Vibe Authored by Dr.Puma. Cream, blue and orange scientific cover artwork."><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="27  Speech recognition train a small model to hear your domain · Training Your Own Models"><meta name="twitter:description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><meta name="twitter:image" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta name="twitter:image:alt" content="Training Your Own Models, Vibe Authored by Dr.Puma"><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/style.css"></head><body><a class="skip" href="#main">Skip to content</a><header class="topbar"><a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true">↗</span><span>Training Your<br>Own Models</span></a><nav aria-label="Main navigation"><a href="../chapters/start.html">Read the book</a><a href="../labs.html">Explore</a><a href="../search.html" aria-label="Search the book">Search</a><a href="../downloads.html">Downloads</a></nav></header><div class="reader"><aside class="sidebar"><nav aria-label="Book contents"><label class="nav-filter">Find a chapter<input type="search" class="chapter-filter" placeholder="Filter titles" aria-label="Filter chapter titles"></label><a class="chapter-link" href="../chapters/start.html"><span>→</span>Training Your Own Models on One 24 GB GPU</a><a class="chapter-link" href="../chapters/01.html"><span>1</span>Train your first model before learning the whole field</a><a class="chapter-link" href="../chapters/02.html"><span>2</span>Your computer and the training workspace</a><a class="chapter-link" href="../chapters/03.html"><span>3</span>Numbers tensors parameters and learning</a><a class="chapter-link" href="../chapters/04.html"><span>4</span>Project turn four sensor readings into a useful prediction</a><a class="chapter-link" href="../chapters/05.html"><span>5</span>Build a dataset that teaches the job</a><a class="chapter-link" href="../chapters/06.html"><span>6</span>Decide whether the model actually improved</a><a class="chapter-link" href="../chapters/07.html"><span>7</span>Move from feature columns to neural representations</a><a class="chapter-link" href="../chapters/08.html"><span>8</span>Project classify your own small image collection</a><a class="chapter-link" href="../chapters/09.html"><span>9</span>Project locate one object with a box</a><a class="chapter-link" href="../chapters/10.html"><span>10</span>Project predict a mask then extract an outline</a><a class="chapter-link" href="../chapters/11.html"><span>11</span>Train a miniature language model from random weights</a><a class="chapter-link" href="../chapters/12.html"><span>12</span>How a language model becomes a prediction machine</a><a class="chapter-link" href="../chapters/13.html"><span>13</span>Read and control the training loop</a><a class="chapter-link" href="../chapters/14.html"><span>14</span>Make a run reproducible and recoverable</a><a class="chapter-link" href="../chapters/15.html"><span>15</span>The real memory and compute budget</a><a class="chapter-link" href="../chapters/16.html"><span>16</span>Project make related text easy to retrieve</a><a class="chapter-link" href="../chapters/17.html"><span>17</span>Choose a model by its actual structure and files</a><a class="chapter-link" href="../chapters/18.html"><span>18</span>Teach a small language model one useful behavior</a><a class="chapter-link" href="../chapters/19.html"><span>19</span>Repeat the project with every weight trainable</a><a class="chapter-link" href="../chapters/20.html"><span>20</span>Teach domain conventions without turning weights into a database</a><a class="chapter-link" href="../chapters/21.html"><span>21</span>Make a writing style reproducible without changing the facts</a><a class="chapter-link" href="../chapters/22.html"><span>22</span>Teach a tool decision and a complete tool interaction</a><a class="chapter-link" href="../chapters/23.html"><span>23</span>Study a small typed decision service</a><a class="chapter-link" href="../chapters/24.html"><span>24</span>From a language model to a decision model</a><a class="chapter-link" href="../chapters/25.html"><span>25</span>Add preferences and distillation only after supervised learning works</a><a class="chapter-link" href="../chapters/26.html"><span>26</span>Project teach an image generator a small visual style</a><a class="chapter-link" href="../chapters/27.html" aria-current="page"><span>27</span>Speech recognition train a small model to hear your domain</a><a class="chapter-link" href="../chapters/28.html"><span>28</span>Project build a tiny sound generator from random weights</a><a class="chapter-link" href="../chapters/29.html"><span>29</span>Scale a working experiment toward one billion parameters</a><a class="chapter-link" href="../chapters/30.html"><span>30</span>Understand what a public training process really demonstrates</a><a class="chapter-link" href="../chapters/31.html"><span>31</span>Diagnose failures before making the model larger</a><a class="chapter-link" href="../chapters/32.html"><span>32</span>From small model to small device product</a><a class="chapter-link" href="../chapters/33.html"><span>33</span>Turn a checkpoint into a usable application</a><a class="chapter-link" href="../chapters/34.html"><span>34</span>Design your first independent model</a><a class="chapter-link" href="../chapters/35.html"><span>35</span>Understand larger models using the parts you already know</a><a class="chapter-link" href="../chapters/36.html"><span>36</span>Read MiMo GLM and other architecture families</a><a class="chapter-link" href="../chapters/37.html"><span>37</span>Connect architecture to data memory and deployment</a><a class="chapter-link" href="../chapters/38.html"><span>38</span>Learn from public training projects without copying their assumptions</a><a class="chapter-link" href="../chapters/39.html"><span>39</span>Exercise checkpoints and worked answers</a><a class="chapter-link" href="../chapters/40.html"><span>40</span>Companion guide and verification record</a><a class="chapter-link" href="../chapters/glossary.html"><span>A–Z</span>Glossary with links to explanations</a><a class="chapter-link" href="../chapters/references.html"><span>Ref</span>Works cited</a></nav></aside><main class="prose" id="main"><details class="mobile-toc"><summary>Browse the book</summary><nav aria-label="Book contents"><label class="nav-filter">Find a chapter<input type="search" class="chapter-filter" placeholder="Filter titles" aria-label="Filter chapter titles"></label><a class="chapter-link" href="../chapters/start.html"><span>→</span>Training Your Own Models on One 24 GB GPU</a><a class="chapter-link" href="../chapters/01.html"><span>1</span>Train your first model before learning the whole field</a><a class="chapter-link" href="../chapters/02.html"><span>2</span>Your computer and the training workspace</a><a class="chapter-link" href="../chapters/03.html"><span>3</span>Numbers tensors parameters and learning</a><a class="chapter-link" href="../chapters/04.html"><span>4</span>Project turn four sensor readings into a useful prediction</a><a class="chapter-link" href="../chapters/05.html"><span>5</span>Build a dataset that teaches the job</a><a class="chapter-link" href="../chapters/06.html"><span>6</span>Decide whether the model actually improved</a><a class="chapter-link" href="../chapters/07.html"><span>7</span>Move from feature columns to neural representations</a><a class="chapter-link" href="../chapters/08.html"><span>8</span>Project classify your own small image collection</a><a class="chapter-link" href="../chapters/09.html"><span>9</span>Project locate one object with a box</a><a class="chapter-link" href="../chapters/10.html"><span>10</span>Project predict a mask then extract an outline</a><a class="chapter-link" href="../chapters/11.html"><span>11</span>Train a miniature language model from random weights</a><a class="chapter-link" href="../chapters/12.html"><span>12</span>How a language model becomes a prediction machine</a><a class="chapter-link" href="../chapters/13.html"><span>13</span>Read and control the training loop</a><a class="chapter-link" href="../chapters/14.html"><span>14</span>Make a run reproducible and recoverable</a><a class="chapter-link" href="../chapters/15.html"><span>15</span>The real memory and compute budget</a><a class="chapter-link" href="../chapters/16.html"><span>16</span>Project make related text easy to retrieve</a><a class="chapter-link" href="../chapters/17.html"><span>17</span>Choose a model by its actual structure and files</a><a class="chapter-link" href="../chapters/18.html"><span>18</span>Teach a small language model one useful behavior</a><a class="chapter-link" href="../chapters/19.html"><span>19</span>Repeat the project with every weight trainable</a><a class="chapter-link" href="../chapters/20.html"><span>20</span>Teach domain conventions without turning weights into a database</a><a class="chapter-link" href="../chapters/21.html"><span>21</span>Make a writing style reproducible without changing the facts</a><a class="chapter-link" href="../chapters/22.html"><span>22</span>Teach a tool decision and a complete tool interaction</a><a class="chapter-link" href="../chapters/23.html"><span>23</span>Study a small typed decision service</a><a class="chapter-link" href="../chapters/24.html"><span>24</span>From a language model to a decision model</a><a class="chapter-link" href="../chapters/25.html"><span>25</span>Add preferences and distillation only after supervised learning works</a><a class="chapter-link" href="../chapters/26.html"><span>26</span>Project teach an image generator a small visual style</a><a class="chapter-link" href="../chapters/27.html" aria-current="page"><span>27</span>Speech recognition train a small model to hear your domain</a><a class="chapter-link" href="../chapters/28.html"><span>28</span>Project build a tiny sound generator from random weights</a><a class="chapter-link" href="../chapters/29.html"><span>29</span>Scale a working experiment toward one billion parameters</a><a class="chapter-link" href="../chapters/30.html"><span>30</span>Understand what a public training process really demonstrates</a><a class="chapter-link" href="../chapters/31.html"><span>31</span>Diagnose failures before making the model larger</a><a class="chapter-link" href="../chapters/32.html"><span>32</span>From small model to small device product</a><a class="chapter-link" href="../chapters/33.html"><span>33</span>Turn a checkpoint into a usable application</a><a class="chapter-link" href="../chapters/34.html"><span>34</span>Design your first independent model</a><a class="chapter-link" href="../chapters/35.html"><span>35</span>Understand larger models using the parts you already know</a><a class="chapter-link" href="../chapters/36.html"><span>36</span>Read MiMo GLM and other architecture families</a><a class="chapter-link" href="../chapters/37.html"><span>37</span>Connect architecture to data memory and deployment</a><a class="chapter-link" href="../chapters/38.html"><span>38</span>Learn from public training projects without copying their assumptions</a><a class="chapter-link" href="../chapters/39.html"><span>39</span>Exercise checkpoints and worked answers</a><a class="chapter-link" href="../chapters/40.html"><span>40</span>Companion guide and verification record</a><a class="chapter-link" href="../chapters/glossary.html"><span>A–Z</span>Glossary with links to explanations</a><a class="chapter-link" href="../chapters/references.html"><span>Ref</span>Works cited</a></nav></details><div class="chapter-meta"><span class="eyebrow">Chapter 27 / 40</span><span>23 min read</span></div><article class="manuscript"><a id="speech-recognition-train-a-small-model-to-hear-your-domain"></a>
+<h1>27
+Speech recognition train a small model to hear your domain</h1>
+<a id="the-project-accurate-workshop-voice-notes"></a>
+<h2>The project accurate
+workshop voice notes</h2>
+<p>You are building an offline transcription tool for short workshop
+notes. A person says, “Replace the M eight bolt on pump three,” and the
+tool writes the words. You care especially about part names, numbers,
+negation, accents, and noisy recordings. The deliverable is a locally
+saved model, a repeatable evaluation report, and CPU/GPU inference
+commands.</p>
+<p>This is <strong>automatic speech recognition (ASR)</strong>: recorded
+sound becomes written language. It differs from the next
+audio-generation project, where a model creates sound. It also differs
+from a classifier that says “speech present” or “doorbell,” and from a
+language model that rewrites a transcript. A fluent rewrite can conceal
+a recognition error. Keep the original audio, the raw transcription, and
+any edited presentation as distinguishable records.</p>
+<p>The current practical model in this chapter is
+<strong>Qwen3-ASR-0.6B</strong>, released in 2026, with an official open
+training path. Its name describes the language-model scale; Hub metadata
+lists <strong>938,008,576 serialized BF16 parameters including the
+acoustic components</strong>, so budget approximately 0.94B overall, not
+0.6B. That remains below one billion. Cohere Transcribe is the current
+2B comparison and extension study. Older Whisper and CTC work appear
+only where they explain an enduring idea. This is not a tutorial
+organized around a legacy checkpoint. <a href="../chapters/references.html#source-s01">S01</a> <a href="../chapters/references.html#source-s02">S02</a> <a href="../chapters/references.html#source-s03">S03</a></p>
+<p>Success means that a saved adaptation improves your predeclared
+validation objective without an unacceptable regression on general
+speech, then passes the untouched test set. A decreasing training loss
+is an intermediate observation. It does not establish that a model
+transcribes better.</p>
+<a id="asr-application-patterns"></a>
+<h3>ASR application patterns</h3>
+<ul>
+<li><strong>Dictation and accessibility:</strong> prioritize omissions,
+negation, uncommon words, readable punctuation, and correction
+effort</li>
+<li><strong>Searchable recordings:</strong> transcribe, attach reliable
+segment boundaries, then use a separate embedding/retrieval system;
+transcription quality and search quality require separate tests</li>
+<li><strong>Meeting notes:</strong> recognition, speaker diarization,
+and summarization are different tasks; do not imply that an ASR
+checkpoint supplies all three</li>
+<li><strong>Voice commands:</strong> transcribe, parse the intended
+action, and confirm consequential operations; a plausible transcript is
+not permission to execute a command</li>
+<li><strong>Domain vocabulary:</strong> adapt using recordings that
+genuinely contain the relevant words, rather than repeatedly showing the
+words as text alone</li>
+</ul>
+<p>The ASR component should expose uncertainty through review policies
+and observable failure signals, not fabricated confidence percentages.
+Token likelihood is not a calibrated probability that a sentence is
+correct.</p>
+<a id="current-cohere-models-know-which-category-you-are-studying"></a>
+<h2>Current
+Cohere models know which category you are studying</h2>
+<p>Cohere is a model family and service provider, not a single
+architecture. The following distinctions prevent the common mistake of
+using a text-generation training recipe for every product with the same
+vendor name.</p>
+<div aria-label="Scrollable table" class="table-scroll" role="region" tabindex="0"><table>
+<thead>
+<tr class="header">
+<th>Current example, checked 2 October 2026</th>
+<th>Input → output</th>
+<th>Place in this book</th>
+<th>Access/training boundary</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Cohere Transcribe 03-2026</td>
+<td>Audio → transcription</td>
+<td>ASR comparison, 2B</td>
+<td>Apache-2.0 weights; native Transformers support; Hub access gate
+observed</td>
+</tr>
+<tr class="even">
+<td>Cohere Transcribe Arabic 07-2026</td>
+<td>Arabic/English audio → transcription</td>
+<td>Specialized ASR comparison, 2B</td>
+<td>Apache-2.0; official Arabic adaptation of Transcribe</td>
+</tr>
+<tr class="odd">
+<td>Embed v5.0 pro/fast</td>
+<td>Text/images → vectors</td>
+<td>Retrieval category</td>
+<td>Official service/deployment documentation; no publicly downloadable
+trainable checkpoint verified here</td>
+</tr>
+<tr class="even">
+<td>Rerank v4.0 pro/fast</td>
+<td>Query + candidate documents → ranking</td>
+<td>Reranker category</td>
+<td>Service/deployment option; do not invent an open-weight fine-tuning
+command</td>
+</tr>
+<tr class="odd">
+<td>North Micro Vision Instruct</td>
+<td>Images/text → text</td>
+<td>Vision-language comparison, 2.4B total</td>
+<td>Apache-2.0, official fine-tuning references; separate model-specific
+project</td>
+</tr>
+<tr class="even">
+<td>Tiny Aya global</td>
+<td>Text → multilingual text</td>
+<td>Brief scale/license contrast</td>
+<td>3.35B in its model summary, CC-BY-NC-4.0; exceeds a strict 3B
+total-parameter ceiling</td>
+</tr>
+<tr class="odd">
+<td>Command A+ 05-2026</td>
+<td>Text/images → generated text</td>
+<td>Advanced MoE comparison only</td>
+<td>Apache-2.0; 218B total / 25B active, far outside this GPU-training
+scope</td>
+</tr>
+</tbody>
+</table></div>
+<p>Sources for this inventory: <a href="../chapters/references.html#source-s04">S04</a> <a href="../chapters/references.html#source-s05">S05</a> <a href="../chapters/references.html#source-s06">S06</a> <a href="../chapters/references.html#source-s07">S07</a> <a href="../chapters/references.html#source-s08">S08</a> <a href="../chapters/references.html#source-s09">S09</a> <a href="../chapters/references.html#source-s10">S10</a>. “No checkpoint
+verified” is a statement about the inspected public material, not proof
+that an enterprise contract cannot supply a private deployment. API
+availability does not imply accessible gradients, downloadable weights,
+or permission to retrain. Conversely, a Hub gate does not make an
+Apache-licensed checkpoint API-only. Access requirements, license terms,
+model code, and feasible hardware are separate questions.</p>
+<p>For a recording-search application, a coherent pipeline could be: ASR
+produces text; an embedding model retrieves related passages; a reranker
+improves their order; a generation model writes a grounded answer. Train
+or evaluate the component responsible for your actual error. Retraining
+ASR will not fix a retrieval index that discarded the relevant
+passage.</p>
+<a id="what-cohere-transcribe-actually-does"></a>
+<h3>What Cohere Transcribe
+actually does</h3>
+<p>The March model has a <strong>Conformer acoustic encoder</strong> and
+a smaller autoregressive Transformer decoder. It consumes
+waveform-derived log-Mel features and predicts text tokens with
+supervised cross-entropy. Cohere describes training it from scratch;
+adapting its weights is a different, much smaller undertaking. A
+Conformer combines local convolutional processing with attention over a
+longer context. This is useful because speech has both short acoustic
+events and dependencies spanning many frames. <a href="../chapters/references.html#source-s05">S05</a> <a href="../chapters/references.html#source-s11">S11</a></p>
+<p>The March checkpoint covers 14 specified languages. Its card flags
+missing native timestamps and diarization, no explicit automatic
+language identification, and difficulty with code-switching, where a
+speaker alternates languages within an utterance or conversation. It
+also warns that non-speech audio can produce invented text. The native
+path requires Transformers 5.4.0 or later; using the built-in
+implementation avoids the older remote-code loading path. The card
+reports testing with PyTorch 2.10.0. <a href="../chapters/references.html#source-s04">S04</a></p>
+<p>The July Arabic checkpoint is an official domain/language adaptation.
+Its introduction emphasizes Arabic dialects, English, and Arabic-English
+mixed speech; its limitations section still warns about code-switching.
+Treat that mixed message as a reason to test your own dialect and
+mixed-language slices rather than make a blanket promise. Both cards
+were visibly gated for contact-information sharing during this review.
+This book did not accept either gate or download those weights. <a href="../chapters/references.html#source-s06">S06</a></p>
+<a id="is-cohere-locally-trainable"></a>
+<h3>Is Cohere locally trainable</h3>
+<p>The native Transformers source exposes labels, a shifted decoder
+input, and a supervised loss in
+<code>CohereAsrForConditionalGeneration</code>. That establishes a
+training-capable forward path. It does not establish a completed
+one-card recipe, a trustworthy adapter target list, or measured memory
+consumption. The official <code>cohere-finetune</code> repository
+inspected for this chapter lists text-generation models; it is not
+evidence that its Command LoRA command supports Transcribe. <a href="../chapters/references.html#source-s12">S12</a> <a href="../chapters/references.html#source-s13">S13</a></p>
+<p>A full 2B-model FP32 AdamW run needs roughly 32 GB for parameters,
+gradients and two moment buffers before activations: 2 billion × 16
+bytes. Some mixed-precision strategies differ, but merely observing
+approximately 4 GB of BF16 inference weights does not solve the training
+budget. Freezing the encoder or adding adapters could reduce optimizer
+state substantially. A responsible Cohere extension must first verify
+the exact trainable modules, tokenizer prefixes, acoustic chunk
+behavior, loss alignment, a successful backward pass, saved-model
+reload, and measured peak VRAM. We do not present that unexecuted
+research program as a proven 24 GB fine-tune.</p>
+<p>The chapter therefore supplies a complete smaller current-model
+adaptation with the official Qwen backend, while retaining Cohere as a
+substantive architecture/access/training-support study and
+local-inference comparison. It does not substitute a Cohere API call for
+teaching training.</p>
+<a id="what-the-model-learns-from-an-audio-text-pair"></a>
+<h2>What the model
+learns from an audio text pair</h2>
+<a id="waveforms-frames-and-log-mel-features"></a>
+<h3>Waveforms frames and log
+Mel features</h3>
+<p>A mono waveform is one ordered sequence of amplitude measurements.
+<strong>Sample rate</strong> tells you how many measurements represent
+one second. Eight seconds at 16,000 samples per second has 128,000
+samples. Changing a header from 48,000 to 16,000 without changing the
+sample sequence makes the recording play three times slower; it is not
+resampling.</p>
+<p>Correct downsampling filters frequencies that the lower rate cannot
+represent, then changes the sample grid. The companion uses polyphase
+resampling. Its anti-aliasing test checks that a 12 kHz tone recorded at
+48 kHz is suppressed when converted to 16 kHz. No automatic loudness
+normalization is applied: multiplying quiet microphone hiss until it
+looks like speech is a poor default. <a href="../chapters/references.html#source-s14">S14</a></p>
+<p>A <strong>spectrogram</strong> describes frequency content over
+successive short windows. A Mel filter bank pools that energy into
+frequency bands; the logarithm compresses its dynamic range. A
+<strong>frame</strong> is one such time-window representation, not one
+word. Use the checkpoint's own processor to choose windows, filters and
+scaling. An arbitrary image spectrogram is not interchangeable with the
+expected input tensor.</p>
+<p>The Qwen processor creates acoustic features, an acoustic padding
+mask, and text tokens. Its audio encoder produces embeddings that
+replace audio placeholder positions in the language-model input. The
+supplied training script uses this exact model-specific processor. <a href="../chapters/references.html#source-s15">S15</a> <a href="../chapters/references.html#source-s16">S16</a></p>
+<a id="ctc-versus-autoregressive-transcription"></a>
+<h3>CTC versus
+autoregressive transcription</h3>
+<p><strong>Connectionist temporal classification (CTC)</strong> handles
+a transcript whose word/token boundaries are unknown. The network
+assigns probabilities to labels plus a blank symbol at successive time
+positions. Many frame-level paths correspond to the same final text.
+Training sums the probabilities of valid paths instead of requiring a
+manually timestamped label for every frame. A simple decoding path such
+as <code>a a blank b b</code> collapses to <code>ab</code>;
+<code>a blank a</code> can represent repeated <code>aa</code>. CTC's
+blank is not a literal space character. <a href="../chapters/references.html#source-s17">S17</a></p>
+<p>CTC's monotonic alignment structure is useful for speech, but it is
+not the loss used by our Qwen project or Cohere Transcribe. In an
+<strong>autoregressive</strong> model, each output token is predicted
+using audio and earlier output tokens. <strong>Teacher forcing</strong>
+supplies the correct earlier tokens during training. Cross-entropy
+increases when the next correct token receives too little probability.
+Generation instead supplies the model's own earlier guesses, so
+generation-based evaluation can reveal failures that teacher-forced loss
+hides.</p>
+<p>Cohere is an encoder-decoder sequence-to-sequence system. Qwen3-ASR
+connects an acoustic encoder to a causal language decoder. Both are
+conditional audio-to-text systems, but their input packing and
+shifted-label details differ. Do not swap their processors, reuse their
+special tokens, or assume that a CTC blank configuration applies. <a href="../chapters/references.html#source-s05">S05</a> <a href="../chapters/references.html#source-s15">S15</a> <a href="../chapters/references.html#source-s18">S18</a></p>
+<a id="one-concrete-training-row"></a>
+<h3>One concrete training row</h3>
+<p>Prepare your own consented, accurately transcribed recording and a
+JSONL row such as:</p>
+<pre class="json"><code>{"id":"workshop_001","audio":"audio/workshop_001.wav","text":"Replace the M eight bolt on pump three.","language":"English","speaker_id":"speaker_01","session_id":"session_01","source_id":"recording_01","domain":"workshop","split":"train","consent":true,"rights":"Recorded with permission for this training project"}</code></pre>
+<p>A complete minimal manifest has all three splits. For example, put
+<code>my_recordings.jsonl</code> next to an <code>audio/</code>
+directory containing these three real files. Each file must contain
+exactly its own written label, and each speaker must have consented.
+Three rows only exercise the pipeline; they are not a meaningful
+accuracy dataset.</p>
+<pre class="jsonl"><code>{"id":"train_001","audio":"audio/train_001.wav","text":"Replace the M eight bolt on pump three.","language":"English","speaker_id":"speaker_01","session_id":"session_01","source_id":"recording_01","domain":"workshop","split":"train","consent":true,"rights":"Permission for this local training project"}
+{"id":"validation_001","audio":"audio/validation_001.wav","text":"Check the pressure before opening the valve.","language":"English","speaker_id":"speaker_02","session_id":"session_02","source_id":"recording_02","domain":"workshop","split":"validation","consent":true,"rights":"Permission for this local evaluation"}
+{"id":"test_001","audio":"audio/test_001.wav","text":"Do not restart pump three.","language":"English","speaker_id":"speaker_03","session_id":"session_03","source_id":"recording_03","domain":"workshop","split":"test","consent":true,"rights":"Permission for this local evaluation"}</code></pre>
+<p>The text is an example of the intended label format; the book does
+not supply a recording of someone saying it. Do not train the phrase
+against a tone or an unrelated recording. The companion's synthetic
+tones are software tests, not an ASR dataset.</p>
+<p>For the pinned Qwen backend, the target serialized by our script
+becomes
+<code>language English&lt;asr_text&gt;Replace the M eight bolt on pump three.</code>
+followed by its actual end-of-sequence token. The model-specific prefix
+tells the decoder the language and task format. The audio/user/system
+prefix positions are masked out of the loss; the answer and end marker
+remain supervised. The official training guide documents the
+language-prefix convention. <a href="../chapters/references.html#source-s19">S19</a></p>
+<p>The original loop uses a single example per forward pass. This avoids
+silently inheriting the upstream training collator's assumptions about
+prefix masking in padded batches. It explicitly checks that the
+tokenized full example starts with exactly the tokenized prefix. A
+tokenizer revision that changes that boundary causes a clear failure
+rather than a subtly wrong objective.</p>
+<a id="build-the-dataset-before-touching-the-optimizer"></a>
+<h2>Build the
+dataset before touching the optimizer</h2>
+<a id="start-small-then-earn-more-data"></a>
+<h3>Start small then earn more
+data</h3>
+<p>Use 20-50 carefully checked clips for a pipeline smoke test. This
+strict unseen-speaker starter requires at least three independently
+consenting speaker groups, one or more per split; a single person
+recording all clips cannot satisfy its split policy. A same-speaker
+personalization experiment is a different evaluation design and is not
+what this starter claims. For a meaningful pilot, aim for a few hours of
+relevant speech with multiple speakers and recording sessions, plus
+independent validation and test material. These are planning starting
+points, not a guarantee that any particular number of hours will improve
+quality.</p>
+<p>If the domain is confidential, keep recordings, transcripts, caches
+and checkpoints local. A checkpoint can memorize names, addresses or
+unusual phrases. Permission to record a meeting is not automatically
+permission to publish its audio, train a shared model, or upload it to a
+transcription API. Document who consented, permitted uses, retention,
+and deletion procedures. Do not use real confidential customer calls
+merely because a tutorial needs audio.</p>
+<a id="segment-and-align-never-blindly-crop-the-pair"></a>
+<h3>Segment and align
+never blindly crop the pair</h3>
+<p>The starter enforces 0.2-8-second clips to keep the experiment
+bounded. Segment at sensible utterance boundaries. If a long recording
+says ten sentences, a crop containing the first sentence must not retain
+the full ten-sentence transcript. That teaches the model to invent
+absent content.</p>
+<p>For a longer recording, either use reliable existing time-aligned
+labels or align a reviewed transcript, inspect uncertain boundaries, and
+produce short paired segments. <strong>Forced alignment</strong>
+estimates where supplied words occur in audio; it does not prove those
+words were spoken. Qwen's optional timestamp component is a separate
+forced-aligner model and is not downloaded by this project.
+<strong>Diarization</strong> estimates which speaker spoke when; that is
+another distinct task. <a href="../chapters/references.html#source-s01">S01</a> <a href="../chapters/references.html#source-s20">S20</a></p>
+<p>Silence-based chunking is useful, but whispers, breathy speech and
+low-volume consonants can be cut off. Overlapping chunks can avoid lost
+boundary sounds but also create duplicated words. For inference, use
+model-supported long-form handling and test complete recordings; this
+training project deliberately starts with manually checked short
+segments.</p>
+<a id="make-leakage-difficult"></a>
+<h3>Make leakage difficult</h3>
+<p>Randomly splitting clips is insufficient when adjacent clips belong
+to the same call. Split whole source recordings, sessions and speakers
+together. The preparation script rejects an identifier appearing in more
+than one split and rejects identical input WAV bytes. Use pseudonymous,
+stable IDs. If two speakers converse in the same source recording, the
+source and speaker constraints may connect several recordings into one
+group; assign the whole connected group together.</p>
+<p>A reasonable first policy is about 80/10/10 by grouped recording
+duration, then verify that validation and test have enough speakers and
+examples for meaningful comparisons. A tiny test set is not made
+reliable by a tidy percentage. Also reserve a challenge set for a new
+microphone, room, dialect, or time period. The script reports language,
+domain and speaker slices but does not invent the correct split for
+you.</p>
+<p>Keep approved augmentation only in the training split. If you add
+realistic background noise, keep the spoken transcript unchanged and
+audit intelligibility. A transformed copy of a validation recording
+remains a validation recording. Do not optimize on the test set by
+repeatedly listening to its hardest examples and adding near-duplicates
+to training.</p>
+<a id="preserve-transcript-policy"></a>
+<h3>Preserve transcript policy</h3>
+<p>Choose verbatim versus cleaned transcription before labeling. Decide
+whether “um,” false starts, abbreviations, spoken numbers and
+punctuation should be present. If half the labels use “M8” and half use
+“M eight,” the optimizer receives an inconsistent formatting target.
+Keep the raw human label and document any training normalization
+separately.</p>
+<p>For multilingual data, preserve the writing system and Unicode text.
+Do not strip accents from Vietnamese or merge distinct Arabic letters
+merely to make a metric smaller. Tokenization and normalization policies
+are language-dependent. The first script accepts supported Qwen language
+names exactly, such as <code>English</code>, rather than assuming that
+every library uses ISO codes. Cohere's inference example instead uses
+codes such as <code>en</code> and <code>ar</code>.</p>
+<a id="environment-and-artifact-plan"></a>
+<h3>Environment and artifact
+plan</h3>
+<p>First open a terminal in the extracted companion directory and run
+<code>cd examples/asr</code>. Stay in this directory for all commands in
+this chapter.</p>
+<p>Use a fresh Python 3.12 environment for Qwen.
+<code>requirements-qwen.txt</code> pins the official backend to commit
+<code>7c6daf77a2421100f5fb066495372c00129d39ff</code>, whose package
+metadata requires Transformers 4.57.6 and Accelerate 1.12.0. The
+candidate PyTorch version is 2.10.0. Other core audio/numeric pins are
+listed in the file. This is a source-checked target, <strong>not a
+dependency lockfile validated by an installation in this book's
+authoring environment</strong>. Install a PyTorch wheel suited to your
+GPU/driver from the official PyTorch instructions, then resolve the
+remaining requirements. Run <code>pip check</code> and record the
+resolved environment. <a href="../chapters/references.html#source-s21">S21</a> <a href="../chapters/references.html#source-s22">S22</a></p>
+<pre class="bash"><code># Leave any other project environment first
+deactivate 2&gt;/dev/null || true
+python3.12 -m venv .venv-qwen-asr
+source .venv-qwen-asr/bin/activate
+# CUDA 12.8 example; choose the official wheel compatible with your driver
+python -m pip install torch==2.10.0 --index-url https://download.pytorch.org/whl/cu128
+python -m pip install -r requirements-qwen.txt
+python -m pip check
+python -m pip freeze &gt; resolved-environment.txt
+python fetch_qwen_model.py models/qwen3-asr-0.6b</code></pre>
+<p>For a CPU-only installation, replace the CUDA wheel command with
+<code>python -m pip install torch==2.10.0 --index-url https://download.pytorch.org/whl/cpu</code>.
+Choose one wheel route; do not run both. The GPU training command
+requires a CUDA wheel and a BF16-capable GPU. PyTorch's official version
+page also lists other CUDA builds; selecting one requires a compatible
+driver. <a href="../chapters/references.html#source-s24">S24</a></p>
+<p>Those are user-run setup commands; they were not executed for this
+book. The fetch script pins model revision
+<code>5eb144179a02acc5e5ba31e748d22b0cf3e303b0</code>, records it
+locally, and downloads the model files. It does not execute
+model-repository remote code. Installing the pinned official backend is
+still installing software: review the source and use an isolated
+environment. Keep the Qwen 4.57.6 environment separate from Cohere's
+5.4+ environment. <a href="../chapters/references.html#source-s02">S02</a> <a href="../chapters/references.html#source-s21">S21</a></p>
+<a id="run-preparation"></a>
+<h3>Run preparation</h3>
+<p>All commands below run from the extracted companion's
+<code>examples/asr</code> directory, with <code>.venv-qwen-asr</code>
+active. The input manifest paths are relative to the manifest file, not
+the shell working directory:</p>
+<pre class="bash"><code>python prepare_audio.py my_recordings.jsonl prepared --max-seconds 8
+python test_data_metrics.py</code></pre>
+<p>Preparation reads local WAV files, handles integer/float PCM,
+averages channels, resamples to mono 16 kHz, writes canonical PCM16
+WAVs, and saves train/validation/test manifests with duration, RMS,
+peaks and content hashes. Averaging is a starting policy, not
+universally correct: out-of-phase stereo can cancel speech, and separate
+call channels may contain different speakers. Listen to representative
+files before and after conversion; select an appropriate channel
+upstream when required.</p>
+<p>The tool refuses to reuse an output directory. It does not
+transcribe, invent labels, accept terms, fetch a dataset, or upload
+recordings. Review the generated duration totals and listen to each
+smoke-test clip. The record of consent is documentation supplied by you,
+not an automatic legal assessment.</p>
+<a id="the-pinned-adaptation-experiment"></a>
+<h2>The pinned adaptation
+experiment</h2>
+<a id="establish-the-unadapted-baseline"></a>
+<h3>Establish the unadapted
+baseline</h3>
+<p>Run validation generation before training:</p>
+<pre class="bash"><code>python infer_qwen_asr.py --model models/qwen3-asr-0.6b \
+  --manifest prepared/validation.jsonl --device cuda \
+  --out runs/base-validation.jsonl</code></pre>
+<p>The script saves raw predictions, references, language/domain/speaker
+metadata, elapsed time, and a separate metrics JSON. It fixes the
+supplied language by default. Use <code>--detect-language</code> as a
+separate evaluation condition if language identification is part of your
+product. Do not compare a language-forced baseline with an unconstrained
+adaptation and attribute the whole difference to training.</p>
+<a id="what-is-actually-updated"></a>
+<h3>What is actually updated</h3>
+<p>The starter freezes the acoustic tower and updates the remaining
+parameters. This is <strong>partial fine-tuning</strong>, not LoRA and
+not training from scratch. Its purpose is a controlled first experiment
+in transcript vocabulary/format adaptation with a lower optimizer-memory
+burden. It may be insufficient when the main failure is a substantially
+different acoustic domain; measure before deciding to unfreeze more.</p>
+<p>The script uses FP32 trainable parameters and AdamW states, with BF16
+autocast on a compatible CUDA GPU. This avoids pretending that loading
+BF16 weights automatically gives FP32 optimizer/master state. Gradient
+checkpointing recomputes intermediate values to reduce activation
+storage. A frozen audio tower is also held in evaluation mode. It runs
+microbatch 1, accumulates eight examples, normalizes the accumulated
+loss by the number of supervised next-token targets, clips gradient norm
+to 1, and uses a short warmup followed by decay. <a href="../chapters/references.html#source-s15">S15</a> <a href="../chapters/references.html#source-s18">S18</a> <a href="../chapters/references.html#source-s22">S22</a></p>
+<pre class="bash"><code>python train_qwen_asr.py --model models/qwen3-asr-0.6b \
+  --train prepared/train.jsonl --out runs/asr-smoke \
+  --steps 2 --accumulate 2 --save-every 2
+
+python infer_qwen_asr.py --model runs/asr-smoke/final \
+  --manifest prepared/validation.jsonl --device cuda \
+  --out runs/smoke-validation.jsonl</code></pre>
+<p>A two-update run validates plumbing after you execute it. It is not a
+claim of improved ASR. First confirm finite loss, nonzero trainable
+gradients, reasonable parameter counts, a full export, successful
+reload, and text generation. Then try a bounded pilot:</p>
+<pre class="bash"><code>python train_qwen_asr.py --model models/qwen3-asr-0.6b \
+  --train prepared/train.jsonl --out runs/asr-pilot \
+  --steps 200 --accumulate 8 --lr 0.00001 --save-every 100</code></pre>
+<p>The 200-step command writes <code>runs/asr-pilot/step-000100</code>,
+<code>runs/asr-pilot/step-000200</code>, and
+<code>runs/asr-pilot/final</code>; <code>final</code> contains the same
+final-update weights as step 200. Compare both candidate
+checkpoints:</p>
+<pre class="bash"><code>python infer_qwen_asr.py --model runs/asr-pilot/step-000100 \
+  --manifest prepared/validation.jsonl --device cuda \
+  --out runs/pilot-100-validation.jsonl
+python infer_qwen_asr.py --model runs/asr-pilot/step-000200 \
+  --manifest prepared/validation.jsonl --device cuda \
+  --out runs/pilot-200-validation.jsonl</code></pre>
+<p>Inspect those <code>.metrics.json</code> files alongside
+<code>runs/base-validation.jsonl.metrics.json</code> and listen to the
+error slices. Set <code>SELECTED</code> to the actual validation winner.
+The following assignment is an example, not a claim that step 100 will
+win; if the base is better, set it to <code>models/qwen3-asr-0.6b</code>
+instead:</p>
+<pre class="bash"><code>SELECTED=runs/asr-pilot/step-000100
+python infer_qwen_asr.py --model "$SELECTED" \
+  --manifest prepared/test.jsonl --device cuda \
+  --out runs/selected-test.jsonl</code></pre>
+<p>Evaluate saved checkpoints on validation with exactly the same
+inference settings as the baseline. Select the checkpoint using your
+declared criterion, including non-speech and domain-critical errors.
+Only then run the selected checkpoint once on the untouched test split.
+If validation degrades, keep the base model; do not deploy the newer
+file merely because training finished.</p>
+<p>The example saves full inference checkpoints and processors. It does
+<strong>not</strong> save Adam state, shuffled-data position, or RNG
+state. The starter deliberately accepts only the pinned base provenance;
+continuing from an adaptation would require a separate explicitly
+designed continuation/resume mode. Loading saved weights alone would be
+further training with a fresh optimizer, not exact resumption. Add a
+complete trusted-local resume mechanism only after the initial
+experiment works.</p>
+<a id="a-realistic-24-gb-planning-budget"></a>
+<h3>A realistic 24 GB planning
+budget</h3>
+<p>The total FP32 weights alone are approximately 3.75 GB decimal. If
+every one of the 0.938B parameters were trained with FP32 gradients and
+Adam's two moment buffers, the simple parameter-state subtotal would be
+about 15.0 GB decimal before activations and temporary tensors. Freezing
+the acoustic tower removes its gradient and optimizer buffers; the
+script prints the actual trainable count rather than assuming the
+model's marketing name gives it. These are arithmetic bounds, not
+measured allocator peaks.</p>
+<p>For this short-clip, microbatch-1, frozen-tower project, a 24 GB RTX
+3090/4090-class card is a plausible target to test. We have <strong>not
+measured a peak VRAM number or training speed</strong>. The first run
+records both peak allocated and peak reserved CUDA memory. Leave several
+GB of headroom; close unrelated GPU applications. If it fails, shorten
+correctly aligned clips, reduce accumulation only to reduce CPU staging
+rather than expecting major GPU savings, and inspect logits/activation
+length. Increasing accumulation changes effective batch; it does not
+shrink a single forward pass.</p>
+<p>Plan roughly 16-32 GB host RAM, several GB for downloaded weights,
+and about 3.75 GB per FP32 exported checkpoint before packaging
+overhead. Keeping ten full checkpoints can consume tens of GB. Start
+with two. Eight-second 16 kHz PCM16 mono audio is about 256 KB before
+container overhead; one hour is about 115 MB. Save the unmodified
+recordings separately only as long as your retention policy permits.</p>
+<p>Measure wall time for 20-50 warmed-up updates. If your measured
+average is <code>t</code> seconds per optimizer update, 200 updates take
+approximately <code>200 × t</code> plus setup, exports and evaluation.
+For example, 3 seconds would imply around 10 minutes of update time; 12
+seconds would imply around 40 minutes. These are arithmetic
+illustrations, not claimed RTX benchmarks. Generation-based validation
+may take longer than a loss-only pass.</p>
+<a id="evaluate-recognition-not-just-readable-output"></a>
+<h2>Evaluate
+recognition not just readable output</h2>
+<a id="wer-cer-and-a-worked-error"></a>
+<h3>WER CER and a worked error</h3>
+<p><strong>Word error rate (WER)</strong> is
+<code>(substitutions + deletions + insertions) / reference_words</code>,
+after an explicitly chosen normalization and tokenization. If the
+reference is “turn the pump off” and the hypothesis is “turn pump on,”
+deleting “the” and replacing “off” with “on” gives 2/4 = 50%. The
+dangerous negation error matters more operationally than the harmless
+article omission, even though both count as one edit.</p>
+<p><strong>Character error rate (CER)</strong> uses character units
+instead. Our helper uses NFC-normalized Unicode code points after
+removing whitespace; it does not claim to implement grapheme-cluster
+segmentation. CER is useful for scripts where whitespace is an
+unreliable word delimiter. Chinese <code>你好世界</code> versus
+<code>你好世间</code> has one changed character out of four, or 25% CER.
+A whitespace WER for that pair treats each whole string as one word and
+is much less informative.</p>
+<p>Aggregate edit counts and reference lengths across the corpus; do not
+simply average utterance WERs, which lets a one-word clip weigh as much
+as a long sentence. WER can exceed 100% when the model inserts many
+words. For an empty reference, the denominator is zero: report
+invented-output counts separately instead of manufacturing a
+conventional percentage.</p>
+<a id="raw-and-normalized-scores-answer-different-questions"></a>
+<h3>Raw and
+normalized scores answer different questions</h3>
+<p>The supplied scorer reports:</p>
+<ul>
+<li>Raw WER/CER, preserving case and punctuation after Unicode and
+whitespace normalization</li>
+<li>A transparent lexical variant that casefolds and replaces Unicode
+punctuation with spaces</li>
+<li>Empty-reference false positives and inserted words</li>
+<li>Separate language, domain and speaker slices</li>
+</ul>
+<p>This simple normalizer is <strong>not</strong> the exact scorer used
+by either vendor's leaderboard. It splits apostrophes when stripping
+punctuation and performs no number expansion. Use it consistently to
+debug your own experiment; use the dataset's published scoring rules for
+a benchmark comparison. Inspect punctuation/capitalization separately if
+they matter to the product. A lexical WER of zero does not mean the
+result is publication-ready.</p>
+<p>For non-English evaluation, decide whether script variants,
+diacritics, spacing, numerals and code-switches represent acceptable
+alternatives or meaningful mistakes. Report each language rather than
+hiding a weak language in a large English average. In addition to
+WER/CER, count domain term errors, missed negations, changed quantities,
+and correction time on a blind sample. These application metrics are
+original project design, not a new universal ASR score.</p>
+<a id="silence-noise-and-hallucination-probes"></a>
+<h3>Silence noise and
+hallucination probes</h3>
+<p>Include exact digital silence, room tone, music without intelligible
+words, keyboard sounds, a distant speaker, clipped speech, an unfamiliar
+accent, and very quiet speech. Use empty references only for genuinely
+non-speech clips. Check whether the model emits a plausible sentence
+despite no speech.</p>
+<p><strong>Voice activity detection (VAD)</strong> predicts regions
+likely to contain speech. It can prevent unnecessary ASR calls, but
+false negatives erase speech before the recognizer sees it. Tune and
+evaluate VAD on validation audio; measure quiet-speech recall and
+boundary truncation as well as non-speech suppression. A raw amplitude
+threshold is not a reliable speech detector. The Cohere card explicitly
+highlights silence-related hallucination and VAD/noise-gate mitigation.
+<a href="../chapters/references.html#source-s04">S04</a></p>
+<p>A deployment policy might flag repetition, output-token limits, empty
+audio, extreme duration-to-text mismatch, or high disagreement between
+model versions for review. These are triage signals. They cannot certify
+correctness. For important instructions, quantities, legal records or
+clinical content, preserve human verification rather than silently
+turning generated text into authoritative evidence.</p>
+<a id="save-once-run-on-cpu-and-gpu"></a>
+<h2>Save once run on CPU and GPU</h2>
+<p>Use the <code>SELECTED</code> path chosen above for deployment,
+rather than assuming the last checkpoint is best. In a new terminal,
+reactivate <code>.venv-qwen-asr</code> and set <code>SELECTED</code>
+again. Each exported model directory contains model weights,
+configuration, tokenizer/processor files, and the run record. Keep the
+dataset manifest hashes, model revision, package versions and scoring
+policy with it. Do not publish private source paths, transcripts or
+recordings when sharing the model. Retest inference after moving the
+directory to its intended deployment machine.</p>
+<pre class="bash"><code># CPU: FP32, low concurrency, suitable for checking a small local file
+python infer_qwen_asr.py --model "$SELECTED" \
+  --audio new_note.wav --device cpu --language English \
+  --out runs/new-note-cpu.jsonl
+
+# GPU: BF16, one inference example at a time
+python infer_qwen_asr.py --model "$SELECTED" \
+  --audio new_note.wav --device cuda --language English \
+  --out runs/new-note-gpu.jsonl</code></pre>
+<p>Expect CPU latency to depend strongly on hardware and audio length;
+this chapter promises no real-time rate. CPU and GPU kernels/precision
+can produce slightly different token choices. Compare a representative
+corpus, not only one sentence, before declaring them equivalent. The
+project requests no timestamps and loads no forced aligner.</p>
+<a id="optional-cohere-local-comparison"></a>
+<h3>Optional Cohere local
+comparison</h3>
+<p>After you personally complete the model's access requirements and
+obtain an authorized native-compatible local snapshot, use the separate
+Cohere environment and <code>infer_cohere.py</code>. Its candidate stack
+is PyTorch 2.10.0, Transformers 5.4.0, NumPy/SciPy for audio loading,
+and the tokenizer dependencies required by that snapshot, including
+SentencePiece/Protobuf. The snapshot must match native configuration and
+weight-key conventions, including <code>encoder_config</code>; an older
+remote-code snapshot is not interchangeable. The versioned documentation
+includes a converted revision example, while current cards advertise
+native support. The loader rejects obviously incompatible layouts.
+Perform a real local load test before calling the environment validated.
+<a href="../chapters/references.html#source-s04">S04</a> <a href="../chapters/references.html#source-s12">S12</a> <a href="../chapters/references.html#source-s23">S23</a></p>
+<pre class="bash"><code>python infer_cohere.py --model /path/to/cohere-transcribe-snapshot \
+  --audio new_note.wav --language en --device cpu
+python infer_cohere.py --model /path/to/cohere-transcribe-snapshot \
+  --audio new_note.wav --language en --device cuda</code></pre>
+<p>Use the same human references and scoring policy when comparing its
+outputs with Qwen. Do not compare a vendor's reported leaderboard
+average directly with your workshop validation WER. For the Arabic
+checkpoint, repeat the comparison by dialect and mixed-language
+condition. This script is source/API-reviewed only; neither Cohere
+weights nor its CPU/GPU inference were executed here.</p>
+<a id="what-was-tested-what-you-still-need-to-prove"></a>
+<h2>What was tested
+what you still need to prove</h2>
+<p>During authoring, 11 CPU tests passed for WAV scaling, stereo
+conversion, duration-preserving resampling, anti-aliasing, NaN
+rejection, split/consent checks, preparation output, Unicode handling,
+edit counts, punctuation normalization, empty-reference behavior and WER
+above 100%. The environment was Python 3.12.14, NumPy 2.3.5 and SciPy
+1.17.0. All supplied ASR Python files compiled. The exact test log is in
+the companion's validation materials.</p>
+<p>PyTorch, Transformers, Qwen-ASR and SoundFile were absent. No new
+packages, pretrained weights, accounts, access-gate agreements, GPU
+runs, neural forwards/backwards, model reloads, or CPU/GPU numerical
+comparisons were performed. Source review and syntax validation do not
+establish a successful training run. Before spending hours, execute the
+two-update smoke test, inspect masks and counts, reload its export, and
+measure memory on your own machine.</p>
+<a id="your-next-experiment"></a>
+<h3>Your next experiment</h3>
+<p>Compare three conditions with the same untouched validation audio:
+the pinned base, a 200-update frozen-audio adaptation, and a
+lower-learning-rate adaptation. Keep everything else fixed. Write down
+which words improved, which new errors appeared, whether silent clips
+became worse, and whether gains remain for unseen speakers. Only expand
+data or trainable layers when this evidence tells you what problem
+remains.</p>
+<p>You have now completed the recognition half of the audio story:
+waveform and transcript pairs become a supervised objective and,
+eventually, a deployable transcriber. The audio-diffusion project
+changes the target completely: the output is a waveform or audio latent,
+and generation quality must be evaluated as sound.</p>
+</article><nav class="pager" aria-label="Adjacent chapters"><a href="26.html"><small>← Previous</small>26  Project teach an image generator a small visual style</a><a href="28.html"><small>Next →</small>28  Project build a tiny sound generator from random weights</a></nav></main><aside class="on-page"><h2>On this page</h2><a href="#the-project-accurate-workshop-voice-notes">The project accurate
+workshop voice notes</a><a href="#current-cohere-models-know-which-category-you-are-studying">Current
+Cohere models know which category you are studying</a><a href="#what-the-model-learns-from-an-audio-text-pair">What the model
+learns from an audio text pair</a><a href="#build-the-dataset-before-touching-the-optimizer">Build the
+dataset before touching the optimizer</a><a href="#the-pinned-adaptation-experiment">The pinned adaptation
+experiment</a><a href="#evaluate-recognition-not-just-readable-output">Evaluate
+recognition not just readable output</a><a href="#save-once-run-on-cpu-and-gpu">Save once run on CPU and GPU</a><a href="#what-was-tested-what-you-still-need-to-prove">What was tested
+what you still need to prove</a></aside></div><footer class="footer"><div><strong>Training Your Own Models</strong><br>Vibe Authored by Dr.Puma · 2 October 2026</div><div><a href="../chapters/glossary.html">Glossary</a><a href="../chapters/references.html">References</a><a href="https://github.com/MrScripty/training-your-own-models">GitHub ↗</a></div></footer><script src="../assets/site.js" defer></script></body></html>

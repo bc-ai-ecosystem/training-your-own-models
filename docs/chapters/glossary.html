@@ -1,0 +1,528 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f6f3eb"><title>Glossary with links to explanations · Training Your Own Models</title><meta name="description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><link rel="canonical" href="https://mrscripty.github.io/training-your-own-models/chapters/glossary.html"><meta property="og:type" content="website"><meta property="og:site_name" content="Training Your Own Models"><meta property="og:title" content="Glossary with links to explanations · Training Your Own Models"><meta property="og:description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><meta property="og:url" content="https://mrscripty.github.io/training-your-own-models/chapters/glossary.html"><meta property="og:image" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta property="og:image:secure_url" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1280"><meta property="og:image:height" content="640"><meta property="og:image:alt" content="Training Your Own Models. On One 24 GB GPU. Vibe Authored by Dr.Puma. Cream, blue and orange scientific cover artwork."><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Glossary with links to explanations · Training Your Own Models"><meta name="twitter:description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><meta name="twitter:image" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta name="twitter:image:alt" content="Training Your Own Models, Vibe Authored by Dr.Puma"><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/style.css"></head><body><a class="skip" href="#main">Skip to content</a><header class="topbar"><a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true">↗</span><span>Training Your<br>Own Models</span></a><nav aria-label="Main navigation"><a href="../chapters/start.html">Read the book</a><a href="../labs.html">Explore</a><a href="../search.html" aria-label="Search the book">Search</a><a href="../downloads.html">Downloads</a></nav></header><div class="reader"><aside class="sidebar"><nav aria-label="Book contents"><label class="nav-filter">Find a chapter<input type="search" class="chapter-filter" placeholder="Filter titles" aria-label="Filter chapter titles"></label><a class="chapter-link" href="../chapters/start.html"><span>→</span>Training Your Own Models on One 24 GB GPU</a><a class="chapter-link" href="../chapters/01.html"><span>1</span>Train your first model before learning the whole field</a><a class="chapter-link" href="../chapters/02.html"><span>2</span>Your computer and the training workspace</a><a class="chapter-link" href="../chapters/03.html"><span>3</span>Numbers tensors parameters and learning</a><a class="chapter-link" href="../chapters/04.html"><span>4</span>Project turn four sensor readings into a useful prediction</a><a class="chapter-link" href="../chapters/05.html"><span>5</span>Build a dataset that teaches the job</a><a class="chapter-link" href="../chapters/06.html"><span>6</span>Decide whether the model actually improved</a><a class="chapter-link" href="../chapters/07.html"><span>7</span>Move from feature columns to neural representations</a><a class="chapter-link" href="../chapters/08.html"><span>8</span>Project classify your own small image collection</a><a class="chapter-link" href="../chapters/09.html"><span>9</span>Project locate one object with a box</a><a class="chapter-link" href="../chapters/10.html"><span>10</span>Project predict a mask then extract an outline</a><a class="chapter-link" href="../chapters/11.html"><span>11</span>Train a miniature language model from random weights</a><a class="chapter-link" href="../chapters/12.html"><span>12</span>How a language model becomes a prediction machine</a><a class="chapter-link" href="../chapters/13.html"><span>13</span>Read and control the training loop</a><a class="chapter-link" href="../chapters/14.html"><span>14</span>Make a run reproducible and recoverable</a><a class="chapter-link" href="../chapters/15.html"><span>15</span>The real memory and compute budget</a><a class="chapter-link" href="../chapters/16.html"><span>16</span>Project make related text easy to retrieve</a><a class="chapter-link" href="../chapters/17.html"><span>17</span>Choose a model by its actual structure and files</a><a class="chapter-link" href="../chapters/18.html"><span>18</span>Teach a small language model one useful behavior</a><a class="chapter-link" href="../chapters/19.html"><span>19</span>Repeat the project with every weight trainable</a><a class="chapter-link" href="../chapters/20.html"><span>20</span>Teach domain conventions without turning weights into a database</a><a class="chapter-link" href="../chapters/21.html"><span>21</span>Make a writing style reproducible without changing the facts</a><a class="chapter-link" href="../chapters/22.html"><span>22</span>Teach a tool decision and a complete tool interaction</a><a class="chapter-link" href="../chapters/23.html"><span>23</span>Study a small typed decision service</a><a class="chapter-link" href="../chapters/24.html"><span>24</span>From a language model to a decision model</a><a class="chapter-link" href="../chapters/25.html"><span>25</span>Add preferences and distillation only after supervised learning works</a><a class="chapter-link" href="../chapters/26.html"><span>26</span>Project teach an image generator a small visual style</a><a class="chapter-link" href="../chapters/27.html"><span>27</span>Speech recognition train a small model to hear your domain</a><a class="chapter-link" href="../chapters/28.html"><span>28</span>Project build a tiny sound generator from random weights</a><a class="chapter-link" href="../chapters/29.html"><span>29</span>Scale a working experiment toward one billion parameters</a><a class="chapter-link" href="../chapters/30.html"><span>30</span>Understand what a public training process really demonstrates</a><a class="chapter-link" href="../chapters/31.html"><span>31</span>Diagnose failures before making the model larger</a><a class="chapter-link" href="../chapters/32.html"><span>32</span>From small model to small device product</a><a class="chapter-link" href="../chapters/33.html"><span>33</span>Turn a checkpoint into a usable application</a><a class="chapter-link" href="../chapters/34.html"><span>34</span>Design your first independent model</a><a class="chapter-link" href="../chapters/35.html"><span>35</span>Understand larger models using the parts you already know</a><a class="chapter-link" href="../chapters/36.html"><span>36</span>Read MiMo GLM and other architecture families</a><a class="chapter-link" href="../chapters/37.html"><span>37</span>Connect architecture to data memory and deployment</a><a class="chapter-link" href="../chapters/38.html"><span>38</span>Learn from public training projects without copying their assumptions</a><a class="chapter-link" href="../chapters/39.html"><span>39</span>Exercise checkpoints and worked answers</a><a class="chapter-link" href="../chapters/40.html"><span>40</span>Companion guide and verification record</a><a class="chapter-link" href="../chapters/glossary.html" aria-current="page"><span>A–Z</span>Glossary with links to explanations</a><a class="chapter-link" href="../chapters/references.html"><span>Ref</span>Works cited</a></nav></aside><main class="prose" id="main"><details class="mobile-toc"><summary>Browse the book</summary><nav aria-label="Book contents"><label class="nav-filter">Find a chapter<input type="search" class="chapter-filter" placeholder="Filter titles" aria-label="Filter chapter titles"></label><a class="chapter-link" href="../chapters/start.html"><span>→</span>Training Your Own Models on One 24 GB GPU</a><a class="chapter-link" href="../chapters/01.html"><span>1</span>Train your first model before learning the whole field</a><a class="chapter-link" href="../chapters/02.html"><span>2</span>Your computer and the training workspace</a><a class="chapter-link" href="../chapters/03.html"><span>3</span>Numbers tensors parameters and learning</a><a class="chapter-link" href="../chapters/04.html"><span>4</span>Project turn four sensor readings into a useful prediction</a><a class="chapter-link" href="../chapters/05.html"><span>5</span>Build a dataset that teaches the job</a><a class="chapter-link" href="../chapters/06.html"><span>6</span>Decide whether the model actually improved</a><a class="chapter-link" href="../chapters/07.html"><span>7</span>Move from feature columns to neural representations</a><a class="chapter-link" href="../chapters/08.html"><span>8</span>Project classify your own small image collection</a><a class="chapter-link" href="../chapters/09.html"><span>9</span>Project locate one object with a box</a><a class="chapter-link" href="../chapters/10.html"><span>10</span>Project predict a mask then extract an outline</a><a class="chapter-link" href="../chapters/11.html"><span>11</span>Train a miniature language model from random weights</a><a class="chapter-link" href="../chapters/12.html"><span>12</span>How a language model becomes a prediction machine</a><a class="chapter-link" href="../chapters/13.html"><span>13</span>Read and control the training loop</a><a class="chapter-link" href="../chapters/14.html"><span>14</span>Make a run reproducible and recoverable</a><a class="chapter-link" href="../chapters/15.html"><span>15</span>The real memory and compute budget</a><a class="chapter-link" href="../chapters/16.html"><span>16</span>Project make related text easy to retrieve</a><a class="chapter-link" href="../chapters/17.html"><span>17</span>Choose a model by its actual structure and files</a><a class="chapter-link" href="../chapters/18.html"><span>18</span>Teach a small language model one useful behavior</a><a class="chapter-link" href="../chapters/19.html"><span>19</span>Repeat the project with every weight trainable</a><a class="chapter-link" href="../chapters/20.html"><span>20</span>Teach domain conventions without turning weights into a database</a><a class="chapter-link" href="../chapters/21.html"><span>21</span>Make a writing style reproducible without changing the facts</a><a class="chapter-link" href="../chapters/22.html"><span>22</span>Teach a tool decision and a complete tool interaction</a><a class="chapter-link" href="../chapters/23.html"><span>23</span>Study a small typed decision service</a><a class="chapter-link" href="../chapters/24.html"><span>24</span>From a language model to a decision model</a><a class="chapter-link" href="../chapters/25.html"><span>25</span>Add preferences and distillation only after supervised learning works</a><a class="chapter-link" href="../chapters/26.html"><span>26</span>Project teach an image generator a small visual style</a><a class="chapter-link" href="../chapters/27.html"><span>27</span>Speech recognition train a small model to hear your domain</a><a class="chapter-link" href="../chapters/28.html"><span>28</span>Project build a tiny sound generator from random weights</a><a class="chapter-link" href="../chapters/29.html"><span>29</span>Scale a working experiment toward one billion parameters</a><a class="chapter-link" href="../chapters/30.html"><span>30</span>Understand what a public training process really demonstrates</a><a class="chapter-link" href="../chapters/31.html"><span>31</span>Diagnose failures before making the model larger</a><a class="chapter-link" href="../chapters/32.html"><span>32</span>From small model to small device product</a><a class="chapter-link" href="../chapters/33.html"><span>33</span>Turn a checkpoint into a usable application</a><a class="chapter-link" href="../chapters/34.html"><span>34</span>Design your first independent model</a><a class="chapter-link" href="../chapters/35.html"><span>35</span>Understand larger models using the parts you already know</a><a class="chapter-link" href="../chapters/36.html"><span>36</span>Read MiMo GLM and other architecture families</a><a class="chapter-link" href="../chapters/37.html"><span>37</span>Connect architecture to data memory and deployment</a><a class="chapter-link" href="../chapters/38.html"><span>38</span>Learn from public training projects without copying their assumptions</a><a class="chapter-link" href="../chapters/39.html"><span>39</span>Exercise checkpoints and worked answers</a><a class="chapter-link" href="../chapters/40.html"><span>40</span>Companion guide and verification record</a><a class="chapter-link" href="../chapters/glossary.html" aria-current="page"><span>A–Z</span>Glossary with links to explanations</a><a class="chapter-link" href="../chapters/references.html"><span>Ref</span>Works cited</a></nav></details><div class="chapter-meta"><span class="eyebrow">Reference</span><span>16 min read</span></div><article class="manuscript"><a id="glossary"></a>
+<h1>Glossary with links to
+explanations</h1><label class="glossary-filter">Find a term<input id="glossary-filter" placeholder="Try gradient, LoRA, or tensor" type="search"/></label><p aria-live="polite" class="muted" id="glossary-count">243 terms</p>
+<p>Use each link to return to the explanation and its worked project.
+Terms introduced at several levels point to a useful first or central
+explanation.</p>
+<ul>
+<li><strong>Activation.</strong> An intermediate value produced during a
+forward pass. <a href="../chapters/03.html#what-one-training-step-actually-means">Explanation</a></li>
+<li><strong>Activation checkpointing.</strong> Recomputing selected
+activations during backward to save memory. <a href="../chapters/15.html#the-largest-memory-knobs-are-often-ordinary-ones">Explanation</a></li>
+<li><strong>Activation function.</strong> A nonlinear transformation
+such as ReLU or GELU, distinct from an intermediate activation value. <a href="../chapters/07.html#a-neural-layer-is-a-learned-transformation">Explanation</a></li>
+<li><strong>Active parameters.</strong> The subset involved in
+processing a token; not the complete resident or trainable parameter
+count. <a href="../chapters/17.html#total-active-and-effective-are-not-synonyms">Explanation</a></li>
+<li><strong>AdamW.</strong> An adaptive optimizer with decoupled weight
+decay. <a href="../chapters/13.html#optimizer-parameters">Explanation</a></li>
+<li><strong>Approximate nearest neighbors.</strong> An indexing approach
+trading some exact-search fidelity for faster vector retrieval. <a href="../chapters/16.html#use-the-trained-index-consistently">Explanation</a></li>
+<li><strong>Architecture.</strong> The form of the model computation and
+arrangement of its learned parts. <a href="../chapters/03.html#a-model-is-a-computation-with-adjustable-values">Explanation</a></li>
+<li><strong>Architecture/data relationship.</strong> The connection
+between what a model can represent and what its examples must
+demonstrate. <a href="../chapters/04.html#how-the-architecture-changes-the-data-you-need">Explanation</a></li>
+<li><strong>ASR hallucination.</strong> Text generated by a recognizer
+despite the corresponding words being absent from the audio; silence and
+noise probes help expose this. <a href="../chapters/27.html#silence-noise-and-hallucination-probes">Explanation</a></li>
+<li><strong>Assistant-only loss.</strong> Loss on assistant responses,
+while user, system and tool-observation text remains context. <a href="../chapters/18.html#loss-masks-teach-the-desired-part">Explanation</a></li>
+<li><strong>Attention.</strong> A learned way for a position to combine
+information from other permitted positions. <a href="../chapters/12.html#attention-lets-a-position-combine-information">Explanation</a></li>
+<li><strong>Attention mask.</strong> A rule controlling which positions
+may influence a representation. <a href="../chapters/13.html#attention-masks-and-loss-masks-solve-different-problems">Explanation</a></li>
+<li><strong>Audio-transcript alignment.</strong> Ensuring that a
+segment’s target text contains exactly the words present in that
+segment, rather than the transcript of a longer recording. <a href="../chapters/27.html#segment-and-align-never-blindly-crop-the-pair">Explanation</a></li>
+<li><strong>Autocast.</strong> A framework policy choosing compute
+precision for supported operations without necessarily changing stored
+parameter dtype. <a href="../chapters/13.html#precision-policy-and-autocast">Explanation</a></li>
+<li><strong>Autograd.</strong> Automatic differentiation used to
+calculate gradients. <a href="../chapters/03.html#the-gradient-tells-you-how-a-small-change-affects-loss">Explanation</a></li>
+<li><strong>Automatic speech recognition (ASR).</strong> Converting
+recorded speech audio into a written transcript; distinct from
+generating speech, identifying speakers, or summarizing a transcript. <a href="../chapters/27.html#the-project-accurate-workshop-voice-notes">Explanation</a></li>
+<li><strong>Average precision.</strong> A ranking metric summarizing
+precision as recall increases. <a href="../chapters/04.html#read-the-first-result-before-tuning">Explanation</a></li>
+<li><strong>Backpropagation.</strong> Computing parameter gradients
+through the model computation. <a href="../chapters/03.html#the-gradient-tells-you-how-a-small-change-affects-loss">Explanation</a></li>
+<li><strong>Base model.</strong> A pretrained model before a particular
+instruction or task adaptation. <a href="../chapters/12.html#base-models-and-instruction-models">Explanation</a></li>
+<li><strong>Baseline.</strong> A simpler or unchanged system used as the
+comparison before training. <a href="../chapters/04.html#start-with-a-baseline-you-can-beat">Explanation</a></li>
+<li><strong>Batch.</strong> Examples processed together or contributing
+to one update, depending on the stated unit. <a href="../chapters/13.html#batch-size-is-a-statistical-and-systems-choice">Explanation</a></li>
+<li><strong>BCE.</strong> Binary cross-entropy, a loss for binary
+targets such as foreground versus background. <a href="../chapters/10.html#choose-a-pixel-loss-that-does-not-reward-empty-predictions">Explanation</a></li>
+<li><strong>BF16.</strong> A two-byte floating-point format with a
+different precision/range tradeoff from FP16. <a href="../chapters/15.html#begin-with-quantities-rather-than-model-names">Explanation</a></li>
+<li><strong>BF16 master-state distinction.</strong> The difference
+between low-precision operation dtype and higher-precision stored
+parameters or optimizer state. <a href="../chapters/16.html#the-embedding-experiment-controls">Explanation</a></li>
+<li><strong>Bias.</strong> An additive learned value in a model
+transformation. <a href="../chapters/03.html#a-model-is-a-computation-with-adjustable-values">Explanation</a></li>
+<li><strong>Boundary F1.</strong> Precision/recall-based agreement of
+boundaries under a specified spatial tolerance. <a href="../chapters/10.html#high-iou-is-not-exact-outline-accuracy">Explanation</a></li>
+<li><strong>Boundary tolerance.</strong> The distance within which
+predicted and reference boundary points count as matching. <a href="../chapters/10.html#high-iou-is-not-exact-outline-accuracy">Explanation</a></li>
+<li><strong>Calibration.</strong> Checking and adjusting the
+relationship between predicted probabilities and observed outcomes. <a href="../chapters/06.html#calibration-and-abstention">Explanation</a></li>
+<li><strong>Calibration split.</strong> Held-out examples used to fit a
+probability correction without fitting the original predictor. <a href="../chapters/04.html#separate-fitting-calibration-selection-and-testing">Explanation</a></li>
+<li><strong>Catastrophic forgetting.</strong> Loss of previously useful
+behavior during adaptation to a different or narrower distribution. <a href="../chapters/20.html#continued-pretraining-changes-the-text-distribution">Explanation</a></li>
+<li><strong>Causal mask.</strong> A mask that prevents a position from
+reading future positions. <a href="../chapters/12.html#next-token-prediction-creates-many-examples">Explanation</a></li>
+<li><strong>Character error rate (CER).</strong> The analogous edit rate
+over declared character units; useful when whitespace-delimited words
+are unsuitable. <a href="../chapters/27.html#wer-cer-and-a-worked-error">Explanation</a></li>
+<li><strong>Chat template.</strong> A model-specific serialization that
+converts roles, turns and optional tools into the tokens expected by a
+chat checkpoint. <a href="../chapters/18.html#why-the-template-is-part-of-the-model">Explanation</a></li>
+<li><strong>Checkpoint.</strong> Saved model state, with additional
+optimizer and random state when intended for resume. <a href="../chapters/14.html#checkpoints-serve-different-purposes">Explanation</a></li>
+<li><strong>Class imbalance.</strong> Unequal representation of target
+classes, often requiring slice-aware evaluation. <a href="../chapters/08.html#small-image-datasets-fail-in-recognizable-ways">Explanation</a></li>
+<li><strong>Classifier free guidance.</strong> A sampling technique
+combining conditional and unconditional predictions. <a href="../chapters/26.html#guidance-belongs-mainly-to-sampling">Explanation</a></li>
+<li><strong>CLM.</strong> A contrastive approach comparing separately
+encoded state and action representations. <a href="../chapters/24.html#the-clm-route-encode-the-sides-separately">Explanation</a></li>
+<li><strong>Closed-loop evaluation.</strong> Testing trajectories using
+the model’s own calls and the observations they actually produce. <a href="../chapters/22.html#evaluate-the-decision-at-several-levels">Explanation</a></li>
+<li><strong>Code-switching.</strong> Alternating languages within
+speech, which requires separate evaluation rather than assuming
+single-language quality transfers. <a href="../chapters/27.html#what-cohere-transcribe-actually-does">Explanation</a></li>
+<li><strong>Completion-only loss.</strong> Loss computed on the
+completion after a prompt, excluding prompt targets. <a href="../chapters/18.html#loss-masks-teach-the-desired-part">Explanation</a></li>
+<li><strong>Conformer.</strong> An acoustic architecture combining local
+convolutional processing with attention over a longer context. <a href="../chapters/27.html#what-cohere-transcribe-actually-does">Explanation</a></li>
+<li><strong>Connectionist temporal classification (CTC).</strong> A
+sequence objective summing probabilities of frame-level paths that
+collapse to the desired transcript, including a blank label. <a href="../chapters/27.html#ctc-versus-autoregressive-transcription">Explanation</a></li>
+<li><strong>Context length.</strong> The amount of input history
+available to a sequence model. <a href="../chapters/11.html#why-this-architecture-needs-this-kind-of-data">Explanation</a></li>
+<li><strong>Continued pretraining.</strong> Continuing a pretrained
+model’s original language-modeling objective on additional text. <a href="../chapters/20.html#continued-pretraining-changes-the-text-distribution">Explanation</a></li>
+<li><strong>Contour.</strong> A boundary extracted from a predicted or
+labeled region. <a href="../chapters/10.html#classification-detection-semantic-segmentation-and-instances">Explanation</a></li>
+<li><strong>Contour hierarchy.</strong> Relationships among outer
+boundaries and nested holes or regions. <a href="../chapters/10.html#from-probability-map-to-polygon">Explanation</a></li>
+<li><strong>Contrastive loss.</strong> An objective making matched
+representations score above selected alternatives. <a href="../chapters/16.html#contrastive-learning-turns-a-batch-into-a-classification-problem">Explanation</a></li>
+<li><strong>Convolution.</strong> A learned local filter reused across
+spatial or temporal positions. <a href="../chapters/08.html#convolutions-features-and-the-output-head">Explanation</a></li>
+<li><strong>Cosine similarity.</strong> The normalized dot product
+measuring vector direction similarity. <a href="../chapters/16.html#what-an-embedding-represents">Explanation</a></li>
+<li><strong>CPU dependency setup.</strong> Installing and verifying the
+packages required by a CPU execution path in an isolated environment. <a href="../chapters/16.html#fresh-environment-for-the-cpu-retrieval-baseline">Explanation</a></li>
+<li><strong>CPU/GPU inference.</strong> Running the same learned
+function on different devices with compatible preprocessing, numeric
+policy, and output checks. <a href="../chapters/16.html#use-the-trained-index-consistently">Explanation</a></li>
+<li><strong>Cross entropy.</strong> A loss penalizing low probability
+assigned to the correct target. <a href="../chapters/03.html#a-loss-turns-a-desired-output-into-a-training-signal">Explanation</a></li>
+<li><strong>CTC blank.</strong> A special no-output label used when
+collapsing CTC paths; distinct from a written space. <a href="../chapters/27.html#ctc-versus-autoregressive-transcription">Explanation</a></li>
+<li><strong>Data augmentation.</strong> Training-input transformations
+justified by a target-preservation assumption. <a href="../chapters/08.html#small-image-datasets-fail-in-recognizable-ways">Explanation</a></li>
+<li><strong>Data leakage.</strong> Information crossing an evaluation
+boundary or appearing before it would be available. <a href="../chapters/05.html#split-related-things-before-making-derivatives">Explanation</a></li>
+<li><strong>Dataset card.</strong> A record of data sources, rights,
+processing, splits, coverage, and limitations. <a href="../chapters/05.html#build-a-data-card-before-the-long-run">Explanation</a></li>
+<li><strong>Decode.</strong> Producing subsequent tokens incrementally.
+<a href="../chapters/35.html#full-attention-and-the-growing-cache">Explanation</a></li>
+<li><strong>Dense model.</strong> A model whose dense blocks normally
+participate for each token, unlike selectively routed experts. <a href="../chapters/17.html#total-active-and-effective-are-not-synonyms">Explanation</a></li>
+<li><strong>Depthwise convolution.</strong> Local filtering
+independently within channels. <a href="../chapters/35.html#recurrent-state-and-short-convolution">Explanation</a></li>
+<li><strong>Detection.</strong> Predicting object locations and usually
+their classes. <a href="../chapters/10.html#classification-detection-semantic-segmentation-and-instances">Explanation</a></li>
+<li><strong>Device budget.</strong> The combined memory, compute,
+storage, power, and response-time constraints of the target device. <a href="../chapters/32.html#from-small-model-to-small-device-product">Explanation</a></li>
+<li><strong>Dice loss.</strong> An overlap-based objective derived from
+the Dice similarity of predicted and target regions. <a href="../chapters/10.html#choose-a-pixel-loss-that-does-not-reward-empty-predictions">Explanation</a></li>
+<li><strong>Diffusion.</strong> A generative approach learning to
+reverse a noise-corruption process. <a href="../chapters/26.html#just-enough-diffusion-what-target-did-the-network-learn">Explanation</a></li>
+<li><strong>Distillation.</strong> Training a student using selected
+teacher behavior or distributions. <a href="../chapters/25.html#distillation-transfers-behavior-rather-than-compressing-a-file">Explanation</a></li>
+<li><strong>Double quantization.</strong> Quantizing quantization
+constants as well as base weights to reduce storage overhead. <a href="../chapters/19.html#when-qlora-earns-its-complexity">Explanation</a></li>
+<li><strong>DPO.</strong> Direct Preference Optimization: fitting
+chosen-versus-rejected preferences relative to a reference policy. <a href="../chapters/25.html#preference-data-says-which-answer-is-better">Explanation</a></li>
+<li><strong>Dropout.</strong> Random suppression during training that
+must be disabled for ordinary evaluation. <a href="../chapters/13.html#dropout-and-other-regularization">Explanation</a></li>
+<li><strong>Dual encoder.</strong> An architecture encoding the two
+sides of a comparison separately. <a href="../chapters/16.html#extend-embeddings-to-images-and-multiple-modalities">Explanation</a></li>
+<li><strong>Effective batch.</strong> All microbatches contributing to
+one optimizer update. <a href="../chapters/13.html#batch-size-is-a-statistical-and-systems-choice">Explanation</a></li>
+<li><strong>Embedding.</strong> A learned vector representation used for
+a specified prediction, similarity, or retrieval task. <a href="../chapters/16.html#what-an-embedding-represents">Explanation</a></li>
+<li><strong>Embedding table.</strong> A learned lookup from discrete IDs
+to vectors. <a href="../chapters/12.html#the-embedding-table-turns-ids-into-vectors">Explanation</a></li>
+<li><strong>Encoder-decoder.</strong> A model that forms an intermediate
+representation and transforms it into an output representation. <a href="../chapters/10.html#a-tiny-encoder-decoder-with-skip-connections">Explanation</a></li>
+<li><strong>Epoch.</strong> One pass through a defined dataset, where
+that concept applies. <a href="../chapters/13.html#epochs-steps-and-stopping">Explanation</a></li>
+<li><strong>Evaluation.</strong> A fixed procedure for comparing task
+behavior against requirements. <a href="../chapters/06.html#make-the-baseline-answer-first">Explanation</a></li>
+<li><strong>Expert parallelism.</strong> Placing experts on separate
+devices and dispatching tokens. <a href="../chapters/37.html#distributed-memory-introduces-communication">Explanation</a></li>
+<li><strong>Export.</strong> Packaging a learned artifact and its
+interface for a particular inference runtime. <a href="../chapters/32.html#export-quantize-and-verify-instead-of-assuming">Explanation</a></li>
+<li><strong>F1.</strong> The harmonic mean of precision and recall. <a href="../chapters/04.html#read-the-first-result-before-tuning">Explanation</a></li>
+<li><strong>False negative.</strong> A genuinely positive or relevant
+example treated as negative by a decision or training construction. <a href="../chapters/16.html#false-negatives-hard-negatives-and-leakage">Explanation</a></li>
+<li><strong>Feature.</strong> Information represented in a form the
+model can consume. <a href="../chapters/03.html#features-are-the-information-you-make-available">Explanation</a></li>
+<li><strong>Feature channel.</strong> One learned component of a
+representation at each spatial or temporal position. <a href="../chapters/08.html#convolutions-features-and-the-output-head">Explanation</a></li>
+<li><strong>Final holdout protocol.</strong> Evaluating a protected test
+set only after model and pipeline choices are fixed. <a href="../chapters/16.html#reserve-the-test-set-for-one-final-comparison">Explanation</a></li>
+<li><strong>Fine tuning.</strong> Further training starting from
+pretrained weights. <a href="../chapters/29.html#three-different-meanings-of-full-training">Explanation</a></li>
+<li><strong>FlashAttention.</strong> IO-aware execution of exact
+attention. <a href="../chapters/35.html#latent-attention-and-exact-kernels">Explanation</a></li>
+<li><strong>Flow matching.</strong> Learning a vector field for a path
+between noise and data distributions. <a href="../chapters/28.html#revisit-the-theory-noise-prediction-score-prediction-and-flow-matching">Explanation</a></li>
+<li><strong>Forced alignment.</strong> Estimating where supplied
+transcript units occur in an audio recording; it does not verify that
+the supplied words are correct. <a href="../chapters/27.html#segment-and-align-never-blindly-crop-the-pair">Explanation</a></li>
+<li><strong>Foreground imbalance.</strong> A segmentation condition
+where target-object pixels are much rarer than background pixels. <a href="../chapters/10.html#choose-a-pixel-loss-that-does-not-reward-empty-predictions">Explanation</a></li>
+<li><strong>FP16.</strong> A two-byte floating-point format whose
+numeric behavior differs from BF16. <a href="../chapters/15.html#begin-with-quantities-rather-than-model-names">Explanation</a></li>
+<li><strong>FP32.</strong> A four-byte floating-point format. <a href="../chapters/15.html#begin-with-quantities-rather-than-model-names">Explanation</a></li>
+<li><strong>Fresh environment.</strong> An isolated package environment
+that avoids accidental dependency inheritance from another project. <a href="../chapters/16.html#fresh-environment-for-the-cpu-retrieval-baseline">Explanation</a></li>
+<li><strong>Frozen feature extractor.</strong> A pretrained component
+whose parameters remain unchanged while another part learns. <a href="../chapters/08.html#transfer-learning-before-a-bigger-scratch-network">Explanation</a></li>
+<li><strong>Full fine-tuning.</strong> Updating all model parameters
+starting from pretrained weights; it does not mean random
+initialization. <a href="../chapters/19.html#repeat-the-project-with-every-weight-trainable">Explanation</a></li>
+<li><strong>Full parameter training.</strong> Updating every selected
+model parameter rather than only an adapter or head. <a href="../chapters/29.html#three-different-meanings-of-full-training">Explanation</a></li>
+<li><strong>GQA.</strong> Grouped-query attention: several query heads
+share a smaller number of key/value heads. <a href="../chapters/17.html#read-a-configuration-as-an-engineering-document">Explanation</a></li>
+<li><strong>GQA and MQA.</strong> Sharing KV heads among several or all
+query heads. <a href="../chapters/35.html#full-attention-and-the-growing-cache">Explanation</a></li>
+<li><strong>Gradient.</strong> The local rate of change of loss with
+respect to a parameter. <a href="../chapters/03.html#the-gradient-tells-you-how-a-small-change-affects-loss">Explanation</a></li>
+<li><strong>Gradient accumulation.</strong> Combining several microbatch
+gradients before an optimizer update. <a href="../chapters/13.html#batch-size-is-a-statistical-and-systems-choice">Explanation</a></li>
+<li><strong>Gradient boosting.</strong> An ensemble built by adding
+learners that improve the remaining prediction error. <a href="../chapters/04.html#start-with-a-baseline-you-can-beat">Explanation</a></li>
+<li><strong>Gradient caching.</strong> A technique recomputing or
+caching parts of embedding training to support a larger logical
+contrastive batch. <a href="../chapters/16.html#batch-size-means-something-different-here">Explanation</a></li>
+<li><strong>Gradient checkpointing.</strong> Recomputing selected
+forward activations during backward to trade extra compute for lower
+memory use. <a href="../chapters/16.html#the-embedding-experiment-controls">Explanation</a></li>
+<li><strong>Gradient clipping.</strong> Limiting unusually large
+gradients before updating. <a href="../chapters/13.html#optimizer-parameters">Explanation</a></li>
+<li><strong>Grouped split.</strong> Keeping related records in the same
+partition to protect evaluation independence. <a href="../chapters/04.html#separate-fitting-calibration-selection-and-testing">Explanation</a></li>
+<li><strong>Hard negative.</strong> An incorrect candidate that is
+plausibly confusable with the correct match. <a href="../chapters/16.html#false-negatives-hard-negatives-and-leakage">Explanation</a></li>
+<li><strong>Hybrid.</strong> Combination of different sequence-mixing
+mechanisms. <a href="../chapters/35.html#why-hybrid-models-keep-some-attention">Explanation</a></li>
+<li><strong>Hyperparameter.</strong> A configuration choice controlling
+the model or training procedure. <a href="../chapters/03.html#a-model-is-a-computation-with-adjustable-values">Explanation</a></li>
+<li><strong>Imputation.</strong> Filling missing values using a rule
+fitted only on appropriate training data. <a href="../chapters/04.html#start-with-a-baseline-you-can-beat">Explanation</a></li>
+<li><strong>In-batch negatives.</strong> Other examples in a training
+batch used as alternative candidates in a contrastive objective. <a href="../chapters/16.html#batch-size-means-something-different-here">Explanation</a></li>
+<li><strong>Index consistency.</strong> Agreement among the saved
+encoder, preprocessing, vector representation, and indexed documents. <a href="../chapters/16.html#use-the-trained-index-consistently">Explanation</a></li>
+<li><strong>Inference.</strong> Using fitted model parameters to produce
+an output. <a href="../chapters/33.html#cpu-and-gpu-are-two-deployment-targets">Explanation</a></li>
+<li><strong>Input.</strong> The information available to the model when
+a prediction is made. <a href="../chapters/04.html#name-the-input-the-target-and-the-decision">Explanation</a></li>
+<li><strong>Instance segmentation.</strong> Predicting distinct masks
+for individual objects. <a href="../chapters/10.html#classification-detection-semantic-segmentation-and-instances">Explanation</a></li>
+<li><strong>IoU.</strong> Intersection over union, measuring region
+overlap relative to the combined region. <a href="../chapters/10.html#high-iou-is-not-exact-outline-accuracy">Explanation</a></li>
+<li><strong>Jev.</strong> A hosted typed-decision model; its private
+internals are not reproduced here. <a href="../chapters/24.html#jev-kev-clm-and-jepa-are-different-names">Explanation</a></li>
+<li><strong>KDA.</strong> Kimi Delta Attention, a gated recurrent
+linear-attention mechanism. <a href="../chapters/35.html#recurrent-state-and-short-convolution">Explanation</a></li>
+<li><strong>Kev.</strong> An open decision-model implementation studied
+separately from Jev. <a href="../chapters/24.html#jev-kev-clm-and-jepa-are-different-names">Explanation</a></li>
+<li><strong>Knowledge editing.</strong> Methods designed to change
+targeted factual associations, with locality/generalization limits
+requiring evaluation. <a href="../chapters/20.html#knowledge-editing-has-a-different-promise">Explanation</a></li>
+<li><strong>KV cache.</strong> Stored attention state used to avoid
+repeated generation computation. <a href="../chapters/12.html#training-and-generation-use-different-controls">Explanation</a></li>
+<li><strong>L2 normalization.</strong> Rescaling a vector to unit
+Euclidean length. <a href="../chapters/16.html#what-an-embedding-represents">Explanation</a></li>
+<li><strong>Label.</strong> The recorded correct target for an example.
+<a href="../chapters/04.html#name-the-input-the-target-and-the-decision">Explanation</a></li>
+<li><strong>Last-token pooling.</strong> Using the final nonpadding
+token representation as the sequence embedding under the model's trained
+contract. <a href="../chapters/16.html#what-an-embedding-represents">Explanation</a></li>
+<li><strong>Latent autoencoder.</strong> A model mapping images or audio
+to and from a smaller learned representation. <a href="../chapters/26.html#the-latent-autoencoder-and-text-encoder-each-have-one-job">Explanation</a></li>
+<li><strong>Laya.</strong> A public ModernBERT-based typed-decision
+model used as a study case. <a href="../chapters/23.html#why-laya-is-a-useful-first-study-model">Explanation</a></li>
+<li><strong>Leakage.</strong> Information crossing an evaluation
+boundary or becoming available earlier than it would at prediction time.
+<a href="../chapters/04.html#separate-fitting-calibration-selection-and-testing">Explanation</a></li>
+<li><strong>Learnability.</strong> Whether the desired mapping can be
+inferred from the available information and examples under the chosen
+model. <a href="../chapters/04.html#generalize-the-project-to-your-own-input-to-output-task">Explanation</a></li>
+<li><strong>Learning curve.</strong> A comparison of performance as
+training data or training budget increases. <a href="../chapters/04.html#how-the-architecture-changes-the-data-you-need">Explanation</a></li>
+<li><strong>Learning rate.</strong> The scale of an optimizer update. <a href="../chapters/13.html#learning-rate-and-schedule">Explanation</a></li>
+<li><strong>Linear attention.</strong> Sequence mixing that avoids the
+usual quadratic pair matrix. <a href="../chapters/35.html#recurrent-state-and-short-convolution">Explanation</a></li>
+<li><strong>Load balancing.</strong> Mechanism to avoid unusably uneven
+expert traffic. <a href="../chapters/35.html#what-changes-during-moe-training">Explanation</a></li>
+<li><strong>Log-Mel spectrogram.</strong> Successive short-window
+frequency representations pooled through Mel filters and logarithmically
+scaled, using the model processor’s expected conventions. <a href="../chapters/27.html#waveforms-frames-and-log-mel-features">Explanation</a></li>
+<li><strong>Logistic regression.</strong> A linear score transformed
+into a class probability, fitted from labeled examples. <a href="../chapters/04.html#start-with-a-baseline-you-can-beat">Explanation</a></li>
+<li><strong>Logit.</strong> An unnormalized prediction score before
+probability conversion. <a href="../chapters/03.html#a-loss-turns-a-desired-output-into-a-training-signal">Explanation</a></li>
+<li><strong>Logits.</strong> Unnormalized scores over the vocabulary
+before conversion to token probabilities. <a href="../chapters/19.html#sequence-length-can-dominate-the-surprise">Explanation</a></li>
+<li><strong>LoRA.</strong> Low-rank adaptation: freeze a base matrix and
+learn a smaller factorized correction. <a href="../chapters/18.html#lora-is-a-learned-correction-matrix">Explanation</a></li>
+<li><strong>LoRA alpha.</strong> A scale parameter; standard LoRA
+multiplies the adapter correction by alpha divided by rank. <a href="../chapters/18.html#lora-is-a-learned-correction-matrix">Explanation</a></li>
+<li><strong>LoRA rank.</strong> The inner dimension of the two adapter
+matrices, controlling the rank and capacity of their product. <a href="../chapters/18.html#lora-is-a-learned-correction-matrix">Explanation</a></li>
+<li><strong>Loss.</strong> A numeric training objective comparing
+prediction and target. <a href="../chapters/01.html#the-loss-says-how-wrong-the-probabilities-are">Explanation</a></li>
+<li><strong>Loss mask.</strong> A rule selecting which predictions
+contribute to training loss. <a href="../chapters/13.html#attention-masks-and-loss-masks-solve-different-problems">Explanation</a></li>
+<li><strong>Macro-F1.</strong> The average of per-class F1 scores,
+giving each class equal weight. <a href="../chapters/08.html#small-image-datasets-fail-in-recognizable-ways">Explanation</a></li>
+<li><strong>MAE.</strong> Mean absolute error, measured in the target's
+units. <a href="../chapters/04.html#change-the-output-predict-a-number-instead">Explanation</a></li>
+<li><strong>Margin.</strong> A required score or distance separation
+between desired and undesired outcomes. <a href="../chapters/16.html#contrastive-learning-turns-a-batch-into-a-classification-problem">Explanation</a></li>
+<li><strong>Master weights.</strong> An additional high-precision
+parameter copy maintained by some mixed-precision training schemes. <a href="../chapters/19.html#count-memory-before-you-spend-time">Explanation</a></li>
+<li><strong>Mean pooling.</strong> Averaging selected position
+representations into one vector. <a href="../chapters/16.html#what-an-embedding-represents">Explanation</a></li>
+<li><strong>mHC.</strong> Constrained learned routing among residual
+streams. <a href="../chapters/35.html#residual-connections-can-have-several-streams">Explanation</a></li>
+<li><strong>Microbatch.</strong> The examples handled in one
+forward/backward pass. <a href="../chapters/13.html#batch-size-is-a-statistical-and-systems-choice">Explanation</a></li>
+<li><strong>Mixed precision.</strong> Using different numeric formats
+for different parts of training. <a href="../chapters/15.html#full-training-needs-more-than-weights">Explanation</a></li>
+<li><strong>Mixture of experts.</strong> A model that routes each token
+through selected expert networks while retaining the larger expert
+collection. <a href="../chapters/17.html#total-active-and-effective-are-not-synonyms">Explanation</a></li>
+<li><strong>MLA.</strong> Learned latent representation of attention KV
+information. <a href="../chapters/35.html#latent-attention-and-exact-kernels">Explanation</a></li>
+<li><strong>Model card.</strong> A record of model purpose, provenance,
+evaluation, tested targets, and limitations. <a href="../chapters/33.html#write-a-model-card-that-makes-honest-claims">Explanation</a></li>
+<li><strong>Model/index SHA contract.</strong> Using cryptographic file
+identities to ensure a saved encoder, preprocessing, and vector index
+belong together. <a href="../chapters/16.html#use-the-trained-index-consistently">Explanation</a></li>
+<li><strong>MRR.</strong> Mean reciprocal rank of the first relevant
+result. <a href="../chapters/16.html#evaluate-the-retrieval-product-not-just-its-loss">Explanation</a></li>
+<li><strong>MTP.</strong> Training prediction targets beyond the
+immediate next token. <a href="../chapters/37.html#pretraining-and-later-objectives">Explanation</a></li>
+<li><strong>Multimodal embeddings.</strong> Representations that support
+matching or retrieval across different input modalities. <a href="../chapters/16.html#extend-embeddings-to-images-and-multiple-modalities">Explanation</a></li>
+<li><strong>Multimodal input.</strong> Input combining more than one
+type of information, such as text and audio. <a href="../chapters/04.html#generalize-the-project-to-your-own-input-to-output-task">Explanation</a></li>
+<li><strong>nDCG.</strong> Normalized discounted cumulative gain, a
+ranking metric rewarding relevant results near the top. <a href="../chapters/16.html#evaluate-the-retrieval-product-not-just-its-loss">Explanation</a></li>
+<li><strong>NF4.</strong> NormalFloat four-bit quantization, designed
+for representing approximately normally distributed weights. <a href="../chapters/19.html#when-qlora-earns-its-complexity">Explanation</a></li>
+<li><strong>On-policy distillation.</strong> Teacher supervision on the
+student's own continuations. <a href="../chapters/37.html#pretraining-and-later-objectives">Explanation</a></li>
+<li><strong>Optimizer.</strong> The rule that updates parameters using
+gradients and possibly history. <a href="../chapters/13.html#optimizer-parameters">Explanation</a></li>
+<li><strong>Optimizer state.</strong> Persistent tensors an optimizer
+maintains beyond weights and gradients, such as Adam first and second
+moments. <a href="../chapters/19.html#count-memory-before-you-spend-time">Explanation</a></li>
+<li><strong>Option pointer.</strong> A readout scoring candidate options
+supplied in the input. <a href="../chapters/24.html#level-c-a-pointer-over-options-supplied-in-the-input">Explanation</a></li>
+<li><strong>Out-of-distribution.</strong> Inputs that differ
+meaningfully from the conditions represented in training and evaluation.
+<a href="../chapters/04.html#a-probability-is-a-claim-that-needs-checking">Explanation</a></li>
+<li><strong>Overfitting.</strong> Improving fit to training examples
+without matching improvement on new cases. <a href="../chapters/31.html#when-training-improves-and-validation-worsens">Explanation</a></li>
+<li><strong>Padding.</strong> Placeholder positions added to make
+sequence shapes compatible. <a href="../chapters/13.html#packing-and-truncation-are-modeling-decisions">Explanation</a></li>
+<li><strong>Parameter.</strong> An adjustable learned value in the
+model. <a href="../chapters/03.html#a-model-is-a-computation-with-adjustable-values">Explanation</a></li>
+<li><strong>Parameter sharding.</strong> Dividing stored training
+parameters among devices. <a href="../chapters/37.html#distributed-memory-introduces-communication">Explanation</a></li>
+<li><strong>Partial fine-tuning.</strong> Updating selected existing
+parameters while freezing the others; the ASR starter freezes its
+acoustic tower and does not use LoRA. <a href="../chapters/27.html#what-is-actually-updated">Explanation</a></li>
+<li><strong>Patch merger.</strong> Combination of neighboring features
+into fewer input units. <a href="../chapters/35.html#multimodality-connects-encoders-to-a-sequence-model">Explanation</a></li>
+<li><strong>Pipeline parallelism.</strong> Distributing successive layer
+groups across stages. <a href="../chapters/37.html#distributed-memory-introduces-communication">Explanation</a></li>
+<li><strong>Polygon simplification.</strong> Reducing boundary vertices
+while bounding an allowed geometric change. <a href="../chapters/10.html#from-probability-map-to-polygon">Explanation</a></li>
+<li><strong>Pooling.</strong> Combining several positions into a smaller
+summary representation. <a href="../chapters/08.html#convolutions-features-and-the-output-head">Explanation</a></li>
+<li><strong>Precision.</strong> The fraction of predicted positive cases
+that are actually positive. <a href="../chapters/04.html#read-the-first-result-before-tuning">Explanation</a></li>
+<li><strong>Prediction contract.</strong> A specification of input
+fields, target meaning, output format, timing, and failure handling. <a href="../chapters/04.html#name-the-input-the-target-and-the-decision">Explanation</a></li>
+<li><strong>Prefill.</strong> Processing the supplied prefix or prompt.
+<a href="../chapters/35.html#full-attention-and-the-growing-cache">Explanation</a></li>
+<li><strong>Pretraining.</strong> Learning an initial representation or
+generative model from a broad objective. <a href="../chapters/29.html#three-different-meanings-of-full-training">Explanation</a></li>
+<li><strong>Pretraining from scratch.</strong> Training a newly
+initialized model rather than adapting pretrained weights. <a href="../chapters/30.html#compare-scratch-training-with-adapting-a-finished-model">Explanation</a></li>
+<li><strong>Probability calibration.</strong> Agreement between stated
+probabilities and observed outcome frequencies. <a href="../chapters/04.html#a-probability-is-a-claim-that-needs-checking">Explanation</a></li>
+<li><strong>Projector.</strong> Map from encoder features to a
+backbone's feature width. <a href="../chapters/35.html#multimodality-connects-encoders-to-a-sequence-model">Explanation</a></li>
+<li><strong>QAT.</strong> Training that accounts for quantization
+effects. <a href="../chapters/37.html#separate-three-kinds-of-sparsity-and-compression">Explanation</a></li>
+<li><strong>QLoRA.</strong> Training floating-point low-rank adapters
+through a frozen quantized language-model base. <a href="../chapters/19.html#when-qlora-earns-its-complexity">Explanation</a></li>
+<li><strong>Quantization.</strong> Representing selected numeric values
+with fewer bits under a specific runtime format. <a href="../chapters/33.html#cpu-and-gpu-are-two-deployment-targets">Explanation</a></li>
+<li><strong>Query instruction.</strong> A task description added to a
+retrieval query in the format expected by an instruction-aware embedding
+model. <a href="../chapters/16.html#what-an-embedding-represents">Explanation</a></li>
+<li><strong>Qwen3 embedding representation.</strong> The selected Qwen
+encoder's last-token-pooled, normalized vector with model-specific query
+formatting. <a href="../chapters/16.html#what-an-embedding-represents">Explanation</a></li>
+<li><strong>R-squared.</strong> A regression comparison against
+predicting the mean, whose interpretation depends on the evaluation
+data. <a href="../chapters/04.html#change-the-output-predict-a-number-instead">Explanation</a></li>
+<li><strong>RAG.</strong> Retrieval-augmented generation: supplying
+retrieved external evidence to a model at inference time. <a href="../chapters/20.html#start-with-the-questions-the-model-must-answer">Explanation</a></li>
+<li><strong>Recall.</strong> The fraction of actual positive cases that
+the system finds. <a href="../chapters/04.html#read-the-first-result-before-tuning">Explanation</a></li>
+<li><strong>Recall@k.</strong> A retrieval measure of relevant results
+found among the first k candidates under the task's relevance
+definition. <a href="../chapters/16.html#evaluate-the-retrieval-product-not-just-its-loss">Explanation</a></li>
+<li><strong>Recurrent state.</strong> Persistent summary updated as
+tokens arrive. <a href="../chapters/35.html#recurrent-state-and-short-convolution">Explanation</a></li>
+<li><strong>Reference policy.</strong> A fixed baseline distribution
+used to measure how the trained policy changes completion likelihoods.
+<a href="../chapters/25.html#preference-data-says-which-answer-is-better">Explanation</a></li>
+<li><strong>Regression.</strong> Predicting a numeric quantity rather
+than a discrete class. <a href="../chapters/04.html#change-the-output-predict-a-number-instead">Explanation</a></li>
+<li><strong>Regularization.</strong> Constraints or training choices
+intended to improve generalization rather than only training fit. <a href="../chapters/04.html#what-each-tabular-control-changes">Explanation</a></li>
+<li><strong>Reliability.</strong> In calibration, the relationship
+between predicted probability bins and observed outcomes. <a href="../chapters/04.html#a-probability-is-a-claim-that-needs-checking">Explanation</a></li>
+<li><strong>Reranker.</strong> A second-stage model scoring a smaller
+candidate set more precisely. <a href="../chapters/16.html#evaluate-the-retrieval-product-not-just-its-loss">Explanation</a></li>
+<li><strong>Resampling.</strong> Changing an audio sample grid with
+suitable filtering; downsampling must suppress frequencies above the new
+Nyquist limit. <a href="../chapters/27.html#waveforms-frames-and-log-mel-features">Explanation</a></li>
+<li><strong>Resident parameters.</strong> Complete weights that must be
+stored somewhere. <a href="../chapters/35.html#the-feed-forward-network-becomes-a-mixture-of-experts">Explanation</a></li>
+<li><strong>Residual connection.</strong> Adding an earlier
+representation to a learned transformation. <a href="../chapters/07.html#a-neural-layer-is-a-learned-transformation">Explanation</a></li>
+<li><strong>RMSE.</strong> Root mean squared error, emphasizing larger
+errors while retaining target units. <a href="../chapters/04.html#change-the-output-predict-a-number-instead">Explanation</a></li>
+<li><strong>ROC-AUC.</strong> A score-ranking measure comparing positive
+and negative examples across thresholds. <a href="../chapters/04.html#read-the-first-result-before-tuning">Explanation</a></li>
+<li><strong>RoPE.</strong> Rotary positional embeddings: positional
+relationships represented by rotations in attention coordinates. <a href="../chapters/17.html#read-a-configuration-as-an-engineering-document">Explanation</a></li>
+<li><strong>Router.</strong> Learned function that selects experts for
+token representations. <a href="../chapters/35.html#the-feed-forward-network-becomes-a-mixture-of-experts">Explanation</a></li>
+<li><strong>Run manifest.</strong> A saved record of model/data
+identity, configuration, versions and execution details for one
+experiment. <a href="../chapters/18.html#inspect-what-the-run-produced">Explanation</a></li>
+<li><strong>RVQ.</strong> Several codebooks used successively for
+discrete signal representation. <a href="../chapters/35.html#multimodality-connects-encoders-to-a-sequence-model">Explanation</a></li>
+<li><strong>Sample rate.</strong> The number of waveform amplitude
+measurements per second; changing a file header is not resampling. <a href="../chapters/27.html#waveforms-frames-and-log-mel-features">Explanation</a></li>
+<li><strong>Seed.</strong> An initial state for pseudo-random
+generation. <a href="../chapters/14.html#randomness-has-several-sources">Explanation</a></li>
+<li><strong>Semantic segmentation.</strong> Assigning a class to each
+pixel without necessarily separating individual instances. <a href="../chapters/10.html#classification-detection-semantic-segmentation-and-instances">Explanation</a></li>
+<li><strong>Sequence distillation.</strong> Using teacher-produced
+complete output sequences as student training targets. <a href="../chapters/25.html#distillation-transfers-behavior-rather-than-compressing-a-file">Explanation</a></li>
+<li><strong>SFT.</strong> Supervised fine-tuning on examples of desired
+output conditioned on the supplied input. <a href="../chapters/18.html#run-the-smallest-adapter-experiment">Explanation</a></li>
+<li><strong>Shared expert.</strong> Expert used for all tokens alongside
+selected experts. <a href="../chapters/35.html#the-feed-forward-network-becomes-a-mixture-of-experts">Explanation</a></li>
+<li><strong>Short convolution.</strong> A sequence-mixing operation over
+a local window, used with input-dependent gates in LFM2. <a href="../chapters/17.html#liquid-models-offer-a-small-hybrid-comparison">Explanation</a></li>
+<li><strong>Skip connection.</strong> A route carrying earlier features
+to a later stage, often preserving detail. <a href="../chapters/10.html#a-tiny-encoder-decoder-with-skip-connections">Explanation</a></li>
+<li><strong>Sparse attention.</strong> Attention over a selected subset
+of positions. <a href="../chapters/35.html#sliding-windows-and-selected-positions">Explanation</a></li>
+<li><strong>Speaker diarization.</strong> Estimating which speaker spoke
+when; a separate task from recognizing the spoken words. <a href="../chapters/27.html#segment-and-align-never-blindly-crop-the-pair">Explanation</a></li>
+<li><strong>Speculative decoding.</strong> Draft proposals checked by a
+target model. <a href="../chapters/37.html#pretraining-and-later-objectives">Explanation</a></li>
+<li><strong>SSM.</strong> Structured state-space sequence model. <a href="../chapters/35.html#recurrent-state-and-short-convolution">Explanation</a></li>
+<li><strong>Structured output.</strong> An output governed by explicit
+fields, types, labels, or other schema constraints. <a href="../chapters/04.html#generalize-the-project-to-your-own-input-to-output-task">Explanation</a></li>
+<li><strong>SWA.</strong> Direct attention limited to a moving local
+window. <a href="../chapters/35.html#sliding-windows-and-selected-positions">Explanation</a></li>
+<li><strong>Target.</strong> The desired output used to define
+correctness during training. <a href="../chapters/04.html#name-the-input-the-target-and-the-decision">Explanation</a></li>
+<li><strong>Target modules.</strong> The specific network modules
+selected to receive trainable adapters. <a href="../chapters/18.html#lora-is-a-learned-correction-matrix">Explanation</a></li>
+<li><strong>Target scaling.</strong> Transforming target values during
+training and reversing the transformation for output. <a href="../chapters/04.html#change-the-output-predict-a-number-instead">Explanation</a></li>
+<li><strong>Teacher forcing.</strong> Training predictions on a supplied
+correct history, rather than the model’s own earlier generated mistakes.
+<a href="../chapters/22.html#mask-decisions-rather-than-observations">Explanation</a></li>
+<li><strong>Temperature in calibration.</strong> A held-out-fitted logit
+scale used to improve probability calibration. <a href="../chapters/06.html#calibration-and-abstention">Explanation</a></li>
+<li><strong>Temperature in contrastive learning.</strong> A scale
+controlling the sharpness of contrastive candidate probabilities. <a href="../chapters/16.html#contrastive-learning-turns-a-batch-into-a-classification-problem">Explanation</a></li>
+<li><strong>Temperature in generation.</strong> A logit rescaling used
+to change a sampled token distribution. <a href="../chapters/12.html#training-and-generation-use-different-controls">Explanation</a></li>
+<li><strong>Tensor.</strong> A numeric array with shape, dtype, and
+device. <a href="../chapters/07.html#scalars-vectors-matrices-and-tensors">Explanation</a></li>
+<li><strong>Tensor parallelism.</strong> Splitting matrix operations
+across devices. <a href="../chapters/37.html#distributed-memory-introduces-communication">Explanation</a></li>
+<li><strong>Test.</strong> A held-out evaluation role used after
+development choices are fixed. <a href="../chapters/04.html#separate-fitting-calibration-selection-and-testing">Explanation</a></li>
+<li><strong>Test set.</strong> Held-out data used after development
+choices are fixed. <a href="../chapters/06.html#small-samples-have-uncertainty">Explanation</a></li>
+<li><strong>TF-IDF.</strong> Term frequency-inverse document frequency,
+a sparse representation weighting local term counts against corpus
+prevalence. <a href="../chapters/16.html#what-the-keyword-baseline-represents">Explanation</a></li>
+<li><strong>Threshold.</strong> A selected cutoff converting a score
+into a decision. <a href="../chapters/04.html#read-the-first-result-before-tuning">Explanation</a></li>
+<li><strong>Tied embeddings.</strong> Reusing one parameter matrix for
+token input embeddings and vocabulary output projection. <a href="../chapters/17.html#total-active-and-effective-are-not-synonyms">Explanation</a></li>
+<li><strong>TinyML.</strong> Machine learning designed around tight
+device memory, compute, power, and latency limits. <a href="../chapters/32.html#from-small-model-to-small-device-product">Explanation</a></li>
+<li><strong>Tokenization.</strong> Converting text into the discrete
+token identifiers expected by a particular model. <a href="../chapters/16.html#what-an-embedding-represents">Explanation</a></li>
+<li><strong>Tokenizer.</strong> A mapping between text and model token
+identifiers. <a href="../chapters/12.html#from-text-to-token-identifiers">Explanation</a></li>
+<li><strong>Tool observation.</strong> The result returned by the
+external executor and supplied as context to the model. <a href="../chapters/22.html#mask-decisions-rather-than-observations">Explanation</a></li>
+<li><strong>Tool schema.</strong> A structured specification of a tool
+name, purpose, argument types and constraints. <a href="../chapters/22.html#architecture-determines-what-the-dataset-must-contain">Explanation</a></li>
+<li><strong>Top-k routing.</strong> Selecting k expert assignments for
+each token. <a href="../chapters/35.html#the-feed-forward-network-becomes-a-mixture-of-experts">Explanation</a></li>
+<li><strong>Training from scratch.</strong> Optimizing randomly
+initialized parameters rather than adapting pretrained weights. <a href="../chapters/29.html#three-different-meanings-of-full-training">Explanation</a></li>
+<li><strong>Transfer learning.</strong> Reusing a pretrained
+representation for a new task. <a href="../chapters/08.html#transfer-learning-before-a-bigger-scratch-network">Explanation</a></li>
+<li><strong>Triplet loss.</strong> An objective comparing an anchor, a
+positive match, and a negative example. <a href="../chapters/16.html#contrastive-learning-turns-a-batch-into-a-classification-problem">Explanation</a></li>
+<li><strong>Truncation.</strong> Discarding input or target content
+beyond a length limit. <a href="../chapters/13.html#packing-and-truncation-are-modeling-decisions">Explanation</a></li>
+<li><strong>Validation.</strong> An evaluation role used to compare
+candidates and select configuration or checkpoints. <a href="../chapters/04.html#separate-fitting-calibration-selection-and-testing">Explanation</a></li>
+<li><strong>Validation set.</strong> Held-out data used to guide
+experiment choices. <a href="../chapters/06.html#small-samples-have-uncertainty">Explanation</a></li>
+<li><strong>Virtual environment.</strong> An isolated Python package
+directory tied to a chosen interpreter. <a href="../chapters/16.html#fresh-environment-for-the-cpu-retrieval-baseline">Explanation</a></li>
+<li><strong>Voice activity detection (VAD).</strong> Predicting which
+audio regions likely contain speech, with a tradeoff between non-speech
+suppression and accidentally deleting quiet speech. <a href="../chapters/27.html#silence-noise-and-hallucination-probes">Explanation</a></li>
+<li><strong>Weight decay.</strong> A parameter-shrinking term applied by
+the optimizer. <a href="../chapters/13.html#optimizer-parameters">Explanation</a></li>
+<li><strong>Word error rate (WER).</strong> Substitutions plus deletions
+plus insertions, divided by the number of reference words under a
+specified normalization/tokenization policy. <a href="../chapters/27.html#wer-cer-and-a-worked-error">Explanation</a></li>
+</ul>
+</article><nav class="pager" aria-label="Adjacent chapters"><a href="40.html"><small>← Previous</small>40  Companion guide and verification record</a><a href="references.html"><small>Next →</small>Works cited</a></nav></main><aside class="on-page"><h2>On this page</h2></aside></div><footer class="footer"><div><strong>Training Your Own Models</strong><br>Vibe Authored by Dr.Puma · 2 October 2026</div><div><a href="../chapters/glossary.html">Glossary</a><a href="../chapters/references.html">References</a><a href="https://github.com/MrScripty/training-your-own-models">GitHub ↗</a></div></footer><script src="../assets/site.js" defer></script></body></html>

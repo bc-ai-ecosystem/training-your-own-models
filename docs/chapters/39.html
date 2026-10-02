@@ -1,0 +1,213 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f6f3eb"><title>39  Exercise checkpoints and worked answers · Training Your Own Models</title><meta name="description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><link rel="canonical" href="https://mrscripty.github.io/training-your-own-models/chapters/39.html"><meta property="og:type" content="website"><meta property="og:site_name" content="Training Your Own Models"><meta property="og:title" content="39  Exercise checkpoints and worked answers · Training Your Own Models"><meta property="og:description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><meta property="og:url" content="https://mrscripty.github.io/training-your-own-models/chapters/39.html"><meta property="og:image" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta property="og:image:secure_url" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1280"><meta property="og:image:height" content="640"><meta property="og:image:alt" content="Training Your Own Models. On One 24 GB GPU. Vibe Authored by Dr.Puma. Cream, blue and orange scientific cover artwork."><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="39  Exercise checkpoints and worked answers · Training Your Own Models"><meta name="twitter:description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><meta name="twitter:image" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta name="twitter:image:alt" content="Training Your Own Models, Vibe Authored by Dr.Puma"><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/style.css"></head><body><a class="skip" href="#main">Skip to content</a><header class="topbar"><a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true">↗</span><span>Training Your<br>Own Models</span></a><nav aria-label="Main navigation"><a href="../chapters/start.html">Read the book</a><a href="../labs.html">Explore</a><a href="../search.html" aria-label="Search the book">Search</a><a href="../downloads.html">Downloads</a></nav></header><div class="reader"><aside class="sidebar"><nav aria-label="Book contents"><label class="nav-filter">Find a chapter<input type="search" class="chapter-filter" placeholder="Filter titles" aria-label="Filter chapter titles"></label><a class="chapter-link" href="../chapters/start.html"><span>→</span>Training Your Own Models on One 24 GB GPU</a><a class="chapter-link" href="../chapters/01.html"><span>1</span>Train your first model before learning the whole field</a><a class="chapter-link" href="../chapters/02.html"><span>2</span>Your computer and the training workspace</a><a class="chapter-link" href="../chapters/03.html"><span>3</span>Numbers tensors parameters and learning</a><a class="chapter-link" href="../chapters/04.html"><span>4</span>Project turn four sensor readings into a useful prediction</a><a class="chapter-link" href="../chapters/05.html"><span>5</span>Build a dataset that teaches the job</a><a class="chapter-link" href="../chapters/06.html"><span>6</span>Decide whether the model actually improved</a><a class="chapter-link" href="../chapters/07.html"><span>7</span>Move from feature columns to neural representations</a><a class="chapter-link" href="../chapters/08.html"><span>8</span>Project classify your own small image collection</a><a class="chapter-link" href="../chapters/09.html"><span>9</span>Project locate one object with a box</a><a class="chapter-link" href="../chapters/10.html"><span>10</span>Project predict a mask then extract an outline</a><a class="chapter-link" href="../chapters/11.html"><span>11</span>Train a miniature language model from random weights</a><a class="chapter-link" href="../chapters/12.html"><span>12</span>How a language model becomes a prediction machine</a><a class="chapter-link" href="../chapters/13.html"><span>13</span>Read and control the training loop</a><a class="chapter-link" href="../chapters/14.html"><span>14</span>Make a run reproducible and recoverable</a><a class="chapter-link" href="../chapters/15.html"><span>15</span>The real memory and compute budget</a><a class="chapter-link" href="../chapters/16.html"><span>16</span>Project make related text easy to retrieve</a><a class="chapter-link" href="../chapters/17.html"><span>17</span>Choose a model by its actual structure and files</a><a class="chapter-link" href="../chapters/18.html"><span>18</span>Teach a small language model one useful behavior</a><a class="chapter-link" href="../chapters/19.html"><span>19</span>Repeat the project with every weight trainable</a><a class="chapter-link" href="../chapters/20.html"><span>20</span>Teach domain conventions without turning weights into a database</a><a class="chapter-link" href="../chapters/21.html"><span>21</span>Make a writing style reproducible without changing the facts</a><a class="chapter-link" href="../chapters/22.html"><span>22</span>Teach a tool decision and a complete tool interaction</a><a class="chapter-link" href="../chapters/23.html"><span>23</span>Study a small typed decision service</a><a class="chapter-link" href="../chapters/24.html"><span>24</span>From a language model to a decision model</a><a class="chapter-link" href="../chapters/25.html"><span>25</span>Add preferences and distillation only after supervised learning works</a><a class="chapter-link" href="../chapters/26.html"><span>26</span>Project teach an image generator a small visual style</a><a class="chapter-link" href="../chapters/27.html"><span>27</span>Speech recognition train a small model to hear your domain</a><a class="chapter-link" href="../chapters/28.html"><span>28</span>Project build a tiny sound generator from random weights</a><a class="chapter-link" href="../chapters/29.html"><span>29</span>Scale a working experiment toward one billion parameters</a><a class="chapter-link" href="../chapters/30.html"><span>30</span>Understand what a public training process really demonstrates</a><a class="chapter-link" href="../chapters/31.html"><span>31</span>Diagnose failures before making the model larger</a><a class="chapter-link" href="../chapters/32.html"><span>32</span>From small model to small device product</a><a class="chapter-link" href="../chapters/33.html"><span>33</span>Turn a checkpoint into a usable application</a><a class="chapter-link" href="../chapters/34.html"><span>34</span>Design your first independent model</a><a class="chapter-link" href="../chapters/35.html"><span>35</span>Understand larger models using the parts you already know</a><a class="chapter-link" href="../chapters/36.html"><span>36</span>Read MiMo GLM and other architecture families</a><a class="chapter-link" href="../chapters/37.html"><span>37</span>Connect architecture to data memory and deployment</a><a class="chapter-link" href="../chapters/38.html"><span>38</span>Learn from public training projects without copying their assumptions</a><a class="chapter-link" href="../chapters/39.html" aria-current="page"><span>39</span>Exercise checkpoints and worked answers</a><a class="chapter-link" href="../chapters/40.html"><span>40</span>Companion guide and verification record</a><a class="chapter-link" href="../chapters/glossary.html"><span>A–Z</span>Glossary with links to explanations</a><a class="chapter-link" href="../chapters/references.html"><span>Ref</span>Works cited</a></nav></aside><main class="prose" id="main"><details class="mobile-toc"><summary>Browse the book</summary><nav aria-label="Book contents"><label class="nav-filter">Find a chapter<input type="search" class="chapter-filter" placeholder="Filter titles" aria-label="Filter chapter titles"></label><a class="chapter-link" href="../chapters/start.html"><span>→</span>Training Your Own Models on One 24 GB GPU</a><a class="chapter-link" href="../chapters/01.html"><span>1</span>Train your first model before learning the whole field</a><a class="chapter-link" href="../chapters/02.html"><span>2</span>Your computer and the training workspace</a><a class="chapter-link" href="../chapters/03.html"><span>3</span>Numbers tensors parameters and learning</a><a class="chapter-link" href="../chapters/04.html"><span>4</span>Project turn four sensor readings into a useful prediction</a><a class="chapter-link" href="../chapters/05.html"><span>5</span>Build a dataset that teaches the job</a><a class="chapter-link" href="../chapters/06.html"><span>6</span>Decide whether the model actually improved</a><a class="chapter-link" href="../chapters/07.html"><span>7</span>Move from feature columns to neural representations</a><a class="chapter-link" href="../chapters/08.html"><span>8</span>Project classify your own small image collection</a><a class="chapter-link" href="../chapters/09.html"><span>9</span>Project locate one object with a box</a><a class="chapter-link" href="../chapters/10.html"><span>10</span>Project predict a mask then extract an outline</a><a class="chapter-link" href="../chapters/11.html"><span>11</span>Train a miniature language model from random weights</a><a class="chapter-link" href="../chapters/12.html"><span>12</span>How a language model becomes a prediction machine</a><a class="chapter-link" href="../chapters/13.html"><span>13</span>Read and control the training loop</a><a class="chapter-link" href="../chapters/14.html"><span>14</span>Make a run reproducible and recoverable</a><a class="chapter-link" href="../chapters/15.html"><span>15</span>The real memory and compute budget</a><a class="chapter-link" href="../chapters/16.html"><span>16</span>Project make related text easy to retrieve</a><a class="chapter-link" href="../chapters/17.html"><span>17</span>Choose a model by its actual structure and files</a><a class="chapter-link" href="../chapters/18.html"><span>18</span>Teach a small language model one useful behavior</a><a class="chapter-link" href="../chapters/19.html"><span>19</span>Repeat the project with every weight trainable</a><a class="chapter-link" href="../chapters/20.html"><span>20</span>Teach domain conventions without turning weights into a database</a><a class="chapter-link" href="../chapters/21.html"><span>21</span>Make a writing style reproducible without changing the facts</a><a class="chapter-link" href="../chapters/22.html"><span>22</span>Teach a tool decision and a complete tool interaction</a><a class="chapter-link" href="../chapters/23.html"><span>23</span>Study a small typed decision service</a><a class="chapter-link" href="../chapters/24.html"><span>24</span>From a language model to a decision model</a><a class="chapter-link" href="../chapters/25.html"><span>25</span>Add preferences and distillation only after supervised learning works</a><a class="chapter-link" href="../chapters/26.html"><span>26</span>Project teach an image generator a small visual style</a><a class="chapter-link" href="../chapters/27.html"><span>27</span>Speech recognition train a small model to hear your domain</a><a class="chapter-link" href="../chapters/28.html"><span>28</span>Project build a tiny sound generator from random weights</a><a class="chapter-link" href="../chapters/29.html"><span>29</span>Scale a working experiment toward one billion parameters</a><a class="chapter-link" href="../chapters/30.html"><span>30</span>Understand what a public training process really demonstrates</a><a class="chapter-link" href="../chapters/31.html"><span>31</span>Diagnose failures before making the model larger</a><a class="chapter-link" href="../chapters/32.html"><span>32</span>From small model to small device product</a><a class="chapter-link" href="../chapters/33.html"><span>33</span>Turn a checkpoint into a usable application</a><a class="chapter-link" href="../chapters/34.html"><span>34</span>Design your first independent model</a><a class="chapter-link" href="../chapters/35.html"><span>35</span>Understand larger models using the parts you already know</a><a class="chapter-link" href="../chapters/36.html"><span>36</span>Read MiMo GLM and other architecture families</a><a class="chapter-link" href="../chapters/37.html"><span>37</span>Connect architecture to data memory and deployment</a><a class="chapter-link" href="../chapters/38.html"><span>38</span>Learn from public training projects without copying their assumptions</a><a class="chapter-link" href="../chapters/39.html" aria-current="page"><span>39</span>Exercise checkpoints and worked answers</a><a class="chapter-link" href="../chapters/40.html"><span>40</span>Companion guide and verification record</a><a class="chapter-link" href="../chapters/glossary.html"><span>A–Z</span>Glossary with links to explanations</a><a class="chapter-link" href="../chapters/references.html"><span>Ref</span>Works cited</a></nav></details><div class="chapter-meta"><span class="eyebrow">Chapter 39 / 40</span><span>8 min read</span></div><article class="manuscript"><a id="exercise-checkpoints-and-worked-answers"></a>
+<h1>39 Exercise
+checkpoints and worked answers</h1>
+<a id="use-answers-to-check-reasoning-rather-than-memorize-settings"></a>
+<h2>Use
+answers to check reasoning rather than memorize settings</h2>
+<p>Some exercises have a numerical answer. Others ask you to design an
+experiment, label real data, or make a tradeoff. Those do not have one
+universal correct configuration. The checkpoints below show what a
+defensible answer contains. A result can differ from an example and
+still be sound if its assumptions and evidence are explicit.</p>
+<a id="the-first-classifier-and-simple-numbers"></a>
+<h2>The first classifier
+and simple numbers</h2>
+<p>For predicted packing time = 0.7 times item count plus 2, five items
+give 5.5 minutes. Increasing the bias by one adds one minute to every
+prediction. Increasing the weight from 0.7 to 0.8 adds half a minute for
+five items and one minute for ten. This demonstrates the difference
+between an additive offset and an input-dependent effect.</p>
+<p>The first two-feature classifier has two weights and one bias. Its
+architecture can represent a straight-line boundary. An XOR-style target
+requires a nonlinear representation or model. More gradient-descent
+steps do not turn a linear score into an arbitrary nonlinear boundary. A
+useful answer to the XOR experiment distinguishes model capacity from
+optimization success.</p>
+<p>A valid explanation of its saved artifact names the feature order,
+three parameters, sigmoid, threshold, and target meaning. Saving only
+the weights while forgetting feature order would leave an incomplete
+inference contract.</p>
+<a id="shapes-and-parameter-counts"></a>
+<h2>Shapes and parameter counts</h2>
+<p>Sixteen sequences of 128 token IDs have shape [16, 128]. Replacing
+each ID with a 64-dimensional vector gives [16, 128, 64]. Token IDs are
+integer indices; the embedding values are floating-point learned
+representations.</p>
+<p>A 256-row embedding table of width 128 has 32,768 parameters. A
+50,000-row table at the same width has 6,400,000. Vocabulary size
+therefore matters greatly in a small language model. Tying the input and
+output table avoids storing a second independent copy of that
+same-shaped projection; it does not eliminate the computation of output
+logits.</p>
+<p>An RGB batch of eight images at 96 by 96 pixels commonly has shape
+[8, 3, 96, 96]. A three-class classifier returns logits [8, 3]. A
+one-object detector may return objectness [8] and boxes [8, 4]. A binary
+segmenter may return pixel logits [8, 1, 96, 96]. These output shapes
+imply different targets and losses.</p>
+<a id="loss-weighting-and-accumulation"></a>
+<h2>Loss weighting and
+accumulation</h2>
+<p>Microbatch size two, accumulation eight, and 300 optimizer steps
+produce 2 times 8 times 300 = 4,800 example presentations if all
+microbatches are full. The number of unique examples depends on sampling
+and repetition. If each example contains 128 supervised targets, the
+same schedule presents 614,400 supervised targets.</p>
+<p>Suppose microbatch A has 100 supervised tokens with mean loss 2.0 and
+microbatch B has 1,000 with mean loss 1.0. Averaging the two means
+equally gives 1.5. Averaging all token losses gives (100 times 2 + 1,000
+times 1) / 1,100, approximately 1.091. Neither calculation is
+mysterious, but they optimize different weighting. State whether your
+objective treats examples, microbatches, or supervised tokens
+equally.</p>
+<p>In assistant-only training, a prompt token can be visible through
+attention while excluded from loss. The attention mask controls
+information flow; the loss mask controls which predictions are rewarded.
+A correct answer mentions both separately and verifies the actual
+supervised span after tokenization.</p>
+<a id="memory-and-time-arithmetic"></a>
+<h2>Memory and time arithmetic</h2>
+<p>Under the explicit FP32 AdamW assumption of sixteen persistent bytes
+per trainable parameter, 250 million parameters require 4 billion bytes,
+or about 3.73 GiB, before activations and other overhead. One billion
+requires 16 GB, about 14.90 GiB. Three billion requires 48 GB, about
+44.70 GiB. These are inventories, not observed GPU peaks.</p>
+<p>A dataset of 40,000 examples averaging 500 supervised tokens contains
+about 20 million supervised tokens per complete pass. Two epochs present
+about 40 million. At a measured 1,250 supervised tokens per second, that
+is 32,000 seconds, about 8.89 hours of processing. Add startup,
+evaluation, saving, preprocessing and interruptions. A rate that counts
+padding or prompt tokens is a different measure.</p>
+<p>For a transformer dominated by square weight matrices, doubling width
+roughly quadruples many parameter terms. Doubling block count roughly
+doubles those terms. Embeddings, position tables, output heads, and
+architectural variations change the exact total. A good answer uses the
+actual configuration rather than a slogan about model size.</p>
+<a id="splits-and-unavailable-information"></a>
+<h2>Splits and unavailable
+information</h2>
+<p>A strong split explanation names the independent unit and the
+intended generalization claim. Frames from one video, clips from one
+recording session, paraphrases of one source document, and photos of one
+physical part should usually remain grouped for the corresponding
+new-source evaluation. Counting derivatives as independent examples
+inflates apparent data diversity.</p>
+<p>For a future-fault predictor, a measurement recorded after the fault
+cannot be an input to a prediction supposedly made before it. For an
+inventory assistant, today's stock level cannot be inferred reliably
+from last month's static training text alone. A larger model does not
+create missing current information. Appropriate responses include adding
+a legitimate input, retrieving current state, or abstaining.</p>
+<p>A useful annotation policy resolves cases where reasonable people
+disagree. If a support message mentions both a late shipment and
+cancellation, specify the routing priority or allow multiple labels. Do
+not ask the optimizer to solve an undefined policy.</p>
+<a id="classification-and-detection-metrics"></a>
+<h2>Classification and
+detection metrics</h2>
+<p>A detector finding 18 of 20 true targets with 12 false alarms has
+recall 18/20 = 0.90 and precision 18/30 = 0.60. Overall accuracy can
+look high when most images are empty. The relevant operating decision
+depends on missed-target cost, false-alarm workload, and whether
+abstention is available.</p>
+<p>A box detector that returns a confident box in the wrong location has
+not made a correct detection. In the one-object exercise, a successful
+match requires both sufficient objectness and IoU at least 0.5. The
+objectness threshold and IoU criterion answer different questions.</p>
+<p>For a mask that covers x coordinates 4 through 13 and y coordinates 2
+through 5 in a 20 by 10 image, exclusive-edge coordinates are [4, 2, 14,
+6]. Normalized xyxy is [0.2, 0.2, 0.7, 0.6]. This convention includes
+the full last foreground pixel. A mask with no foreground has no real
+object box, and its placeholder coordinates should not contribute to
+localization loss.</p>
+<p>A large region shifted by one pixel can retain high IoU while its
+exact boundary differs substantially. Therefore an outline application
+should evaluate boundary tolerance in meaningful units, not only region
+overlap. An answer that proposes 'higher resolution' should also explain
+annotation precision, original-image coordinates, and compute cost.</p>
+<a id="retrieval-and-contrastive-learning"></a>
+<h2>Retrieval and contrastive
+learning</h2>
+<p>A useful hard negative is plausible but truly wrong for the query. A
+passage that paraphrases the correct answer is a false negative if
+treated as irrelevant. Review mined negatives before training; a
+similarity score alone does not establish irrelevance.</p>
+<p>When a batch uses other positive passages as negatives, duplicate or
+semantically equivalent passages can contradict the training objective.
+Ordinary gradient accumulation over separate microbatches does not
+automatically create cross-microbatch negatives. A correct larger-batch
+proposal must explain how the loss sees the intended candidate set.</p>
+<p>After retraining the encoder, regenerate document embeddings with the
+selected saved encoder and the same prompts, pooling and normalization.
+Reusing an old index with new query embeddings compares incompatible
+representations. The search program must load the matching encoder/index
+pair.</p>
+<a id="language-and-typed-decisions"></a>
+<h2>Language and typed decisions</h2>
+<p>A complete tool-call test checks whether an action is appropriate,
+whether the selected tool is correct, whether all arguments are valid
+and semantically correct, and whether the application permits execution.
+Parseable JSON solves only the first formatting layer. A model that
+fabricates a missing identifier should fail the task even if its schema
+is valid.</p>
+<p>A typed-decision model returns scores over allowed choices. The
+output type limits the set of possible answers, not the chance of
+choosing the wrong one. Calibration must use separate examples, and an
+abstention policy must be judged by both accepted-case quality and
+coverage. A system that answers nothing is not automatically useful
+because its remaining error rate is low.</p>
+<p>The causal-mask exercise changes a future input token and checks
+earlier-position logits in evaluation mode. Those earlier logits should
+remain unchanged within numerical tolerance. A low training loss cannot
+substitute for this information-flow test because an incorrect mask may
+make the task artificially easy.</p>
+<p>A valid style evaluation preserves facts and compares observable
+style features on new topics. Copying familiar phrases from a small
+training collection is weaker evidence than adapting the style to
+genuinely new content. Blind comparisons reduce the temptation to reward
+the model you just trained.</p>
+<a id="speech-and-generated-audio"></a>
+<h2>Speech and generated audio</h2>
+<p>For reference 'turn the blue valve' and hypothesis 'turn blue
+valves', one plausible minimum edit alignment deletes 'the' and
+substitutes 'valves' for 'valve'. That is two errors over four reference
+words, so WER is 0.5. Normalization policy changes what counts as a word
+or substitution; record it and apply it consistently.</p>
+<p>A transcript must match the exact audio segment. Cropping an
+utterance while retaining its complete transcript creates incorrect
+supervision. Keeping the same speaker or recording session across splits
+may also make an evaluation claim about unseen speakers invalid.</p>
+<p>Speech recognition predicts text from recorded speech. A diffusion
+sound model generates audio from noise and conditions. Training a sound
+generator on tones does not teach speech transcription, and a
+transcription model does not automatically synthesize speech. A valid
+category choice begins with which direction the application needs.</p>
+<p>For a denoising project, identify the precise target implemented by
+the trainer: noise, clean signal, velocity, or another parameterization.
+Preserve that relationship with the scheduler used at inference. A
+falling loss under one objective does not justify switching the sampler
+to a different unsupported convention.</p>
+<a id="the-final-independent-project"></a>
+<h2>The final independent
+project</h2>
+<p>A strong project plan contains the prediction contract, lawful data,
+independent split, baseline, training objective, small correctness test,
+measured feasibility test, fixed quality evaluation, artifact contract,
+and failure policy. It also states what evidence would make you
+stop.</p>
+<p>If a first run fails, a strong next step identifies the earliest
+wrong boundary and proposes one controlled change. 'Use a bigger model'
+is justified only when evidence points to a capacity limit rather than
+missing information, bad labels, broken preprocessing, or an unsuitable
+objective.</p>
+<p>When you can explain your model's input, target, learned values,
+loss, update, evaluation and deployment path without relying on the name
+of a library, you have completed the core learning goal of this
+book.</p>
+</article><nav class="pager" aria-label="Adjacent chapters"><a href="38.html"><small>← Previous</small>38  Learn from public training projects without copying their assumptions</a><a href="40.html"><small>Next →</small>40  Companion guide and verification record</a></nav></main><aside class="on-page"><h2>On this page</h2><a href="#use-answers-to-check-reasoning-rather-than-memorize-settings">Use
+answers to check reasoning rather than memorize settings</a><a href="#the-first-classifier-and-simple-numbers">The first classifier
+and simple numbers</a><a href="#shapes-and-parameter-counts">Shapes and parameter counts</a><a href="#loss-weighting-and-accumulation">Loss weighting and
+accumulation</a><a href="#memory-and-time-arithmetic">Memory and time arithmetic</a><a href="#splits-and-unavailable-information">Splits and unavailable
+information</a><a href="#classification-and-detection-metrics">Classification and
+detection metrics</a><a href="#retrieval-and-contrastive-learning">Retrieval and contrastive
+learning</a><a href="#language-and-typed-decisions">Language and typed decisions</a><a href="#speech-and-generated-audio">Speech and generated audio</a><a href="#the-final-independent-project">The final independent
+project</a></aside></div><footer class="footer"><div><strong>Training Your Own Models</strong><br>Vibe Authored by Dr.Puma · 2 October 2026</div><div><a href="../chapters/glossary.html">Glossary</a><a href="../chapters/references.html">References</a><a href="https://github.com/MrScripty/training-your-own-models">GitHub ↗</a></div></footer><script src="../assets/site.js" defer></script></body></html>

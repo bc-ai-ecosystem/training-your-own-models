@@ -1,0 +1,159 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f6f3eb"><title>3  Numbers tensors parameters and learning · Training Your Own Models</title><meta name="description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><link rel="canonical" href="https://mrscripty.github.io/training-your-own-models/chapters/03.html"><meta property="og:type" content="website"><meta property="og:site_name" content="Training Your Own Models"><meta property="og:title" content="3  Numbers tensors parameters and learning · Training Your Own Models"><meta property="og:description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><meta property="og:url" content="https://mrscripty.github.io/training-your-own-models/chapters/03.html"><meta property="og:image" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta property="og:image:secure_url" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1280"><meta property="og:image:height" content="640"><meta property="og:image:alt" content="Training Your Own Models. On One 24 GB GPU. Vibe Authored by Dr.Puma. Cream, blue and orange scientific cover artwork."><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="3  Numbers tensors parameters and learning · Training Your Own Models"><meta name="twitter:description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><meta name="twitter:image" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta name="twitter:image:alt" content="Training Your Own Models, Vibe Authored by Dr.Puma"><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/style.css"></head><body><a class="skip" href="#main">Skip to content</a><header class="topbar"><a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true">↗</span><span>Training Your<br>Own Models</span></a><nav aria-label="Main navigation"><a href="../chapters/start.html">Read the book</a><a href="../labs.html">Explore</a><a href="../search.html" aria-label="Search the book">Search</a><a href="../downloads.html">Downloads</a></nav></header><div class="reader"><aside class="sidebar"><nav aria-label="Book contents"><label class="nav-filter">Find a chapter<input type="search" class="chapter-filter" placeholder="Filter titles" aria-label="Filter chapter titles"></label><a class="chapter-link" href="../chapters/start.html"><span>→</span>Training Your Own Models on One 24 GB GPU</a><a class="chapter-link" href="../chapters/01.html"><span>1</span>Train your first model before learning the whole field</a><a class="chapter-link" href="../chapters/02.html"><span>2</span>Your computer and the training workspace</a><a class="chapter-link" href="../chapters/03.html" aria-current="page"><span>3</span>Numbers tensors parameters and learning</a><a class="chapter-link" href="../chapters/04.html"><span>4</span>Project turn four sensor readings into a useful prediction</a><a class="chapter-link" href="../chapters/05.html"><span>5</span>Build a dataset that teaches the job</a><a class="chapter-link" href="../chapters/06.html"><span>6</span>Decide whether the model actually improved</a><a class="chapter-link" href="../chapters/07.html"><span>7</span>Move from feature columns to neural representations</a><a class="chapter-link" href="../chapters/08.html"><span>8</span>Project classify your own small image collection</a><a class="chapter-link" href="../chapters/09.html"><span>9</span>Project locate one object with a box</a><a class="chapter-link" href="../chapters/10.html"><span>10</span>Project predict a mask then extract an outline</a><a class="chapter-link" href="../chapters/11.html"><span>11</span>Train a miniature language model from random weights</a><a class="chapter-link" href="../chapters/12.html"><span>12</span>How a language model becomes a prediction machine</a><a class="chapter-link" href="../chapters/13.html"><span>13</span>Read and control the training loop</a><a class="chapter-link" href="../chapters/14.html"><span>14</span>Make a run reproducible and recoverable</a><a class="chapter-link" href="../chapters/15.html"><span>15</span>The real memory and compute budget</a><a class="chapter-link" href="../chapters/16.html"><span>16</span>Project make related text easy to retrieve</a><a class="chapter-link" href="../chapters/17.html"><span>17</span>Choose a model by its actual structure and files</a><a class="chapter-link" href="../chapters/18.html"><span>18</span>Teach a small language model one useful behavior</a><a class="chapter-link" href="../chapters/19.html"><span>19</span>Repeat the project with every weight trainable</a><a class="chapter-link" href="../chapters/20.html"><span>20</span>Teach domain conventions without turning weights into a database</a><a class="chapter-link" href="../chapters/21.html"><span>21</span>Make a writing style reproducible without changing the facts</a><a class="chapter-link" href="../chapters/22.html"><span>22</span>Teach a tool decision and a complete tool interaction</a><a class="chapter-link" href="../chapters/23.html"><span>23</span>Study a small typed decision service</a><a class="chapter-link" href="../chapters/24.html"><span>24</span>From a language model to a decision model</a><a class="chapter-link" href="../chapters/25.html"><span>25</span>Add preferences and distillation only after supervised learning works</a><a class="chapter-link" href="../chapters/26.html"><span>26</span>Project teach an image generator a small visual style</a><a class="chapter-link" href="../chapters/27.html"><span>27</span>Speech recognition train a small model to hear your domain</a><a class="chapter-link" href="../chapters/28.html"><span>28</span>Project build a tiny sound generator from random weights</a><a class="chapter-link" href="../chapters/29.html"><span>29</span>Scale a working experiment toward one billion parameters</a><a class="chapter-link" href="../chapters/30.html"><span>30</span>Understand what a public training process really demonstrates</a><a class="chapter-link" href="../chapters/31.html"><span>31</span>Diagnose failures before making the model larger</a><a class="chapter-link" href="../chapters/32.html"><span>32</span>From small model to small device product</a><a class="chapter-link" href="../chapters/33.html"><span>33</span>Turn a checkpoint into a usable application</a><a class="chapter-link" href="../chapters/34.html"><span>34</span>Design your first independent model</a><a class="chapter-link" href="../chapters/35.html"><span>35</span>Understand larger models using the parts you already know</a><a class="chapter-link" href="../chapters/36.html"><span>36</span>Read MiMo GLM and other architecture families</a><a class="chapter-link" href="../chapters/37.html"><span>37</span>Connect architecture to data memory and deployment</a><a class="chapter-link" href="../chapters/38.html"><span>38</span>Learn from public training projects without copying their assumptions</a><a class="chapter-link" href="../chapters/39.html"><span>39</span>Exercise checkpoints and worked answers</a><a class="chapter-link" href="../chapters/40.html"><span>40</span>Companion guide and verification record</a><a class="chapter-link" href="../chapters/glossary.html"><span>A–Z</span>Glossary with links to explanations</a><a class="chapter-link" href="../chapters/references.html"><span>Ref</span>Works cited</a></nav></aside><main class="prose" id="main"><details class="mobile-toc"><summary>Browse the book</summary><nav aria-label="Book contents"><label class="nav-filter">Find a chapter<input type="search" class="chapter-filter" placeholder="Filter titles" aria-label="Filter chapter titles"></label><a class="chapter-link" href="../chapters/start.html"><span>→</span>Training Your Own Models on One 24 GB GPU</a><a class="chapter-link" href="../chapters/01.html"><span>1</span>Train your first model before learning the whole field</a><a class="chapter-link" href="../chapters/02.html"><span>2</span>Your computer and the training workspace</a><a class="chapter-link" href="../chapters/03.html" aria-current="page"><span>3</span>Numbers tensors parameters and learning</a><a class="chapter-link" href="../chapters/04.html"><span>4</span>Project turn four sensor readings into a useful prediction</a><a class="chapter-link" href="../chapters/05.html"><span>5</span>Build a dataset that teaches the job</a><a class="chapter-link" href="../chapters/06.html"><span>6</span>Decide whether the model actually improved</a><a class="chapter-link" href="../chapters/07.html"><span>7</span>Move from feature columns to neural representations</a><a class="chapter-link" href="../chapters/08.html"><span>8</span>Project classify your own small image collection</a><a class="chapter-link" href="../chapters/09.html"><span>9</span>Project locate one object with a box</a><a class="chapter-link" href="../chapters/10.html"><span>10</span>Project predict a mask then extract an outline</a><a class="chapter-link" href="../chapters/11.html"><span>11</span>Train a miniature language model from random weights</a><a class="chapter-link" href="../chapters/12.html"><span>12</span>How a language model becomes a prediction machine</a><a class="chapter-link" href="../chapters/13.html"><span>13</span>Read and control the training loop</a><a class="chapter-link" href="../chapters/14.html"><span>14</span>Make a run reproducible and recoverable</a><a class="chapter-link" href="../chapters/15.html"><span>15</span>The real memory and compute budget</a><a class="chapter-link" href="../chapters/16.html"><span>16</span>Project make related text easy to retrieve</a><a class="chapter-link" href="../chapters/17.html"><span>17</span>Choose a model by its actual structure and files</a><a class="chapter-link" href="../chapters/18.html"><span>18</span>Teach a small language model one useful behavior</a><a class="chapter-link" href="../chapters/19.html"><span>19</span>Repeat the project with every weight trainable</a><a class="chapter-link" href="../chapters/20.html"><span>20</span>Teach domain conventions without turning weights into a database</a><a class="chapter-link" href="../chapters/21.html"><span>21</span>Make a writing style reproducible without changing the facts</a><a class="chapter-link" href="../chapters/22.html"><span>22</span>Teach a tool decision and a complete tool interaction</a><a class="chapter-link" href="../chapters/23.html"><span>23</span>Study a small typed decision service</a><a class="chapter-link" href="../chapters/24.html"><span>24</span>From a language model to a decision model</a><a class="chapter-link" href="../chapters/25.html"><span>25</span>Add preferences and distillation only after supervised learning works</a><a class="chapter-link" href="../chapters/26.html"><span>26</span>Project teach an image generator a small visual style</a><a class="chapter-link" href="../chapters/27.html"><span>27</span>Speech recognition train a small model to hear your domain</a><a class="chapter-link" href="../chapters/28.html"><span>28</span>Project build a tiny sound generator from random weights</a><a class="chapter-link" href="../chapters/29.html"><span>29</span>Scale a working experiment toward one billion parameters</a><a class="chapter-link" href="../chapters/30.html"><span>30</span>Understand what a public training process really demonstrates</a><a class="chapter-link" href="../chapters/31.html"><span>31</span>Diagnose failures before making the model larger</a><a class="chapter-link" href="../chapters/32.html"><span>32</span>From small model to small device product</a><a class="chapter-link" href="../chapters/33.html"><span>33</span>Turn a checkpoint into a usable application</a><a class="chapter-link" href="../chapters/34.html"><span>34</span>Design your first independent model</a><a class="chapter-link" href="../chapters/35.html"><span>35</span>Understand larger models using the parts you already know</a><a class="chapter-link" href="../chapters/36.html"><span>36</span>Read MiMo GLM and other architecture families</a><a class="chapter-link" href="../chapters/37.html"><span>37</span>Connect architecture to data memory and deployment</a><a class="chapter-link" href="../chapters/38.html"><span>38</span>Learn from public training projects without copying their assumptions</a><a class="chapter-link" href="../chapters/39.html"><span>39</span>Exercise checkpoints and worked answers</a><a class="chapter-link" href="../chapters/40.html"><span>40</span>Companion guide and verification record</a><a class="chapter-link" href="../chapters/glossary.html"><span>A–Z</span>Glossary with links to explanations</a><a class="chapter-link" href="../chapters/references.html"><span>Ref</span>Works cited</a></nav></details><div class="chapter-meta"><span class="eyebrow">Chapter 3 / 40</span><span>6 min read</span></div><article class="manuscript"><a id="numbers-tensors-parameters-and-learning"></a>
+<h1>3 Numbers tensors
+parameters and learning</h1>
+<a id="a-model-is-a-computation-with-adjustable-values"></a>
+<h2>A model is a
+computation with adjustable values</h2>
+<p>Suppose you want to estimate the time needed to pack an order from
+the number of items. A simple model might be predicted minutes = weight
+times item count plus bias. The weight tells the model how much time
+another item adds. The bias accounts for setup work that happens even
+for a small order. These are parameters: values learned from
+examples.</p>
+<p>If weight is 0.7 and bias is 2, an order with ten items receives a
+prediction of nine minutes. The input is ten; the output is nine. The
+architecture is the form of the computation, multiplication followed by
+addition. Training changes 0.7 and 2. It does not automatically change
+the formula into a different architecture.</p>
+<p>A hyperparameter is a choice that controls the experiment rather than
+a value directly fitted by the ordinary training update. The learning
+rate, number of layers, batch size, and maximum sequence length are
+hyperparameters. A trained parameter can influence many outputs; a
+hyperparameter can influence the way all trained parameters develop.</p>
+<p>The distinction is practical. If you change the architecture, an old
+checkpoint may no longer have the right shapes. If you change the
+learning rate, the checkpoint can often still be loaded, but the future
+optimization trajectory changes. If you change preprocessing, even
+identical weights may receive different inputs and produce different
+behavior.</p>
+<a id="features-are-the-information-you-make-available"></a>
+<h2>Features are
+the information you make available</h2>
+<p>The item count is a feature, a numeric representation of something
+about the input. Other possible features are fragile-item count, total
+weight, or whether gift wrapping is required. A model cannot reliably
+infer a factor that neither the input nor correlated information
+reveals. If packing time depends heavily on employee experience and that
+information is absent, some uncertainty is unavoidable.</p>
+<p>A feature is not automatically legitimate merely because it improves
+a score. Suppose your dataset includes actual dispatch time when you are
+trying to predict dispatch delay before packing begins. That field would
+not exist at prediction time. Training on it creates a misleading
+shortcut. A useful feature must be available at the time and place where
+the system will operate.</p>
+<p>Text and images begin as familiar human objects, but a training
+program needs numeric arrays. A text tokenizer converts bytes or pieces
+of text into integer identifiers. An image decoder converts an image
+file into pixel values. An audio decoder produces sampled amplitudes. A
+categorical feature can become an integer index or a set of indicator
+values. Representation is the bridge between the real input and the
+model's computation.</p>
+<a id="a-loss-turns-a-desired-output-into-a-training-signal"></a>
+<h2>A loss
+turns a desired output into a training signal</h2>
+<p>For a numeric prediction, squared error is a simple loss: subtract
+the correct answer from the prediction and square the difference. A
+prediction of nine when the target is eleven has squared error four. The
+sign is removed, and larger errors receive disproportionately more
+penalty. Averaging over examples produces mean squared error, or
+MSE.</p>
+<p>For classification, the model commonly produces one score per class.
+These raw scores are called logits. Softmax converts logits into
+positive values that sum to one. Those values can be interpreted as the
+model's distribution over classes, although they are not automatically
+well calibrated probabilities. Cross-entropy loss rewards the model for
+assigning probability to the correct class.</p>
+<p>If the target class receives probability 0.8, the negative natural
+logarithm is about 0.223. If it receives probability 0.1, the loss is
+about 2.303. The second prediction is penalized more. When you see a
+language-model training loss, you are often seeing an average version of
+this calculation over many next-token predictions.</p>
+<p>A target must match the task. If your actual goal is to extract an
+invoice date exactly, a fluent paragraph about invoices is not a
+substitute. If your goal is to rank relevant passages, predicting the
+exact wording of an answer may be an indirect and inefficient objective.
+You choose the output representation and loss together.</p>
+<a id="the-gradient-tells-you-how-a-small-change-affects-loss"></a>
+<h2>The
+gradient tells you how a small change affects loss</h2>
+<p>Return to predicted minutes = weight times item count plus bias.
+Suppose the model predicts too little for a ten-item order. Changing the
+weight upward would increase the prediction and, for a sufficiently
+small change, reduce that example's squared error. The gradient records
+the local rate at which the loss changes as a parameter changes.</p>
+<p>Gradient descent updates a parameter by subtracting learning rate
+times gradient. The learning rate controls the step size. It is not a
+percentage accuracy target and not the amount of data the model learns
+per step. A large step can jump past a useful region and make loss
+unstable. A very small step can make progress unnecessarily slow.</p>
+<p>Backpropagation computes gradients through a chain of operations.
+Automatic differentiation libraries record the operations needed to
+calculate those derivatives. You do not need to hand-differentiate an
+entire transformer. You do need to know that the loss must be connected
+to the parameters you intend to train, and that the gradient must remain
+intact until the update. Detaching a tensor or entering an
+inference-only context at the wrong place can break learning. PyTorch's
+autograd reference describes this computation-graph mechanism. <a href="../chapters/references.html#source-f01">F01</a></p>
+<p>A gradient is a local signal from the selected objective and
+examples. It is not a judgment about truth, usefulness, or ethics. If
+your targets are contradictory, the optimizer will seek a compromise. If
+they reward an undesirable shortcut, the optimizer may learn that
+shortcut efficiently.</p>
+<p><img alt="The learning loop with inputs predictions targets and a parameter update" loading="lazy" src="../assets/learning-loop.png"/></p>
+<p>Figure 2 Training compares predictions with targets and updates
+parameters. Inference uses the fitted model without the loss and update
+path.</p>
+<a id="what-one-training-step-actually-means"></a>
+<h2>What one training step
+actually means</h2>
+<p>A basic training step has five stages. First, obtain a batch of
+examples and transform them into tensors. Second, run the model forward
+to produce predictions. Third, compare those predictions to targets with
+the loss. Fourth, run backward to calculate gradients. Fifth, let the
+optimizer update trainable parameters, then clear gradients before
+starting a new independent update.</p>
+<p>The forward pass creates intermediate values called activations.
+Backward may need those activations. This is why training uses memory
+beyond the weights. The optimizer may also maintain history, such as
+running estimates of gradient direction and magnitude. Inference
+ordinarily does not need these training-specific states.</p>
+<p>An optimizer is the update rule. Stochastic gradient descent is a
+simple example. Adam and AdamW adapt updates using running statistics.
+AdamW applies a decoupled weight-decay term rather than mixing that term
+into its momentum estimates. The optimizer's defaults are library
+decisions, not universal best settings. <a href="../chapters/references.html#source-f02">F02</a></p>
+<a id="learning-does-not-mean-storing-a-clean-database"></a>
+<h2>Learning does
+not mean storing a clean database</h2>
+<p>Parameters encode statistical regularities distributed across many
+values. They are not ordinary document records with reliable insert,
+update, and delete operations. Some examples can be memorized,
+particularly when repeated or distinctive. Yet a model may also distort
+facts, combine them, or fail to retrieve them on demand. Training on a
+document does not guarantee accurate recall of every statement.</p>
+<p>This matters when choosing between training and retrieval. Training
+can teach a response pattern or a recurring domain skill. Retrieval can
+provide a particular current passage at answer time. They can work
+together. Treating weights as a replacement for an auditable knowledge
+store often creates unnecessary maintenance and evaluation problems.</p>
+<a id="exercises-2"></a>
+<h2>Exercises</h2>
+<p>For the packing-time example, calculate the prediction for five items
+when weight is 0.7 and bias is 2. The answer is 5.5 minutes. Now change
+only the bias to 3; every order's prediction increases by one minute.
+Change only the weight to 0.8; a five-item order increases by half a
+minute and a ten-item order by one minute.</p>
+<p>A batch contains 16 sequences of 128 token IDs. Write its shape. Then
+imagine each token is represented by 64 numbers and write the new shape.
+Explain why the token IDs should be integers while the representations
+may be floating point.</p>
+<p>Describe one task where an essential piece of information is missing
+from the proposed input. Explain why a bigger model does not reliably
+solve that information problem.</p>
+</article><aside class="callout"><span class="eyebrow">Interactive companion</span><h2>Watch a parameter learn</h2><p>Change one assumption in a small, transparent browser example.</p><a href="../labs.html#gradient">Open the learning tool →</a></aside><nav class="pager" aria-label="Adjacent chapters"><a href="02.html"><small>← Previous</small>2  Your computer and the training workspace</a><a href="04.html"><small>Next →</small>4  Project turn four sensor readings into a useful prediction</a></nav></main><aside class="on-page"><h2>On this page</h2><a href="#a-model-is-a-computation-with-adjustable-values">A model is a
+computation with adjustable values</a><a href="#features-are-the-information-you-make-available">Features are
+the information you make available</a><a href="#a-loss-turns-a-desired-output-into-a-training-signal">A loss
+turns a desired output into a training signal</a><a href="#the-gradient-tells-you-how-a-small-change-affects-loss">The
+gradient tells you how a small change affects loss</a><a href="#what-one-training-step-actually-means">What one training step
+actually means</a><a href="#learning-does-not-mean-storing-a-clean-database">Learning does
+not mean storing a clean database</a><a href="#exercises-2">Exercises</a></aside></div><footer class="footer"><div><strong>Training Your Own Models</strong><br>Vibe Authored by Dr.Puma · 2 October 2026</div><div><a href="../chapters/glossary.html">Glossary</a><a href="../chapters/references.html">References</a><a href="https://github.com/MrScripty/training-your-own-models">GitHub ↗</a></div></footer><script src="../assets/site.js" defer></script></body></html>

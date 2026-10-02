@@ -1,0 +1,278 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f6f3eb"><title>11  Train a miniature language model from random weights · Training Your Own Models</title><meta name="description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><link rel="canonical" href="https://mrscripty.github.io/training-your-own-models/chapters/11.html"><meta property="og:type" content="website"><meta property="og:site_name" content="Training Your Own Models"><meta property="og:title" content="11  Train a miniature language model from random weights · Training Your Own Models"><meta property="og:description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><meta property="og:url" content="https://mrscripty.github.io/training-your-own-models/chapters/11.html"><meta property="og:image" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta property="og:image:secure_url" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1280"><meta property="og:image:height" content="640"><meta property="og:image:alt" content="Training Your Own Models. On One 24 GB GPU. Vibe Authored by Dr.Puma. Cream, blue and orange scientific cover artwork."><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="11  Train a miniature language model from random weights · Training Your Own Models"><meta name="twitter:description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><meta name="twitter:image" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta name="twitter:image:alt" content="Training Your Own Models, Vibe Authored by Dr.Puma"><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/style.css"></head><body><a class="skip" href="#main">Skip to content</a><header class="topbar"><a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true">↗</span><span>Training Your<br>Own Models</span></a><nav aria-label="Main navigation"><a href="../chapters/start.html">Read the book</a><a href="../labs.html">Explore</a><a href="../search.html" aria-label="Search the book">Search</a><a href="../downloads.html">Downloads</a></nav></header><div class="reader"><aside class="sidebar"><nav aria-label="Book contents"><label class="nav-filter">Find a chapter<input type="search" class="chapter-filter" placeholder="Filter titles" aria-label="Filter chapter titles"></label><a class="chapter-link" href="../chapters/start.html"><span>→</span>Training Your Own Models on One 24 GB GPU</a><a class="chapter-link" href="../chapters/01.html"><span>1</span>Train your first model before learning the whole field</a><a class="chapter-link" href="../chapters/02.html"><span>2</span>Your computer and the training workspace</a><a class="chapter-link" href="../chapters/03.html"><span>3</span>Numbers tensors parameters and learning</a><a class="chapter-link" href="../chapters/04.html"><span>4</span>Project turn four sensor readings into a useful prediction</a><a class="chapter-link" href="../chapters/05.html"><span>5</span>Build a dataset that teaches the job</a><a class="chapter-link" href="../chapters/06.html"><span>6</span>Decide whether the model actually improved</a><a class="chapter-link" href="../chapters/07.html"><span>7</span>Move from feature columns to neural representations</a><a class="chapter-link" href="../chapters/08.html"><span>8</span>Project classify your own small image collection</a><a class="chapter-link" href="../chapters/09.html"><span>9</span>Project locate one object with a box</a><a class="chapter-link" href="../chapters/10.html"><span>10</span>Project predict a mask then extract an outline</a><a class="chapter-link" href="../chapters/11.html" aria-current="page"><span>11</span>Train a miniature language model from random weights</a><a class="chapter-link" href="../chapters/12.html"><span>12</span>How a language model becomes a prediction machine</a><a class="chapter-link" href="../chapters/13.html"><span>13</span>Read and control the training loop</a><a class="chapter-link" href="../chapters/14.html"><span>14</span>Make a run reproducible and recoverable</a><a class="chapter-link" href="../chapters/15.html"><span>15</span>The real memory and compute budget</a><a class="chapter-link" href="../chapters/16.html"><span>16</span>Project make related text easy to retrieve</a><a class="chapter-link" href="../chapters/17.html"><span>17</span>Choose a model by its actual structure and files</a><a class="chapter-link" href="../chapters/18.html"><span>18</span>Teach a small language model one useful behavior</a><a class="chapter-link" href="../chapters/19.html"><span>19</span>Repeat the project with every weight trainable</a><a class="chapter-link" href="../chapters/20.html"><span>20</span>Teach domain conventions without turning weights into a database</a><a class="chapter-link" href="../chapters/21.html"><span>21</span>Make a writing style reproducible without changing the facts</a><a class="chapter-link" href="../chapters/22.html"><span>22</span>Teach a tool decision and a complete tool interaction</a><a class="chapter-link" href="../chapters/23.html"><span>23</span>Study a small typed decision service</a><a class="chapter-link" href="../chapters/24.html"><span>24</span>From a language model to a decision model</a><a class="chapter-link" href="../chapters/25.html"><span>25</span>Add preferences and distillation only after supervised learning works</a><a class="chapter-link" href="../chapters/26.html"><span>26</span>Project teach an image generator a small visual style</a><a class="chapter-link" href="../chapters/27.html"><span>27</span>Speech recognition train a small model to hear your domain</a><a class="chapter-link" href="../chapters/28.html"><span>28</span>Project build a tiny sound generator from random weights</a><a class="chapter-link" href="../chapters/29.html"><span>29</span>Scale a working experiment toward one billion parameters</a><a class="chapter-link" href="../chapters/30.html"><span>30</span>Understand what a public training process really demonstrates</a><a class="chapter-link" href="../chapters/31.html"><span>31</span>Diagnose failures before making the model larger</a><a class="chapter-link" href="../chapters/32.html"><span>32</span>From small model to small device product</a><a class="chapter-link" href="../chapters/33.html"><span>33</span>Turn a checkpoint into a usable application</a><a class="chapter-link" href="../chapters/34.html"><span>34</span>Design your first independent model</a><a class="chapter-link" href="../chapters/35.html"><span>35</span>Understand larger models using the parts you already know</a><a class="chapter-link" href="../chapters/36.html"><span>36</span>Read MiMo GLM and other architecture families</a><a class="chapter-link" href="../chapters/37.html"><span>37</span>Connect architecture to data memory and deployment</a><a class="chapter-link" href="../chapters/38.html"><span>38</span>Learn from public training projects without copying their assumptions</a><a class="chapter-link" href="../chapters/39.html"><span>39</span>Exercise checkpoints and worked answers</a><a class="chapter-link" href="../chapters/40.html"><span>40</span>Companion guide and verification record</a><a class="chapter-link" href="../chapters/glossary.html"><span>A–Z</span>Glossary with links to explanations</a><a class="chapter-link" href="../chapters/references.html"><span>Ref</span>Works cited</a></nav></aside><main class="prose" id="main"><details class="mobile-toc"><summary>Browse the book</summary><nav aria-label="Book contents"><label class="nav-filter">Find a chapter<input type="search" class="chapter-filter" placeholder="Filter titles" aria-label="Filter chapter titles"></label><a class="chapter-link" href="../chapters/start.html"><span>→</span>Training Your Own Models on One 24 GB GPU</a><a class="chapter-link" href="../chapters/01.html"><span>1</span>Train your first model before learning the whole field</a><a class="chapter-link" href="../chapters/02.html"><span>2</span>Your computer and the training workspace</a><a class="chapter-link" href="../chapters/03.html"><span>3</span>Numbers tensors parameters and learning</a><a class="chapter-link" href="../chapters/04.html"><span>4</span>Project turn four sensor readings into a useful prediction</a><a class="chapter-link" href="../chapters/05.html"><span>5</span>Build a dataset that teaches the job</a><a class="chapter-link" href="../chapters/06.html"><span>6</span>Decide whether the model actually improved</a><a class="chapter-link" href="../chapters/07.html"><span>7</span>Move from feature columns to neural representations</a><a class="chapter-link" href="../chapters/08.html"><span>8</span>Project classify your own small image collection</a><a class="chapter-link" href="../chapters/09.html"><span>9</span>Project locate one object with a box</a><a class="chapter-link" href="../chapters/10.html"><span>10</span>Project predict a mask then extract an outline</a><a class="chapter-link" href="../chapters/11.html" aria-current="page"><span>11</span>Train a miniature language model from random weights</a><a class="chapter-link" href="../chapters/12.html"><span>12</span>How a language model becomes a prediction machine</a><a class="chapter-link" href="../chapters/13.html"><span>13</span>Read and control the training loop</a><a class="chapter-link" href="../chapters/14.html"><span>14</span>Make a run reproducible and recoverable</a><a class="chapter-link" href="../chapters/15.html"><span>15</span>The real memory and compute budget</a><a class="chapter-link" href="../chapters/16.html"><span>16</span>Project make related text easy to retrieve</a><a class="chapter-link" href="../chapters/17.html"><span>17</span>Choose a model by its actual structure and files</a><a class="chapter-link" href="../chapters/18.html"><span>18</span>Teach a small language model one useful behavior</a><a class="chapter-link" href="../chapters/19.html"><span>19</span>Repeat the project with every weight trainable</a><a class="chapter-link" href="../chapters/20.html"><span>20</span>Teach domain conventions without turning weights into a database</a><a class="chapter-link" href="../chapters/21.html"><span>21</span>Make a writing style reproducible without changing the facts</a><a class="chapter-link" href="../chapters/22.html"><span>22</span>Teach a tool decision and a complete tool interaction</a><a class="chapter-link" href="../chapters/23.html"><span>23</span>Study a small typed decision service</a><a class="chapter-link" href="../chapters/24.html"><span>24</span>From a language model to a decision model</a><a class="chapter-link" href="../chapters/25.html"><span>25</span>Add preferences and distillation only after supervised learning works</a><a class="chapter-link" href="../chapters/26.html"><span>26</span>Project teach an image generator a small visual style</a><a class="chapter-link" href="../chapters/27.html"><span>27</span>Speech recognition train a small model to hear your domain</a><a class="chapter-link" href="../chapters/28.html"><span>28</span>Project build a tiny sound generator from random weights</a><a class="chapter-link" href="../chapters/29.html"><span>29</span>Scale a working experiment toward one billion parameters</a><a class="chapter-link" href="../chapters/30.html"><span>30</span>Understand what a public training process really demonstrates</a><a class="chapter-link" href="../chapters/31.html"><span>31</span>Diagnose failures before making the model larger</a><a class="chapter-link" href="../chapters/32.html"><span>32</span>From small model to small device product</a><a class="chapter-link" href="../chapters/33.html"><span>33</span>Turn a checkpoint into a usable application</a><a class="chapter-link" href="../chapters/34.html"><span>34</span>Design your first independent model</a><a class="chapter-link" href="../chapters/35.html"><span>35</span>Understand larger models using the parts you already know</a><a class="chapter-link" href="../chapters/36.html"><span>36</span>Read MiMo GLM and other architecture families</a><a class="chapter-link" href="../chapters/37.html"><span>37</span>Connect architecture to data memory and deployment</a><a class="chapter-link" href="../chapters/38.html"><span>38</span>Learn from public training projects without copying their assumptions</a><a class="chapter-link" href="../chapters/39.html"><span>39</span>Exercise checkpoints and worked answers</a><a class="chapter-link" href="../chapters/40.html"><span>40</span>Companion guide and verification record</a><a class="chapter-link" href="../chapters/glossary.html"><span>A–Z</span>Glossary with links to explanations</a><a class="chapter-link" href="../chapters/references.html"><span>Ref</span>Works cited</a></nav></details><div class="chapter-meta"><span class="eyebrow">Chapter 11 / 40</span><span>10 min read</span></div><article class="manuscript"><a id="train-a-miniature-language-model-from-random-weights"></a>
+<h1>11
+Train a miniature language model from random weights</h1>
+<a id="what-this-category-does"></a>
+<h2>What this category does</h2>
+<p>A generative language model predicts a continuation of a token
+sequence. Useful application patterns include drafting a constrained
+message, completing a structured record, generating a response
+conditioned on evidence, and proposing a tool call that another program
+validates. A language model is useful when the output is a sequence with
+flexible wording or structure. If the output is one of a few fixed
+labels, a classifier may be simpler.</p>
+<p>This project teaches the mechanics by training a very small
+byte-level transformer on original synthetic records. It will not become
+a general assistant. The expected learning target is a narrow text
+format and recurring relationships within that format. Its limited scope
+makes failures easier to inspect.</p>
+<p>You have already trained a three-parameter classifier. The genuinely
+new elements are ordered byte sequences, shifted next-byte targets, and
+causal attention. Automatic differentiation, mini-batches, and tensor
+checkpoints build on the neural image projects you have already used.
+The input-to-target idea remains the same.</p>
+<a id="first-generate-the-raw-material"></a>
+<h2>First generate the raw
+material</h2>
+<p>From the companion root, run:</p>
+<pre class="bash"><code>python examples/tiny-transformer/make_data.py --output data/tiny-text</code></pre>
+<p>The generator creates records about colored household objects in
+rooms. A record is followed by questions and answers about that record.
+The generated text is original and deterministic. The training split
+contains 800 entity IDs, validation contains 100 different IDs, and test
+contains another 100. No entity is assigned to two splits.</p>
+<p>Open train.txt before proceeding. A typical block looks like this,
+with values determined by the generator:</p>
+<pre class="text"><code>Record item0042: the blue lamp is in the office. Its switch is on.
+Question: Where is item0042? Answer: the office.
+Question: What color is item0042? Answer: blue.</code></pre>
+<p>The exact record above illustrates the format rather than claiming a
+particular generated item has those values. Inspect your actual file.
+The manifest records split sizes, seeds, and SHA-256 hashes. In the
+prepared CPU generator check, the training file contained 132,852 bytes.
+This is intentionally tiny. It is enough to exercise the pipeline, not
+enough to pretrain a broadly capable model.</p>
+<a id="why-this-architecture-needs-this-kind-of-data"></a>
+<h2>Why this
+architecture needs this kind of data</h2>
+<p>The model accepts integer byte IDs and predicts the next byte. Every
+adjacent pair in the text provides a supervised target. It does not
+directly receive a label saying 'understand room location'. Instead, the
+loss rewards continuations that match the records and answers. If you
+want reliable question answering, you must separately test whether it
+uses the relevant earlier record rather than repeating frequent
+answers.</p>
+<p>The input context is 128 bytes by default. A target depending on
+information farther away cannot be solved through that context window.
+If a record and question become separated by a long paragraph, the model
+may lack the necessary evidence. This connects architecture to data
+design: examples must expose the dependencies you want the model to
+learn within the representation it can use.</p>
+<p>The training program samples fixed-length windows from each split's
+continuous byte stream. A window can cross a record boundary within that
+split. That is acceptable for this small continuation exercise because
+the stream format includes separators and no split boundary is crossed.
+For tasks where documents must be independent, use explicit boundary
+tokens and appropriate masking rather than blindly joining unrelated
+records.</p>
+<a id="install-only-the-small-project-environment"></a>
+<h2>Install only the
+small project environment</h2>
+<p>The reference API pin is torch 2.8.0 with Python 3.11. This older
+fixed release is intentional for the educational implementation; it is
+not a claim about the newest PyTorch version. Use the official PyTorch
+installation selector or previous-version instructions to select the
+correct CPU or CUDA wheel for your platform. The release and versioned
+attention API are documented by PyTorch. <a href="../chapters/references.html#source-f10">F10</a>
+<a href="../chapters/references.html#source-f11">F11</a></p>
+<p>Create a separate virtual environment, install the matching official
+wheel, and verify the version and device. The project requires no
+Transformers package, no tokenizer download, and no remote model code.
+Do not copy a CUDA-specific wheel command to a machine with incompatible
+hardware or driver.</p>
+<p>For a Linux or Windows Python 3.11 environment, the official 2.8.0
+CPU wheel can be installed with the first command below. The second is
+the CUDA 12.6 build for a compatible NVIDIA driver and GPU; choose one,
+not both. A newer GPU may require a different supported CUDA build. The
+official previous-version page lists the alternatives. <a href="../chapters/references.html#source-f15">F15</a></p>
+<pre class="bash"><code># CPU environment
+python -m pip install torch==2.8.0 --index-url https://download.pytorch.org/whl/cpu
+
+# Separate compatible NVIDIA CUDA environment
+python -m pip install torch==2.8.0 --index-url https://download.pytorch.org/whl/cu126</code></pre>
+<p>Run the local model checks first:</p>
+<pre class="bash"><code>python examples/tiny-transformer/check_model.py</code></pre>
+<p>That script tests output shapes, future-token isolation, finite
+gradients, a real parameter update, and save/load equivalence. It is
+provided for execution in an environment with PyTorch. During
+preparation of this edition, the source was syntax-checked but PyTorch
+execution was unavailable; the validation appendix states that boundary
+explicitly.</p>
+<a id="run-a-smoke-test-on-the-cpu"></a>
+<h2>Run a smoke test on the CPU</h2>
+<pre class="bash"><code>python examples/tiny-transformer/train.py \
+  --data data/tiny-text --output runs/byte-smoke \
+  --device cpu --steps 20 --warmup 2 \
+  --width 32 --layers 2 --heads 4 \
+  --context 32 --batch-size 2 --eval-every 10</code></pre>
+<p>This reduces the model and sequence sizes so a basic CPU test is
+practical. The first run is a correctness check. Look for a finite loss,
+a printed parameter count, validation output, and checkpoint.pt. Do not
+judge the model's usefulness after twenty updates.</p>
+<p>The script never silently substitutes CPU for a requested unavailable
+GPU. A device error should be fixed directly. Likewise, BF16 requires an
+explicitly compatible CUDA device. These checks prevent a long run from
+proceeding under an unintended environment.</p>
+<a id="move-the-same-pipeline-to-the-gpu"></a>
+<h2>Move the same pipeline to the
+GPU</h2>
+<p>After the CPU checks pass, a small GPU experiment can use the default
+architecture:</p>
+<pre class="bash"><code>python examples/tiny-transformer/train.py \
+  --data data/tiny-text --output runs/byte-gpu \
+  --device cuda --steps 1000 --warmup 50 \
+  --context 128 --width 128 --layers 4 --heads 4 \
+  --batch-size 8 --accumulation 2 --eval-every 100</code></pre>
+<p>Add --bf16 only after checking device support. The script keeps model
+parameters and AdamW states in FP32 and uses BF16 autocast for selected
+operations when requested. This is a clear numeric policy, not a claim
+that every tensor occupies two bytes. The default architecture has about
+0.84 million distinct parameters by direct shape accounting, well below
+one billion.</p>
+<p>The batch is eight windows of 128 bytes. Accumulating two
+microbatches presents 2,048 target bytes per optimizer update. One
+thousand updates therefore present about 2.048 million training bytes,
+sampled with replacement from the small training stream. That is
+repeated exposure, not two million unique bytes.</p>
+<p>The code logs throughput including evaluation time, so it is an
+end-to-end run measure rather than a pure kernel benchmark. It also logs
+peak allocated and reserved GPU memory. Measure your own results; no
+particular RTX throughput or wall-clock duration is asserted here.</p>
+<a id="understand-the-model-one-piece-at-a-time"></a>
+<h2>Understand the model
+one piece at a time</h2>
+<p>The vocabulary contains 256 byte values. A learned embedding maps
+each ID to a vector of width 128. A learned positional table adds
+information about the position inside the current window. Four
+transformer blocks repeatedly combine earlier information through causal
+attention and transform it through a feed-forward network. A final
+normalization and vocabulary projection produce 256 logits for each
+position.</p>
+<p>The input and output vocabulary weights are tied, meaning the same
+parameter matrix is reused. The model uses learned positions and
+ordinary multi-head attention for clarity. It is not an implementation
+of Qwen, Gemma, Granite, or a modern production architecture. Those
+families differ in tokenization, normalization, position handling,
+feed-forward choices, attention layout, and other details.</p>
+<p>PyTorch's scaled-dot-product attention receives is_causal=True.
+During evaluation, dropout_p is explicitly zero. This matters because
+the functional attention operation applies the dropout probability it is
+passed rather than automatically reading the surrounding module's
+evaluation state. <a href="../chapters/references.html#source-f11">F11</a></p>
+<p>The next chapter explains the same components more deeply. First
+connect each component to the tensors printed by your own small run.
+Architecture becomes easier to understand when it names something you
+have already used.</p>
+<a id="every-training-control-in-this-project"></a>
+<h2>Every training control
+in this project</h2>
+<p>--context sets the number of input bytes per window and the size of
+the learned position table. --width sets representation size. --layers
+sets the number of transformer blocks. --heads divides the hidden width
+into attention heads; width must be divisible by heads. --dropout
+randomly suppresses selected intermediate contributions during training
+and is disabled during evaluation.</p>
+<p>--batch-size is windows per microbatch. --accumulation is
+microbatches per update. --steps is optimizer updates, not microbatches.
+--learning-rate is the peak update rate, default 0.0003. --weight-decay
+is AdamW's decoupled shrinkage strength, default 0.1. The educational
+implementation applies it uniformly; production recipes often use
+parameter groups that exempt biases and normalization parameters.</p>
+<p>--warmup ramps the learning rate over early updates. Afterward a
+cosine schedule decreases it to one tenth of the peak. --eval-every
+controls evaluation and checkpoint intervals. --seed controls
+initialization and sampling seeds. --device selects CPU or CUDA. --bf16
+enables compatible CUDA autocast. --data and --output select input and
+artifact directories. --resume loads an existing trusted checkpoint and
+requires the checked training configuration and dataset hashes to
+match.</p>
+<p>The optimizer also sets betas to 0.9 and 0.95, epsilon to 1e-8, and
+clips the global gradient norm at 1.0. These are explicit starting
+choices for this experiment. The training-control chapter explains their
+meanings. They are not a recommendation to use the same values for every
+fine-tuning job.</p>
+<a id="evaluate-the-behavior-you-actually-want"></a>
+<h2>Evaluate the behavior
+you actually want</h2>
+<p>The logged validation objective is natural-log loss per byte,
+accompanied by bits per byte. Lower is better for the byte-prediction
+objective. Do not compare byte-model perplexity directly with the
+perplexity of a model using a different subword tokenizer. The
+prediction units differ.</p>
+<p>Evaluate a final selected checkpoint on the test file only after
+choosing the procedure:</p>
+<pre class="bash"><code>python examples/tiny-transformer/use_model.py \
+  runs/byte-gpu/checkpoint.pt \
+  --device cpu --evaluate-file data/tiny-text/test.txt</code></pre>
+<p>Then create fresh records with object IDs and values not present in
+training. Put the necessary fact and question within the context window.
+Score whether the answer matches the provided fact. Compare against
+always choosing the most common room and against a deterministic parser
+for this artificial format. A transformer is educational here; a parser
+would be the practical solution if this exact rigid format were the
+entire real task.</p>
+<a id="inference-on-the-cpu-and-gpu"></a>
+<h2>Inference on the CPU and GPU</h2>
+<p>The same trusted checkpoint can be loaded on either device:</p>
+<pre class="bash"><code>python examples/tiny-transformer/use_model.py \
+  runs/byte-gpu/checkpoint.pt --device cpu \
+  --prompt "Record item9999: the red lamp is in the hall."
+
+python examples/tiny-transformer/use_model.py \
+  runs/byte-gpu/checkpoint.pt --device cuda \
+  --prompt "Record item9999: the red lamp is in the hall."</code></pre>
+<p>The inference program reconstructs the exact saved architecture,
+loads the state dictionary, calls eval, converts the UTF-8 prompt into
+byte IDs, moves tensors to the selected device, samples one next byte at
+a time, and decodes bytes back to text. Invalid UTF-8 sequences are
+replaced on decoding, which is a visible limitation of an immature byte
+model rather than a hidden text-cleaning success.</p>
+<p>CPU and GPU use the same learned artifact but can differ slightly in
+floating-point results. Sampling can amplify small probability
+differences, so identical seeds do not guarantee identical text across
+devices. The tiny architecture may not benefit much from a GPU because
+launch overhead is significant. Larger models and batches generally
+change that balance. Measure latency for your intended request size.</p>
+<p>This educational generator does not implement a key-value cache, so
+it recomputes the retained context at each generated byte. It also crops
+to the learned context length. Those are deliberate simplicity choices
+and become performance limits when scaling. Do not benchmark it as if it
+were an optimized production serving engine.</p>
+<a id="checkpoint-recovery-and-limits"></a>
+<h2>Checkpoint recovery and
+limits</h2>
+<p>checkpoint.pt contains weights, optimizer state, configuration,
+update number, and random-number-generator state. Saving uses a
+temporary file followed by a rename to reduce the chance that an
+interrupted write replaces the last complete checkpoint. Resume only
+trusted local checkpoints; serialized model files from unknown sources
+deserve security scrutiny even when safer loading modes are
+available.</p>
+<p>The script checks key configuration fields and data hashes before
+resuming. It does not claim exact reproducibility across different
+PyTorch releases, operating systems, GPU architectures, or kernels. Its
+purpose is to make the important state explicit and reject obvious
+accidental changes.</p>
+<a id="exercises-5"></a>
+<h2>Exercises</h2>
+<p>Use check_model.py to see how changing future input bytes should
+leave earlier logits unchanged. Explain why this is stronger evidence
+about causality than a low loss.</p>
+<p>Train two small configurations with the same token-presentation
+budget. Double width in one and double updates in the other, keeping
+other choices controlled. Compare validation loss, fresh-record
+accuracy, elapsed time, and memory. Report the tradeoff rather than
+choosing a winner by parameter count.</p>
+<p>Replace the synthetic corpus with a small collection of text you own
+or are licensed to use. Preserve document-level splits. State what
+behavior the corpus can plausibly teach and what it cannot. A collection
+of maintenance manuals may teach terminology; it does not automatically
+teach a conversational format or reliable tool use.</p>
+</article><nav class="pager" aria-label="Adjacent chapters"><a href="10.html"><small>← Previous</small>10  Project predict a mask then extract an outline</a><a href="12.html"><small>Next →</small>12  How a language model becomes a prediction machine</a></nav></main><aside class="on-page"><h2>On this page</h2><a href="#what-this-category-does">What this category does</a><a href="#first-generate-the-raw-material">First generate the raw
+material</a><a href="#why-this-architecture-needs-this-kind-of-data">Why this
+architecture needs this kind of data</a><a href="#install-only-the-small-project-environment">Install only the
+small project environment</a><a href="#run-a-smoke-test-on-the-cpu">Run a smoke test on the CPU</a><a href="#move-the-same-pipeline-to-the-gpu">Move the same pipeline to the
+GPU</a><a href="#understand-the-model-one-piece-at-a-time">Understand the model
+one piece at a time</a><a href="#every-training-control-in-this-project">Every training control
+in this project</a><a href="#evaluate-the-behavior-you-actually-want">Evaluate the behavior
+you actually want</a><a href="#inference-on-the-cpu-and-gpu">Inference on the CPU and GPU</a><a href="#checkpoint-recovery-and-limits">Checkpoint recovery and
+limits</a><a href="#exercises-5">Exercises</a></aside></div><footer class="footer"><div><strong>Training Your Own Models</strong><br>Vibe Authored by Dr.Puma · 2 October 2026</div><div><a href="../chapters/glossary.html">Glossary</a><a href="../chapters/references.html">References</a><a href="https://github.com/MrScripty/training-your-own-models">GitHub ↗</a></div></footer><script src="../assets/site.js" defer></script></body></html>

@@ -1,0 +1,862 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f6f3eb"><title>24  From a language model to a decision model · Training Your Own Models</title><meta name="description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><link rel="canonical" href="https://mrscripty.github.io/training-your-own-models/chapters/24.html"><meta property="og:type" content="website"><meta property="og:site_name" content="Training Your Own Models"><meta property="og:title" content="24  From a language model to a decision model · Training Your Own Models"><meta property="og:description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><meta property="og:url" content="https://mrscripty.github.io/training-your-own-models/chapters/24.html"><meta property="og:image" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta property="og:image:secure_url" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1280"><meta property="og:image:height" content="640"><meta property="og:image:alt" content="Training Your Own Models. On One 24 GB GPU. Vibe Authored by Dr.Puma. Cream, blue and orange scientific cover artwork."><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="24  From a language model to a decision model · Training Your Own Models"><meta name="twitter:description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><meta name="twitter:image" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta name="twitter:image:alt" content="Training Your Own Models, Vibe Authored by Dr.Puma"><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/style.css"></head><body><a class="skip" href="#main">Skip to content</a><header class="topbar"><a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true">↗</span><span>Training Your<br>Own Models</span></a><nav aria-label="Main navigation"><a href="../chapters/start.html">Read the book</a><a href="../labs.html">Explore</a><a href="../search.html" aria-label="Search the book">Search</a><a href="../downloads.html">Downloads</a></nav></header><div class="reader"><aside class="sidebar"><nav aria-label="Book contents"><label class="nav-filter">Find a chapter<input type="search" class="chapter-filter" placeholder="Filter titles" aria-label="Filter chapter titles"></label><a class="chapter-link" href="../chapters/start.html"><span>→</span>Training Your Own Models on One 24 GB GPU</a><a class="chapter-link" href="../chapters/01.html"><span>1</span>Train your first model before learning the whole field</a><a class="chapter-link" href="../chapters/02.html"><span>2</span>Your computer and the training workspace</a><a class="chapter-link" href="../chapters/03.html"><span>3</span>Numbers tensors parameters and learning</a><a class="chapter-link" href="../chapters/04.html"><span>4</span>Project turn four sensor readings into a useful prediction</a><a class="chapter-link" href="../chapters/05.html"><span>5</span>Build a dataset that teaches the job</a><a class="chapter-link" href="../chapters/06.html"><span>6</span>Decide whether the model actually improved</a><a class="chapter-link" href="../chapters/07.html"><span>7</span>Move from feature columns to neural representations</a><a class="chapter-link" href="../chapters/08.html"><span>8</span>Project classify your own small image collection</a><a class="chapter-link" href="../chapters/09.html"><span>9</span>Project locate one object with a box</a><a class="chapter-link" href="../chapters/10.html"><span>10</span>Project predict a mask then extract an outline</a><a class="chapter-link" href="../chapters/11.html"><span>11</span>Train a miniature language model from random weights</a><a class="chapter-link" href="../chapters/12.html"><span>12</span>How a language model becomes a prediction machine</a><a class="chapter-link" href="../chapters/13.html"><span>13</span>Read and control the training loop</a><a class="chapter-link" href="../chapters/14.html"><span>14</span>Make a run reproducible and recoverable</a><a class="chapter-link" href="../chapters/15.html"><span>15</span>The real memory and compute budget</a><a class="chapter-link" href="../chapters/16.html"><span>16</span>Project make related text easy to retrieve</a><a class="chapter-link" href="../chapters/17.html"><span>17</span>Choose a model by its actual structure and files</a><a class="chapter-link" href="../chapters/18.html"><span>18</span>Teach a small language model one useful behavior</a><a class="chapter-link" href="../chapters/19.html"><span>19</span>Repeat the project with every weight trainable</a><a class="chapter-link" href="../chapters/20.html"><span>20</span>Teach domain conventions without turning weights into a database</a><a class="chapter-link" href="../chapters/21.html"><span>21</span>Make a writing style reproducible without changing the facts</a><a class="chapter-link" href="../chapters/22.html"><span>22</span>Teach a tool decision and a complete tool interaction</a><a class="chapter-link" href="../chapters/23.html"><span>23</span>Study a small typed decision service</a><a class="chapter-link" href="../chapters/24.html" aria-current="page"><span>24</span>From a language model to a decision model</a><a class="chapter-link" href="../chapters/25.html"><span>25</span>Add preferences and distillation only after supervised learning works</a><a class="chapter-link" href="../chapters/26.html"><span>26</span>Project teach an image generator a small visual style</a><a class="chapter-link" href="../chapters/27.html"><span>27</span>Speech recognition train a small model to hear your domain</a><a class="chapter-link" href="../chapters/28.html"><span>28</span>Project build a tiny sound generator from random weights</a><a class="chapter-link" href="../chapters/29.html"><span>29</span>Scale a working experiment toward one billion parameters</a><a class="chapter-link" href="../chapters/30.html"><span>30</span>Understand what a public training process really demonstrates</a><a class="chapter-link" href="../chapters/31.html"><span>31</span>Diagnose failures before making the model larger</a><a class="chapter-link" href="../chapters/32.html"><span>32</span>From small model to small device product</a><a class="chapter-link" href="../chapters/33.html"><span>33</span>Turn a checkpoint into a usable application</a><a class="chapter-link" href="../chapters/34.html"><span>34</span>Design your first independent model</a><a class="chapter-link" href="../chapters/35.html"><span>35</span>Understand larger models using the parts you already know</a><a class="chapter-link" href="../chapters/36.html"><span>36</span>Read MiMo GLM and other architecture families</a><a class="chapter-link" href="../chapters/37.html"><span>37</span>Connect architecture to data memory and deployment</a><a class="chapter-link" href="../chapters/38.html"><span>38</span>Learn from public training projects without copying their assumptions</a><a class="chapter-link" href="../chapters/39.html"><span>39</span>Exercise checkpoints and worked answers</a><a class="chapter-link" href="../chapters/40.html"><span>40</span>Companion guide and verification record</a><a class="chapter-link" href="../chapters/glossary.html"><span>A–Z</span>Glossary with links to explanations</a><a class="chapter-link" href="../chapters/references.html"><span>Ref</span>Works cited</a></nav></aside><main class="prose" id="main"><details class="mobile-toc"><summary>Browse the book</summary><nav aria-label="Book contents"><label class="nav-filter">Find a chapter<input type="search" class="chapter-filter" placeholder="Filter titles" aria-label="Filter chapter titles"></label><a class="chapter-link" href="../chapters/start.html"><span>→</span>Training Your Own Models on One 24 GB GPU</a><a class="chapter-link" href="../chapters/01.html"><span>1</span>Train your first model before learning the whole field</a><a class="chapter-link" href="../chapters/02.html"><span>2</span>Your computer and the training workspace</a><a class="chapter-link" href="../chapters/03.html"><span>3</span>Numbers tensors parameters and learning</a><a class="chapter-link" href="../chapters/04.html"><span>4</span>Project turn four sensor readings into a useful prediction</a><a class="chapter-link" href="../chapters/05.html"><span>5</span>Build a dataset that teaches the job</a><a class="chapter-link" href="../chapters/06.html"><span>6</span>Decide whether the model actually improved</a><a class="chapter-link" href="../chapters/07.html"><span>7</span>Move from feature columns to neural representations</a><a class="chapter-link" href="../chapters/08.html"><span>8</span>Project classify your own small image collection</a><a class="chapter-link" href="../chapters/09.html"><span>9</span>Project locate one object with a box</a><a class="chapter-link" href="../chapters/10.html"><span>10</span>Project predict a mask then extract an outline</a><a class="chapter-link" href="../chapters/11.html"><span>11</span>Train a miniature language model from random weights</a><a class="chapter-link" href="../chapters/12.html"><span>12</span>How a language model becomes a prediction machine</a><a class="chapter-link" href="../chapters/13.html"><span>13</span>Read and control the training loop</a><a class="chapter-link" href="../chapters/14.html"><span>14</span>Make a run reproducible and recoverable</a><a class="chapter-link" href="../chapters/15.html"><span>15</span>The real memory and compute budget</a><a class="chapter-link" href="../chapters/16.html"><span>16</span>Project make related text easy to retrieve</a><a class="chapter-link" href="../chapters/17.html"><span>17</span>Choose a model by its actual structure and files</a><a class="chapter-link" href="../chapters/18.html"><span>18</span>Teach a small language model one useful behavior</a><a class="chapter-link" href="../chapters/19.html"><span>19</span>Repeat the project with every weight trainable</a><a class="chapter-link" href="../chapters/20.html"><span>20</span>Teach domain conventions without turning weights into a database</a><a class="chapter-link" href="../chapters/21.html"><span>21</span>Make a writing style reproducible without changing the facts</a><a class="chapter-link" href="../chapters/22.html"><span>22</span>Teach a tool decision and a complete tool interaction</a><a class="chapter-link" href="../chapters/23.html"><span>23</span>Study a small typed decision service</a><a class="chapter-link" href="../chapters/24.html" aria-current="page"><span>24</span>From a language model to a decision model</a><a class="chapter-link" href="../chapters/25.html"><span>25</span>Add preferences and distillation only after supervised learning works</a><a class="chapter-link" href="../chapters/26.html"><span>26</span>Project teach an image generator a small visual style</a><a class="chapter-link" href="../chapters/27.html"><span>27</span>Speech recognition train a small model to hear your domain</a><a class="chapter-link" href="../chapters/28.html"><span>28</span>Project build a tiny sound generator from random weights</a><a class="chapter-link" href="../chapters/29.html"><span>29</span>Scale a working experiment toward one billion parameters</a><a class="chapter-link" href="../chapters/30.html"><span>30</span>Understand what a public training process really demonstrates</a><a class="chapter-link" href="../chapters/31.html"><span>31</span>Diagnose failures before making the model larger</a><a class="chapter-link" href="../chapters/32.html"><span>32</span>From small model to small device product</a><a class="chapter-link" href="../chapters/33.html"><span>33</span>Turn a checkpoint into a usable application</a><a class="chapter-link" href="../chapters/34.html"><span>34</span>Design your first independent model</a><a class="chapter-link" href="../chapters/35.html"><span>35</span>Understand larger models using the parts you already know</a><a class="chapter-link" href="../chapters/36.html"><span>36</span>Read MiMo GLM and other architecture families</a><a class="chapter-link" href="../chapters/37.html"><span>37</span>Connect architecture to data memory and deployment</a><a class="chapter-link" href="../chapters/38.html"><span>38</span>Learn from public training projects without copying their assumptions</a><a class="chapter-link" href="../chapters/39.html"><span>39</span>Exercise checkpoints and worked answers</a><a class="chapter-link" href="../chapters/40.html"><span>40</span>Companion guide and verification record</a><a class="chapter-link" href="../chapters/glossary.html"><span>A–Z</span>Glossary with links to explanations</a><a class="chapter-link" href="../chapters/references.html"><span>Ref</span>Works cited</a></nav></details><div class="chapter-meta"><span class="eyebrow">Chapter 24 / 40</span><span>31 min read</span></div><article class="manuscript"><a id="from-a-language-model-to-a-decision-model"></a>
+<h1>24 From a language
+model to a decision model</h1>
+<a id="the-project-read-a-situation-score-the-allowed-answers"></a>
+<h2>The
+project read a situation score the allowed answers</h2>
+<p>Suppose your program receives this message:</p>
+<blockquote>
+<p>My parcel was delivered to the wrong building. Can you help me find
+it?</p>
+</blockquote>
+<p>You want to choose one of three queues: billing, delivery, or account
+access. A chat model might generate a sentence, or spell a JSON object
+one token at a time. A decision model can instead return three numbers.
+Your program turns those numbers into a typed result.</p>
+<p>That is the engineering goal in this chapter. It is narrower than
+building a general assistant, and more substantial than asking a chat
+model to write a confidence percentage. You will learn where those
+numbers come from, which existing weights can be reused, which new
+weights need training, and how to test whether the resulting
+probabilities mean anything useful.</p>
+<a id="jev-kev-clm-and-jepa-are-different-names"></a>
+<h3>Jev Kev CLM and JEPA
+are different names</h3>
+<p>TypeSafe's Jev is a hosted decision model. Its official launch
+describes finite typed outputs, parallel probability outputs, and a
+training method called Reinforcement Learning for Calibrated Decisions,
+or RLCD. The public pages inspected for this book do not establish a
+reproducible implementation of its internal architecture or RLCD. We
+therefore do not claim to reproduce Jev itself. Finite output types also
+do not guarantee correct decisions: a model can confidently choose the
+wrong permitted answer. <a href="../chapters/references.html#source-j01">J01</a>, <a href="../chapters/references.html#source-j02">J02</a></p>
+<p>Kev is an open implementation with similar behavior. Its source
+exposes the model, formatting, training, and serving. It has a 0.8B
+release, which is relevant to our small-GPU scope. Kev cites a community
+reverse-engineering article; the article explicitly labels its account
+of Jev's internals as speculative. Evidence about Kev is not evidence
+that proprietary Jev has identical layers. <a href="../chapters/references.html#source-j03">J03</a>, <a href="../chapters/references.html#source-j04">J04</a></p>
+<p>Contrastive-LM's CLM takes a different route: it separately
+represents a state and candidate actions, then compares their vectors.
+Its released reference encoder is Qwen3-8B, outside this book's
+training-example size limit. We study the idea and implementation
+without pretending that its learned head works unchanged on a smaller
+encoder. <a href="../chapters/references.html#source-j05">J05</a></p>
+<p>JEPA, a joint-embedding predictive architecture, is a separate
+research concept. It is not an expansion of the name Jev. Nothing in the
+conversion below requires calling Jev a JEPA model.</p>
+<p>The practical progression is:</p>
+<ol type="1">
+<li>Understand a small decoder backbone using Qwen3-0.6B as a concrete
+example</li>
+<li>Replace text-generation readout with an option-scoring readout</li>
+<li>Train and evaluate that decision model</li>
+<li>Add independent questions and shared-prefix serving</li>
+<li>Compare that design with a separately encoded, CLM-style scorer</li>
+</ol>
+<a id="run-the-complete-option-pointer-project-first"></a>
+<h2>Run the complete
+option pointer project first</h2>
+<p>The companion implementation is
+examples/decision_pointer/decision_pointer.py. It is an original
+educational conversion of Qwen3-0.6B, not a reproduction of private Jev
+training, the Kev checkpoint, or the CLM checkpoint. Start with the
+executable workflow, then use the architecture sections below to
+understand the changed head.</p>
+<p>Open a fresh terminal at the companion root and create a separate
+Python 3.12 environment. The commands below use the same inspected torch
+2.12.1 and Transformers 5.18.0 reference releases as the small-LLM
+project. Choose the official CUDA wheel only when the driver and GPU
+support it; a separate CPU environment can use the CPU index instead.
+Package resolution and model runtime were not executed during book
+preparation. <a href="../chapters/references.html#source-f15">F15</a> <a href="../chapters/references.html#source-l04">L04</a></p>
+<pre class="bash"><code>cd examples/decision_pointer
+python -m venv .venv-pointer
+source .venv-pointer/bin/activate
+python -m pip install torch==2.12.1 --index-url https://download.pytorch.org/whl/cu126
+python -m pip install transformers==5.18.0
+
+# CPU alternative in a separate environment:
+# python -m pip install torch==2.12.1 --index-url https://download.pytorch.org/whl/cpu
+
+python make_toy_data.py
+python test_numerics.py</code></pre>
+<p>The dependency-free tests can also be run before installing torch.
+They check thirty original toy records, group isolation, option
+indexing, shuffled-label alignment, overlength rejection, stable
+softmax/NLL, and probability metrics. They do not execute a neural
+model. A passing fixture prints PASS and an illustrative probability
+vector near [0.575975, 0.283995, 0.140029].</p>
+<p>Each record contains id, group, state, question, options, and label.
+Options have an ID and text; label names the correct option ID. The
+numerical target is recomputed when training shuffles option order.
+Related records share a group and must stay in one split. The twelve
+training, six development, six calibration, and six test examples are
+deliberately tiny plumbing fixtures. Six calibration records cannot
+establish reliable real-world calibration.</p>
+<a id="train-a-head-and-then-the-complete-model"></a>
+<h3>Train a head and then
+the complete model</h3>
+<p>A useful first comparison freezes the backbone and trains the new
+pointer projections. The next run updates the entire backbone and head.
+Both use fresh output directories and the same immutable Qwen revision
+verified for the LLM project. <a href="../chapters/references.html#source-l03">L03</a></p>
+<pre class="bash"><code>python decision_pointer.py train \
+  --train data/train.jsonl --dev data/dev.jsonl \
+  --run runs/head-smoke --epochs 1 --mode head \
+  --max-length 256 --accum 8 --device cuda --precision bf16 \
+  --revision c1899de289a04d12100db370d81485cdf75e47ca
+
+python decision_pointer.py train \
+  --train data/train.jsonl --dev data/dev.jsonl \
+  --run runs/full-smoke --epochs 1 --mode full \
+  --max-length 256 --accum 8 --device cuda --precision bf16 \
+  --revision c1899de289a04d12100db370d81485cdf75e47ca</code></pre>
+<p>BF16 means supported CUDA autocast here. The backbone parameters and
+AdamW buffers remain FP32, so the memory inventory must include them.
+CPU training uses --device cpu --precision fp32 and may be slow even
+though the same mathematical task is supported. A strict pre-download
+parameter check rejects an accidentally oversized backbone. The code
+does not use device_map=auto as a training-memory workaround.</p>
+<p>--epochs controls complete training traversals. --accum combines
+one-example microbatches and correctly scales the final partial
+accumulation group. --max-length is a hard limit including evidence,
+question, candidates, and readout; excessive inputs fail rather than
+silently losing evidence. --mode head or full chooses what changes.
+--pointer-width defaults to 256, setting the new projection dimension.
+--backbone-lr defaults to 0.00002 and --head-lr to 0.001 because a new
+random head and pretrained weights need not use the same update scale.
+These are starting settings to evaluate, not optimized claims.</p>
+<p>--weight-decay defaults to 0.01. --warmup-fraction uses the first
+tenth of updates to ramp the rate, followed by decay. --clip caps
+gradient norm at 1.0. --seed controls initialization and shuffling.
+--checkpointing recomputes activations to reduce memory and is on by
+default. --device and --precision select execution and numeric policy.
+--revision pins the base checkpoint. --run names a new artifact
+directory.</p>
+<p>The run saves its initial random-head development results as
+untrained_head_dev.json, then selects the lowest-development-NLL
+checkpoint. It writes backbone safetensors, tokenizer files, head.pt,
+configuration, training history, and metrics. The complete directory is
+required for inference. The random-head result is a plumbing baseline;
+meaningful quality claims should also compare an unchanged or
+restricted-label language-model baseline.</p>
+<p>This short reference does not implement optimizer resume. An
+interrupted training experiment starts again in a new directory. Do not
+infer recovery support from the fact that an inference checkpoint
+exists.</p>
+<a id="calibrate-without-training-on-the-calibration-examples"></a>
+<h3>Calibrate
+without training on the calibration examples</h3>
+<p>Fit a positive temperature using only the dedicated calibration
+split, then evaluate the untouched test split:</p>
+<pre class="bash"><code>python decision_pointer.py calibrate \
+  --run runs/full-smoke --data data/calibration.jsonl \
+  --output runs/full-smoke/calibration.json \
+  --device cuda --precision bf16
+
+python decision_pointer.py evaluate \
+  --run runs/full-smoke --data data/test.jsonl \
+  --calibration runs/full-smoke/calibration.json \
+  --output runs/full-smoke/test.json \
+  --device cuda --precision bf16</code></pre>
+<p>The calibrator searches 201 log-spaced temperatures from 0.1 to 10 to
+minimize calibration NLL. A result at the edge of that range needs
+investigation. The saved calibration is bound to the checkpoint identity
+and cannot be silently reused with another trained run. Do not choose a
+temperature again after looking at test outcomes.</p>
+<p>The test report includes accuracy, negative log likelihood,
+multiclass Brier score, reliability-bin counts, and a
+coverage/error-rate example at probability 0.9. That threshold is an
+illustration, not an approved action policy. Replace the toy splits with
+sufficient independent evidence before selecting a real abstention
+rule.</p>
+<a id="predict-a-genuinely-new-decision-on-cpu-and-gpu"></a>
+<h3>Predict a
+genuinely new decision on CPU and GPU</h3>
+<p>Save the following one-line record as fresh.jsonl in this project
+directory. The label is omitted because inference does not know the
+answer.</p>
+<pre class="json"><code>{"id":"fresh_001","group":"fresh_conversation_001","state":"The delivery notice says my parcel was left at a different building.","question":"Which queue should review this?","options":[{"id":"billing","text":"Payments and invoices"},{"id":"delivery","text":"Couriers and missing parcels"},{"id":"access","text":"Sign in and passwords"}]}</code></pre>
+<pre class="bash"><code>python decision_pointer.py predict \
+  --run runs/full-smoke --data fresh.jsonl \
+  --calibration runs/full-smoke/calibration.json \
+  --output runs/full-smoke/fresh-cpu.json \
+  --device cpu --precision fp32
+
+python decision_pointer.py predict \
+  --run runs/full-smoke --data fresh.jsonl \
+  --calibration runs/full-smoke/calibration.json \
+  --output runs/full-smoke/fresh-gpu.json \
+  --device cuda --precision bf16</code></pre>
+<p>Both commands reconstruct the same formatting, tokenizer, backbone,
+pointer weights, and calibration. They return candidate probabilities
+and decisions rather than generating text. Compare top-choice agreement,
+probability differences, and threshold crossings across devices. A
+generic text-generation pipeline does not know this custom head, and
+exporting the base alone does not preserve the pointer.</p>
+<p>The full neural workflow above is source-reviewed and syntax-checked,
+not runtime-tested on the authoring computer. Your acceptance test must
+include model loading, finite forward/backward, parameter updates,
+save/reload, and both intended inference targets. Now examine the
+architecture to understand why this code needs this particular input
+format and target.</p>
+<a id="revisit-the-backbone-before-changing-its-output"></a>
+<h2>Revisit the
+backbone before changing its output</h2>
+<p>A parameter is a learned number saved in a checkpoint. An activation
+is a temporary number produced while processing an input. A layer is a
+function that transforms activations, usually using parameters. A tensor
+is an array with a shape. The shape describes how many numbers lie along
+each axis.</p>
+<p>We will write B for batch size, T for token count, D for hidden
+width, V for vocabulary size, and K for the number of allowed answers. A
+batch is simply several examples processed together. With B = 2, T =
+128, and D = 1024, a hidden-state tensor has shape [2, 128, 1024]. It
+contains 262,144 numbers. Every token in every example has a vector of
+1,024 numbers.</p>
+<p>Those numbers are not a list of human-readable facts. One dimension
+does not reliably mean anger and another delivery. Meaning is
+distributed across many dimensions, and the useful representation
+changes from layer to layer.</p>
+<a id="1-tokenization-text-becomes-integer-ids"></a>
+<h3>1 Tokenization text
+becomes integer IDs</h3>
+<p>A tokenizer splits text into pieces and maps each piece to an
+integer. Pieces can be words, fragments of words, punctuation,
+whitespace patterns, or special markers. Token count is not word count.
+Changing the tokenizer changes the mapping between text and embedding
+rows; it is therefore part of the model's identity.</p>
+<p>Imagine a tiny vocabulary where <code>parcel</code> has ID 12 and
+<code>lost</code> has ID 19. Tokenization might turn a short sentence
+into [5, 12, 8, 19]. The real Qwen vocabulary is much larger; these four
+numbers are only a teaching example.</p>
+<p>A padded batch is a rectangular array of IDs, shape [B, T]. Short
+examples receive padding IDs. A padding mask marks which positions
+contain real input. This mask is different from the causal mask that
+controls the direction in which information can flow.</p>
+<a id="2-embeddings-an-integer-becomes-a-vector"></a>
+<h3>2 Embeddings an
+integer becomes a vector</h3>
+<p>The input embedding is a table E with shape [V, D]. Looking up token
+12 retrieves row 12. The table is learned during training. If a
+miniature model had V = 20 and D = 4, its embedding table would contain
+80 parameters.</p>
+<p>For a toy token vector [0.2, -0.4, 0.1, 0.7], each coordinate is an
+ordinary floating-point number. Nothing is generated yet. We have only
+converted IDs into initial activations.</p>
+<p>Qwen3-0.6B's published configuration has D = 1024 and V = 151936, so
+its input table contains 151936 × 1024 = 155,582,464 values. Its word
+embeddings are tied: the language-model output projection shares that
+table. Removing the output operation therefore does not remove the input
+table or save another independent copy of those weights. <a href="../chapters/references.html#source-j06">J06</a></p>
+<a id="3-positions-order-must-enter-the-computation"></a>
+<h3>3 Positions order
+must enter the computation</h3>
+<p>The same words in different orders can mean different things. A model
+needs information about position. Some transformers add a learned
+position vector to each token embedding. Qwen3 instead uses rotary
+positional embeddings, RoPE, inside attention.</p>
+<p>The basic rotation is easiest to see in two dimensions. A vector pair
+[a, b] is rotated by an angle theta into [a cos(theta) - b sin(theta), a
+sin(theta) + b cos(theta)]. Different positions receive different
+angles. For [1, 0], an angle of zero gives [1, 0]; an angle of pi/2
+gives [0, 1]. Real RoPE applies coordinated rotations to many pairs of
+query and key coordinates. This makes attention comparisons sensitive to
+relative position.</p>
+<p>You do not fix long-context behavior merely by increasing a number in
+a configuration file. The positional scheme, the training lengths, the
+attention implementation, and available memory must all support the new
+setting. <a href="../chapters/references.html#source-j07">J07</a></p>
+<a id="4-attention-a-token-reads-other-tokens"></a>
+<h3>4 Attention a token
+reads other tokens</h3>
+<p>Attention mixes information across positions. Consider the word
+<code>it</code> in a sentence about a parcel. The network needs a way
+for the representation at <code>it</code> to use evidence from
+<code>parcel</code>. It learns three projections:</p>
+<ul>
+<li>Query: what information this position seeks</li>
+<li>Key: what information another position offers for matching</li>
+<li>Value: the information transferred when that position receives
+attention</li>
+</ul>
+<p>These descriptions are intuitions, not literal labels assigned by the
+programmer. Each projection is a learned matrix multiplication.</p>
+<p>For a toy query q = [1, 0], two keys k1 = [1, 0] and k2 = [0, 1] have
+dot products 1 and 0. Divide by the square root of the key width,
+sqrt(2). The scores become approximately [0.7071, 0]. Softmax turns them
+into weights approximately [0.6698, 0.3302]. With values v1 = [2, 0] and
+v2 = [0, 4], the weighted sum is [1.3396, 1.3208]. This is how a
+position receives a learned mixture of information.</p>
+<p>Softmax is a transformation of scores into positive numbers summing
+to one: exp(score_i) divided by the sum of all exp(scores). These
+attention weights are internal mixing weights. They are not the final
+probability that a decision is correct. <a href="../chapters/references.html#source-j08">J08</a></p>
+<p>Multiple attention heads make several such mixtures. In grouped-query
+attention, several query heads share key/value heads, reducing stored
+keys and values. <a href="../chapters/references.html#source-j09">J09</a></p>
+<p>For Qwen3-0.6B, the actual shapes are worth checking carefully. The
+configuration uses 16 query heads, 8 key/value heads, and head dimension
+128. The query projection expands a width-1024 vector to 16 × 128 = 2048
+values. The key and value projections each produce 8 × 128 = 1024
+values. Do not assume that hidden_size divided by num_attention_heads
+must equal head_dim: this model explicitly specifies a different head
+dimension. The output projection returns the attention result to width
+1024. Qwen3 also normalizes queries and keys before applying rotary
+positions. <a href="../chapters/references.html#source-j10">J10</a></p>
+<a id="5-masks-who-is-allowed-to-read-whom"></a>
+<h3>5 Masks who is allowed to
+read whom</h3>
+<p>In causal attention, position t may read positions up to and
+including t, but not later positions. With four tokens, allowed
+connections look like this; rows are readers, columns are sources:</p>
+<pre><code>1 0 0 0
+1 1 0 0
+1 1 1 0
+1 1 1 1</code></pre>
+<p>An additive mask implements this by adding zero to an allowed score
+and a very negative value to a blocked score before softmax. A blocked
+score then receives effectively zero probability. Some APIs instead
+accept Boolean masks, and APIs differ in whether True means allowed or
+blocked. Check the specific API rather than transferring a mask
+blindly.</p>
+<p>Bidirectional attention permits positions to read both earlier and
+later input positions. This is useful for some encoders, but it is not
+required for a decision model. A final decision position in a causal
+model can already read the whole preceding state and option list.</p>
+<p>Removing a pretrained model's causal mask changes the function it
+learned. It is an architecture experiment requiring suitable adaptation
+and evaluation, not a free quality improvement. It can also break the
+exact prefix-caching assumptions developed below.</p>
+<a id="6-mlp-transform-features-at-each-position"></a>
+<h3>6 MLP transform
+features at each position</h3>
+<p>The feed-forward network, often called an MLP, does not directly mix
+token positions. It transforms each token's vector separately, using the
+same weights at every position. Attention has brought contextual
+information into the vector; the MLP can now transform combinations of
+those features.</p>
+<p>A SwiGLU-style block calculates two expanded vectors, applies the
+SiLU nonlinearity to one, multiplies them coordinate by coordinate, and
+projects back to the original width. SiLU(x) = x / (1 + exp(-x)). The
+multiplication acts like a learned gate. Qwen3-0.6B uses an intermediate
+width of 3072, so both expanded vectors have 3072 coordinates before
+returning to 1024. <a href="../chapters/references.html#source-j11">J11</a></p>
+<a id="7-normalization-and-residual-connections"></a>
+<h3>7 Normalization and
+residual connections</h3>
+<p>RMSNorm rescales a token's vector using its root-mean-square
+magnitude, then applies learned coordinate scales. Ignoring the small
+numerical-stability epsilon, [3, 4] has RMS sqrt((9 + 16)/2) = 3.5355.
+Dividing by that RMS gives approximately [0.8485, 1.1314]. Normalization
+helps control magnitudes while training. <a href="../chapters/references.html#source-j12">J12</a></p>
+<p>A residual connection adds a block's output back to its input. In a
+simplified pre-normalized decoder layer:</p>
+<pre><code>u = h + Attention(RMSNorm(h))
+next_h = u + MLP(RMSNorm(u))</code></pre>
+<p>This preserves a path along which information and gradients can
+travel. A transformer stacks many such blocks. Tokens can be processed
+together within an attention layer when all input tokens are known, but
+layer 2 still depends on layer 1. Parallel input processing does not
+mean that all model computation happens at once.</p>
+<a id="8-the-output-head-decide-what-the-vector-means"></a>
+<h3>8 The output
+head decide what the vector means</h3>
+<p>After the final decoder layer and normalization, a language-model
+head maps each chosen hidden vector to V vocabulary scores, or logits. A
+logit is an unrestricted number, not yet a probability. Softmax over the
+vocabulary gives a next-token distribution.</p>
+<p>For training on text, the target at position t is usually token t+1.
+With tokens [A, B, C, D], the model's predictions after [A, B, C] are
+compared with [B, C, D]. Causal masking prevents the prediction at A
+from reading B while training.</p>
+<p>During generation, the program selects one token, appends it, calls
+the model again, selects the next, and repeats. That feedback loop is
+autoregressive decoding. A causal backbone used once to compute a
+decision distribution has causal information flow without an
+autoregressive output-generation loop.</p>
+<p>This distinction is the key to the rest of the chapter: the backbone
+and the output behavior are separate design choices.</p>
+<a id="the-first-conversion-replace-spelling-with-scoring"></a>
+<h2>The first
+conversion replace spelling with scoring</h2>
+<p>There are three useful levels of conversion. Start with the simplest
+and measure before adding complexity.</p>
+<a id="level-a-restricted-next-token-baseline"></a>
+<h3>Level A restricted next
+token baseline</h3>
+<p>Keep the ordinary LM head. Put the options in the input and ask for
+one of several verified single-token labels, such as A, B, and C. Read
+the logits for those exact token IDs, normalize within that permitted
+set, and return the result from ordinary code.</p>
+<p>This can be a cheap baseline. It does not reproduce the training of a
+purpose-built decision model. Tokenization matters: an apparently single
+character can have different token IDs with leading whitespace or in
+different contexts. Verbalizers can carry prior biases. Renormalizing a
+tiny subset can produce a confident choice even when the model assigns
+almost no total vocabulary mass to those labels. Measure that behavior
+before using the result as uncertainty.</p>
+<p>A second baseline scores the complete token sequence of each
+candidate. That uses conditional token log probabilities, requiring a
+documented aggregation rule and care with answer-length bias. It is not
+equivalent to comparing one-token labels or to training a new pointer
+head.</p>
+<a id="level-b-fixed-label-classifier"></a>
+<h3>Level B fixed label
+classifier</h3>
+<p>Remove the vocabulary readout and attach a learned matrix W of shape
+[D, K], plus an optional bias of shape [K]. If h is the last real input
+token's vector, compute z = hW + b. For D = 1024 and K = 3, this
+requires 3,075 head parameters including the bias.</p>
+<p>This is appropriate when the labels always mean billing, delivery,
+and account access. The same output column must keep the same meaning
+throughout training and inference. Adding a fourth category changes the
+head and requires further training. A fixed-label classifier does not
+automatically become a general question-answering model just because its
+backbone was a language model.</p>
+<a id="level-c-a-pointer-over-options-supplied-in-the-input"></a>
+<h3>Level C a
+pointer over options supplied in the input</h3>
+<p>Instead of giving output column 0 a permanent category, let every
+request supply its own options. Build one causal sequence containing the
+state, the question, every option, and a final readout position. Record
+an index at the end of each option and another at the final readout
+position.</p>
+<p>For teaching, imagine token positions arranged as follows. The text
+spans are schematic; real token boundaries come from the tokenizer:</p>
+<pre><code>state ...
+question ...
+option 0: billing ... [option-end]
+option 1: delivery ... [option-end]
+option 2: account ... [option-end]
+[readout]</code></pre>
+<p>The model supplies one hidden vector at every position. Gather the
+three option-end vectors into H_options, shape [3, D], and the final
+vector into h_readout, shape [D]. Two small learned projections put them
+in a common width P:</p>
+<pre><code>q = decision_projection(h_readout)       # [P]
+keys = option_projection(H_options)     # [K, P]
+logits = keys @ q / sqrt(P)             # [K]
+probabilities = softmax(logits)          # [K]</code></pre>
+<p>This is a dynamic choice head. K may change between examples. The
+output indexes the supplied options, so application code maps index 1
+back to the string delivery. There is no need for the network to spell
+delivery or construct JSON.</p>
+<p>For D = 1024 and P = 256, two affine projections contain 2 × (1024 ×
+256 + 256) = 524,800 trainable values. That is less than one million new
+parameters, although training the backbone can still require gradients
+for hundreds of millions of values.</p>
+<p>The end of an option comes after its text, so a causal representation
+can include that option. The final readout comes after every option, so
+it can consider the whole list. Earlier options do not see later ones
+directly; later options may see earlier options. Consequently, question
+isolation does not imply option-order invariance. Shuffle options during
+training and measure sensitivity to order at evaluation.</p>
+<p>This pointer formulation is a concrete open architecture, not a claim
+about undisclosed Jev weights. Kev implements such a readout, jointly
+training a head and, for its small released models, LoRA adapters. Its
+code also supports a distinct full-weight path. <a href="../chapters/references.html#source-j13">J13</a></p>
+<a id="a-decision-and-a-learning-update-with-numbers"></a>
+<h2>A decision and a
+learning update with numbers</h2>
+<p>Use pointer width P = 2 so we can calculate by hand. Suppose the
+projected readout is [1, 0] and the option keys are [1, 0], [0, 1], and
+[-1, 0]. The dot products are [1, 0, -1]. Dividing by sqrt(2) gives
+[0.7071, 0, -0.7071]. Softmax gives approximately [0.5760, 0.2840,
+0.1400].</p>
+<p>If option 1 is the correct answer, the cross-entropy loss is
+-log(0.2840), approximately 1.2588. If option 0 is correct, the same
+prediction has loss approximately 0.5514. The loss penalizes assigning
+little probability to the known answer.</p>
+<p>For a one-hot target, the derivative of cross-entropy with respect to
+each logit is predicted_probability minus target_probability. With
+option 1 correct, the derivatives are approximately [0.5760, -0.7160,
+0.1400]. Gradient descent moves against these derivatives: it tends to
+lower the wrong options' scores and raise the correct option's score.
+Backpropagation carries that signal through the two projections and, if
+enabled, the backbone.</p>
+<p>A single example does not define a useful model. The numerical
+exercise only shows the mechanism. Your dataset must teach the intended
+relation between states, questions, options, and labels over many
+representative cases.</p>
+<a id="what-changes-in-the-program"></a>
+<h2>What changes in the program</h2>
+<a id="input-and-labels"></a>
+<h3>Input and labels</h3>
+<p>Store each decision as a record with state, question, ordered
+options, correct option index, and a stable example or group ID. The
+index refers to the order in that particular record. When you shuffle
+options, update the label index too. Keep the answer out of the text fed
+to the model.</p>
+<p>For multiple questions about one state, keep them in the same split.
+If a single customer's conversation produces ten decisions, splitting
+those decisions randomly can leak almost identical evidence from
+training into testing. Split by conversation, source document, event, or
+other appropriate independent unit.</p>
+<p>Include near misses, missing facts, irrelevant content, negation,
+numeric boundaries, and questions whose answer changes when one fact
+changes. If all correct options are longer, appear first, or contain a
+recurring cue, the model may learn the shortcut.</p>
+<p>If none of the supplied actions is valid, the model still has to
+distribute probability somewhere. Include an explicit abstain or
+insufficient-information option when the task permits it. A distribution
+over a closed set does not prove the closed set is complete.</p>
+<a id="forward-pass"></a>
+<h3>Forward pass</h3>
+<p>Use the decoder's hidden states, not the vocabulary logits. Gather
+exactly the intended positions. With padding, the final array position
+may be padding rather than the readout token; explicit indexes avoid
+this common bug. Assert that each option index precedes the readout and
+points to real input.</p>
+<p>Start with one question per row. This requires only ordinary causal
+attention and avoids custom-mask compatibility issues. The cost is
+repeated state processing when many questions share a state. Optimize
+that after the one-row reference implementation is correct.</p>
+<p>Reject an overlength record with a clear error. Blind truncation can
+remove an option marker, the readout token, or the evidence required for
+the label. If you design a truncation policy, record it and evaluate it
+as part of the model.</p>
+<a id="loss"></a>
+<h3>Loss</h3>
+<p>Use cross-entropy over the K option logits for single-answer
+questions. Do not compute next-token loss over every input token and
+assume you have trained a decision head. These are different tasks.</p>
+<p>For genuinely soft labels, use a cross-entropy or KL-divergence
+objective appropriate to a target distribution. For independent yes/no
+labels that may all be true, independent binary heads or separate
+two-option questions are suitable; a single softmax across all labels
+incorrectly forces them to compete. Ordered ratings can use a
+categorical distribution and expected index, but the numeric spacing of
+levels is an assumption. Other ordinal losses are possible and should be
+compared explicitly.</p>
+<a id="what-gets-updated"></a>
+<h3>What gets updated</h3>
+<ul>
+<li>Head-only training freezes the entire backbone and updates the new
+head</li>
+<li>Adapter training freezes the original backbone weights but trains
+inserted adapter weights and the head</li>
+<li>Full fine-tuning updates the backbone and head together</li>
+</ul>
+<p>Head-only training is inexpensive, but a pooled representation might
+not expose the distinction your task needs. Full fine-tuning has more
+freedom and greater memory cost; it can also overfit or damage
+previously useful representations. It does not promise a better result
+on a small dataset. Compare interventions with the same honest
+evaluation split.</p>
+<a id="inference"></a>
+<h3>Inference</h3>
+<p>Run the backbone once, score the options, apply any fitted
+calibration, and return typed values using normal application code. Do
+not call generate(). Disable dropout with eval mode and disable gradient
+recording for inference. Measure preprocessing, GPU work, transfer, and
+serialization separately when profiling.</p>
+<a id="saving-the-model"></a>
+<h3>Saving the model</h3>
+<p>The artifact must contain more than a file named head.pt. Save or
+identify the exact backbone revision, tokenizer files and revision, new
+head weights, head dimensions, formatting rules, marker IDs if any,
+label convention, maximum input length, normalization or pooling rule,
+calibration value, and library versions. Save training metadata and
+evaluation results separately from inference weights.</p>
+<p>For full fine-tuning, save the changed backbone. For LoRA, save the
+adapter and the exact base identity it modifies. A custom decision head
+is not automatically served by a generic text-generation server or GGUF
+exporter. Your inference program must know how to reconstruct the
+readout and formatting.</p>
+<a id="many-questions-without-questions-contaminating-each-other"></a>
+<h2>Many
+questions without questions contaminating each other</h2>
+<p>Suppose state tokens occupy positions 0, 1, and 2. Question A
+occupies positions 3 and 4; question B occupies positions 5 and 6. The
+branch mask should permit each branch to read the state and its own
+earlier tokens, but not the other branch:</p>
+<pre><code>reader/source: S0 S1 S2 A0 A1 B0 B1
+S0             1  0  0  0  0  0  0
+S1             1  1  0  0  0  0  0
+S2             1  1  1  0  0  0  0
+A0             1  1  1  1  0  0  0
+A1             1  1  1  1  1  0  0
+B0             1  1  1  0  0  1  0
+B1             1  1  1  0  0  1  1</code></pre>
+<p>Position IDs are [0, 1, 2, 3, 4, 3, 4]. B restarts immediately after
+the shared state, matching how it would be positioned if asked alone.
+Merely concatenating all questions with a normal causal mask fails: B
+can then read A. Merely resetting position IDs also fails: positions do
+not block attention.</p>
+<p>Before trusting a packed implementation, compare its logits against
+the simple reference that runs [state + A] and [state + B] separately.
+In evaluation mode, they should agree within a documented numerical
+tolerance on an architecture where the mask fully controls cross-token
+mixing. Test changing and reordering unrelated questions. Test varying
+padding. Test a batch of different lengths.</p>
+<p>An ordinary attention implementation may materialize an L × L mask.
+This can become expensive even when many entries are blocked. A
+theoretical reduction in allowed connections does not prove the chosen
+kernel avoids work on blocked connections.</p>
+<a id="the-hybrid-model-trap"></a>
+<h3>The hybrid model trap</h3>
+<p>Not every decoder mixes tokens only through standard attention.
+Qwen3.5-0.8B's official text configuration alternates three
+linear-attention layers with a full-attention layer, repeated across 24
+layers. Its recurrent mixing needs additional care. <a href="../chapters/references.html#source-j14">J14</a></p>
+<p>A block attention mask does not by itself reset recurrent or
+convolution state between branches. If such state carries information
+from A into B, your supposedly isolated questions are not isolated. For
+an initial portable implementation, independent rows are the safe
+reference. Serving can branch a properly copied prefix state if the
+model's cache implementation supports it.</p>
+<p>This is why a technique that works on Qwen3 cannot be ported to
+Qwen3.5 by changing only the repository name. Inspect model_type,
+layer_types, cache classes, tensor widths, supported masks, and exact
+library version. Prove parity before claiming shared-prefix support.
+Kev's tests are a useful real example of the necessary comparisons. <a href="../chapters/references.html#source-j15">J15</a></p>
+<a id="kv-caching-reuse-computation-without-changing-the-answer"></a>
+<h2>KV
+caching reuse computation without changing the answer</h2>
+<p>For ordinary causal attention, each layer produces keys and values
+for every processed position. Saving them is a KV cache. New tokens can
+read the cached keys and values instead of recalculating the prefix's
+layer activations.</p>
+<p>If the state does not read future question text, its cached
+representations are the same no matter which question follows. Run the
+state once, retain its cache, and give each question its own
+continuation from that cache. Do not let one branch mutate the shared
+cache seen by another. With hybrid models, the cache may also contain
+recurrent and convolution states that need correct copying and
+resetting.</p>
+<p>The question still reads the state, so some work scales with state
+length for every question. Caching avoids rebuilding the state; it does
+not make the state free. Cache lookup and memory traffic also have
+costs.</p>
+<p>For a standard attention cache, a useful estimate in bytes is:</p>
+<pre><code>2 × layers × batch × cached_tokens × KV_heads × head_dimension × bytes_per_value</code></pre>
+<p>The leading 2 counts keys and values. With Qwen3-0.6B's 28 layers, 8
+KV heads, head dimension 128, one row, 2048 tokens, and two bytes per
+value, this is 234,881,024 bytes, or 224 MiB. This is an arithmetic
+cache estimate, not a measured total GPU allocation. It excludes
+parameters, workspace, other buffers, and any replicated branches. A
+hybrid cache has different terms. <a href="../chapters/references.html#source-j16">J16</a></p>
+<p>Training generally disables an inference KV cache. Backpropagation
+needs the right computation graph, and a persistent detached cache can
+silently stop gradients through the prefix. A differentiable
+shared-prefix training implementation is a separate optimization that
+must be checked against the unoptimized gradient results.</p>
+<a id="calibration-probabilities-need-testing"></a>
+<h2>Calibration
+probabilities need testing</h2>
+<p>The probabilities [0.9, 0.05, 0.05] are a prediction. They are not
+proof that the first option is correct 90% of the time. Calibration asks
+whether predicted probabilities match observed frequencies on relevant
+data. If 100 comparable decisions are assigned about 0.9 probability and
+only 65 are right, the model is overconfident there.</p>
+<p>A simple calibration method fits one positive temperature T on a
+held-out calibration set and uses softmax(logits / T). T greater than 1
+softens a distribution; T below 1 sharpens it. Positive temperature
+leaves the highest-scoring option unchanged. It can improve probability
+quality without improving top-1 accuracy. Fit it after model selection,
+without using the final test set. <a href="../chapters/references.html#source-j17">J17</a></p>
+<p>For a dataset with many related records, dedicate independent groups
+to training, model selection, calibration, and final test where data
+permits. If data is small, cross-validation can help, but document every
+use of every example. Never repeatedly adjust thresholds after observing
+final-test failures and continue calling that set untouched.</p>
+<p>Measure at least:</p>
+<ul>
+<li>Accuracy: how often the highest-probability option is right</li>
+<li>Negative log likelihood: how much probability the model gives the
+actual answer</li>
+<li>Brier score: squared error between the whole probability vector and
+the target vector; document whether you sum or average across
+classes</li>
+<li>Reliability by probability range, with counts so tiny bins do not
+look authoritative</li>
+<li>Selective accuracy or risk-coverage: quality on the fraction of
+decisions retained above a threshold</li>
+<li>Errors by task, input length, source, and important edge-case
+group</li>
+<li>Sensitivity to equivalent option reordering and unrelated
+questions</li>
+<li>Latency and peak memory with cold and warm caches reported
+separately</li>
+</ul>
+<p>A low average calibration error can hide severe failure on a rare
+class or shifted data. A confidence transformation supplied by an API is
+not automatically an empirical accuracy estimate. Keep uncertainty
+reporting separate from the application policy that decides whether to
+act, abstain, or ask a person.</p>
+<a id="the-clm-route-encode-the-sides-separately"></a>
+<h2>The CLM route encode
+the sides separately</h2>
+<p>A jointly contextualized option scorer lets the option vectors depend
+on the state and usually on part of the option list. This can express
+detailed interactions, but changing the state requires recomputing those
+contextual option representations.</p>
+<p>A dual-encoder design computes a state representation and a candidate
+representation separately. Denote a frozen backbone encoder by f, a
+learned state projection by g_s, and a learned action projection by
+g_a:</p>
+<pre><code>u = normalize(g_s(f(state_and_question)))
+v_i = normalize(g_a(f(candidate_i)))
+score_i = scale × dot(u, v_i)</code></pre>
+<p>Normalization divides a vector by its length so dot products become
+cosine similarities. The two sides can share backbone weights while
+using different projection heads. The backbone need not be loaded twice
+merely because there are two logical encoder roles.</p>
+<p>The inspected CLM reference uses Qwen3-8B last-token representations,
+separately learned projections, normalized projected vectors, and a
+learned score scale. The head checkpoint is tied to that encoder and
+pooling rule. It is not a generic attachment for arbitrary language
+models. <a href="../chapters/references.html#source-j18">J18</a></p>
+<p>A candidate vector can be cached until its text or model identity
+changes. If a system chooses among the same 100 actions repeatedly, this
+can save considerable work. But if candidate text embeds state-specific
+details, or you change the encoder, head, formatting, or normalization,
+the relevant cache entries must be regenerated. <a href="../chapters/references.html#source-j19">J19</a></p>
+<p>The representational trade-off is real. Compressing a long state and
+a long candidate into two fixed vectors can lose detailed token-to-token
+relationships. Joint scoring is often more expensive but can inspect
+those interactions. Neither architecture wins every workload. Compare
+them on the actual candidate count, candidate reuse, context length, and
+required discrimination.</p>
+<a id="contrastive-learning-in-one-small-batch"></a>
+<h3>Contrastive learning in
+one small batch</h3>
+<p>Take B = 3 matched state-action pairs. Encode states as three rows
+and actions as three rows. Multiply their projected vectors to produce a
+[3, 3] score matrix. Entry [i, j] says how compatible state i is with
+action j. The diagonal contains the matched pairs.</p>
+<p>For each row, cross-entropy teaches the model to prefer its diagonal
+action over the other batch actions. A symmetric objective also applies
+cross-entropy to the transposed matrix, matching actions back to states.
+This is bidirectional matching loss. It does not mean the backbone uses
+bidirectional token attention.</p>
+<p>Other batch answers are not always genuine negatives. If two states
+have the same valid action, blindly treating one copy as wrong creates a
+false-negative training signal. Use group-aware batching, multiple
+positives, or an appropriate loss mask. Hard negatives should be
+plausible but demonstrably incorrect, not merely different wording of a
+valid answer. <a href="../chapters/references.html#source-j20">J20</a>, <a href="../chapters/references.html#source-j21">J21</a></p>
+<p>Does CLM autoregress? The inspected serving path obtains
+representations and scores candidates without generating a token
+sequence. Its backbone originates as a causal language model. Those two
+facts are compatible. A causal encoder can be evaluated on a known text
+in a forward pass, even though that same backbone could also support an
+autoregressive text-generation loop in a different program.</p>
+<p>Calling negative scores energies is a possible mathematical notation,
+but it does not establish a separate energy-based training recipe or
+explain Jev's undisclosed internals. Specify the actual score function,
+normalization, loss, and serving loop instead of relying on a label.</p>
+<a id="would-granite-work-as-the-evaluator"></a>
+<h2>Would Granite work as the
+evaluator</h2>
+<p>In principle, a compatible decoder can supply hidden representations
+to a newly trained decision head. IBM's current Granite 4.2-3B card
+identifies a dense decoder-only transformer. That makes the broad
+conversion plausible. It does not establish that Granite is better than
+Qwen for your decisions, that no training is necessary, or that an
+existing Qwen-trained head will transfer. <a href="../chapters/references.html#source-j22">J22</a></p>
+<p>Inspect the exact checkpoint. Architecture families change: some
+releases are hybrid, some are dense attention-only, and their widths,
+norms, scaling conventions, and cache structures differ. A file may load
+because its tensor sizes happen to match while remaining semantically
+incompatible with the new backbone. Even equal-width representations can
+use different coordinate systems.</p>
+<p>For a strict parameter ceiling, count the actual parameters. A
+rounded model name is not a precise budget: the Granite card says 3B
+while the Hub's displayed parameter category rounds differently. Keep
+this as a broader architecture comparison rather than a core
+full-fine-tuning exercise under the book's one-billion-parameter
+practical limit.</p>
+<p>The transferable skill is the conversion procedure: inspect the
+representation boundary, choose a readout, train the correct objective,
+preserve the input contract, and evaluate against a baseline.</p>
+<a id="a-one-24-gb-gpu-plan"></a>
+<h2>A one 24 GB GPU plan</h2>
+<p>Begin the full-weight experiment with an attention-only model below
+one billion parameters, such as Qwen3-0.6B, a single question per row,
+short inputs, and a very small batch. The exact memory depends on
+implementation. A useful conservative starting calculation for fp32
+parameters, fp32 gradients, and two fp32 Adam moment buffers is 16 bytes
+per trainable parameter. At roughly 0.6 billion parameters that is about
+9.6 GB before activations and temporary buffers. At 3 billion it is
+about 48 GB before those additional costs. These are decimal-byte
+arithmetic estimates, not measurements.</p>
+<p>Autocast can run many operations in bf16 while keeping
+optimizer-owned parameters in fp32. Do not add a separate fp32 master
+copy to a budget that already counts fp32 parameters. Other
+mixed-precision implementations may really have a separate master copy;
+inspect yours. Gradient checkpointing trades extra forward computation
+for fewer saved activations. Gradient accumulation emulates a larger
+effective batch across several small microbatches but does not shorten
+an individual sequence.</p>
+<p>A practical initial experiment is sequence length 256, microbatch 1,
+gradient accumulation 8, gradient checkpointing on, and no inference
+cache during training. These are deliberately conservative proposed
+settings, not a measured fit guarantee. Test one forward/backward/update
+cycle, then measure allocated and reserved peak memory before
+scaling.</p>
+<p>The removed vocabulary readout can avoid large vocabulary-logit
+activations. For B = 1, T = 128, and V = 151936, a full [B, T, V] bf16
+tensor alone is about 38.9 MB. But optimized generative inference may
+already compute only the last-position logits. Do not claim the
+full-sequence saving applies to every baseline.</p>
+<p>Kev-0.8B offers a real released small decision checkpoint, but its
+reported training recipe uses adapters. Its card is useful for
+understanding how data, replay, calibration, and evaluation are
+documented; it is not proof of the speed or memory of your own
+full-weight run. <a href="../chapters/references.html#source-j23">J23</a></p>
+<p>A finished experiment should answer: did the trained decision model
+improve the task; are its probabilities usable; is its peak memory below
+the measured limit; does it beat a simpler baseline on quality or
+latency; and can a fresh process reload it and reproduce the result?
+Fitting into VRAM is only one of these questions.</p>
+<a id="exercises-with-checks"></a>
+<h2>Exercises with checks</h2>
+<ol type="1">
+<li>A fixed classifier has D = 512 and K = 7. How many weights and
+biases does its affine head need? Answer: 512 × 7 + 7 = 3,591.</li>
+<li>Can the final readout token in a causal model read every preceding
+option? Answer: yes, assuming the mask permits them and the options fit
+in the context.</li>
+<li>Does resetting position IDs isolate two concatenated questions?
+Answer: no. You must control all cross-branch information paths.</li>
+<li>A distribution is [0.1, 0.2, 0.7], with true answer index 0. What is
+cross-entropy? Answer: -ln(0.1), about 2.3026.</li>
+<li>Does temperature scaling change which option wins? Answer: a finite
+positive scalar temperature preserves the ordering of logits.</li>
+<li>Can you reuse a 4096-input CLM head on a 1024-width decoder? Answer:
+not directly. The dimensions differ; even matching dimensions would not
+establish representation compatibility.</li>
+<li>You changed one unrelated question and another answer changed
+substantially. What should you inspect? Answer: masks, recurrent-state
+leakage, position IDs, dropout, batching, formatting, cache mutation,
+and numerical precision, before attributing the change to
+intelligence.</li>
+<li>Does a three-option model remain safe when all three options are
+wrong? Answer: no. The application needs an appropriate abstention
+mechanism and testing for incomplete candidate sets.</li>
+</ol>
+<a id="verification-status-for-this-chapter"></a>
+<h2>Verification status for
+this chapter</h2>
+<p>Repository code, model cards, configurations, and original papers
+were inspected on 2 October 2026. Numerical examples and branch-mask
+arithmetic can be checked without a GPU. The book's local environment
+did not have PyTorch or Transformers installed for this chapter's
+preparation; no GPU training, speed, memory-fit, or task-accuracy
+measurement is claimed. Pin source revisions and record your actual
+package versions when you run the companion experiments.</p>
+</article><nav class="pager" aria-label="Adjacent chapters"><a href="23.html"><small>← Previous</small>23  Study a small typed decision service</a><a href="25.html"><small>Next →</small>25  Add preferences and distillation only after supervised learning works</a></nav></main><aside class="on-page"><h2>On this page</h2><a href="#the-project-read-a-situation-score-the-allowed-answers">The
+project read a situation score the allowed answers</a><a href="#run-the-complete-option-pointer-project-first">Run the complete
+option pointer project first</a><a href="#revisit-the-backbone-before-changing-its-output">Revisit the
+backbone before changing its output</a><a href="#the-first-conversion-replace-spelling-with-scoring">The first
+conversion replace spelling with scoring</a><a href="#a-decision-and-a-learning-update-with-numbers">A decision and a
+learning update with numbers</a><a href="#what-changes-in-the-program">What changes in the program</a><a href="#many-questions-without-questions-contaminating-each-other">Many
+questions without questions contaminating each other</a><a href="#kv-caching-reuse-computation-without-changing-the-answer">KV
+caching reuse computation without changing the answer</a><a href="#calibration-probabilities-need-testing">Calibration
+probabilities need testing</a><a href="#the-clm-route-encode-the-sides-separately">The CLM route encode
+the sides separately</a><a href="#would-granite-work-as-the-evaluator">Would Granite work as the
+evaluator</a><a href="#a-one-24-gb-gpu-plan">A one 24 GB GPU plan</a><a href="#exercises-with-checks">Exercises with checks</a><a href="#verification-status-for-this-chapter">Verification status for
+this chapter</a></aside></div><footer class="footer"><div><strong>Training Your Own Models</strong><br>Vibe Authored by Dr.Puma · 2 October 2026</div><div><a href="../chapters/glossary.html">Glossary</a><a href="../chapters/references.html">References</a><a href="https://github.com/MrScripty/training-your-own-models">GitHub ↗</a></div></footer><script src="../assets/site.js" defer></script></body></html>

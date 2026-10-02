@@ -1,0 +1,178 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f6f3eb"><title>2  Your computer and the training workspace · Training Your Own Models</title><meta name="description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><link rel="canonical" href="https://mrscripty.github.io/training-your-own-models/chapters/02.html"><meta property="og:type" content="website"><meta property="og:site_name" content="Training Your Own Models"><meta property="og:title" content="2  Your computer and the training workspace · Training Your Own Models"><meta property="og:description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><meta property="og:url" content="https://mrscripty.github.io/training-your-own-models/chapters/02.html"><meta property="og:image" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta property="og:image:secure_url" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1280"><meta property="og:image:height" content="640"><meta property="og:image:alt" content="Training Your Own Models. On One 24 GB GPU. Vibe Authored by Dr.Puma. Cream, blue and orange scientific cover artwork."><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="2  Your computer and the training workspace · Training Your Own Models"><meta name="twitter:description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><meta name="twitter:image" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta name="twitter:image:alt" content="Training Your Own Models, Vibe Authored by Dr.Puma"><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/style.css"></head><body><a class="skip" href="#main">Skip to content</a><header class="topbar"><a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true">↗</span><span>Training Your<br>Own Models</span></a><nav aria-label="Main navigation"><a href="../chapters/start.html">Read the book</a><a href="../labs.html">Explore</a><a href="../search.html" aria-label="Search the book">Search</a><a href="../downloads.html">Downloads</a></nav></header><div class="reader"><aside class="sidebar"><nav aria-label="Book contents"><label class="nav-filter">Find a chapter<input type="search" class="chapter-filter" placeholder="Filter titles" aria-label="Filter chapter titles"></label><a class="chapter-link" href="../chapters/start.html"><span>→</span>Training Your Own Models on One 24 GB GPU</a><a class="chapter-link" href="../chapters/01.html"><span>1</span>Train your first model before learning the whole field</a><a class="chapter-link" href="../chapters/02.html" aria-current="page"><span>2</span>Your computer and the training workspace</a><a class="chapter-link" href="../chapters/03.html"><span>3</span>Numbers tensors parameters and learning</a><a class="chapter-link" href="../chapters/04.html"><span>4</span>Project turn four sensor readings into a useful prediction</a><a class="chapter-link" href="../chapters/05.html"><span>5</span>Build a dataset that teaches the job</a><a class="chapter-link" href="../chapters/06.html"><span>6</span>Decide whether the model actually improved</a><a class="chapter-link" href="../chapters/07.html"><span>7</span>Move from feature columns to neural representations</a><a class="chapter-link" href="../chapters/08.html"><span>8</span>Project classify your own small image collection</a><a class="chapter-link" href="../chapters/09.html"><span>9</span>Project locate one object with a box</a><a class="chapter-link" href="../chapters/10.html"><span>10</span>Project predict a mask then extract an outline</a><a class="chapter-link" href="../chapters/11.html"><span>11</span>Train a miniature language model from random weights</a><a class="chapter-link" href="../chapters/12.html"><span>12</span>How a language model becomes a prediction machine</a><a class="chapter-link" href="../chapters/13.html"><span>13</span>Read and control the training loop</a><a class="chapter-link" href="../chapters/14.html"><span>14</span>Make a run reproducible and recoverable</a><a class="chapter-link" href="../chapters/15.html"><span>15</span>The real memory and compute budget</a><a class="chapter-link" href="../chapters/16.html"><span>16</span>Project make related text easy to retrieve</a><a class="chapter-link" href="../chapters/17.html"><span>17</span>Choose a model by its actual structure and files</a><a class="chapter-link" href="../chapters/18.html"><span>18</span>Teach a small language model one useful behavior</a><a class="chapter-link" href="../chapters/19.html"><span>19</span>Repeat the project with every weight trainable</a><a class="chapter-link" href="../chapters/20.html"><span>20</span>Teach domain conventions without turning weights into a database</a><a class="chapter-link" href="../chapters/21.html"><span>21</span>Make a writing style reproducible without changing the facts</a><a class="chapter-link" href="../chapters/22.html"><span>22</span>Teach a tool decision and a complete tool interaction</a><a class="chapter-link" href="../chapters/23.html"><span>23</span>Study a small typed decision service</a><a class="chapter-link" href="../chapters/24.html"><span>24</span>From a language model to a decision model</a><a class="chapter-link" href="../chapters/25.html"><span>25</span>Add preferences and distillation only after supervised learning works</a><a class="chapter-link" href="../chapters/26.html"><span>26</span>Project teach an image generator a small visual style</a><a class="chapter-link" href="../chapters/27.html"><span>27</span>Speech recognition train a small model to hear your domain</a><a class="chapter-link" href="../chapters/28.html"><span>28</span>Project build a tiny sound generator from random weights</a><a class="chapter-link" href="../chapters/29.html"><span>29</span>Scale a working experiment toward one billion parameters</a><a class="chapter-link" href="../chapters/30.html"><span>30</span>Understand what a public training process really demonstrates</a><a class="chapter-link" href="../chapters/31.html"><span>31</span>Diagnose failures before making the model larger</a><a class="chapter-link" href="../chapters/32.html"><span>32</span>From small model to small device product</a><a class="chapter-link" href="../chapters/33.html"><span>33</span>Turn a checkpoint into a usable application</a><a class="chapter-link" href="../chapters/34.html"><span>34</span>Design your first independent model</a><a class="chapter-link" href="../chapters/35.html"><span>35</span>Understand larger models using the parts you already know</a><a class="chapter-link" href="../chapters/36.html"><span>36</span>Read MiMo GLM and other architecture families</a><a class="chapter-link" href="../chapters/37.html"><span>37</span>Connect architecture to data memory and deployment</a><a class="chapter-link" href="../chapters/38.html"><span>38</span>Learn from public training projects without copying their assumptions</a><a class="chapter-link" href="../chapters/39.html"><span>39</span>Exercise checkpoints and worked answers</a><a class="chapter-link" href="../chapters/40.html"><span>40</span>Companion guide and verification record</a><a class="chapter-link" href="../chapters/glossary.html"><span>A–Z</span>Glossary with links to explanations</a><a class="chapter-link" href="../chapters/references.html"><span>Ref</span>Works cited</a></nav></aside><main class="prose" id="main"><details class="mobile-toc"><summary>Browse the book</summary><nav aria-label="Book contents"><label class="nav-filter">Find a chapter<input type="search" class="chapter-filter" placeholder="Filter titles" aria-label="Filter chapter titles"></label><a class="chapter-link" href="../chapters/start.html"><span>→</span>Training Your Own Models on One 24 GB GPU</a><a class="chapter-link" href="../chapters/01.html"><span>1</span>Train your first model before learning the whole field</a><a class="chapter-link" href="../chapters/02.html" aria-current="page"><span>2</span>Your computer and the training workspace</a><a class="chapter-link" href="../chapters/03.html"><span>3</span>Numbers tensors parameters and learning</a><a class="chapter-link" href="../chapters/04.html"><span>4</span>Project turn four sensor readings into a useful prediction</a><a class="chapter-link" href="../chapters/05.html"><span>5</span>Build a dataset that teaches the job</a><a class="chapter-link" href="../chapters/06.html"><span>6</span>Decide whether the model actually improved</a><a class="chapter-link" href="../chapters/07.html"><span>7</span>Move from feature columns to neural representations</a><a class="chapter-link" href="../chapters/08.html"><span>8</span>Project classify your own small image collection</a><a class="chapter-link" href="../chapters/09.html"><span>9</span>Project locate one object with a box</a><a class="chapter-link" href="../chapters/10.html"><span>10</span>Project predict a mask then extract an outline</a><a class="chapter-link" href="../chapters/11.html"><span>11</span>Train a miniature language model from random weights</a><a class="chapter-link" href="../chapters/12.html"><span>12</span>How a language model becomes a prediction machine</a><a class="chapter-link" href="../chapters/13.html"><span>13</span>Read and control the training loop</a><a class="chapter-link" href="../chapters/14.html"><span>14</span>Make a run reproducible and recoverable</a><a class="chapter-link" href="../chapters/15.html"><span>15</span>The real memory and compute budget</a><a class="chapter-link" href="../chapters/16.html"><span>16</span>Project make related text easy to retrieve</a><a class="chapter-link" href="../chapters/17.html"><span>17</span>Choose a model by its actual structure and files</a><a class="chapter-link" href="../chapters/18.html"><span>18</span>Teach a small language model one useful behavior</a><a class="chapter-link" href="../chapters/19.html"><span>19</span>Repeat the project with every weight trainable</a><a class="chapter-link" href="../chapters/20.html"><span>20</span>Teach domain conventions without turning weights into a database</a><a class="chapter-link" href="../chapters/21.html"><span>21</span>Make a writing style reproducible without changing the facts</a><a class="chapter-link" href="../chapters/22.html"><span>22</span>Teach a tool decision and a complete tool interaction</a><a class="chapter-link" href="../chapters/23.html"><span>23</span>Study a small typed decision service</a><a class="chapter-link" href="../chapters/24.html"><span>24</span>From a language model to a decision model</a><a class="chapter-link" href="../chapters/25.html"><span>25</span>Add preferences and distillation only after supervised learning works</a><a class="chapter-link" href="../chapters/26.html"><span>26</span>Project teach an image generator a small visual style</a><a class="chapter-link" href="../chapters/27.html"><span>27</span>Speech recognition train a small model to hear your domain</a><a class="chapter-link" href="../chapters/28.html"><span>28</span>Project build a tiny sound generator from random weights</a><a class="chapter-link" href="../chapters/29.html"><span>29</span>Scale a working experiment toward one billion parameters</a><a class="chapter-link" href="../chapters/30.html"><span>30</span>Understand what a public training process really demonstrates</a><a class="chapter-link" href="../chapters/31.html"><span>31</span>Diagnose failures before making the model larger</a><a class="chapter-link" href="../chapters/32.html"><span>32</span>From small model to small device product</a><a class="chapter-link" href="../chapters/33.html"><span>33</span>Turn a checkpoint into a usable application</a><a class="chapter-link" href="../chapters/34.html"><span>34</span>Design your first independent model</a><a class="chapter-link" href="../chapters/35.html"><span>35</span>Understand larger models using the parts you already know</a><a class="chapter-link" href="../chapters/36.html"><span>36</span>Read MiMo GLM and other architecture families</a><a class="chapter-link" href="../chapters/37.html"><span>37</span>Connect architecture to data memory and deployment</a><a class="chapter-link" href="../chapters/38.html"><span>38</span>Learn from public training projects without copying their assumptions</a><a class="chapter-link" href="../chapters/39.html"><span>39</span>Exercise checkpoints and worked answers</a><a class="chapter-link" href="../chapters/40.html"><span>40</span>Companion guide and verification record</a><a class="chapter-link" href="../chapters/glossary.html"><span>A–Z</span>Glossary with links to explanations</a><a class="chapter-link" href="../chapters/references.html"><span>Ref</span>Works cited</a></nav></details><div class="chapter-meta"><span class="eyebrow">Chapter 2 / 40</span><span>6 min read</span></div><article class="manuscript"><a id="your-computer-and-the-training-workspace"></a>
+<h1>2 Your computer and
+the training workspace</h1>
+<a id="what-the-parts-of-the-computer-do"></a>
+<h2>What the parts of the
+computer do</h2>
+<p>The CPU runs the operating system, Python, many preprocessing steps,
+and some parts of your data loader. System RAM holds ordinary program
+memory. Your SSD stores source data, processed data, model downloads,
+checkpoints, and outputs. The GPU performs large batches of numeric
+operations. Its VRAM is a separate pool of memory with different
+constraints from system RAM.</p>
+<p>A computer with 64 GB of RAM and a 24 GB GPU does not have an 88 GB
+GPU. A program may explicitly move some state between CPU RAM and VRAM,
+a technique called offloading. Transfer takes time and is limited by the
+connection between the devices. Offloading may make a run possible while
+making it much slower. It must be configured by a library or your own
+code; it is not a transparent extension of VRAM.</p>
+<p>The GPU may also drive your monitor, browser, and other applications.
+A card sold as 24 GB does not necessarily offer a training process every
+byte of that nominal capacity. Drivers and kernels consume memory. Other
+processes consume memory. Allocators reserve blocks. Transient
+operations can require a higher peak than the steady state visible
+between steps. Leave a measured margin rather than planning a job to use
+precisely the advertised capacity.</p>
+<p>A model download is not the complete disk budget. You may need the
+original checkpoint, a local cache, processed shards, several training
+checkpoints, a merged model, a quantized export, generated evaluation
+outputs, and temporary conversion files at the same time. A small
+adapter can coexist with a much larger frozen base model. Plan storage
+by enumerating artifacts, not by looking at the adapter file alone.</p>
+<a id="a-terminal-is-a-way-to-give-explicit-instructions"></a>
+<h2>A terminal is
+a way to give explicit instructions</h2>
+<p>A terminal runs a shell, which interprets commands. A command
+consists of a program name and arguments. In the command below, python
+is the program, train.py is a file to run, --steps names an option, and
+20 supplies its value.</p>
+<pre class="bash"><code>python train.py --steps 20</code></pre>
+<p>The command acts relative to a current working directory. If the
+script expects data/train.jsonl, it means the data directory beneath
+that working directory unless the code says otherwise. Use pwd on Linux
+or macOS to print the current directory and ls to list files. In
+PowerShell, Get-Location and Get-ChildItem serve similar purposes. Paths
+with spaces must be quoted. An absolute path begins at the filesystem
+root or a drive; a relative path begins at the current directory.</p>
+<p>The examples in this book use Bash-style commands and forward-slash
+paths. Linux is a straightforward reference platform for the common
+NVIDIA training stack. Windows users should choose a supported native
+stack or a documented WSL2 configuration rather than mixing Linux
+commands into an unrelated Windows environment. Exact support depends on
+the packages and GPU; consult the official installation instructions for
+the selected release. Do not install a random wheel merely because a
+forum comment says it fixes an error.</p>
+<p>A command may keep running for minutes or hours. Output scrolling
+past is a log, not proof of progress. Check the process, step counter,
+throughput, device utilization, and written checkpoints. Ctrl+C requests
+interruption; whether a useful checkpoint remains depends on the
+program. Learn recovery on a tiny run before relying on it for an
+overnight job.</p>
+<a id="python-files-and-environments"></a>
+<h2>Python files and
+environments</h2>
+<p>Python reads instructions from a .py file. Indentation is meaningful.
+Copying code from a formatted page can introduce broken quotation marks
+or indentation, which is one reason the companion files matter. A
+comment begins with # and is not executed. A string is quoted text. An
+integer is a whole number. A float stores an approximate real number. A
+list holds an ordered sequence. A dictionary maps keys to values.</p>
+<pre class="python"><code>learning_rate = 0.001
+class_names = ["refund", "shipping", "other"]
+record = {"text": "Where is my package?", "label": "shipping"}
+print(record["text"])</code></pre>
+<p>Here learning_rate is a variable. The square brackets after record
+retrieve the value stored under the key text. A function packages a
+repeatable computation; calling it runs that computation. A class can
+combine data and behavior, as a neural-network class combines trainable
+parameters and a forward method.</p>
+<p>Libraries such as PyTorch provide large collections of existing
+functions. A Python environment determines which versions of those
+libraries are available. Installing a package into one environment and
+launching Python from another is a common source of errors. Prefer
+python -m pip to a bare pip command, because it identifies which
+interpreter should manage the packages.</p>
+<p>A virtual environment is an isolated package directory. A typical
+project starts like this:</p>
+<pre class="bash"><code>python -m venv .venv
+source .venv/bin/activate
+python --version
+python -m pip --version</code></pre>
+<p>On PowerShell the activation command differs. Activation is
+convenience, not magic: you can invoke the environment's Python by its
+full path. Record the Python version. Then follow the project-specific
+dependency file and official PyTorch wheel selection. CUDA support in
+PyTorch must be compatible with the installed driver and GPU. A CUDA
+toolkit installed somewhere on the machine is not proof that the Python
+process has a CUDA-enabled PyTorch build.</p>
+<p>Do not combine all projects in this book into one enormous
+environment. The language, diffusion, audio, and classical-ML projects
+may need different versions. Create one environment per project, save
+its package list after the smoke test, and change one dependency at a
+time when diagnosing a failure.</p>
+<a id="check-the-environment-before-the-model"></a>
+<h2>Check the environment
+before the model</h2>
+<p>On an NVIDIA machine, nvidia-smi reports the GPU, driver, running
+processes, and memory use. It is a diagnostic tool, not a training
+benchmark. Once PyTorch is installed, run this small check in the same
+environment that will train:</p>
+<pre class="python"><code>import torch
+print("PyTorch:", torch.__version__)
+print("CUDA available:", torch.cuda.is_available())
+if torch.cuda.is_available():
+    print("GPU:", torch.cuda.get_device_name(0))
+    print("BF16 supported:", torch.cuda.is_bf16_supported())
+    print("VRAM bytes:", torch.cuda.get_device_properties(0).total_memory)</code></pre>
+<p>CUDA is NVIDIA's GPU computing platform. FP32, FP16, and BF16 are
+numeric formats described in the memory chapter. Do not infer BF16
+support from the phrase RTX alone. Check the actual device and framework
+support. A recipe that silently falls back to CPU can appear to work
+while taking far longer than expected; the training log should print the
+selected device.</p>
+<p>A GPU test that only allocates a tensor verifies less than a training
+smoke test. A useful smoke test performs a forward pass, computes a
+finite loss, runs backward, updates parameters, saves a checkpoint,
+loads it, and performs inference. It should finish quickly and leave
+behind evidence you can inspect.</p>
+<a id="a-workspace-that-you-can-reason-about"></a>
+<h2>A workspace that you can
+reason about</h2>
+<p>Use a structure that makes raw material and derived artifacts easy to
+distinguish:</p>
+<pre class="text"><code>project/
+  README.md
+  requirements.txt
+  configs/
+  data/
+    raw/
+    processed/
+    splits/
+  src/
+  runs/
+    experiment_001/
+  evaluation/
+  exports/</code></pre>
+<p>Keep raw data unchanged. Write cleaned or tokenized versions
+elsewhere. Give each run its own directory. Never point a new experiment
+at an old output directory unless the code explicitly supports resuming
+and you intend to resume. A useful run directory contains the resolved
+configuration, data hashes, model revision, log, evaluation outputs, and
+checkpoint metadata.</p>
+<p>Use version control for code, small configurations, and
+dataset-generation rules. Large model files and private datasets usually
+belong in a separate artifact store rather than ordinary Git history. Do
+not commit secrets. A token used to download a gated model is a
+credential, not part of the experiment. If logs accidentally contain a
+secret, treat it as exposed and follow the service's revocation
+process.</p>
+<a id="exercises"></a>
+<h2>Exercises</h2>
+<p>Create a new directory and run a Python file that prints a sentence.
+Make a deliberate typo, read the error, then correct it. Locate the file
+from the terminal rather than relying only on an editor's open tab.</p>
+<p>Write a JSON record containing an input, a desired output, and a
+source identifier. Reopen it with Python's json module. Print the
+desired output. Then explain the difference between the file's contents,
+the Python object loaded from it, and a tensor that a model would
+consume.</p>
+<p>Before any GPU training, write down the exact GPU model, available
+VRAM, system RAM, free disk space, driver version, Python version, and
+PyTorch version. If one entry is unknown, the preparation is not
+finished.</p>
+</article><nav class="pager" aria-label="Adjacent chapters"><a href="01.html"><small>← Previous</small>1  Train your first model before learning the whole field</a><a href="03.html"><small>Next →</small>3  Numbers tensors parameters and learning</a></nav></main><aside class="on-page"><h2>On this page</h2><a href="#what-the-parts-of-the-computer-do">What the parts of the
+computer do</a><a href="#a-terminal-is-a-way-to-give-explicit-instructions">A terminal is
+a way to give explicit instructions</a><a href="#python-files-and-environments">Python files and
+environments</a><a href="#check-the-environment-before-the-model">Check the environment
+before the model</a><a href="#a-workspace-that-you-can-reason-about">A workspace that you can
+reason about</a><a href="#exercises">Exercises</a></aside></div><footer class="footer"><div><strong>Training Your Own Models</strong><br>Vibe Authored by Dr.Puma · 2 October 2026</div><div><a href="../chapters/glossary.html">Glossary</a><a href="../chapters/references.html">References</a><a href="https://github.com/MrScripty/training-your-own-models">GitHub ↗</a></div></footer><script src="../assets/site.js" defer></script></body></html>

@@ -1,0 +1,617 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f6f3eb"><title>16  Project make related text easy to retrieve · Training Your Own Models</title><meta name="description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><link rel="canonical" href="https://mrscripty.github.io/training-your-own-models/chapters/16.html"><meta property="og:type" content="website"><meta property="og:site_name" content="Training Your Own Models"><meta property="og:title" content="16  Project make related text easy to retrieve · Training Your Own Models"><meta property="og:description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><meta property="og:url" content="https://mrscripty.github.io/training-your-own-models/chapters/16.html"><meta property="og:image" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta property="og:image:secure_url" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1280"><meta property="og:image:height" content="640"><meta property="og:image:alt" content="Training Your Own Models. On One 24 GB GPU. Vibe Authored by Dr.Puma. Cream, blue and orange scientific cover artwork."><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="16  Project make related text easy to retrieve · Training Your Own Models"><meta name="twitter:description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><meta name="twitter:image" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta name="twitter:image:alt" content="Training Your Own Models, Vibe Authored by Dr.Puma"><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/style.css"></head><body><a class="skip" href="#main">Skip to content</a><header class="topbar"><a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true">↗</span><span>Training Your<br>Own Models</span></a><nav aria-label="Main navigation"><a href="../chapters/start.html">Read the book</a><a href="../labs.html">Explore</a><a href="../search.html" aria-label="Search the book">Search</a><a href="../downloads.html">Downloads</a></nav></header><div class="reader"><aside class="sidebar"><nav aria-label="Book contents"><label class="nav-filter">Find a chapter<input type="search" class="chapter-filter" placeholder="Filter titles" aria-label="Filter chapter titles"></label><a class="chapter-link" href="../chapters/start.html"><span>→</span>Training Your Own Models on One 24 GB GPU</a><a class="chapter-link" href="../chapters/01.html"><span>1</span>Train your first model before learning the whole field</a><a class="chapter-link" href="../chapters/02.html"><span>2</span>Your computer and the training workspace</a><a class="chapter-link" href="../chapters/03.html"><span>3</span>Numbers tensors parameters and learning</a><a class="chapter-link" href="../chapters/04.html"><span>4</span>Project turn four sensor readings into a useful prediction</a><a class="chapter-link" href="../chapters/05.html"><span>5</span>Build a dataset that teaches the job</a><a class="chapter-link" href="../chapters/06.html"><span>6</span>Decide whether the model actually improved</a><a class="chapter-link" href="../chapters/07.html"><span>7</span>Move from feature columns to neural representations</a><a class="chapter-link" href="../chapters/08.html"><span>8</span>Project classify your own small image collection</a><a class="chapter-link" href="../chapters/09.html"><span>9</span>Project locate one object with a box</a><a class="chapter-link" href="../chapters/10.html"><span>10</span>Project predict a mask then extract an outline</a><a class="chapter-link" href="../chapters/11.html"><span>11</span>Train a miniature language model from random weights</a><a class="chapter-link" href="../chapters/12.html"><span>12</span>How a language model becomes a prediction machine</a><a class="chapter-link" href="../chapters/13.html"><span>13</span>Read and control the training loop</a><a class="chapter-link" href="../chapters/14.html"><span>14</span>Make a run reproducible and recoverable</a><a class="chapter-link" href="../chapters/15.html"><span>15</span>The real memory and compute budget</a><a class="chapter-link" href="../chapters/16.html" aria-current="page"><span>16</span>Project make related text easy to retrieve</a><a class="chapter-link" href="../chapters/17.html"><span>17</span>Choose a model by its actual structure and files</a><a class="chapter-link" href="../chapters/18.html"><span>18</span>Teach a small language model one useful behavior</a><a class="chapter-link" href="../chapters/19.html"><span>19</span>Repeat the project with every weight trainable</a><a class="chapter-link" href="../chapters/20.html"><span>20</span>Teach domain conventions without turning weights into a database</a><a class="chapter-link" href="../chapters/21.html"><span>21</span>Make a writing style reproducible without changing the facts</a><a class="chapter-link" href="../chapters/22.html"><span>22</span>Teach a tool decision and a complete tool interaction</a><a class="chapter-link" href="../chapters/23.html"><span>23</span>Study a small typed decision service</a><a class="chapter-link" href="../chapters/24.html"><span>24</span>From a language model to a decision model</a><a class="chapter-link" href="../chapters/25.html"><span>25</span>Add preferences and distillation only after supervised learning works</a><a class="chapter-link" href="../chapters/26.html"><span>26</span>Project teach an image generator a small visual style</a><a class="chapter-link" href="../chapters/27.html"><span>27</span>Speech recognition train a small model to hear your domain</a><a class="chapter-link" href="../chapters/28.html"><span>28</span>Project build a tiny sound generator from random weights</a><a class="chapter-link" href="../chapters/29.html"><span>29</span>Scale a working experiment toward one billion parameters</a><a class="chapter-link" href="../chapters/30.html"><span>30</span>Understand what a public training process really demonstrates</a><a class="chapter-link" href="../chapters/31.html"><span>31</span>Diagnose failures before making the model larger</a><a class="chapter-link" href="../chapters/32.html"><span>32</span>From small model to small device product</a><a class="chapter-link" href="../chapters/33.html"><span>33</span>Turn a checkpoint into a usable application</a><a class="chapter-link" href="../chapters/34.html"><span>34</span>Design your first independent model</a><a class="chapter-link" href="../chapters/35.html"><span>35</span>Understand larger models using the parts you already know</a><a class="chapter-link" href="../chapters/36.html"><span>36</span>Read MiMo GLM and other architecture families</a><a class="chapter-link" href="../chapters/37.html"><span>37</span>Connect architecture to data memory and deployment</a><a class="chapter-link" href="../chapters/38.html"><span>38</span>Learn from public training projects without copying their assumptions</a><a class="chapter-link" href="../chapters/39.html"><span>39</span>Exercise checkpoints and worked answers</a><a class="chapter-link" href="../chapters/40.html"><span>40</span>Companion guide and verification record</a><a class="chapter-link" href="../chapters/glossary.html"><span>A–Z</span>Glossary with links to explanations</a><a class="chapter-link" href="../chapters/references.html"><span>Ref</span>Works cited</a></nav></aside><main class="prose" id="main"><details class="mobile-toc"><summary>Browse the book</summary><nav aria-label="Book contents"><label class="nav-filter">Find a chapter<input type="search" class="chapter-filter" placeholder="Filter titles" aria-label="Filter chapter titles"></label><a class="chapter-link" href="../chapters/start.html"><span>→</span>Training Your Own Models on One 24 GB GPU</a><a class="chapter-link" href="../chapters/01.html"><span>1</span>Train your first model before learning the whole field</a><a class="chapter-link" href="../chapters/02.html"><span>2</span>Your computer and the training workspace</a><a class="chapter-link" href="../chapters/03.html"><span>3</span>Numbers tensors parameters and learning</a><a class="chapter-link" href="../chapters/04.html"><span>4</span>Project turn four sensor readings into a useful prediction</a><a class="chapter-link" href="../chapters/05.html"><span>5</span>Build a dataset that teaches the job</a><a class="chapter-link" href="../chapters/06.html"><span>6</span>Decide whether the model actually improved</a><a class="chapter-link" href="../chapters/07.html"><span>7</span>Move from feature columns to neural representations</a><a class="chapter-link" href="../chapters/08.html"><span>8</span>Project classify your own small image collection</a><a class="chapter-link" href="../chapters/09.html"><span>9</span>Project locate one object with a box</a><a class="chapter-link" href="../chapters/10.html"><span>10</span>Project predict a mask then extract an outline</a><a class="chapter-link" href="../chapters/11.html"><span>11</span>Train a miniature language model from random weights</a><a class="chapter-link" href="../chapters/12.html"><span>12</span>How a language model becomes a prediction machine</a><a class="chapter-link" href="../chapters/13.html"><span>13</span>Read and control the training loop</a><a class="chapter-link" href="../chapters/14.html"><span>14</span>Make a run reproducible and recoverable</a><a class="chapter-link" href="../chapters/15.html"><span>15</span>The real memory and compute budget</a><a class="chapter-link" href="../chapters/16.html" aria-current="page"><span>16</span>Project make related text easy to retrieve</a><a class="chapter-link" href="../chapters/17.html"><span>17</span>Choose a model by its actual structure and files</a><a class="chapter-link" href="../chapters/18.html"><span>18</span>Teach a small language model one useful behavior</a><a class="chapter-link" href="../chapters/19.html"><span>19</span>Repeat the project with every weight trainable</a><a class="chapter-link" href="../chapters/20.html"><span>20</span>Teach domain conventions without turning weights into a database</a><a class="chapter-link" href="../chapters/21.html"><span>21</span>Make a writing style reproducible without changing the facts</a><a class="chapter-link" href="../chapters/22.html"><span>22</span>Teach a tool decision and a complete tool interaction</a><a class="chapter-link" href="../chapters/23.html"><span>23</span>Study a small typed decision service</a><a class="chapter-link" href="../chapters/24.html"><span>24</span>From a language model to a decision model</a><a class="chapter-link" href="../chapters/25.html"><span>25</span>Add preferences and distillation only after supervised learning works</a><a class="chapter-link" href="../chapters/26.html"><span>26</span>Project teach an image generator a small visual style</a><a class="chapter-link" href="../chapters/27.html"><span>27</span>Speech recognition train a small model to hear your domain</a><a class="chapter-link" href="../chapters/28.html"><span>28</span>Project build a tiny sound generator from random weights</a><a class="chapter-link" href="../chapters/29.html"><span>29</span>Scale a working experiment toward one billion parameters</a><a class="chapter-link" href="../chapters/30.html"><span>30</span>Understand what a public training process really demonstrates</a><a class="chapter-link" href="../chapters/31.html"><span>31</span>Diagnose failures before making the model larger</a><a class="chapter-link" href="../chapters/32.html"><span>32</span>From small model to small device product</a><a class="chapter-link" href="../chapters/33.html"><span>33</span>Turn a checkpoint into a usable application</a><a class="chapter-link" href="../chapters/34.html"><span>34</span>Design your first independent model</a><a class="chapter-link" href="../chapters/35.html"><span>35</span>Understand larger models using the parts you already know</a><a class="chapter-link" href="../chapters/36.html"><span>36</span>Read MiMo GLM and other architecture families</a><a class="chapter-link" href="../chapters/37.html"><span>37</span>Connect architecture to data memory and deployment</a><a class="chapter-link" href="../chapters/38.html"><span>38</span>Learn from public training projects without copying their assumptions</a><a class="chapter-link" href="../chapters/39.html"><span>39</span>Exercise checkpoints and worked answers</a><a class="chapter-link" href="../chapters/40.html"><span>40</span>Companion guide and verification record</a><a class="chapter-link" href="../chapters/glossary.html"><span>A–Z</span>Glossary with links to explanations</a><a class="chapter-link" href="../chapters/references.html"><span>Ref</span>Works cited</a></nav></details><div class="chapter-meta"><span class="eyebrow">Chapter 16 / 40</span><span>20 min read</span></div><article class="manuscript"><a id="project-make-related-text-easy-to-retrieve"></a>
+<h1>16 Project make
+related text easy to retrieve</h1>
+<p>An embedding encoder turns an input into a vector designed for a
+downstream similarity objective. Useful application patterns include
+semantic search, near-duplicate discovery, clustering, matching queries
+to catalog items, and a frozen encoder feeding a small task-specific
+classifier. A dense retriever can feed a more expensive reranker or
+supply evidence to a separate answer-generating system. Its output is a
+representation or ranked result, not a guarantee that a generated answer
+is correct.</p>
+<p>Use embeddings when semantic relationships matter and exact matching
+alone is insufficient. Preserve deterministic filters for permissions,
+dates, product variants, and structured constraints. A vector search
+should never bypass access control just because a private document is
+similar. Compare lexical, dense, and combined approaches on your actual
+queries.</p>
+<p>Open a fresh terminal at the unpacked companion root before the
+commands below. They explicitly enter examples/embeddings; do not
+resolve that path relative to a previous project directory.</p>
+<p>Imagine a user asks, “How do I stop future renewals?” while the
+correct help article says “Cancel a subscription.” Exact keyword
+matching may miss the relationship. An embedding model turns each text
+into a vector so useful pairs can receive high similarity. It is a
+representation model; it does not need to generate an answer.</p>
+<p>First run the lexical baseline. A neural model should earn its extra
+complexity. Start from a fresh environment; do not run an import check
+before installing its dependencies.</p>
+<a id="fresh-environment-for-the-cpu-retrieval-baseline"></a>
+<h2>Fresh
+environment for the CPU retrieval baseline</h2>
+<p>The following commands assume Python 3.12 is installed and a
+Linux/macOS shell starts in the downloaded book directory:</p>
+<pre class="bash"><code>cd examples/embeddings
+python3.12 -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+python -m pip install -r requirements-cpu.txt
+python -c "import numpy, sklearn; print(numpy.__version__, sklearn.__version__)"
+python make_retrieval_data.py --out data/retrieval
+python lexical_baseline.py --data data/retrieval --out runs/lexical</code></pre>
+<p>On Windows PowerShell, create the environment with
+<code>py -3.12 -m venv .venv</code> and activate
+<code>.venv\Scripts\Activate.ps1</code>, then use the remaining Python
+commands. Respect local execution-policy controls. Existing output
+directories should be replaced with new experiment names, not combined
+with new artifacts. The setup paths in this chapter are relative to
+<code>examples/embeddings</code> after the first <code>cd</code>.</p>
+<p>The generator creates 60 fictional help documents for ten fictional
+products and three query variants per document. Products are split
+six/two/two across training, validation, and test. Training contains 108
+query/positive pairs, but only 36 distinct positive documents. The
+shared templates make this a wiring fixture, not a serious retrieval
+benchmark.</p>
+<p>The CPU-tested TF-IDF baseline achieved validation Recall@5 of 1.0
+and MRR@5 of about 0.821 on this fixture. That is a useful warning: a
+neural model is not automatically necessary, and the dataset is
+deliberately easy. Real improvements require independently collected
+queries, relevant-document judgments, and realistic distractors.</p>
+<a id="what-the-keyword-baseline-represents"></a>
+<h2>What the keyword baseline
+represents</h2>
+<p>TF-IDF means term frequency-inverse document frequency. It represents
+a document with weighted counts: terms repeated within that document
+gain weight, while terms common across the corpus are downweighted. The
+supplied lexical baseline includes single words and adjacent two-word
+sequences called bigrams. Its vectors are sparse because most vocabulary
+entries do not appear in a given passage. A query is transformed with
+the same fitted vocabulary and scored against document vectors. This is
+a strong inspectable baseline when exact terminology carries relevance;
+it does not require a neural network.</p>
+<a id="replace-the-fixture-with-your-own-query-to-document-task"></a>
+<h2>Replace
+the fixture with your own query to document task</h2>
+<p>A <strong>JSONL</strong> file stores one JSON object per line. Keep
+three files in your data directory. These first rows form one consistent
+example:</p>
+<p><code>corpus.jsonl</code> contains documents that can be
+searched:</p>
+<pre class="json"><code>{"doc_id": "aster-password", "text": "Aster: How to change the password. Open Account then Security and choose Change password.", "group": "Aster", "split": "train"}</code></pre>
+<p><code>queries.jsonl</code> contains questions with relevance
+judgments for evaluation:</p>
+<pre class="json"><code>{"query_id": "aster-password-q0", "text": "How do I change the password in Aster?", "relevant_doc_ids": ["aster-password"], "split": "train"}</code></pre>
+<p><code>train_pairs.jsonl</code> contains the positive pairs used for
+adaptation:</p>
+<pre class="json"><code>{"query": "How do I change the password in Aster?", "positive": "Aster: How to change the password. Open Account then Security and choose Change password.", "doc_id": "aster-password", "group": "Aster"}</code></pre>
+<p><code>doc_id</code> is a unique stable identifier.
+<code>query_id</code> identifies a query. <code>relevant_doc_ids</code>
+is a list because several documents can correctly answer one query;
+populate all verified positives rather than assuming only one. The
+training row's <code>positive</code> text must exactly match its
+referenced corpus document. Do not silently change whitespace, document
+content, or IDs in only one file.</p>
+<p><code>group</code> is the independent source unit held together
+across the split: the fixture uses product families; a real task might
+use source-document families or time-separated collections. Here every
+corpus group belongs entirely to <code>train</code>, <code>val</code>,
+or <code>test</code>; query judgments stay with the corresponding
+document split. All paraphrases of a query stay together. The shown row
+is training data, so add different groups labeled <code>val</code> and
+<code>test</code> with their own evaluation queries. Only
+<code>train</code> documents may appear in
+<code>train_pairs.jsonl</code>.</p>
+<p>The search index contains the entire permitted corpus, including
+held-out documents, because these are the inference-time database. Their
+held-out query labels are not used for weight updates. Do not put
+sensitive or inaccessible documents into a shared index without
+appropriate access controls. For a different deployment question, such
+as future unseen corpora, define that stronger split deliberately rather
+than pretending this fixed-corpus exercise tests it.</p>
+<p>For this row, the default neural query input is literally:</p>
+<pre class="text"><code>Instruct: Given a support question, retrieve the help article that answers it for the correct product.
+Query:How do I change the password in Aster?</code></pre>
+<p>Its positive document is unprefixed:</p>
+<pre class="text"><code>Aster: How to change the password. Open Account then Security and choose Change password.</code></pre>
+<p>The instruction consumes part of the 128-token limit. The program
+adds it exactly once in training, validation, final evaluation, and live
+search. The corpus text itself is not rewritten with this query
+instruction.</p>
+<a id="what-an-embedding-represents"></a>
+<h2>What an embedding represents</h2>
+<p>A text encoder tokenizes the text, produces token-level
+representations, and pools them into one fixed-length vector.
+<strong>Mean pooling</strong> averages non-padding token
+representations; including padding would make the result depend on how
+it was batched. Other models use a designated token, last-token pooling,
+or more elaborate representations. Use the pooling the model was trained
+for.</p>
+<p>The primary model is <strong>Qwen3-Embedding-0.6B</strong>, a compact
+member of the instruction-aware Qwen3 embedding family. It is
+public/non-gated at verification and marked Apache-2.0. It offers
+1024-dimensional embeddings and an advertised 32K context, but this lab
+deliberately uses only 128 tokens. Model capacity is not a guarantee
+that a full 32K training batch fits a 24 GB card. <a href="../chapters/references.html#source-m30">M30</a></p>
+<p>Its released module configuration uses a Transformer,
+<strong>last-nonpadding-token pooling</strong>, and normalization. Mean
+pooling is a useful concept to know, but it is not the recipe for this
+checkpoint. The shared query format is an instruction followed by
+<code>Query:</code> and the actual question; documents receive no
+instruction. The saved tokenizer handles the model's native EOS
+behavior. Do not apply a chat template or append a second EOS manually.
+<a href="../chapters/references.html#source-m31">M31</a> <a href="../chapters/references.html#source-m32">M32</a></p>
+<p>The architecture configuration specifies 28 layers, hidden width
+1024, 16 query heads, 8 key/value heads, head dimension 128, and
+feed-forward width 3072. Counting the published embedding/backbone
+tensor shapes implies approximately <strong>595,776,512
+parameters</strong>; this is a source/config-derived count, not an
+author-executed model load. The script prints the actual loaded
+parameter count for verification. It adapts the encoder through Sentence
+Transformers rather than constructing a text-generation head. <a href="../chapters/references.html#source-m33">M33</a></p>
+<p>A short historical contrast: an older MiniLM mean-pooled encoder is
+much smaller and illustrates a different pooling convention. It is not
+the primary training route in this project. Model size, pooling, and
+query formatting must be chosen together rather than swapping names in
+an otherwise unchanged pipeline.</p>
+<p>A tokenizer converts text into model-specific token IDs. Tokens are
+not necessarily words. A new tokenizer changes the meaning of the
+model's embedding lookup indices; you cannot replace one casually while
+keeping all pretrained weights. Keep casing, special tokens,
+query/document prefixes, truncation, pooling, and normalization
+consistent between training, indexing, and search. Some other retrieval
+models require task-specific prefixes; this lab uses the Qwen
+instruction format consistently in training, validation, indexing, and
+live search.</p>
+<p><strong>L2 normalization</strong> rescales a nonzero vector to length
+one. For normalized vectors, cosine similarity equals dot product, and
+squared Euclidean distance is <code>2 − 2 × dot_product</code>; their
+rankings agree. Without normalization, vector lengths can change
+dot-product rankings. Do not train with one scoring rule and index with
+another accidentally.</p>
+<a id="install-the-neural-runtime-then-run-a-smoke-experiment"></a>
+<h2>Install
+the neural runtime then run a smoke experiment</h2>
+<p>The pinned, source-reviewed API target is PyTorch 2.8.0, Sentence
+Transformers 5.1.1, and Transformers 4.57.1. These meet the model card's
+requirements; they are explicit reproducibility versions, not a claim to
+be the newest releases. The loss, SentenceTransformer loader, and Qwen3
+implementation were inspected at their tags. No neural packages were
+installed, no weights downloaded, and no neural training run during
+authoring. <a href="../chapters/references.html#source-m14">M14</a> <a href="../chapters/references.html#source-m26">M26</a>
+<a href="../chapters/references.html#source-m34">M34</a></p>
+<p>Remain in the activated environment. Choose exactly one PyTorch
+route. On Linux/Windows with an NVIDIA driver and GPU compatible with
+the official CUDA 12.8 wheel:</p>
+<pre class="bash"><code>python -m pip install torch==2.8.0 --index-url https://download.pytorch.org/whl/cu128
+python -m pip install -r requirements-neural.txt
+python -m pip check
+python -c "import torch, transformers, sentence_transformers; print(torch.__version__, transformers.__version__, sentence_transformers.__version__); print('CUDA:', torch.cuda.is_available()); print('BF16:', torch.cuda.is_available() and torch.cuda.is_bf16_supported())"</code></pre>
+<p>For CPU-only Linux/Windows, replace the first installation command
+with
+<code>python -m pip install torch==2.8.0 --index-url https://download.pytorch.org/whl/cpu</code>,
+then run the same requirements and checks. For macOS CPU use
+<code>python -m pip install torch==2.8.0</code> instead. This recipe
+does not implement MPS. Changing <code>--device</code> cannot give a CPU
+wheel CUDA support. For a GPU unsupported by these pinned wheels, select
+an official compatible stack and revalidate; do not force an
+incompatible build. The official versioned install page lists the
+supported wheel routes. <a href="../chapters/references.html#source-m35">M35</a></p>
+<p>After reviewing the model license, begin with one update:</p>
+<pre class="bash"><code>python train_embeddings.py --data data/retrieval --out runs/qwen3-smoke \
+  --device cuda --amp-bf16 --batch-size 2 --max-length 128 \
+  --epochs 1 --max-steps 1</code></pre>
+<p>Confirm the smoke checkpoint reloads and returns document IDs before
+attempting the longer run:</p>
+<pre class="bash"><code>python search.py runs/qwen3-smoke "How do I change the password in Aster?" \
+  --device cuda --k 3</code></pre>
+<p>This is a wiring check on a training-style question, not a
+generalization score. Then use a new output directory for
+adaptation:</p>
+<pre class="bash"><code>python train_embeddings.py --data data/retrieval --out runs/qwen3-adapted \
+  --device cuda --amp-bf16 --batch-size 2 --max-length 128 \
+  --epochs 3 --lr 0.00001 --weight-decay 0.01 --scale 20</code></pre>
+<p>The script pins <code>Qwen/Qwen3-Embedding-0.6B</code> to verified
+revision <code>97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3</code>, keeps
+<code>trust_remote_code=False</code>, and rejects a nonempty run
+directory. The first model load downloads about 1.2 GB of weights plus
+tokenizer/configuration; a saved FP32 checkpoint is larger. Leave
+generous disk and host-RAM headroom. Pinning an artifact does not
+replace license and provenance review. <a href="../chapters/references.html#source-m36">M36</a></p>
+<p>CPU training uses the same command with <code>--device cpu</code> and
+without <code>--amp-bf16</code>. Full 0.6B backpropagation is slow on
+CPU and needs substantial RAM. For a first CPU neural retrieval
+experiment, save and index the unmodified baseline without allocating an
+optimizer:</p>
+<pre class="bash"><code>python train_embeddings.py --data data/retrieval --out runs/qwen3-baseline \
+  --device cpu --eval-only --batch-size 2 --max-length 128</code></pre>
+<p>The adaptation run updates all encoder parameters, so it is full
+fine-tuning of a pretrained representation, not scratch language
+pretraining. There are 36 unique positive documents, hence 18 updates
+per epoch at batch two and 54 across three epochs. The fixture is
+sufficient to exercise the machinery, not to claim adaptation quality.
+Use independently judged real query/positive pairs before drawing
+product conclusions.</p>
+<p>The program first scores the unmodified model on validation and saves
+it as an eligible candidate. Each epoch samples one query variant per
+positive document, trains, and measures validation retrieval. It selects
+a new checkpoint only when validation MRR@5 improves.
+<code>selected_epoch=0</code> means the unmodified model won. The chosen
+model is then validated and used for corpus indexing. Smoke, baseline,
+and training commands do not score test queries; final test evaluation
+is a separate explicit command after all tuning is done. Optimizer and
+original-model references are released before loading the selected
+checkpoint, avoiding a needless second training-sized model
+allocation.</p>
+<a id="the-embedding-experiment-controls"></a>
+<h2>The embedding experiment
+controls</h2>
+<div aria-label="Scrollable table" class="table-scroll" role="region" tabindex="0"><table>
+<thead>
+<tr class="header">
+<th>Control</th>
+<th style="text-align: right;">Default</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>model and revision</td>
+<td style="text-align: right;">pinned in
+<code>embedding_contract.py</code></td>
+<td>Verified Qwen3-Embedding-0.6B artifact; changing architecture
+requires reviewing its whole input/output contract</td>
+</tr>
+<tr class="even">
+<td><code>--epochs</code></td>
+<td style="text-align: right;">3</td>
+<td>Passes over unique positive-document groups</td>
+</tr>
+<tr class="odd">
+<td><code>--batch-size</code></td>
+<td style="text-align: right;">2</td>
+<td>Actual contrastive pairs per update and encoding batch size</td>
+</tr>
+<tr class="even">
+<td><code>--max-length</code></td>
+<td style="text-align: right;">128</td>
+<td>Token budget including instruction and native special tokens; longer
+inputs are truncated</td>
+</tr>
+<tr class="odd">
+<td><code>--lr</code></td>
+<td style="text-align: right;">0.00001</td>
+<td>AdamW learning rate for full-encoder adaptation</td>
+</tr>
+<tr class="even">
+<td><code>--weight-decay</code></td>
+<td style="text-align: right;">0.01</td>
+<td>Decoupled weight penalty</td>
+</tr>
+<tr class="odd">
+<td><code>--scale</code></td>
+<td style="text-align: right;">20</td>
+<td>Cosine similarity multiplier before contrastive cross entropy</td>
+</tr>
+<tr class="even">
+<td><code>--instruction</code></td>
+<td style="text-align: right;">support-retrieval sentence</td>
+<td>Task description prefixed to queries, never documents; persisted for
+inference</td>
+</tr>
+<tr class="odd">
+<td><code>--seed</code></td>
+<td style="text-align: right;">42</td>
+<td>Sampling/random-state control</td>
+</tr>
+<tr class="even">
+<td><code>--device</code></td>
+<td style="text-align: right;">cpu</td>
+<td>CPU or CUDA encoder/training placement</td>
+</tr>
+<tr class="odd">
+<td><code>--amp-bf16</code></td>
+<td style="text-align: right;">off</td>
+<td>CUDA BF16 autocast on supported hardware; master weights and
+optimizer state remain FP32</td>
+</tr>
+<tr class="even">
+<td><code>--max-steps</code></td>
+<td style="text-align: right;">0</td>
+<td>No update cap; use 1 for a smoke run</td>
+</tr>
+<tr class="odd">
+<td><code>--eval-only</code></td>
+<td style="text-align: right;">off</td>
+<td>Save/evaluate/index the frozen baseline without training</td>
+</tr>
+<tr class="even">
+<td><code>--data</code>, <code>--out</code></td>
+<td style="text-align: right;">data/retrieval, runs/qwen3-embedding</td>
+<td>Dataset and artifact locations</td>
+</tr>
+<tr class="odd">
+<td>search <code>--k</code></td>
+<td style="text-align: right;">5</td>
+<td>Number of ranked result IDs to return</td>
+</tr>
+</tbody>
+</table></div>
+<p>The loop clips gradient norm to 1 and deliberately omits a scheduler
+for the introductory short run. It uses SDPA without requiring a
+FlashAttention install, non-reentrant gradient checkpointing,
+<code>use_cache=False</code>, and AdamW <code>foreach=False</code>.
+There is no decoder-generation KV cache needed for embedding training.
+Gradient checkpointing saves activation memory by recomputing parts of
+the forward pass. BF16's numerical range generally avoids the FP16
+gradient-scaling requirement; this code does not use an FP16 mode. <a href="../chapters/references.html#source-m34">M34</a></p>
+<a id="match-embedding-architecture-and-supervision-to-the-task"></a>
+<h2>Match
+embedding architecture and supervision to the task</h2>
+<p>A single-vector encoder compresses a whole input into one vector and
+is efficient to index. It may blur a long document's small but important
+detail; chunking or a late-interaction/multi-vector architecture can
+preserve more detail at extra memory and serving cost. A cross-encoder
+reads query and document together and suits reranking a short list, but
+does not produce independently reusable document vectors in the same
+way.</p>
+<p>Training a text encoder from random initialization requires learning
+language structure as well as your retrieval relationship. Fine-tuning
+an existing small encoder can focus a limited set of high-quality
+judgments on the latter task. For adaptation, the most valuable data are
+representative queries with verified positives, realistic confusions,
+and examples of what should not match. A million mechanically generated
+easy pairs can be less useful than a much smaller carefully judged set.
+The fixture demonstrates the format and loop; it does not estimate the
+needed count for your domain.</p>
+<p>Build learning curves over independently labeled query families and
+inspect truncation rates, false negatives, and relevant-document
+coverage. For a multimodal encoder, you need aligned examples spanning
+the modalities, not arbitrary text and image collections placed side by
+side.</p>
+<a id="contrastive-learning-turns-a-batch-into-a-classification-problem"></a>
+<h2>Contrastive
+learning turns a batch into a classification problem</h2>
+<p>For a batch of B query/document pairs, compute B query vectors and B
+positive-document vectors. Construct a B × B similarity matrix. Row i's
+correct candidate is document i; the other documents are treated as
+negatives. Cross entropy rewards the diagonal. This is
+<strong>multiple-negatives ranking loss</strong>, a common contrastive
+training objective. <a href="../chapters/references.html#source-m14">M14</a></p>
+<p>With cosine similarity <code>s</code>, its query-i loss is:</p>
+<pre class="text"><code>−log( exp(scale × s(query_i, positive_i))
+      / sum_j exp(scale × s(query_i, document_j)) )</code></pre>
+<p><code>scale=20</code> corresponds to temperature 0.05. Larger scale
+makes the distribution sharper and changes gradient behavior. It is not
+an accuracy setting. The script uses the library's loss to handle
+numerically stable cross entropy rather than directly implementing the
+exponentials shown for explanation.</p>
+<p>A batch of size one has no competing documents and no useful
+contrastive training signal. The script discards singleton final batches
+and requires at least two distinct positives. It samples one query per
+document per epoch so the same positive document does not appear twice
+in one batch. The standard Sentence Transformers no-duplicates sampler
+is another useful tool for applicable trainer workflows. <a href="../chapters/references.html#source-m15">M15</a></p>
+<p>A <strong>triplet loss</strong> instead uses an anchor, a positive,
+and an explicit negative. A common distance form is
+<code>max(0, distance(anchor,positive) − distance(anchor,negative) + margin)</code>.
+The margin asks for separation, not a universal semantic distance. Easy
+negatives that already satisfy the margin contribute nothing; mislabeled
+hard negatives push the representation in the wrong direction. Triplet
+methods are a distinct training choice, not a reason to add arbitrary
+integer labels to a pair-based loss. <a href="../chapters/references.html#source-m23">M23</a></p>
+<a id="false-negatives-hard-negatives-and-leakage"></a>
+<h2>False negatives hard
+negatives and leakage</h2>
+<p>An in-batch negative is an assumption, not a verified fact. Two
+different articles may both answer “How do I reset access?” If one is
+paired as the positive and the other appears in the batch, the loss may
+punish a genuinely useful match. Exact-text deduplication catches
+identical strings, not semantic duplicates.</p>
+<p>For real data, group equivalent documents and queries; represent
+multiple relevant documents in evaluation; construct batches that avoid
+competing positives where feasible; or choose a loss that explicitly
+handles multiple positives. Do not equate “not labeled positive” with
+“known irrelevant.” Audit mined examples manually before scaling
+them.</p>
+<p>A <strong>hard negative</strong> is a plausible but wrong candidate.
+For the help-desk case, an article for the wrong product or an outdated
+policy can be hard. Mine candidates from training queries using a
+baseline retriever, then verify their irrelevance. Never mine from
+held-out test queries and feed those pairs back into training. If a hard
+negative is actually relevant, additional training can make the system
+worse while the training loss improves.</p>
+<p>Split by source document, customer question family, or other genuine
+group before creating paraphrases. A test query that is a light rewrite
+of a training query is weak evidence. The fixture separates product
+groups but shares wording templates; its evaluation limitation is
+intentional and documented.</p>
+<p>Retrieval has a subtle distinction from classification: the search
+corpus can contain held-out documents because they are the database
+being searched at inference time. Indexing their text is not the same as
+using their held-out query/relevance labels to train. This lab evaluates
+the fixed-corpus setting. If the claim is generalization to a future
+changing corpus, hold out time periods or document families accordingly
+and test that stronger setting.</p>
+<a id="batch-size-means-something-different-here"></a>
+<h2>Batch size means
+something different here</h2>
+<p>A larger real contrastive batch supplies more candidate negatives to
+each query, which can improve the learning signal until noise or false
+negatives dominate. <strong>Gradient accumulation does not automatically
+enlarge the in-batch negative set.</strong> Four separate batches of 16
+pairs with accumulated gradients still present 16 candidates per loss
+computation, not one joint 64-candidate classification problem.</p>
+<p>Ordinary attention activation memory depends on batch size and token
+length; the dense similarity matrix also grows with B squared. Long
+padded outliers can waste considerable space. Limit or bucket token
+lengths deliberately, inspect actual truncation, and reduce per-step
+batch size or sequence length when memory is tight. Use a cached
+contrastive loss when its larger negative pool is justified: gradient
+caching trades additional computation for lower activation-memory
+pressure, but does not make all memory costs disappear. The original
+gradient-cache paper and current library loss documentation explain this
+tradeoff. <a href="../chapters/references.html#source-m16">M16</a></p>
+<p>On a 24 GB GPU, the small encoder and short default batches are a
+conservative starting experiment, not a tested fit guarantee. Run one
+forward/backward/update step with representative maximum-length
+examples, record peak allocated and reserved memory, leave room for
+evaluation and indexing, and only then increase batch size. The provided
+loop keeps FP32 master weights and optimizer state while optionally
+autocasting eligible CUDA operations to BF16. Parameters, gradients, and
+two Adam moments alone account for roughly 8.88 GiB for the
+config-derived parameter count, before activations, workspaces,
+allocator reserve, and any process sharing the GPU. That is a planning
+calculation, not a measured fit. The script records both peak allocated
+and reserved CUDA memory; the smoke run must establish whether your
+actual configuration fits. If it does not, reduce length/batch while
+retaining at least two contrastive pairs, or select a separately
+validated parameter-efficient method.</p>
+<a id="evaluate-the-retrieval-product-not-just-its-loss"></a>
+<h2>Evaluate the
+retrieval product not just its loss</h2>
+<p>The neural evaluation computes rankings against all 60 documents and
+reports:</p>
+<ul>
+<li><strong>Recall@k:</strong> fraction of the query's known relevant
+documents retrieved in the top k</li>
+<li><strong>MRR@k:</strong> reciprocal rank of the first relevant
+result, or zero if none occurs within k, averaged across queries</li>
+<li><strong>nDCG@k:</strong> discounted relevance accumulated near the
+top, divided by the ideal ordering; the example uses binary relevance,
+while real datasets can use graded judgments</li>
+</ul>
+<p>The implementation supports multiple relevant document IDs and
+deterministic tie ordering. It does not assume the index contains only
+one positive and a few handpicked negatives. Sentence Transformers
+provides information-retrieval evaluators for larger workflows and
+additional metrics. <a href="../chapters/references.html#source-m18">M18</a></p>
+<p>A <strong>reranker</strong> jointly reads a query and each retrieved
+candidate, often scoring relevance more accurately at greater latency
+than independently encoded vectors. A useful pipeline is lexical and/or
+dense retrieval → candidate merge → reranking → final selection. The
+reranker cannot recover an answer that the first-stage candidate set
+omitted. Measure first-stage recall, final ranking quality, and
+end-to-end latency separately.</p>
+<p>Similarity is not a calibrated probability of correctness. A cosine
+score of 0.8 is not automatically an 80% chance of answering the
+question. Validate any “no answer” threshold using real answerable and
+unanswerable queries. Include product names, identifiers, negation,
+numbers, dates, languages, and near-duplicate policies in the error set.
+Dense similarity alone can be weak on exact codes; lexical retrieval
+remains a valuable complement.</p>
+<a id="use-the-trained-index-consistently"></a>
+<h2>Use the trained index
+consistently</h2>
+<p>The output directory contains:</p>
+<ul>
+<li><code>best/</code>: the selected encoder, tokenizer, last-token
+pooling configuration, and associated model files</li>
+<li><code>index_contract.json</code>: exact instruction, preprocessing,
+dimensions, and SHA-256 identities for model and index files</li>
+<li><code>corpus_embeddings.npy</code>: normalized vectors produced by
+that selected model</li>
+<li><code>corpus_ids.json</code>: the row-to-document mapping</li>
+<li><code>validation_rankings.json</code>: inspectable validation result
+IDs; final test artifacts are created only by the explicit test
+command</li>
+<li><code>metrics.json</code>: configuration, validation history,
+selected validation scores, input data hashes, and available memory
+measurements</li>
+</ul>
+<p>The short trainer saves inference-ready selected weights, not
+optimizer/scheduler state or a resumable training position. Reloading
+<code>best/</code> for search is not resuming interrupted training. A
+resumed training experiment would need an explicitly implemented
+optimizer/random-state checkpoint strategy and its own checks.</p>
+<p>Search it with:</p>
+<pre class="bash"><code>python search.py runs/qwen3-adapted \
+  "In Iris, I need to stop future renewals." --device cpu --k 5
+python search.py runs/qwen3-adapted \
+  "In Iris, I need to stop future renewals." --device cuda --k 5</code></pre>
+<p>Use <code>runs/qwen3-baseline</code> instead if you created the
+frozen baseline. The first command encodes on CPU; the second encodes on
+CUDA. Both load FP32 weights, independently of the training autocast
+choice. Each loads the selected local model directory, including
+tokenizer and last-token pooling, with the saved sequence-length limit,
+left padding, and exact training instruction. The query prefix is
+applied once; documents remain unprefixed. SHA-256 checks reject
+mismatched weights/tokenizer/configuration/index files, adding startup
+I/O in exchange for consistency. The document index stays in NumPy on
+CPU in this small demo; only the encoder changes device. Vectors are
+normalized on both paths, and the output contains document IDs and
+similarity scores. These neural commands were syntax-checked, not
+executed. For a larger GPU index you would need a separately selected
+indexing backend and its own correctness checks.</p>
+<p>When you change the encoder, pooling, normalization, tokenization, or
+document chunking, rebuild the index or implement a carefully tested
+migration. Old document vectors and new query vectors are generally
+incompatible. Store model revision and preprocessing identity alongside
+every index version. Protect sensitive documents and query logs;
+embeddings are derived data, not an automatic anonymization method.</p>
+<p>The lab uses an exact NumPy dot-product search. For a large corpus,
+measure approximate-nearest-neighbor index recall against exact search
+on a sample. Quantized vectors and compressed indexes reduce memory but
+can change ranking. Approximation errors compound with encoder and
+reranker errors, so evaluate the complete deployed path.</p>
+<a id="reserve-the-test-set-for-one-final-comparison"></a>
+<h2>Reserve the test
+set for one final comparison</h2>
+<p>During development, both the lexical command and neural training
+commands report validation only. The one-update smoke run and
+frozen-baseline run must not become early peeks at the held-out test.
+When the model, instructions, chunking, index settings, and thresholds
+are fixed, run:</p>
+<pre class="bash"><code>python evaluate_saved.py runs/qwen3-adapted --data data/retrieval \
+  --split test --device cuda --batch-size 2
+python lexical_baseline.py --data data/retrieval \
+  --out runs/lexical-final --split test</code></pre>
+<p>CPU final evaluation uses <code>--device cpu</code>; for a
+deliberately selected frozen encoder, substitute its run directory. The
+neural evaluator checks corpus identity against the stored index
+contract and writes <code>test_metrics.json</code> and
+<code>test_rankings.json</code>. Compare the fixed systems, report
+uncertainty and representative failures, and do not tune on these labels
+afterward. <code>evaluate_saved.py</code> defaults to
+<code>--split val</code> when the flag is omitted. A serious iteration
+after examining test failures needs a fresh final holdout.</p>
+<a id="extend-embeddings-to-images-and-multiple-modalities"></a>
+<h2>Extend
+embeddings to images and multiple modalities</h2>
+<p>The same pattern applies beyond text. An image encoder maps
+photographs to vectors for visual similarity or a small downstream
+classifier. The definition of “similar” matters: identical products,
+matching texture, same species, and the same individual object are
+different objectives. Image augmentations define which variations the
+representation should ignore; an aggressive crop can remove the very
+identity signal you wanted to preserve.</p>
+<p>A dual-encoder multimodal system has, for example, an image encoder
+and a text encoder that map into a shared dimensional space. Contrastive
+training encourages paired images and descriptions to align. CLIP is a
+primary example of this training pattern. It is not achieved by
+comparing arbitrary image vectors with unrelated text vectors that
+happen to have the same length. <a href="../chapters/references.html#source-m17">M17</a></p>
+<p>For a small custom multimodal task, begin with an appropriate
+pretrained aligned model and frozen-feature baselines. Fine-tune on
+rights-cleared matched pairs only if validation shows a need. Captions
+that omit the decisive visual detail are weak supervision for that
+detail. Multiple images can match a caption, creating the same
+false-negative issue seen in text retrieval. Evaluate image→text and
+text→image separately if both directions matter.</p>
+<p>Do not use a retrieval embedding as a substitute for a pixel mask. A
+single pooled image vector intentionally compresses spatial information;
+precise boundaries require an output architecture and labels that
+preserve it.</p>
+</article><nav class="pager" aria-label="Adjacent chapters"><a href="15.html"><small>← Previous</small>15  The real memory and compute budget</a><a href="17.html"><small>Next →</small>17  Choose a model by its actual structure and files</a></nav></main><aside class="on-page"><h2>On this page</h2><a href="#fresh-environment-for-the-cpu-retrieval-baseline">Fresh
+environment for the CPU retrieval baseline</a><a href="#what-the-keyword-baseline-represents">What the keyword baseline
+represents</a><a href="#replace-the-fixture-with-your-own-query-to-document-task">Replace
+the fixture with your own query to document task</a><a href="#what-an-embedding-represents">What an embedding represents</a><a href="#install-the-neural-runtime-then-run-a-smoke-experiment">Install
+the neural runtime then run a smoke experiment</a><a href="#the-embedding-experiment-controls">The embedding experiment
+controls</a><a href="#match-embedding-architecture-and-supervision-to-the-task">Match
+embedding architecture and supervision to the task</a><a href="#contrastive-learning-turns-a-batch-into-a-classification-problem">Contrastive
+learning turns a batch into a classification problem</a><a href="#false-negatives-hard-negatives-and-leakage">False negatives hard
+negatives and leakage</a><a href="#batch-size-means-something-different-here">Batch size means
+something different here</a><a href="#evaluate-the-retrieval-product-not-just-its-loss">Evaluate the
+retrieval product not just its loss</a><a href="#use-the-trained-index-consistently">Use the trained index
+consistently</a><a href="#reserve-the-test-set-for-one-final-comparison">Reserve the test
+set for one final comparison</a><a href="#extend-embeddings-to-images-and-multiple-modalities">Extend
+embeddings to images and multiple modalities</a></aside></div><footer class="footer"><div><strong>Training Your Own Models</strong><br>Vibe Authored by Dr.Puma · 2 October 2026</div><div><a href="../chapters/glossary.html">Glossary</a><a href="../chapters/references.html">References</a><a href="https://github.com/MrScripty/training-your-own-models">GitHub ↗</a></div></footer><script src="../assets/site.js" defer></script></body></html>

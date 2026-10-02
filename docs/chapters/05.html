@@ -1,0 +1,202 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f6f3eb"><title>5  Build a dataset that teaches the job · Training Your Own Models</title><meta name="description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><link rel="canonical" href="https://mrscripty.github.io/training-your-own-models/chapters/05.html"><meta property="og:type" content="website"><meta property="og:site_name" content="Training Your Own Models"><meta property="og:title" content="5  Build a dataset that teaches the job · Training Your Own Models"><meta property="og:description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><meta property="og:url" content="https://mrscripty.github.io/training-your-own-models/chapters/05.html"><meta property="og:image" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta property="og:image:secure_url" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1280"><meta property="og:image:height" content="640"><meta property="og:image:alt" content="Training Your Own Models. On One 24 GB GPU. Vibe Authored by Dr.Puma. Cream, blue and orange scientific cover artwork."><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="5  Build a dataset that teaches the job · Training Your Own Models"><meta name="twitter:description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><meta name="twitter:image" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta name="twitter:image:alt" content="Training Your Own Models, Vibe Authored by Dr.Puma"><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/style.css"></head><body><a class="skip" href="#main">Skip to content</a><header class="topbar"><a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true">↗</span><span>Training Your<br>Own Models</span></a><nav aria-label="Main navigation"><a href="../chapters/start.html">Read the book</a><a href="../labs.html">Explore</a><a href="../search.html" aria-label="Search the book">Search</a><a href="../downloads.html">Downloads</a></nav></header><div class="reader"><aside class="sidebar"><nav aria-label="Book contents"><label class="nav-filter">Find a chapter<input type="search" class="chapter-filter" placeholder="Filter titles" aria-label="Filter chapter titles"></label><a class="chapter-link" href="../chapters/start.html"><span>→</span>Training Your Own Models on One 24 GB GPU</a><a class="chapter-link" href="../chapters/01.html"><span>1</span>Train your first model before learning the whole field</a><a class="chapter-link" href="../chapters/02.html"><span>2</span>Your computer and the training workspace</a><a class="chapter-link" href="../chapters/03.html"><span>3</span>Numbers tensors parameters and learning</a><a class="chapter-link" href="../chapters/04.html"><span>4</span>Project turn four sensor readings into a useful prediction</a><a class="chapter-link" href="../chapters/05.html" aria-current="page"><span>5</span>Build a dataset that teaches the job</a><a class="chapter-link" href="../chapters/06.html"><span>6</span>Decide whether the model actually improved</a><a class="chapter-link" href="../chapters/07.html"><span>7</span>Move from feature columns to neural representations</a><a class="chapter-link" href="../chapters/08.html"><span>8</span>Project classify your own small image collection</a><a class="chapter-link" href="../chapters/09.html"><span>9</span>Project locate one object with a box</a><a class="chapter-link" href="../chapters/10.html"><span>10</span>Project predict a mask then extract an outline</a><a class="chapter-link" href="../chapters/11.html"><span>11</span>Train a miniature language model from random weights</a><a class="chapter-link" href="../chapters/12.html"><span>12</span>How a language model becomes a prediction machine</a><a class="chapter-link" href="../chapters/13.html"><span>13</span>Read and control the training loop</a><a class="chapter-link" href="../chapters/14.html"><span>14</span>Make a run reproducible and recoverable</a><a class="chapter-link" href="../chapters/15.html"><span>15</span>The real memory and compute budget</a><a class="chapter-link" href="../chapters/16.html"><span>16</span>Project make related text easy to retrieve</a><a class="chapter-link" href="../chapters/17.html"><span>17</span>Choose a model by its actual structure and files</a><a class="chapter-link" href="../chapters/18.html"><span>18</span>Teach a small language model one useful behavior</a><a class="chapter-link" href="../chapters/19.html"><span>19</span>Repeat the project with every weight trainable</a><a class="chapter-link" href="../chapters/20.html"><span>20</span>Teach domain conventions without turning weights into a database</a><a class="chapter-link" href="../chapters/21.html"><span>21</span>Make a writing style reproducible without changing the facts</a><a class="chapter-link" href="../chapters/22.html"><span>22</span>Teach a tool decision and a complete tool interaction</a><a class="chapter-link" href="../chapters/23.html"><span>23</span>Study a small typed decision service</a><a class="chapter-link" href="../chapters/24.html"><span>24</span>From a language model to a decision model</a><a class="chapter-link" href="../chapters/25.html"><span>25</span>Add preferences and distillation only after supervised learning works</a><a class="chapter-link" href="../chapters/26.html"><span>26</span>Project teach an image generator a small visual style</a><a class="chapter-link" href="../chapters/27.html"><span>27</span>Speech recognition train a small model to hear your domain</a><a class="chapter-link" href="../chapters/28.html"><span>28</span>Project build a tiny sound generator from random weights</a><a class="chapter-link" href="../chapters/29.html"><span>29</span>Scale a working experiment toward one billion parameters</a><a class="chapter-link" href="../chapters/30.html"><span>30</span>Understand what a public training process really demonstrates</a><a class="chapter-link" href="../chapters/31.html"><span>31</span>Diagnose failures before making the model larger</a><a class="chapter-link" href="../chapters/32.html"><span>32</span>From small model to small device product</a><a class="chapter-link" href="../chapters/33.html"><span>33</span>Turn a checkpoint into a usable application</a><a class="chapter-link" href="../chapters/34.html"><span>34</span>Design your first independent model</a><a class="chapter-link" href="../chapters/35.html"><span>35</span>Understand larger models using the parts you already know</a><a class="chapter-link" href="../chapters/36.html"><span>36</span>Read MiMo GLM and other architecture families</a><a class="chapter-link" href="../chapters/37.html"><span>37</span>Connect architecture to data memory and deployment</a><a class="chapter-link" href="../chapters/38.html"><span>38</span>Learn from public training projects without copying their assumptions</a><a class="chapter-link" href="../chapters/39.html"><span>39</span>Exercise checkpoints and worked answers</a><a class="chapter-link" href="../chapters/40.html"><span>40</span>Companion guide and verification record</a><a class="chapter-link" href="../chapters/glossary.html"><span>A–Z</span>Glossary with links to explanations</a><a class="chapter-link" href="../chapters/references.html"><span>Ref</span>Works cited</a></nav></aside><main class="prose" id="main"><details class="mobile-toc"><summary>Browse the book</summary><nav aria-label="Book contents"><label class="nav-filter">Find a chapter<input type="search" class="chapter-filter" placeholder="Filter titles" aria-label="Filter chapter titles"></label><a class="chapter-link" href="../chapters/start.html"><span>→</span>Training Your Own Models on One 24 GB GPU</a><a class="chapter-link" href="../chapters/01.html"><span>1</span>Train your first model before learning the whole field</a><a class="chapter-link" href="../chapters/02.html"><span>2</span>Your computer and the training workspace</a><a class="chapter-link" href="../chapters/03.html"><span>3</span>Numbers tensors parameters and learning</a><a class="chapter-link" href="../chapters/04.html"><span>4</span>Project turn four sensor readings into a useful prediction</a><a class="chapter-link" href="../chapters/05.html" aria-current="page"><span>5</span>Build a dataset that teaches the job</a><a class="chapter-link" href="../chapters/06.html"><span>6</span>Decide whether the model actually improved</a><a class="chapter-link" href="../chapters/07.html"><span>7</span>Move from feature columns to neural representations</a><a class="chapter-link" href="../chapters/08.html"><span>8</span>Project classify your own small image collection</a><a class="chapter-link" href="../chapters/09.html"><span>9</span>Project locate one object with a box</a><a class="chapter-link" href="../chapters/10.html"><span>10</span>Project predict a mask then extract an outline</a><a class="chapter-link" href="../chapters/11.html"><span>11</span>Train a miniature language model from random weights</a><a class="chapter-link" href="../chapters/12.html"><span>12</span>How a language model becomes a prediction machine</a><a class="chapter-link" href="../chapters/13.html"><span>13</span>Read and control the training loop</a><a class="chapter-link" href="../chapters/14.html"><span>14</span>Make a run reproducible and recoverable</a><a class="chapter-link" href="../chapters/15.html"><span>15</span>The real memory and compute budget</a><a class="chapter-link" href="../chapters/16.html"><span>16</span>Project make related text easy to retrieve</a><a class="chapter-link" href="../chapters/17.html"><span>17</span>Choose a model by its actual structure and files</a><a class="chapter-link" href="../chapters/18.html"><span>18</span>Teach a small language model one useful behavior</a><a class="chapter-link" href="../chapters/19.html"><span>19</span>Repeat the project with every weight trainable</a><a class="chapter-link" href="../chapters/20.html"><span>20</span>Teach domain conventions without turning weights into a database</a><a class="chapter-link" href="../chapters/21.html"><span>21</span>Make a writing style reproducible without changing the facts</a><a class="chapter-link" href="../chapters/22.html"><span>22</span>Teach a tool decision and a complete tool interaction</a><a class="chapter-link" href="../chapters/23.html"><span>23</span>Study a small typed decision service</a><a class="chapter-link" href="../chapters/24.html"><span>24</span>From a language model to a decision model</a><a class="chapter-link" href="../chapters/25.html"><span>25</span>Add preferences and distillation only after supervised learning works</a><a class="chapter-link" href="../chapters/26.html"><span>26</span>Project teach an image generator a small visual style</a><a class="chapter-link" href="../chapters/27.html"><span>27</span>Speech recognition train a small model to hear your domain</a><a class="chapter-link" href="../chapters/28.html"><span>28</span>Project build a tiny sound generator from random weights</a><a class="chapter-link" href="../chapters/29.html"><span>29</span>Scale a working experiment toward one billion parameters</a><a class="chapter-link" href="../chapters/30.html"><span>30</span>Understand what a public training process really demonstrates</a><a class="chapter-link" href="../chapters/31.html"><span>31</span>Diagnose failures before making the model larger</a><a class="chapter-link" href="../chapters/32.html"><span>32</span>From small model to small device product</a><a class="chapter-link" href="../chapters/33.html"><span>33</span>Turn a checkpoint into a usable application</a><a class="chapter-link" href="../chapters/34.html"><span>34</span>Design your first independent model</a><a class="chapter-link" href="../chapters/35.html"><span>35</span>Understand larger models using the parts you already know</a><a class="chapter-link" href="../chapters/36.html"><span>36</span>Read MiMo GLM and other architecture families</a><a class="chapter-link" href="../chapters/37.html"><span>37</span>Connect architecture to data memory and deployment</a><a class="chapter-link" href="../chapters/38.html"><span>38</span>Learn from public training projects without copying their assumptions</a><a class="chapter-link" href="../chapters/39.html"><span>39</span>Exercise checkpoints and worked answers</a><a class="chapter-link" href="../chapters/40.html"><span>40</span>Companion guide and verification record</a><a class="chapter-link" href="../chapters/glossary.html"><span>A–Z</span>Glossary with links to explanations</a><a class="chapter-link" href="../chapters/references.html"><span>Ref</span>Works cited</a></nav></details><div class="chapter-meta"><span class="eyebrow">Chapter 5 / 40</span><span>8 min read</span></div><article class="manuscript"><a id="build-a-dataset-that-teaches-the-job"></a>
+<h1>5 Build a dataset that
+teaches the job</h1>
+<a id="start-with-twenty-examples-you-can-defend"></a>
+<h2>Start with twenty
+examples you can defend</h2>
+<p>Before collecting thousands of records, write twenty real examples of
+the task. For each, record the input available at prediction time, the
+desired output, why that output is correct, the source, and a grouping
+identifier. Read them as if you were a new annotator. If the target is
+unclear to a careful person, training is unlikely to resolve the
+ambiguity reliably.</p>
+<p>Consider a support-message router with labels billing, delivery, and
+other. 'Where is my order?' is delivery. 'I was charged twice' is
+billing. 'Please cancel the order because it is late' exposes an
+ambiguity: should the router prioritize cancellation, delivery, or the
+team that owns the action? You need an annotation policy. Adding more
+examples without deciding the policy creates contradictory
+supervision.</p>
+<p>Write the policy next to the data. Define each label, inclusion and
+exclusion cases, tie-breaking rules, treatment of missing information,
+and when to use an unknown or abstain label. Include examples that
+distinguish easily confused categories. A label definition that only
+restates its name is not enough.</p>
+<p>For a generated response, the target policy may specify facts that
+must be included, claims that must not be invented, formatting, length,
+tone, and what to do when evidence is absent. For an image mask, it must
+specify which pixels belong to the object and how to treat occlusion.
+For audio, it must specify segment boundaries, sample rate, loudness
+handling, and whether silence is meaningful.</p>
+<a id="a-practical-record-format"></a>
+<h2>A practical record format</h2>
+<p>JSON Lines stores one JSON object per line. It is convenient because
+a program can read records one at a time, and one malformed line can be
+identified precisely. Here is a task-neutral pattern:</p>
+<pre class="json"><code>{"id":"ticket_0042","group_id":"customer_17","input":"I was charged twice","target":"billing","source":"owned_support_export","split":"train"}</code></pre>
+<p>The id identifies the record. group_id identifies related records
+that must be handled together when splitting. input is what the model
+receives. target is what it should learn to produce. source records
+provenance. split indicates the assigned partition. Keep extra metadata
+outside the model-visible input unless it will genuinely be available at
+prediction time.</p>
+<p>The eventual trainer may require a different schema, such as messages
+for chat fine-tuning or image and text fields for diffusion. Maintain a
+clean canonical dataset and a reproducible conversion step. Do not
+repeatedly edit the only copy to satisfy each new trainer's
+expectations.</p>
+<p>A schema validator should check required fields, types, allowed
+labels, empty values, unique IDs, valid paths, and length limits. It
+should fail loudly on malformed records rather than silently skipping a
+large fraction. Log rejected records with a reason, taking care not to
+expose private contents unnecessarily.</p>
+<a id="split-related-things-before-making-derivatives"></a>
+<h2>Split related
+things before making derivatives</h2>
+<p>Training data teaches parameters. Validation data guides experiment
+choices. Test data supports a final estimate after choices are fixed.
+The exact percentages depend on dataset size and task diversity; a
+mechanical 80/10/10 split is not always appropriate. A test set of ten
+rare cases may be too small to tell you much, regardless of its
+percentage.</p>
+<p>The split unit is often larger than one row. Keep messages from the
+same conversation together. Keep crops and augmented versions of the
+same image together. Keep clips from the same recording session
+together. Keep questions derived from the same document together when
+the intended test is generalization to new documents. Otherwise nearly
+identical information can appear on both sides of the evaluation
+boundary.</p>
+<p>A time-based split is useful when the deployed system will face
+future data. A source-based split tests transfer to new sources. A
+person- or device-based split can test whether the system works beyond
+the individuals or equipment seen during training. Pick the split that
+matches the intended claim.</p>
+<p>Deduplication must operate across the eventual boundaries. Exact
+hashes catch identical bytes, but near duplicates may differ only in
+whitespace, a timestamp, a crop, or a paraphrase. Use normalization
+appropriate to the modality and inspect suspiciously similar pairs. Do
+not normalize away meaningful distinctions, such as case in identifiers
+or punctuation in code, merely to increase duplicate counts.</p>
+<p>Data leakage also occurs when preprocessing learns from evaluation
+data. A scaler's mean, a feature selector's decisions, a learned
+tokenizer for a strict from-scratch experiment, or a vocabulary fitted
+to all records may incorporate information from outside the training
+partition. Fit learned preprocessing on training data, then apply it
+unchanged to validation and test data. <a href="../chapters/references.html#source-f09">F09</a></p>
+<a id="teach-the-difficult-cases-on-purpose"></a>
+<h2>Teach the difficult cases
+on purpose</h2>
+<p>A dataset should represent both common situations and important
+failure modes. If 95 percent of support messages are delivery questions,
+a model that always predicts delivery can look accurate while being
+useless for billing. Count examples per class and per important slice. A
+slice might be language, source, message length, image lighting, audio
+noise level, or tool type.</p>
+<p>Do not correct imbalance mechanically before asking what deployment
+will look like. Oversampling a rare class changes how often its examples
+influence training. Class weights change how much its errors contribute
+to loss. Thresholds change decision behavior after prediction. These are
+different interventions. Evaluate under the actual operating
+distribution as well as on deliberately balanced diagnostic sets.</p>
+<p>Negative examples matter. A retrieval model needs plausible
+irrelevant passages, not only obviously unrelated ones. A tool-calling
+assistant needs cases where no tool is appropriate and cases where
+required arguments are missing. A visual classifier needs backgrounds
+and confusing non-target objects. A segmentation model needs empty
+scenes if it will encounter them. Without such examples, the model may
+learn that every input demands the positive behavior.</p>
+<p>Hard negatives are examples that resemble a correct case but are
+wrong for a specific reason. They can be powerful, but they must be
+correctly labeled. A supposed negative that is actually relevant damages
+the learning signal. Review a sample manually before scaling mined
+negatives.</p>
+<a id="synthetic-data-is-a-tool-with-a-contract"></a>
+<h2>Synthetic data is a
+tool with a contract</h2>
+<p>Synthetic data can isolate a concept, cover a rare structured case,
+or create cheap preliminary tests. The first classifier in this book
+uses it because the exact rule is known. The image and audio exercises
+use original procedural examples so you can learn the pipeline without
+scraping uncertain material.</p>
+<p>Synthetic data is not automatically representative. A classifier may
+learn the generator's punctuation or naming conventions rather than the
+intended meaning. A model trained on generated answers can inherit the
+generator's errors and stylistic habits. Ten paraphrases of one source
+are not ten independent sources.</p>
+<p>When using a larger model to generate training material, preserve the
+prompt, model/version, sampling settings, source evidence, validation
+procedure, and applicable terms. Verify factual and structural claims
+rather than trusting fluency. Do not allow the generator to see held-out
+answers and then treat its outputs as independent training examples.
+Keep related generated variants in one split group.</p>
+<p>Use a small human-reviewed anchor set to assess whether generated
+material teaches the intended behavior. Increase synthetic volume only
+after the first trained comparison improves on real held-out cases. If
+performance improves only on synthetic tests from the same generator,
+report that narrower result.</p>
+<a id="rights-privacy-and-consent-are-dataset-properties"></a>
+<h2>Rights
+privacy and consent are dataset properties</h2>
+<p>Record where each source came from, what rights or permission support
+its use, whether redistribution is allowed, and whether derivative model
+artifacts have additional conditions. Publicly accessible content is not
+automatically unrestricted training material. An open-weight model may
+have a license with conditions different from an open-source software
+license.</p>
+<p>Separate the questions of permission to train, permission to publish
+data, permission to publish weights, and permission to deploy a
+commercial service. They can have different answers. Read the exact
+model and dataset terms for the pinned revision and intended use. This
+book provides a workflow for checking those terms, not a legal
+determination for a particular dataset.</p>
+<p>Minimize personal information. Remove identifiers that the task does
+not need. Use de-identified or synthetic records for early experiments.
+A model may memorize unusual training strings, so removing a private
+source file after training does not establish that the information is
+absent from the weights. If strict deletion or access control is
+required, a retrieval store with explicit records may be easier to
+govern than parameter updates.</p>
+<p>For voices and identifiable people, obtain appropriate consent for
+the intended use. Do not assume permission to record implies permission
+to train a generative model or imitate a person. For children or
+sensitive domains, additional safeguards and legal obligations may
+apply; use authoritative guidance for the relevant jurisdiction and
+project.</p>
+<a id="build-a-data-card-before-the-long-run"></a>
+<h2>Build a data card before
+the long run</h2>
+<p>A useful data card states the task, source types, collection dates,
+rights, consent basis where applicable, preprocessing, split method,
+counts, length distributions, label distribution, known gaps, and
+intended uses. It should also state prohibited or unsupported uses and
+who reviewed the labels.</p>
+<p>Save the exact processed files or reproducible transformation recipe.
+Compute hashes of split files. If you later change cleaning or labels,
+assign a new dataset version. 'The same dataset' is not a sufficient
+experiment description when its contents have changed.</p>
+<p>Inspect at least a small random sample and a deliberately difficult
+sample after preprocessing, not only before it. Decoding errors,
+truncation, broken chat templates, swapped label IDs, and misaligned
+image masks often appear in the processed representation. Print or
+render examples at the point where the model will consume them.</p>
+<a id="exercises-3"></a>
+<h2>Exercises</h2>
+<p>Create twenty examples for a task you care about. Find two that could
+reasonably receive different labels from different annotators. Rewrite
+the policy until the disagreement can be resolved consistently, or add
+an explicit uncertain category.</p>
+<p>Choose a grouping rule. Explain why splitting individual rows would
+be misleading for your data. Then state exactly what your held-out
+result will claim: new messages from known users, new users, future
+documents, new recording sessions, or something else.</p>
+<p>Write one positive example, one easy negative, one hard negative, and
+one case that should trigger abstention. If you cannot identify the
+abstention case, your deployment boundary is probably
+underspecified.</p>
+</article><nav class="pager" aria-label="Adjacent chapters"><a href="04.html"><small>← Previous</small>4  Project turn four sensor readings into a useful prediction</a><a href="06.html"><small>Next →</small>6  Decide whether the model actually improved</a></nav></main><aside class="on-page"><h2>On this page</h2><a href="#start-with-twenty-examples-you-can-defend">Start with twenty
+examples you can defend</a><a href="#a-practical-record-format">A practical record format</a><a href="#split-related-things-before-making-derivatives">Split related
+things before making derivatives</a><a href="#teach-the-difficult-cases-on-purpose">Teach the difficult cases
+on purpose</a><a href="#synthetic-data-is-a-tool-with-a-contract">Synthetic data is a
+tool with a contract</a><a href="#rights-privacy-and-consent-are-dataset-properties">Rights
+privacy and consent are dataset properties</a><a href="#build-a-data-card-before-the-long-run">Build a data card before
+the long run</a><a href="#exercises-3">Exercises</a></aside></div><footer class="footer"><div><strong>Training Your Own Models</strong><br>Vibe Authored by Dr.Puma · 2 October 2026</div><div><a href="../chapters/glossary.html">Glossary</a><a href="../chapters/references.html">References</a><a href="https://github.com/MrScripty/training-your-own-models">GitHub ↗</a></div></footer><script src="../assets/site.js" defer></script></body></html>

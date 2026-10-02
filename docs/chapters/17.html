@@ -1,0 +1,229 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f6f3eb"><title>17  Choose a model by its actual structure and files · Training Your Own Models</title><meta name="description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><link rel="canonical" href="https://mrscripty.github.io/training-your-own-models/chapters/17.html"><meta property="og:type" content="website"><meta property="og:site_name" content="Training Your Own Models"><meta property="og:title" content="17  Choose a model by its actual structure and files · Training Your Own Models"><meta property="og:description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><meta property="og:url" content="https://mrscripty.github.io/training-your-own-models/chapters/17.html"><meta property="og:image" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta property="og:image:secure_url" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1280"><meta property="og:image:height" content="640"><meta property="og:image:alt" content="Training Your Own Models. On One 24 GB GPU. Vibe Authored by Dr.Puma. Cream, blue and orange scientific cover artwork."><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="17  Choose a model by its actual structure and files · Training Your Own Models"><meta name="twitter:description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><meta name="twitter:image" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta name="twitter:image:alt" content="Training Your Own Models, Vibe Authored by Dr.Puma"><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/style.css"></head><body><a class="skip" href="#main">Skip to content</a><header class="topbar"><a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true">↗</span><span>Training Your<br>Own Models</span></a><nav aria-label="Main navigation"><a href="../chapters/start.html">Read the book</a><a href="../labs.html">Explore</a><a href="../search.html" aria-label="Search the book">Search</a><a href="../downloads.html">Downloads</a></nav></header><div class="reader"><aside class="sidebar"><nav aria-label="Book contents"><label class="nav-filter">Find a chapter<input type="search" class="chapter-filter" placeholder="Filter titles" aria-label="Filter chapter titles"></label><a class="chapter-link" href="../chapters/start.html"><span>→</span>Training Your Own Models on One 24 GB GPU</a><a class="chapter-link" href="../chapters/01.html"><span>1</span>Train your first model before learning the whole field</a><a class="chapter-link" href="../chapters/02.html"><span>2</span>Your computer and the training workspace</a><a class="chapter-link" href="../chapters/03.html"><span>3</span>Numbers tensors parameters and learning</a><a class="chapter-link" href="../chapters/04.html"><span>4</span>Project turn four sensor readings into a useful prediction</a><a class="chapter-link" href="../chapters/05.html"><span>5</span>Build a dataset that teaches the job</a><a class="chapter-link" href="../chapters/06.html"><span>6</span>Decide whether the model actually improved</a><a class="chapter-link" href="../chapters/07.html"><span>7</span>Move from feature columns to neural representations</a><a class="chapter-link" href="../chapters/08.html"><span>8</span>Project classify your own small image collection</a><a class="chapter-link" href="../chapters/09.html"><span>9</span>Project locate one object with a box</a><a class="chapter-link" href="../chapters/10.html"><span>10</span>Project predict a mask then extract an outline</a><a class="chapter-link" href="../chapters/11.html"><span>11</span>Train a miniature language model from random weights</a><a class="chapter-link" href="../chapters/12.html"><span>12</span>How a language model becomes a prediction machine</a><a class="chapter-link" href="../chapters/13.html"><span>13</span>Read and control the training loop</a><a class="chapter-link" href="../chapters/14.html"><span>14</span>Make a run reproducible and recoverable</a><a class="chapter-link" href="../chapters/15.html"><span>15</span>The real memory and compute budget</a><a class="chapter-link" href="../chapters/16.html"><span>16</span>Project make related text easy to retrieve</a><a class="chapter-link" href="../chapters/17.html" aria-current="page"><span>17</span>Choose a model by its actual structure and files</a><a class="chapter-link" href="../chapters/18.html"><span>18</span>Teach a small language model one useful behavior</a><a class="chapter-link" href="../chapters/19.html"><span>19</span>Repeat the project with every weight trainable</a><a class="chapter-link" href="../chapters/20.html"><span>20</span>Teach domain conventions without turning weights into a database</a><a class="chapter-link" href="../chapters/21.html"><span>21</span>Make a writing style reproducible without changing the facts</a><a class="chapter-link" href="../chapters/22.html"><span>22</span>Teach a tool decision and a complete tool interaction</a><a class="chapter-link" href="../chapters/23.html"><span>23</span>Study a small typed decision service</a><a class="chapter-link" href="../chapters/24.html"><span>24</span>From a language model to a decision model</a><a class="chapter-link" href="../chapters/25.html"><span>25</span>Add preferences and distillation only after supervised learning works</a><a class="chapter-link" href="../chapters/26.html"><span>26</span>Project teach an image generator a small visual style</a><a class="chapter-link" href="../chapters/27.html"><span>27</span>Speech recognition train a small model to hear your domain</a><a class="chapter-link" href="../chapters/28.html"><span>28</span>Project build a tiny sound generator from random weights</a><a class="chapter-link" href="../chapters/29.html"><span>29</span>Scale a working experiment toward one billion parameters</a><a class="chapter-link" href="../chapters/30.html"><span>30</span>Understand what a public training process really demonstrates</a><a class="chapter-link" href="../chapters/31.html"><span>31</span>Diagnose failures before making the model larger</a><a class="chapter-link" href="../chapters/32.html"><span>32</span>From small model to small device product</a><a class="chapter-link" href="../chapters/33.html"><span>33</span>Turn a checkpoint into a usable application</a><a class="chapter-link" href="../chapters/34.html"><span>34</span>Design your first independent model</a><a class="chapter-link" href="../chapters/35.html"><span>35</span>Understand larger models using the parts you already know</a><a class="chapter-link" href="../chapters/36.html"><span>36</span>Read MiMo GLM and other architecture families</a><a class="chapter-link" href="../chapters/37.html"><span>37</span>Connect architecture to data memory and deployment</a><a class="chapter-link" href="../chapters/38.html"><span>38</span>Learn from public training projects without copying their assumptions</a><a class="chapter-link" href="../chapters/39.html"><span>39</span>Exercise checkpoints and worked answers</a><a class="chapter-link" href="../chapters/40.html"><span>40</span>Companion guide and verification record</a><a class="chapter-link" href="../chapters/glossary.html"><span>A–Z</span>Glossary with links to explanations</a><a class="chapter-link" href="../chapters/references.html"><span>Ref</span>Works cited</a></nav></aside><main class="prose" id="main"><details class="mobile-toc"><summary>Browse the book</summary><nav aria-label="Book contents"><label class="nav-filter">Find a chapter<input type="search" class="chapter-filter" placeholder="Filter titles" aria-label="Filter chapter titles"></label><a class="chapter-link" href="../chapters/start.html"><span>→</span>Training Your Own Models on One 24 GB GPU</a><a class="chapter-link" href="../chapters/01.html"><span>1</span>Train your first model before learning the whole field</a><a class="chapter-link" href="../chapters/02.html"><span>2</span>Your computer and the training workspace</a><a class="chapter-link" href="../chapters/03.html"><span>3</span>Numbers tensors parameters and learning</a><a class="chapter-link" href="../chapters/04.html"><span>4</span>Project turn four sensor readings into a useful prediction</a><a class="chapter-link" href="../chapters/05.html"><span>5</span>Build a dataset that teaches the job</a><a class="chapter-link" href="../chapters/06.html"><span>6</span>Decide whether the model actually improved</a><a class="chapter-link" href="../chapters/07.html"><span>7</span>Move from feature columns to neural representations</a><a class="chapter-link" href="../chapters/08.html"><span>8</span>Project classify your own small image collection</a><a class="chapter-link" href="../chapters/09.html"><span>9</span>Project locate one object with a box</a><a class="chapter-link" href="../chapters/10.html"><span>10</span>Project predict a mask then extract an outline</a><a class="chapter-link" href="../chapters/11.html"><span>11</span>Train a miniature language model from random weights</a><a class="chapter-link" href="../chapters/12.html"><span>12</span>How a language model becomes a prediction machine</a><a class="chapter-link" href="../chapters/13.html"><span>13</span>Read and control the training loop</a><a class="chapter-link" href="../chapters/14.html"><span>14</span>Make a run reproducible and recoverable</a><a class="chapter-link" href="../chapters/15.html"><span>15</span>The real memory and compute budget</a><a class="chapter-link" href="../chapters/16.html"><span>16</span>Project make related text easy to retrieve</a><a class="chapter-link" href="../chapters/17.html" aria-current="page"><span>17</span>Choose a model by its actual structure and files</a><a class="chapter-link" href="../chapters/18.html"><span>18</span>Teach a small language model one useful behavior</a><a class="chapter-link" href="../chapters/19.html"><span>19</span>Repeat the project with every weight trainable</a><a class="chapter-link" href="../chapters/20.html"><span>20</span>Teach domain conventions without turning weights into a database</a><a class="chapter-link" href="../chapters/21.html"><span>21</span>Make a writing style reproducible without changing the facts</a><a class="chapter-link" href="../chapters/22.html"><span>22</span>Teach a tool decision and a complete tool interaction</a><a class="chapter-link" href="../chapters/23.html"><span>23</span>Study a small typed decision service</a><a class="chapter-link" href="../chapters/24.html"><span>24</span>From a language model to a decision model</a><a class="chapter-link" href="../chapters/25.html"><span>25</span>Add preferences and distillation only after supervised learning works</a><a class="chapter-link" href="../chapters/26.html"><span>26</span>Project teach an image generator a small visual style</a><a class="chapter-link" href="../chapters/27.html"><span>27</span>Speech recognition train a small model to hear your domain</a><a class="chapter-link" href="../chapters/28.html"><span>28</span>Project build a tiny sound generator from random weights</a><a class="chapter-link" href="../chapters/29.html"><span>29</span>Scale a working experiment toward one billion parameters</a><a class="chapter-link" href="../chapters/30.html"><span>30</span>Understand what a public training process really demonstrates</a><a class="chapter-link" href="../chapters/31.html"><span>31</span>Diagnose failures before making the model larger</a><a class="chapter-link" href="../chapters/32.html"><span>32</span>From small model to small device product</a><a class="chapter-link" href="../chapters/33.html"><span>33</span>Turn a checkpoint into a usable application</a><a class="chapter-link" href="../chapters/34.html"><span>34</span>Design your first independent model</a><a class="chapter-link" href="../chapters/35.html"><span>35</span>Understand larger models using the parts you already know</a><a class="chapter-link" href="../chapters/36.html"><span>36</span>Read MiMo GLM and other architecture families</a><a class="chapter-link" href="../chapters/37.html"><span>37</span>Connect architecture to data memory and deployment</a><a class="chapter-link" href="../chapters/38.html"><span>38</span>Learn from public training projects without copying their assumptions</a><a class="chapter-link" href="../chapters/39.html"><span>39</span>Exercise checkpoints and worked answers</a><a class="chapter-link" href="../chapters/40.html"><span>40</span>Companion guide and verification record</a><a class="chapter-link" href="../chapters/glossary.html"><span>A–Z</span>Glossary with links to explanations</a><a class="chapter-link" href="../chapters/references.html"><span>Ref</span>Works cited</a></nav></details><div class="chapter-meta"><span class="eyebrow">Chapter 17 / 40</span><span>7 min read</span></div><article class="manuscript"><a id="choose-a-model-by-its-actual-structure-and-files"></a>
+<h1>17 Choose a
+model by its actual structure and files</h1>
+<p>After the first projects, model comparison becomes easier: you know
+which failure needs improvement and what your training budget contains.
+This section is a snapshot of official cards/configurations inspected on
+2 October 2026. It does not claim that every listed checkpoint is the
+newest release in its family or that any is universally best.</p>
+<a id="a-short-list-with-the-size-traps-made-explicit"></a>
+<h2>A short list
+with the size traps made explicit</h2>
+<div aria-label="Scrollable table" class="table-scroll" role="region" tabindex="0"><table>
+<thead>
+<tr class="header">
+<th>Family and exact example</th>
+<th>Published scale and structure</th>
+<th>Consequence for this book</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>Qwen/Qwen3-0.6B</code></td>
+<td>0.6B nominal; dense decoder; 28 layers; GQA with 16 query and 8 KV
+heads</td>
+<td>Main full/adapter teaching checkpoint, Apache-2.0 <a href="../chapters/references.html#source-l02">L02</a> <a href="../chapters/references.html#source-l34">L34</a></td>
+</tr>
+<tr class="even">
+<td><code>Qwen/Qwen3-1.7B</code></td>
+<td>1.7B nominal; dense decoder; 28 layers; GQA</td>
+<td>An adapter extension within the broader size range, not the
+full-update example <a href="../chapters/references.html#source-l35">L35</a></td>
+</tr>
+<tr class="odd">
+<td><code>Qwen/Qwen3.5-0.8B</code> and <code>Qwen/Qwen3.5-2B</code></td>
+<td>Cards describe a vision encoder and a language model with
+alternating Gated DeltaNet and gated-attention layers; 24 LM layers</td>
+<td>Newer hybrid/multimodal variants need different loading, module
+targeting and data handling; count all components, not only the LM label
+<a href="../chapters/references.html#source-l36">L36</a> <a href="../chapters/references.html#source-l37">L37</a></td>
+</tr>
+<tr class="even">
+<td><code>google/gemma-3-270m-it</code></td>
+<td>270M, with about 170M in embeddings and 100M in transformer
+blocks</td>
+<td>Good small task-specialization candidate; large vocabulary makes
+“tiny blocks” different from “tiny total model” <a href="../chapters/references.html#source-l38">L38</a></td>
+</tr>
+<tr class="odd">
+<td><code>google/gemma-3-1b-it</code></td>
+<td>Text-only small Gemma 3 variant; custom Gemma terms; 32K published
+context</td>
+<td>Check exact unique count for a strict one-billion limit; use the
+correct Gemma template <a href="../chapters/references.html#source-l39">L39</a> <a href="../chapters/references.html#source-l40">L40</a></td>
+</tr>
+<tr class="even">
+<td><code>ibm-granite/granite-4.0-350m</code></td>
+<td>350M dense decoder; 28 attention layers; GQA; Apache-2.0</td>
+<td>Sub-billion candidate for a separate template-validated recipe <a href="../chapters/references.html#source-l41">L41</a></td>
+</tr>
+<tr class="odd">
+<td><code>ibm-granite/granite-4.0-h-350m</code></td>
+<td>340M hybrid; attention plus Mamba2 layers</td>
+<td>Different recurrence/kernel and adapter-target considerations,
+despite a similar name <a href="../chapters/references.html#source-l42">L42</a></td>
+</tr>
+<tr class="even">
+<td><code>ibm-granite/granite-4.0-1b</code></td>
+<td>The architecture table gives 1.6B, despite “1b” in the ID</td>
+<td>Within the general range, outside the practical full-update ceiling
+<a href="../chapters/references.html#source-l43">L43</a></td>
+</tr>
+<tr class="odd">
+<td><code>ibm-granite/granite-3.3-2b-instruct</code></td>
+<td>Dense decoder; config has 40 layers, width 2,048 and a 49,159-entry
+vocabulary</td>
+<td>Older, still inspectable domain/tool candidate; do not assume an
+exact 2.000B count <a href="../chapters/references.html#source-l44">L44</a> <a href="../chapters/references.html#source-l45">L45</a></td>
+</tr>
+<tr class="even">
+<td><code>HuggingFaceTB/SmolLM2-360M-Instruct</code></td>
+<td>Small dense instruction checkpoint with published training
+resources</td>
+<td>Another sub-billion baseline; use its own tokenizer/template <a href="../chapters/references.html#source-l46">L46</a></td>
+</tr>
+<tr class="odd">
+<td><code>meta-llama/Llama-3.2-1B-Instruct</code></td>
+<td>Dense multilingual text model with GQA and a Llama community
+license</td>
+<td>Useful ecosystem comparison; “1B” is rounded and the license differs
+from Apache <a href="../chapters/references.html#source-l47">L47</a></td>
+</tr>
+</tbody>
+</table></div>
+<p>The main script intentionally accepts the reviewed Qwen3 text
+architecture, rather than pretending these rows are interchangeable. A
+new model needs a new verification pass: loader class, tokenizer, stop
+tokens, supported attention implementation, masks, trainable modules and
+parameter count.</p>
+<p>The latest inspected Granite 4.2-3B card describes a dense reasoning
+model released in August 2026. Its nominal “3B” label is not proof of an
+exact ≤3,000,000,000 total. Treat rounded 3B-class models, including
+SmolLM3 and Llama 3.2 3B, as boundary comparisons until you count unique
+parameters; do not silently relax a strict size cap. <a href="../chapters/references.html#source-l48">L48</a> <a href="../chapters/references.html#source-l49">L49</a></p>
+<a id="liquid-models-offer-a-small-hybrid-comparison"></a>
+<h2>Liquid models
+offer a small hybrid comparison</h2>
+<p>Liquid provides genuinely small models as well as larger ones. The
+older official LFM2 card gives exact counts of 354,483,968 for
+LFM2-350M, 742,489,344 for LFM2-700M, 1,170,340,608 for LFM2-1.2B and
+2,569,272,320 for LFM2-2.6B. The first two fit the practical full-update
+size ceiling; the latter two belong to the broader adapter/comparison
+range. These checkpoints use the LFM Open License, so review those terms
+rather than assuming Apache or MIT. <a href="../chapters/references.html#source-l55">L55</a></p>
+<p>The currently linked successor <code>LiquidAI/LFM2.5-350M</code>
+retains 16 layers: ten double-gated short-convolution blocks and six
+grouped-query-attention blocks, with a 65,536-entry vocabulary and a
+32,768-token context. Its published card favors narrow extraction,
+structured-output and tool-use workloads. Its vendor CPU speed numbers
+are specific measurements under their setup, not predictions for your
+machine. <a href="../chapters/references.html#source-l56">L56</a></p>
+<p>A short convolution mixes a nearby window of sequence positions. An
+input-dependent gate controls how much information flows through that
+operation. The attention blocks provide another way to mix information
+across positions. This is a hybrid sequence model; “Liquid” does not
+mean that every released checkpoint is simply a classical
+continuous-time liquid neural network. The technical report describes
+architecture search that includes hardware constraints. <a href="../chapters/references.html#source-l60">L60</a></p>
+<p>The causal text interface still supports next-token SFT and continued
+pretraining. You do not need a new label type merely because some blocks
+use convolutions. But kernel support, cache structure, padding behavior
+and adapter placement need new checks. Transformers provides a native
+<code>Lfm2ForCausalLM</code> interface with labels and cache arguments.
+Liquid documents LoRA SFT through TRL, targeting attention projections
+in its example. That establishes an available training path, not that
+every convolution is adapted or that our Qwen-specific script can be
+pointed at LFM unchanged. <a href="../chapters/references.html#source-l57">L57</a> <a href="../chapters/references.html#source-l58">L58</a></p>
+<p>There is also a serialization difference: the inspected LFM2.5 card
+describes Python-like calls inside its tool-call markers by default,
+with JSON as a prompted alternative. A Qwen JSON-call parser is not
+automatically the right parser. Never execute model-generated Python
+with unrestricted <code>eval</code>; parse a restricted call structure
+and validate it against an allowlist. This is an application boundary,
+regardless of model family.</p>
+<p>For a separate LFM experiment, begin with a text-only extraction
+dataset, inspect its saved template, enumerate trainable modules and run
+the same one-batch/save/reload checks. The official TRL guide currently
+contains <code>tokenizer=</code> examples; the reviewed current trainer
+uses <code>processing_class=</code>. Resolve that version difference
+before a long run. For CPU deployment, the official guide provides
+existing GGUF/llama.cpp paths. Adapting a model and exporting your
+changed weights requires supported conversion and a fresh quality check;
+an existing vendor GGUF is not your fine-tuned artifact. <a href="../chapters/references.html#source-l57">L57</a> <a href="../chapters/references.html#source-l59">L59</a></p>
+<a id="total-active-and-effective-are-not-synonyms"></a>
+<h2>Total active and
+effective are not synonyms</h2>
+<p>A <strong>dense model</strong> normally uses all its dense
+transformer-block weights for each token’s forward computation. A
+<strong>mixture of experts</strong>, or MoE, routes a token through a
+subset of expert networks. This can reduce arithmetic per token relative
+to the total model capacity. It does not make unused experts cease to
+exist in memory.</p>
+<p>Qwen3-30B-A3B is explicitly 30.5B total and 3.3B activated, with 128
+experts and eight selected. It is outside this book’s
+three-billion-total scope. Even an ideal four-bit payload for 30.5B
+weights is about 15.25GB before metadata, non-quantized tensors,
+adapters and activations. That arithmetic is not a promise of
+trainability on a 24GB card. <a href="../chapters/references.html#source-l50">L50</a></p>
+<p>Gemma 4 E2B has another naming convention: the card gives 2.3B
+effective parameters and 5.1B with embeddings, using per-layer
+embeddings. It is also outside a strict ≤3B total scope. Its card lists
+Apache-2.0, whereas the Gemma 3 examples above use Gemma terms. Do not
+assign a license to a checkpoint merely from its family name. <a href="../chapters/references.html#source-l51">L51</a></p>
+<p>A checkpoint’s serialized tensor count can differ from the number of
+independent trainable entries when input/output embeddings are tied.
+<strong>Tied embeddings</strong> reuse the same matrix for looking up
+token vectors and projecting hidden states toward vocabulary scores.
+Qwen3-0.6B’s configuration sets <code>tie_word_embeddings=true</code>;
+its inspected safetensors metadata reports about 0.752B stored entries
+while its nominal model has about 0.6B unique parameters. Count the
+instantiated model’s unique parameters and inspect actual storage rather
+than inferring optimizer memory from a file-page badge. <a href="../chapters/references.html#source-l03">L03</a> <a href="../chapters/references.html#source-l34">L34</a></p>
+<a id="read-a-configuration-as-an-engineering-document"></a>
+<h2>Read a
+configuration as an engineering document</h2>
+<p>Several fields matter immediately:</p>
+<ul>
+<li><code>hidden_size</code>: the width of each token’s internal
+vector</li>
+<li><code>num_hidden_layers</code>: how many transformation stages
+tokens pass through</li>
+<li><code>intermediate_size</code>: the feed-forward expansion
+width</li>
+<li><code>num_attention_heads</code>: query-head count</li>
+<li><code>num_key_value_heads</code>: shared key/value-head count for
+GQA</li>
+<li><code>vocab_size</code>: rows in token-related tables and width of
+vocabulary logits</li>
+<li><code>tie_word_embeddings</code>: whether input/output tables share
+weights</li>
+<li><code>max_position_embeddings</code> and positional settings:
+implementation capacity, not your validated training length</li>
+</ul>
+<p>For a dense linear map, parameter count is input width times output
+width, plus a bias if present. For an embedding table, it is vocabulary
+size times embedding width. These simple products explain why two
+“one-billion-ish” models can place capacity in different parts of the
+network and produce different memory peaks.</p>
+<p><strong>Grouped-query attention</strong>, or GQA, lets several query
+heads share fewer key/value heads. This reduces key/value storage
+relative to giving every query head its own keys and values. It does not
+make all training activations shrink by the same ratio.
+<strong>RoPE</strong> encodes positional relationships through rotations
+in attention coordinates. <strong>Sliding-window attention</strong>
+limits some layers to nearby tokens. <strong>Hybrid
+attention/state-space models</strong> combine different sequence-mixing
+mechanisms, so a standard full-attention memory formula is not a
+complete model for them.</p>
+<p>Tokenizer choice is equally practical. Compare how many tokens your
+actual domain text uses, how identifiers and non-English terms split,
+whether special tokens are reserved and how the template encodes a tool
+call. A large vocabulary can shorten some sequences while increasing
+embedding and output-head costs. Never replace a pretrained tokenizer
+with another and assume the old embedding rows still have the correct
+meanings.</p>
+</article><nav class="pager" aria-label="Adjacent chapters"><a href="16.html"><small>← Previous</small>16  Project make related text easy to retrieve</a><a href="18.html"><small>Next →</small>18  Teach a small language model one useful behavior</a></nav></main><aside class="on-page"><h2>On this page</h2><a href="#a-short-list-with-the-size-traps-made-explicit">A short list
+with the size traps made explicit</a><a href="#liquid-models-offer-a-small-hybrid-comparison">Liquid models
+offer a small hybrid comparison</a><a href="#total-active-and-effective-are-not-synonyms">Total active and
+effective are not synonyms</a><a href="#read-a-configuration-as-an-engineering-document">Read a
+configuration as an engineering document</a></aside></div><footer class="footer"><div><strong>Training Your Own Models</strong><br>Vibe Authored by Dr.Puma · 2 October 2026</div><div><a href="../chapters/glossary.html">Glossary</a><a href="../chapters/references.html">References</a><a href="https://github.com/MrScripty/training-your-own-models">GitHub ↗</a></div></footer><script src="../assets/site.js" defer></script></body></html>

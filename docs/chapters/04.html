@@ -1,0 +1,477 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f6f3eb"><title>4  Project turn four sensor readings into a useful prediction · Training Your Own Models</title><meta name="description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><link rel="canonical" href="https://mrscripty.github.io/training-your-own-models/chapters/04.html"><meta property="og:type" content="website"><meta property="og:site_name" content="Training Your Own Models"><meta property="og:title" content="4  Project turn four sensor readings into a useful prediction · Training Your Own Models"><meta property="og:description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><meta property="og:url" content="https://mrscripty.github.io/training-your-own-models/chapters/04.html"><meta property="og:image" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta property="og:image:secure_url" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1280"><meta property="og:image:height" content="640"><meta property="og:image:alt" content="Training Your Own Models. On One 24 GB GPU. Vibe Authored by Dr.Puma. Cream, blue and orange scientific cover artwork."><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="4  Project turn four sensor readings into a useful prediction · Training Your Own Models"><meta name="twitter:description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><meta name="twitter:image" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta name="twitter:image:alt" content="Training Your Own Models, Vibe Authored by Dr.Puma"><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/style.css"></head><body><a class="skip" href="#main">Skip to content</a><header class="topbar"><a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true">↗</span><span>Training Your<br>Own Models</span></a><nav aria-label="Main navigation"><a href="../chapters/start.html">Read the book</a><a href="../labs.html">Explore</a><a href="../search.html" aria-label="Search the book">Search</a><a href="../downloads.html">Downloads</a></nav></header><div class="reader"><aside class="sidebar"><nav aria-label="Book contents"><label class="nav-filter">Find a chapter<input type="search" class="chapter-filter" placeholder="Filter titles" aria-label="Filter chapter titles"></label><a class="chapter-link" href="../chapters/start.html"><span>→</span>Training Your Own Models on One 24 GB GPU</a><a class="chapter-link" href="../chapters/01.html"><span>1</span>Train your first model before learning the whole field</a><a class="chapter-link" href="../chapters/02.html"><span>2</span>Your computer and the training workspace</a><a class="chapter-link" href="../chapters/03.html"><span>3</span>Numbers tensors parameters and learning</a><a class="chapter-link" href="../chapters/04.html" aria-current="page"><span>4</span>Project turn four sensor readings into a useful prediction</a><a class="chapter-link" href="../chapters/05.html"><span>5</span>Build a dataset that teaches the job</a><a class="chapter-link" href="../chapters/06.html"><span>6</span>Decide whether the model actually improved</a><a class="chapter-link" href="../chapters/07.html"><span>7</span>Move from feature columns to neural representations</a><a class="chapter-link" href="../chapters/08.html"><span>8</span>Project classify your own small image collection</a><a class="chapter-link" href="../chapters/09.html"><span>9</span>Project locate one object with a box</a><a class="chapter-link" href="../chapters/10.html"><span>10</span>Project predict a mask then extract an outline</a><a class="chapter-link" href="../chapters/11.html"><span>11</span>Train a miniature language model from random weights</a><a class="chapter-link" href="../chapters/12.html"><span>12</span>How a language model becomes a prediction machine</a><a class="chapter-link" href="../chapters/13.html"><span>13</span>Read and control the training loop</a><a class="chapter-link" href="../chapters/14.html"><span>14</span>Make a run reproducible and recoverable</a><a class="chapter-link" href="../chapters/15.html"><span>15</span>The real memory and compute budget</a><a class="chapter-link" href="../chapters/16.html"><span>16</span>Project make related text easy to retrieve</a><a class="chapter-link" href="../chapters/17.html"><span>17</span>Choose a model by its actual structure and files</a><a class="chapter-link" href="../chapters/18.html"><span>18</span>Teach a small language model one useful behavior</a><a class="chapter-link" href="../chapters/19.html"><span>19</span>Repeat the project with every weight trainable</a><a class="chapter-link" href="../chapters/20.html"><span>20</span>Teach domain conventions without turning weights into a database</a><a class="chapter-link" href="../chapters/21.html"><span>21</span>Make a writing style reproducible without changing the facts</a><a class="chapter-link" href="../chapters/22.html"><span>22</span>Teach a tool decision and a complete tool interaction</a><a class="chapter-link" href="../chapters/23.html"><span>23</span>Study a small typed decision service</a><a class="chapter-link" href="../chapters/24.html"><span>24</span>From a language model to a decision model</a><a class="chapter-link" href="../chapters/25.html"><span>25</span>Add preferences and distillation only after supervised learning works</a><a class="chapter-link" href="../chapters/26.html"><span>26</span>Project teach an image generator a small visual style</a><a class="chapter-link" href="../chapters/27.html"><span>27</span>Speech recognition train a small model to hear your domain</a><a class="chapter-link" href="../chapters/28.html"><span>28</span>Project build a tiny sound generator from random weights</a><a class="chapter-link" href="../chapters/29.html"><span>29</span>Scale a working experiment toward one billion parameters</a><a class="chapter-link" href="../chapters/30.html"><span>30</span>Understand what a public training process really demonstrates</a><a class="chapter-link" href="../chapters/31.html"><span>31</span>Diagnose failures before making the model larger</a><a class="chapter-link" href="../chapters/32.html"><span>32</span>From small model to small device product</a><a class="chapter-link" href="../chapters/33.html"><span>33</span>Turn a checkpoint into a usable application</a><a class="chapter-link" href="../chapters/34.html"><span>34</span>Design your first independent model</a><a class="chapter-link" href="../chapters/35.html"><span>35</span>Understand larger models using the parts you already know</a><a class="chapter-link" href="../chapters/36.html"><span>36</span>Read MiMo GLM and other architecture families</a><a class="chapter-link" href="../chapters/37.html"><span>37</span>Connect architecture to data memory and deployment</a><a class="chapter-link" href="../chapters/38.html"><span>38</span>Learn from public training projects without copying their assumptions</a><a class="chapter-link" href="../chapters/39.html"><span>39</span>Exercise checkpoints and worked answers</a><a class="chapter-link" href="../chapters/40.html"><span>40</span>Companion guide and verification record</a><a class="chapter-link" href="../chapters/glossary.html"><span>A–Z</span>Glossary with links to explanations</a><a class="chapter-link" href="../chapters/references.html"><span>Ref</span>Works cited</a></nav></aside><main class="prose" id="main"><details class="mobile-toc"><summary>Browse the book</summary><nav aria-label="Book contents"><label class="nav-filter">Find a chapter<input type="search" class="chapter-filter" placeholder="Filter titles" aria-label="Filter chapter titles"></label><a class="chapter-link" href="../chapters/start.html"><span>→</span>Training Your Own Models on One 24 GB GPU</a><a class="chapter-link" href="../chapters/01.html"><span>1</span>Train your first model before learning the whole field</a><a class="chapter-link" href="../chapters/02.html"><span>2</span>Your computer and the training workspace</a><a class="chapter-link" href="../chapters/03.html"><span>3</span>Numbers tensors parameters and learning</a><a class="chapter-link" href="../chapters/04.html" aria-current="page"><span>4</span>Project turn four sensor readings into a useful prediction</a><a class="chapter-link" href="../chapters/05.html"><span>5</span>Build a dataset that teaches the job</a><a class="chapter-link" href="../chapters/06.html"><span>6</span>Decide whether the model actually improved</a><a class="chapter-link" href="../chapters/07.html"><span>7</span>Move from feature columns to neural representations</a><a class="chapter-link" href="../chapters/08.html"><span>8</span>Project classify your own small image collection</a><a class="chapter-link" href="../chapters/09.html"><span>9</span>Project locate one object with a box</a><a class="chapter-link" href="../chapters/10.html"><span>10</span>Project predict a mask then extract an outline</a><a class="chapter-link" href="../chapters/11.html"><span>11</span>Train a miniature language model from random weights</a><a class="chapter-link" href="../chapters/12.html"><span>12</span>How a language model becomes a prediction machine</a><a class="chapter-link" href="../chapters/13.html"><span>13</span>Read and control the training loop</a><a class="chapter-link" href="../chapters/14.html"><span>14</span>Make a run reproducible and recoverable</a><a class="chapter-link" href="../chapters/15.html"><span>15</span>The real memory and compute budget</a><a class="chapter-link" href="../chapters/16.html"><span>16</span>Project make related text easy to retrieve</a><a class="chapter-link" href="../chapters/17.html"><span>17</span>Choose a model by its actual structure and files</a><a class="chapter-link" href="../chapters/18.html"><span>18</span>Teach a small language model one useful behavior</a><a class="chapter-link" href="../chapters/19.html"><span>19</span>Repeat the project with every weight trainable</a><a class="chapter-link" href="../chapters/20.html"><span>20</span>Teach domain conventions without turning weights into a database</a><a class="chapter-link" href="../chapters/21.html"><span>21</span>Make a writing style reproducible without changing the facts</a><a class="chapter-link" href="../chapters/22.html"><span>22</span>Teach a tool decision and a complete tool interaction</a><a class="chapter-link" href="../chapters/23.html"><span>23</span>Study a small typed decision service</a><a class="chapter-link" href="../chapters/24.html"><span>24</span>From a language model to a decision model</a><a class="chapter-link" href="../chapters/25.html"><span>25</span>Add preferences and distillation only after supervised learning works</a><a class="chapter-link" href="../chapters/26.html"><span>26</span>Project teach an image generator a small visual style</a><a class="chapter-link" href="../chapters/27.html"><span>27</span>Speech recognition train a small model to hear your domain</a><a class="chapter-link" href="../chapters/28.html"><span>28</span>Project build a tiny sound generator from random weights</a><a class="chapter-link" href="../chapters/29.html"><span>29</span>Scale a working experiment toward one billion parameters</a><a class="chapter-link" href="../chapters/30.html"><span>30</span>Understand what a public training process really demonstrates</a><a class="chapter-link" href="../chapters/31.html"><span>31</span>Diagnose failures before making the model larger</a><a class="chapter-link" href="../chapters/32.html"><span>32</span>From small model to small device product</a><a class="chapter-link" href="../chapters/33.html"><span>33</span>Turn a checkpoint into a usable application</a><a class="chapter-link" href="../chapters/34.html"><span>34</span>Design your first independent model</a><a class="chapter-link" href="../chapters/35.html"><span>35</span>Understand larger models using the parts you already know</a><a class="chapter-link" href="../chapters/36.html"><span>36</span>Read MiMo GLM and other architecture families</a><a class="chapter-link" href="../chapters/37.html"><span>37</span>Connect architecture to data memory and deployment</a><a class="chapter-link" href="../chapters/38.html"><span>38</span>Learn from public training projects without copying their assumptions</a><a class="chapter-link" href="../chapters/39.html"><span>39</span>Exercise checkpoints and worked answers</a><a class="chapter-link" href="../chapters/40.html"><span>40</span>Companion guide and verification record</a><a class="chapter-link" href="../chapters/glossary.html"><span>A–Z</span>Glossary with links to explanations</a><a class="chapter-link" href="../chapters/references.html"><span>Ref</span>Works cited</a></nav></details><div class="chapter-meta"><span class="eyebrow">Chapter 4 / 40</span><span>13 min read</span></div><article class="manuscript"><a id="project-turn-four-sensor-readings-into-a-useful-prediction"></a>
+<h1>4
+Project turn four sensor readings into a useful prediction</h1>
+<p>You have a row of readings: temperature, vibration, load, and age.
+You want either an alert about a future fault or an estimate of
+remaining operating time. This is a good first complete machine-learning
+project because the input and output are small enough to inspect. You
+can run it on a CPU, understand every transformation, and keep the same
+workflow when the inputs later become photographs or text.</p>
+<p>The accompanying example creates fictional machines. Its numbers are
+educational, not an engineering reliability model. No external dataset,
+account, GPU, or paid service is needed.</p>
+<p>Open a fresh terminal at the unpacked companion root. Use Python 3.12
+for the tested CPU reference environment. Create and activate a
+dedicated environment before the first command that imports these
+packages. The activation command below is Bash; on Windows PowerShell
+use the corresponding .venv-cpu/Scripts/Activate.ps1 path.</p>
+<pre class="bash"><code>cd examples/tiny-ml
+python -m venv .venv-cpu
+source .venv-cpu/bin/activate
+python -m pip install -r requirements-cpu.txt
+python train_tabular.py --task classification --out runs/classification
+python predict_tabular.py runs/classification/model.joblib \
+  --values 72 3.5 0.9 36</code></pre>
+<p>The first command generates data, separates machine groups, trains
+three candidates, calibrates the chosen classifier, selects an alert
+threshold, evaluates a held-out test set, and saves a model. The second
+turns one new row into a probability and an alert. Read the output files
+before changing the model.</p>
+<p><strong>Verification status:</strong> the classification and
+regression programs were executed on CPU with Python 3.12.14, NumPy
+2.3.5, scikit-learn 1.8.0, SciPy 1.17.0, and joblib 1.5.3. Exact metrics
+below describe that one synthetic run. Neural examples later in these
+chapters were syntax-checked, not trained or GPU-tested in the authoring
+environment.</p>
+<a id="name-the-input-the-target-and-the-decision"></a>
+<h2>Name the input the
+target and the decision</h2>
+<p>An <strong>input</strong> is the information available when a
+prediction must be made. Here it is a four-number vector, in this
+order:</p>
+<ol type="1">
+<li>temperature in degrees Celsius</li>
+<li>vibration in millimeters per second</li>
+<li>load as a fraction between zero and one</li>
+<li>age in months</li>
+</ol>
+<p>A <strong>target</strong> is what the model learns to predict. For
+classification it is a zero or one indicating whether the fictional
+fault occurred. A <strong>label</strong> is the recorded target attached
+to an individual example. The alert is a downstream decision: issue it
+when the predicted probability passes a threshold. Target, score, and
+action are different objects. A model can rank machines well yet use a
+poor alert threshold.</p>
+<p>For real data, make the target definition more precise: “fault within
+the next seven days, excluding planned maintenance, using measurements
+collected before noon today.” Specify what happens to a machine whose
+next seven days have not yet been observed. Calling it a negative would
+silently introduce incorrect labels. Specify whether maintenance changes
+the outcome you are trying to predict.</p>
+<p>The dataset contains five observations per machine. Machine ID is
+useful for separating groups, but is not an input feature. If we split
+individual rows randomly, readings from the same machine could appear on
+both sides of the evaluation. A model might benefit from
+machine-specific regularities that will not be available for a new
+machine.</p>
+<p><strong>The first design artifact is a prediction contract:</strong>
+input fields and units, prediction time, target definition, acceptable
+errors, and what happens when an input is missing. Do this before
+choosing a network.</p>
+<a id="how-the-architecture-changes-the-data-you-need"></a>
+<h2>How the
+architecture changes the data you need</h2>
+<p>A linear model assumes the useful relationship can be expressed with
+weighted features, perhaps after carefully justified feature
+transformations. A tree ensemble can learn local thresholds and
+interactions, but needs examples in the relevant regions of feature
+space. A deep tabular network adds capacity without supplying missing
+evidence. Start with the simpler candidates and plot validation
+performance as the number of independent training machines grows. A
+learning curve still improving with more machines suggests a data
+opportunity; a flat curve can indicate missing information, label noise,
+a weak representation, or an architecture limit. No universal row count
+guarantees success.</p>
+<p>For this example, 2,000 rows are only 400 independent groups. For
+your task, count the independent units and the rare outcomes in each
+deployment-relevant subgroup. The architecture cannot learn the behavior
+of a regime absent from training just because its parameter count is
+large.</p>
+<a id="start-with-a-baseline-you-can-beat"></a>
+<h2>Start with a baseline you
+can beat</h2>
+<p>The example compares three systems:</p>
+<ul>
+<li>A constant classifier predicts the training-set fault rate for every
+row. It establishes what can be achieved without using the readings</li>
+<li>Logistic regression learns one coefficient per processed feature and
+converts the weighted sum into a probability. It is a useful compact
+linear baseline</li>
+<li>Histogram gradient boosting builds a sequence of small decision
+trees. Each new tree helps reduce the remaining prediction error. It can
+capture nonlinear thresholds and interactions without a neural
+network</li>
+</ul>
+<p>In this dataset, the generator makes high load interact with risk
+through a threshold. A small tree ensemble has a reasonable opportunity
+to improve on a linear model. That is a hypothesis to test, not a
+promise that trees win every tabular problem. The scikit-learn
+classifier and regressor APIs describe the controls used in this
+example. <a href="../chapters/references.html#source-m03">M03</a> <a href="../chapters/references.html#source-m04">M04</a></p>
+<p>The important input-to-output chain is:</p>
+<pre class="text"><code>raw row → missing-value treatment → numeric representation → model score
+        → probability calibration → chosen threshold → alert</code></pre>
+<p>Logistic regression needs missing values filled in; the example uses
+the median measured on training rows and adds missingness flags.
+Standardization then subtracts the training mean and divides by the
+training standard deviation. Those operations are inside a pipeline, so
+the same fitted transformations travel with the model. The boosting
+implementation can handle missing values directly. Computing imputation
+values from the full dataset would let future evaluation data influence
+the model. <a href="../chapters/references.html#source-m01">M01</a></p>
+<a id="separate-fitting-calibration-selection-and-testing"></a>
+<h2>Separate
+fitting calibration selection and testing</h2>
+<p>At the default <code>--machines 400</code>, five readings per machine
+produce 2,000 rows. The script shuffles machine IDs once and assigns
+whole machines to four disjoint sets:</p>
+<div aria-label="Scrollable table" class="table-scroll" role="region" tabindex="0"><table>
+<thead>
+<tr class="header">
+<th>Set</th>
+<th style="text-align: right;">Rows in this run</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Training</td>
+<td style="text-align: right;">1,200</td>
+<td>Fit coefficients, trees, and preprocessing</td>
+</tr>
+<tr class="even">
+<td>Calibration</td>
+<td style="text-align: right;">300</td>
+<td>Fit a probability correction for the selected classifier</td>
+</tr>
+<tr class="odd">
+<td>Validation</td>
+<td style="text-align: right;">200</td>
+<td>Choose the candidate and the alert threshold</td>
+</tr>
+<tr class="even">
+<td>Test</td>
+<td style="text-align: right;">300</td>
+<td>Report final behavior after the other choices are fixed</td>
+</tr>
+</tbody>
+</table></div>
+<p>These proportions are a teaching choice. They are not a universal
+prescription. On very small real datasets, grouped cross-validation can
+make better use of scarce examples, but all preprocessing and selection
+must then happen inside the appropriate training folds. When the product
+predicts future events, chronological evaluation may matter more than
+random group assignment. If the intended deployment is on new factories,
+holding out machines from the same factories is still insufficient: hold
+out factories too. <a href="../chapters/references.html#source-m20">M20</a></p>
+<p>The script does not refit on the test set. It also disables the
+boosting estimator's automatic internal early stopping; otherwise an
+unexamined random row split inside the estimator could defeat the
+carefully chosen group boundaries. With
+<code>early_stopping=False</code>, <code>max_iter</code> is the
+deliberately fixed tree-building budget.</p>
+<a id="read-the-first-result-before-tuning"></a>
+<h2>Read the first result
+before tuning</h2>
+<p>The CPU run selected boosting. Its validation average precision was
+approximately 0.703, compared with 0.681 for logistic regression and
+0.240 for the constant baseline. On the held-out test set it
+achieved:</p>
+<ul>
+<li>average precision: 0.693</li>
+<li>ROC-AUC: 0.788</li>
+<li>precision and recall at the selected threshold: both 0.633</li>
+<li>threshold: approximately 0.31</li>
+<li>confusion matrix: 177 true negatives, 33 false positives, 33 false
+negatives, 57 true positives</li>
+</ul>
+<p>This is not “69.3% accuracy.” <strong>Average precision</strong>
+summarizes precision as recall changes while sweeping score thresholds.
+<strong>Precision</strong> asks what fraction of alerts were correct.
+<strong>Recall</strong> asks what fraction of actual faults were caught.
+<strong>ROC-AUC</strong> measures ranking between positive and negative
+cases; it can look comfortable while the alert workload is unacceptable
+on a rare-event problem. Read the confusion matrix in counts and decide
+whether the operational tradeoff is useful.</p>
+<p>The threshold maximizes validation F1 in this exercise. F1 combines
+precision and recall; it is a convenient neutral classroom choice, not
+the correct business objective by default. If missing a fault costs much
+more than an unnecessary inspection, choose a validation threshold that
+meets a recall requirement or minimizes explicitly stated costs. If
+inspection capacity is ten machines per day, evaluate that policy
+directly. Never choose a threshold by trying values on the test
+labels.</p>
+<a id="a-probability-is-a-claim-that-needs-checking"></a>
+<h2>A probability is a
+claim that needs checking</h2>
+<p>A prediction of 0.8 should mean that roughly eight out of ten
+comparable cases assigned that probability are positive.
+<strong>Calibration</strong> tests this claim. The example fits a
+sigmoid calibrator on a held-out set using
+<code>CalibratedClassifierCV(FrozenEstimator(model), method="sigmoid")</code>.
+It writes mean predicted probabilities and observed positive fractions
+for reliability bins. Calibration data must be separate from the data
+used to fit the original estimator. <a href="../chapters/references.html#source-m02">M02</a></p>
+<p>Brier score and log loss also appear in the report, but neither
+isolates calibration by itself. Inspect bin counts and a reliability
+plot rather than interpreting one aggregate number as proof. A small
+calibration set produces noisy bins. Changes in fault prevalence,
+sensors, or maintenance policy can make yesterday's calibrated
+probabilities wrong tomorrow.</p>
+<p>High confidence is not proof that an input is familiar. A model can
+be confidently wrong on out-of-distribution readings. Start with
+practical safeguards: reject malformed units, flag ranges absent from
+training, expose an “insufficient information” state, and review
+uncertainty-sensitive cases. An ensemble's disagreement can be
+informative, but is not a universal detector of novelty. Probability
+calibration does not transform an unreliable model into a reliable
+one.</p>
+<a id="what-each-tabular-control-changes"></a>
+<h2>What each tabular control
+changes</h2>
+<p>The command-line controls are intentionally short:</p>
+<div aria-label="Scrollable table" class="table-scroll" role="region" tabindex="0"><table>
+<thead>
+<tr class="header">
+<th>Control</th>
+<th style="text-align: right;">Default</th>
+<th>What it means and how to change it</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>--task</code></td>
+<td style="text-align: right;"><code>classification</code></td>
+<td>Switch to <code>regression</code> for a continuous target; this
+changes models, losses, and metrics</td>
+</tr>
+<tr class="even">
+<td><code>--seed</code></td>
+<td style="text-align: right;">42</td>
+<td>Reproduces data generation and split assignment; examine several
+seeds after the basic pipeline works</td>
+</tr>
+<tr class="odd">
+<td><code>--machines</code></td>
+<td style="text-align: right;">400</td>
+<td>Number of independent machine groups; there are five rows per
+group</td>
+</tr>
+<tr class="even">
+<td><code>--out</code></td>
+<td style="text-align: right;"><code>runs/tabular</code></td>
+<td>Artifact destination; use distinct directories for experiments</td>
+</tr>
+</tbody>
+</table></div>
+<p>Inside the code, logistic <code>C=1</code> is inverse regularization
+strength: smaller values penalize large coefficients more.
+<code>max_iter=1000</code> is a solver iteration limit, not a desired
+number of meaningful training epochs. Ridge regression's
+<code>alpha=1</code> is a coefficient penalty whose direction is the
+opposite of logistic <code>C</code>: larger means stronger
+regularization.</p>
+<p>Boosting uses <code>learning_rate=0.06</code>, which controls each
+tree's contribution; <code>max_iter=120</code>, the number of boosting
+iterations; <code>max_leaf_nodes=7</code>, the maximum leaves in an
+individual tree; <code>min_samples_leaf=25</code>, which discourages
+tiny local rules; and <code>l2_regularization=1</code>, which penalizes
+leaf values. Smaller learning rates often need more iterations. Deeper
+or more numerous trees can fit more patterns and more noise. Do not
+sweep every setting at once: inspect errors, form one hypothesis, change
+one or two controls, and compare on validation. <a href="../chapters/references.html#source-m03">M03</a> <a href="../chapters/references.html#source-m04">M04</a></p>
+<p>Artifacts are <code>model.joblib</code>, <code>metrics.json</code>,
+<code>split_machine_ids.json</code>, and
+<code>test_predictions.csv</code>. The model bundle includes
+preprocessing where needed, feature order, task, and threshold. A
+reload-and-predict equivalence check is part of the executed script.
+Pickle-derived formats such as joblib can execute code when loaded: load
+your own trusted artifact, not a random downloaded file. Record package
+versions with the model. <a href="../chapters/references.html#source-m24">M24</a></p>
+<a id="inference-on-the-cpu-and-what-the-gpu-changes"></a>
+<h2>Inference on the
+CPU and what the GPU changes</h2>
+<p><code>predict_tabular.py</code> loads the whole trusted joblib
+bundle, uses the saved preprocessing, preserves feature order, and
+applies the saved threshold. Missing measurements can be supplied as
+<code>nan</code>; do not replace them with zero unless zero has that
+meaning. This scikit-learn workflow executes on CPU. There is no
+meaningful “move it to CUDA” switch for these fitted estimators. A
+GPU-specific replacement would be a different implementation requiring
+compatibility and accuracy validation.</p>
+<p>The example unseen row produces a fault probability about 0.885 and
+an alert in the executed CPU run. That prediction is about the fictional
+generator, not the physical world. Serving must validate units and
+feature ranges before calling the model.</p>
+<a id="change-the-output-predict-a-number-instead"></a>
+<h2>Change the output
+predict a number instead</h2>
+<p>Run:</p>
+<pre class="bash"><code>python train_tabular.py --task regression --out runs/regression
+python predict_tabular.py runs/regression/model.joblib \
+  --values 72 3.5 0.9 36</code></pre>
+<p>The representation of the four inputs stays the same. The target
+becomes a fictional number of remaining hours. The constant baseline now
+predicts a mean; ridge regression predicts a regularized linear
+combination; the tree model predicts a continuous value. There is no
+class threshold or classifier probability calibration. The example
+reserves the calibration split for consistency but does not use it for
+this regression task.</p>
+<p><strong>Mean absolute error</strong>, or MAE, measures the average
+absolute discrepancy in the target's units. <strong>Root mean squared
+error</strong>, or RMSE, penalizes large mistakes more strongly.
+<strong>R-squared</strong> compares squared error against predicting the
+test-set mean; it can be negative. In the executed run, test MAE was
+15.77 synthetic hours, RMSE was 20.10, and R-squared was 0.871. These
+numbers say nothing about actual machinery.</p>
+<p>Changing target scale changes optimization. If one output is in
+millimeters and another in dollars, an unweighted sum of squared errors
+can let the larger numeric scale dominate. Standardize each target using
+training statistics, or choose weights that reflect actual costs; invert
+the transformation before reporting physical units. If you need a range
+rather than a point, train quantile predictors or use an appropriately
+validated prediction-interval method. A single mean estimate cannot
+express multiple plausible outcomes by itself.</p>
+<a id="generalize-the-project-to-your-own-input-to-output-task"></a>
+<h2>Generalize
+the project to your own input to output task</h2>
+<p>The purpose of this lab is a reusable procedure, not a particular
+classifier. Write down one real input and the exact desired output. Then
+ask:</p>
+<ol type="1">
+<li><strong>Is the needed information present?</strong> A photograph of
+a sealed box does not determine its unseen contents. A noisy sensor
+snapshot may not determine the exact date a part will fail. More
+training cannot recover information that is absent. Change the input,
+predict a distribution, narrow the claim, or allow abstention</li>
+<li><strong>Is a deterministic program better?</strong> Converting
+Celsius to Fahrenheit, checking a checksum, sorting records, and
+applying a published tax formula are rule-based computations. Implement
+and test the rule. Training a predictor adds avoidable approximation
+error</li>
+<li><strong>What is an independent example?</strong> A customer,
+original image, patient, device, document family, or time period may
+generate many correlated rows. Split at the level matching deployment
+before augmentation or paraphrasing</li>
+<li><strong>How will the target be represented?</strong> Choose the
+representation before choosing the loss. Preserve units, coordinate
+frames, missing-label masks, and any required ordering</li>
+<li><strong>What failure actually matters?</strong> A correct class with
+the wrong boundary, an accurate average with catastrophic outliers, and
+a semantically similar but wrong policy page are different errors</li>
+<li><strong>What must be measured outside the model?</strong> Latency,
+memory, privacy, human review load, input failures, and recovery
+behavior belong in the acceptance test</li>
+</ol>
+<p>Here are useful mappings to extend the same process:</p>
+<div aria-label="Scrollable table" class="table-scroll" role="region" tabindex="0"><table>
+<thead>
+<tr class="header">
+<th>Desired output</th>
+<th>Representation</th>
+<th>Starting objective</th>
+<th>Important trap</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>One of K exclusive classes</td>
+<td>K logits and one integer label</td>
+<td>multiclass cross entropy</td>
+<td>Softmax assumes the labels are mutually exclusive</td>
+</tr>
+<tr class="even">
+<td>Any subset of K labels</td>
+<td>K independent logits and K binary labels</td>
+<td>binary cross entropy per label</td>
+<td>Missing annotations are not automatically negatives</td>
+</tr>
+<tr class="odd">
+<td>One or several numbers</td>
+<td>one or several continuous outputs</td>
+<td>MAE, MSE, or Huber</td>
+<td>Units and target scales change the objective</td>
+</tr>
+<tr class="even">
+<td>A bounded fraction</td>
+<td>sigmoid output</td>
+<td>a loss matching what the fraction represents</td>
+<td>A proportion, event probability, and arbitrary bounded score have
+different statistical meanings</td>
+</tr>
+<tr class="odd">
+<td>A pixel label map</td>
+<td>class logits at every pixel</td>
+<td>per-pixel cross entropy or binary BCE</td>
+<td>Background imbalance can hide total foreground failure</td>
+</tr>
+<tr class="even">
+<td>Keypoint locations</td>
+<td>coordinate vector or spatial heatmaps</td>
+<td>coordinate regression or heatmap loss</td>
+<td>Resize and crop transforms must update coordinates</td>
+</tr>
+<tr class="odd">
+<td>A sequence of labels</td>
+<td>one label distribution per input position</td>
+<td>masked per-position cross entropy</td>
+<td>Padding must not count as a real target</td>
+</tr>
+<tr class="even">
+<td>A variable-length sequence</td>
+<td>token sequence with end marker</td>
+<td>masked next-token objective</td>
+<td>More than one output may be valid; exact match alone may
+mislead</td>
+</tr>
+<tr class="odd">
+<td>An unordered set of objects</td>
+<td>object slots with classes and geometry</td>
+<td>matching plus class/geometry losses</td>
+<td>Arbitrary label order creates contradictory supervision</td>
+</tr>
+<tr class="even">
+<td>A ranked list</td>
+<td>query/document scores</td>
+<td>pairwise or contrastive ranking loss</td>
+<td>Unlabeled documents may still be relevant</td>
+</tr>
+</tbody>
+</table></div>
+<p>For a short sensor time window, your tensor could have shape
+<code>[batch, channels, time]</code>. A one-dimensional convolution
+learns local temporal patterns; an RNN or small attention model can use
+longer dependencies. For a photograph plus numeric readings, encode the
+image and standardized numbers separately, concatenate their
+representations, and train a small output head. Compare each modality
+alone against the combined system: a supposedly useful input may
+contribute nothing or create a shortcut.</p>
+<p>For a sequence output, use a padding mask and compute loss only on
+valid positions. For multiple outputs, write
+<code>total_loss = task1_loss + weight * task2_loss</code> and explain
+the weight's units and intent. For an unordered output, use a model and
+training objective that handle matching; do not force a network to learn
+your arbitrary enumeration of objects.</p>
+<p>A neural network becomes attractive when useful features are
+difficult to hand-design, when spatial or sequential structure matters,
+or when a suitable pretrained representation exists. On ordinary modest
+tabular datasets, keep the linear and tree baselines. “Use a GPU” is not
+the problem definition.</p>
+<a id="checkpoint-what-you-should-now-be-able-to-do"></a>
+<h3>Checkpoint what
+you should now be able to do</h3>
+<p>You should be able to describe a new task without naming a model: the
+prediction-time inputs, target, independent split unit, baseline, error
+measure, and failure policy. If you cannot, stop before increasing model
+size.</p>
+</article><nav class="pager" aria-label="Adjacent chapters"><a href="03.html"><small>← Previous</small>3  Numbers tensors parameters and learning</a><a href="05.html"><small>Next →</small>5  Build a dataset that teaches the job</a></nav></main><aside class="on-page"><h2>On this page</h2><a href="#name-the-input-the-target-and-the-decision">Name the input the
+target and the decision</a><a href="#how-the-architecture-changes-the-data-you-need">How the
+architecture changes the data you need</a><a href="#start-with-a-baseline-you-can-beat">Start with a baseline you
+can beat</a><a href="#separate-fitting-calibration-selection-and-testing">Separate
+fitting calibration selection and testing</a><a href="#read-the-first-result-before-tuning">Read the first result
+before tuning</a><a href="#a-probability-is-a-claim-that-needs-checking">A probability is a
+claim that needs checking</a><a href="#what-each-tabular-control-changes">What each tabular control
+changes</a><a href="#inference-on-the-cpu-and-what-the-gpu-changes">Inference on the
+CPU and what the GPU changes</a><a href="#change-the-output-predict-a-number-instead">Change the output
+predict a number instead</a><a href="#generalize-the-project-to-your-own-input-to-output-task">Generalize
+the project to your own input to output task</a></aside></div><footer class="footer"><div><strong>Training Your Own Models</strong><br>Vibe Authored by Dr.Puma · 2 October 2026</div><div><a href="../chapters/glossary.html">Glossary</a><a href="../chapters/references.html">References</a><a href="https://github.com/MrScripty/training-your-own-models">GitHub ↗</a></div></footer><script src="../assets/site.js" defer></script></body></html>

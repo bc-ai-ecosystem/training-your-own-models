@@ -1,0 +1,251 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f6f3eb"><title>15  The real memory and compute budget · Training Your Own Models</title><meta name="description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><link rel="canonical" href="https://mrscripty.github.io/training-your-own-models/chapters/15.html"><meta property="og:type" content="website"><meta property="og:site_name" content="Training Your Own Models"><meta property="og:title" content="15  The real memory and compute budget · Training Your Own Models"><meta property="og:description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><meta property="og:url" content="https://mrscripty.github.io/training-your-own-models/chapters/15.html"><meta property="og:image" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta property="og:image:secure_url" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1280"><meta property="og:image:height" content="640"><meta property="og:image:alt" content="Training Your Own Models. On One 24 GB GPU. Vibe Authored by Dr.Puma. Cream, blue and orange scientific cover artwork."><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="15  The real memory and compute budget · Training Your Own Models"><meta name="twitter:description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><meta name="twitter:image" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta name="twitter:image:alt" content="Training Your Own Models, Vibe Authored by Dr.Puma"><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/style.css"></head><body><a class="skip" href="#main">Skip to content</a><header class="topbar"><a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true">↗</span><span>Training Your<br>Own Models</span></a><nav aria-label="Main navigation"><a href="../chapters/start.html">Read the book</a><a href="../labs.html">Explore</a><a href="../search.html" aria-label="Search the book">Search</a><a href="../downloads.html">Downloads</a></nav></header><div class="reader"><aside class="sidebar"><nav aria-label="Book contents"><label class="nav-filter">Find a chapter<input type="search" class="chapter-filter" placeholder="Filter titles" aria-label="Filter chapter titles"></label><a class="chapter-link" href="../chapters/start.html"><span>→</span>Training Your Own Models on One 24 GB GPU</a><a class="chapter-link" href="../chapters/01.html"><span>1</span>Train your first model before learning the whole field</a><a class="chapter-link" href="../chapters/02.html"><span>2</span>Your computer and the training workspace</a><a class="chapter-link" href="../chapters/03.html"><span>3</span>Numbers tensors parameters and learning</a><a class="chapter-link" href="../chapters/04.html"><span>4</span>Project turn four sensor readings into a useful prediction</a><a class="chapter-link" href="../chapters/05.html"><span>5</span>Build a dataset that teaches the job</a><a class="chapter-link" href="../chapters/06.html"><span>6</span>Decide whether the model actually improved</a><a class="chapter-link" href="../chapters/07.html"><span>7</span>Move from feature columns to neural representations</a><a class="chapter-link" href="../chapters/08.html"><span>8</span>Project classify your own small image collection</a><a class="chapter-link" href="../chapters/09.html"><span>9</span>Project locate one object with a box</a><a class="chapter-link" href="../chapters/10.html"><span>10</span>Project predict a mask then extract an outline</a><a class="chapter-link" href="../chapters/11.html"><span>11</span>Train a miniature language model from random weights</a><a class="chapter-link" href="../chapters/12.html"><span>12</span>How a language model becomes a prediction machine</a><a class="chapter-link" href="../chapters/13.html"><span>13</span>Read and control the training loop</a><a class="chapter-link" href="../chapters/14.html"><span>14</span>Make a run reproducible and recoverable</a><a class="chapter-link" href="../chapters/15.html" aria-current="page"><span>15</span>The real memory and compute budget</a><a class="chapter-link" href="../chapters/16.html"><span>16</span>Project make related text easy to retrieve</a><a class="chapter-link" href="../chapters/17.html"><span>17</span>Choose a model by its actual structure and files</a><a class="chapter-link" href="../chapters/18.html"><span>18</span>Teach a small language model one useful behavior</a><a class="chapter-link" href="../chapters/19.html"><span>19</span>Repeat the project with every weight trainable</a><a class="chapter-link" href="../chapters/20.html"><span>20</span>Teach domain conventions without turning weights into a database</a><a class="chapter-link" href="../chapters/21.html"><span>21</span>Make a writing style reproducible without changing the facts</a><a class="chapter-link" href="../chapters/22.html"><span>22</span>Teach a tool decision and a complete tool interaction</a><a class="chapter-link" href="../chapters/23.html"><span>23</span>Study a small typed decision service</a><a class="chapter-link" href="../chapters/24.html"><span>24</span>From a language model to a decision model</a><a class="chapter-link" href="../chapters/25.html"><span>25</span>Add preferences and distillation only after supervised learning works</a><a class="chapter-link" href="../chapters/26.html"><span>26</span>Project teach an image generator a small visual style</a><a class="chapter-link" href="../chapters/27.html"><span>27</span>Speech recognition train a small model to hear your domain</a><a class="chapter-link" href="../chapters/28.html"><span>28</span>Project build a tiny sound generator from random weights</a><a class="chapter-link" href="../chapters/29.html"><span>29</span>Scale a working experiment toward one billion parameters</a><a class="chapter-link" href="../chapters/30.html"><span>30</span>Understand what a public training process really demonstrates</a><a class="chapter-link" href="../chapters/31.html"><span>31</span>Diagnose failures before making the model larger</a><a class="chapter-link" href="../chapters/32.html"><span>32</span>From small model to small device product</a><a class="chapter-link" href="../chapters/33.html"><span>33</span>Turn a checkpoint into a usable application</a><a class="chapter-link" href="../chapters/34.html"><span>34</span>Design your first independent model</a><a class="chapter-link" href="../chapters/35.html"><span>35</span>Understand larger models using the parts you already know</a><a class="chapter-link" href="../chapters/36.html"><span>36</span>Read MiMo GLM and other architecture families</a><a class="chapter-link" href="../chapters/37.html"><span>37</span>Connect architecture to data memory and deployment</a><a class="chapter-link" href="../chapters/38.html"><span>38</span>Learn from public training projects without copying their assumptions</a><a class="chapter-link" href="../chapters/39.html"><span>39</span>Exercise checkpoints and worked answers</a><a class="chapter-link" href="../chapters/40.html"><span>40</span>Companion guide and verification record</a><a class="chapter-link" href="../chapters/glossary.html"><span>A–Z</span>Glossary with links to explanations</a><a class="chapter-link" href="../chapters/references.html"><span>Ref</span>Works cited</a></nav></aside><main class="prose" id="main"><details class="mobile-toc"><summary>Browse the book</summary><nav aria-label="Book contents"><label class="nav-filter">Find a chapter<input type="search" class="chapter-filter" placeholder="Filter titles" aria-label="Filter chapter titles"></label><a class="chapter-link" href="../chapters/start.html"><span>→</span>Training Your Own Models on One 24 GB GPU</a><a class="chapter-link" href="../chapters/01.html"><span>1</span>Train your first model before learning the whole field</a><a class="chapter-link" href="../chapters/02.html"><span>2</span>Your computer and the training workspace</a><a class="chapter-link" href="../chapters/03.html"><span>3</span>Numbers tensors parameters and learning</a><a class="chapter-link" href="../chapters/04.html"><span>4</span>Project turn four sensor readings into a useful prediction</a><a class="chapter-link" href="../chapters/05.html"><span>5</span>Build a dataset that teaches the job</a><a class="chapter-link" href="../chapters/06.html"><span>6</span>Decide whether the model actually improved</a><a class="chapter-link" href="../chapters/07.html"><span>7</span>Move from feature columns to neural representations</a><a class="chapter-link" href="../chapters/08.html"><span>8</span>Project classify your own small image collection</a><a class="chapter-link" href="../chapters/09.html"><span>9</span>Project locate one object with a box</a><a class="chapter-link" href="../chapters/10.html"><span>10</span>Project predict a mask then extract an outline</a><a class="chapter-link" href="../chapters/11.html"><span>11</span>Train a miniature language model from random weights</a><a class="chapter-link" href="../chapters/12.html"><span>12</span>How a language model becomes a prediction machine</a><a class="chapter-link" href="../chapters/13.html"><span>13</span>Read and control the training loop</a><a class="chapter-link" href="../chapters/14.html"><span>14</span>Make a run reproducible and recoverable</a><a class="chapter-link" href="../chapters/15.html" aria-current="page"><span>15</span>The real memory and compute budget</a><a class="chapter-link" href="../chapters/16.html"><span>16</span>Project make related text easy to retrieve</a><a class="chapter-link" href="../chapters/17.html"><span>17</span>Choose a model by its actual structure and files</a><a class="chapter-link" href="../chapters/18.html"><span>18</span>Teach a small language model one useful behavior</a><a class="chapter-link" href="../chapters/19.html"><span>19</span>Repeat the project with every weight trainable</a><a class="chapter-link" href="../chapters/20.html"><span>20</span>Teach domain conventions without turning weights into a database</a><a class="chapter-link" href="../chapters/21.html"><span>21</span>Make a writing style reproducible without changing the facts</a><a class="chapter-link" href="../chapters/22.html"><span>22</span>Teach a tool decision and a complete tool interaction</a><a class="chapter-link" href="../chapters/23.html"><span>23</span>Study a small typed decision service</a><a class="chapter-link" href="../chapters/24.html"><span>24</span>From a language model to a decision model</a><a class="chapter-link" href="../chapters/25.html"><span>25</span>Add preferences and distillation only after supervised learning works</a><a class="chapter-link" href="../chapters/26.html"><span>26</span>Project teach an image generator a small visual style</a><a class="chapter-link" href="../chapters/27.html"><span>27</span>Speech recognition train a small model to hear your domain</a><a class="chapter-link" href="../chapters/28.html"><span>28</span>Project build a tiny sound generator from random weights</a><a class="chapter-link" href="../chapters/29.html"><span>29</span>Scale a working experiment toward one billion parameters</a><a class="chapter-link" href="../chapters/30.html"><span>30</span>Understand what a public training process really demonstrates</a><a class="chapter-link" href="../chapters/31.html"><span>31</span>Diagnose failures before making the model larger</a><a class="chapter-link" href="../chapters/32.html"><span>32</span>From small model to small device product</a><a class="chapter-link" href="../chapters/33.html"><span>33</span>Turn a checkpoint into a usable application</a><a class="chapter-link" href="../chapters/34.html"><span>34</span>Design your first independent model</a><a class="chapter-link" href="../chapters/35.html"><span>35</span>Understand larger models using the parts you already know</a><a class="chapter-link" href="../chapters/36.html"><span>36</span>Read MiMo GLM and other architecture families</a><a class="chapter-link" href="../chapters/37.html"><span>37</span>Connect architecture to data memory and deployment</a><a class="chapter-link" href="../chapters/38.html"><span>38</span>Learn from public training projects without copying their assumptions</a><a class="chapter-link" href="../chapters/39.html"><span>39</span>Exercise checkpoints and worked answers</a><a class="chapter-link" href="../chapters/40.html"><span>40</span>Companion guide and verification record</a><a class="chapter-link" href="../chapters/glossary.html"><span>A–Z</span>Glossary with links to explanations</a><a class="chapter-link" href="../chapters/references.html"><span>Ref</span>Works cited</a></nav></details><div class="chapter-meta"><span class="eyebrow">Chapter 15 / 40</span><span>8 min read</span></div><article class="manuscript"><a id="the-real-memory-and-compute-budget"></a>
+<h1>15 The real memory and
+compute budget</h1>
+<a id="begin-with-quantities-rather-than-model-names"></a>
+<h2>Begin with
+quantities rather than model names</h2>
+<p>A billion parameters means a billion stored values in the model, not
+a billion examples, operations, or tokens. The memory needed for those
+values depends on their representation. FP32 uses four bytes per value.
+FP16 and BF16 use two. An idealized eight-bit value uses one, and an
+idealized four-bit value uses half a byte. Actual quantized formats also
+require scales, metadata, and sometimes unquantized tensors.</p>
+<p>GB and GiB are different units. One GB is one billion bytes. One GiB
+is 1,073,741,824 bytes. GPU utilities and product descriptions may use
+labels inconsistently. The safest comparison begins with bytes reported
+by the actual device and converts using a stated divisor. Throughout
+worked calculations, GB means decimal bytes and GiB means binary
+bytes.</p>
+<p>For one billion parameters, FP32 weights alone occupy about 4 GB, or
+3.73 GiB. BF16 weights alone occupy about 2 GB, or 1.86 GiB. These are
+storage calculations, not complete training estimates. They omit
+gradients, optimizer state, activations, working buffers, allocator
+behavior, and framework overhead.</p>
+<a id="full-training-needs-more-than-weights"></a>
+<h2>Full training needs more
+than weights</h2>
+<p>A simple FP32 AdamW training budget includes four bytes for each
+parameter, four for its gradient, and eight for two FP32 optimizer-state
+values. That is sixteen bytes per trainable parameter before activations
+and other costs. The table is arithmetic under that exact
+assumption.</p>
+<div aria-label="Scrollable table" class="table-scroll" role="region" tabindex="0"><table>
+<thead>
+<tr class="header">
+<th>Trainable parameters</th>
+<th>Weights only FP32</th>
+<th>Parameters gradients and Adam states</th>
+<th>Same persistent total in GiB</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>10 million</td>
+<td>0.04 GB</td>
+<td>0.16 GB</td>
+<td>0.15 GiB</td>
+</tr>
+<tr class="even">
+<td>100 million</td>
+<td>0.40 GB</td>
+<td>1.60 GB</td>
+<td>1.49 GiB</td>
+</tr>
+<tr class="odd">
+<td>500 million</td>
+<td>2.00 GB</td>
+<td>8.00 GB</td>
+<td>7.45 GiB</td>
+</tr>
+<tr class="even">
+<td>1 billion</td>
+<td>4.00 GB</td>
+<td>16.00 GB</td>
+<td>14.90 GiB</td>
+</tr>
+<tr class="odd">
+<td>3 billion</td>
+<td>12.00 GB</td>
+<td>48.00 GB</td>
+<td>44.70 GiB</td>
+</tr>
+</tbody>
+</table></div>
+<p>This explains why a sub-billion-parameter full-training project can
+be a reasonable experiment on 24 GB while ordinary
+three-billion-parameter FP32 AdamW training is not. The one-billion row
+still has to leave room for everything else. A long context, large
+batch, large vocabulary logits, or inefficient implementation can
+exhaust the remaining memory.</p>
+<p>Mixed precision is not a single memory formula. One implementation
+keeps FP32 parameters and optimizer states while autocasting selected
+operations. Another retains low-precision weights plus FP32 master
+weights. Gradients and optimizer states may use different dtypes. A
+commonly cited mixed-precision estimate is eighteen bytes per parameter,
+but it describes a particular inventory of copies, not a law applying to
+every PyTorch configuration. Inspect the actual parameter, gradient, and
+optimizer-state dtypes. <a href="../chapters/references.html#source-f04">F04</a></p>
+<p>An eight-bit optimizer reduces the storage of some optimizer states,
+but does not automatically quantize the model, activations, or
+gradients. A four-bit frozen base with trainable adapters is different
+from full-parameter four-bit training. QLoRA ordinarily updates adapter
+parameters while the quantized base remains frozen. An inference
+quantization format is not automatically supported by a training
+optimizer.</p>
+<p><img alt="Persistent full training state under an explicit FP32 AdamW assumption" loading="lazy" src="../assets/memory-states.png"/></p>
+<p>Figure 5 The dashed line is a 24 GB reference, not a feasibility
+guarantee. Activations, temporary buffers and other overhead are
+excluded from the bars.</p>
+<a id="what-changes-when-most-parameters-are-frozen"></a>
+<h2>What changes when
+most parameters are frozen</h2>
+<p>Let P be the total base parameter count and A the trainable adapter
+parameter count. A rough adapter budget is base storage proportional to
+P plus gradient and optimizer state proportional to A, plus activations
+and temporary tensors. If A is much smaller than P, trainable-state
+memory can fall dramatically.</p>
+<p>Frozen does not mean absent. The forward pass still runs through the
+base model. Depending on the adapter placement and computation graph,
+backward may still need intermediate information to calculate adapter
+gradients. Therefore adapter training can run out of memory from
+activations even though its optimizer states are small.</p>
+<p>A head-only classifier is another case. A frozen backbone produces
+features; a small trainable head maps them to labels. You may be able to
+precompute features when the backbone and preprocessing are fixed. Doing
+so changes the pipeline and data-storage tradeoff. You cannot reuse
+those cached features after changing the backbone while pretending you
+are still training end to end.</p>
+<a id="the-largest-memory-knobs-are-often-ordinary-ones"></a>
+<h2>The largest
+memory knobs are often ordinary ones</h2>
+<p>Microbatch size is the number of examples processed together in one
+forward/backward pass. Increasing it generally increases activation
+memory. Sequence length affects language models; image resolution
+affects vision models; waveform length and sample rate affect audio
+models. These are not cosmetic controls. They define how much work and
+intermediate state each example creates.</p>
+<p>For a 1024 by 1024 image, there are four times as many pixels as in a
+512 by 512 image. The actual memory multiplier depends on latent
+compression and architecture. For attention over flattened spatial
+tokens, some costs can grow faster than pixel count. For audio, doubling
+duration doubles the number of samples at fixed sample rate, and
+attention over those samples or latent frames can add further
+expense.</p>
+<p>Gradient accumulation combines gradients from several microbatches
+before an optimizer update. With one GPU, microbatch size 2 and
+accumulation 8 yield an effective batch of 16 examples, assuming every
+microbatch has two examples. It does not create the exact same execution
+as processing 16 examples simultaneously in every architecture.
+Batch-dependent operations and stochastic behavior can differ. It also
+does not reduce the memory required for a single example that is already
+too large.</p>
+<p>Activation checkpointing discards selected intermediate activations
+and recomputes them during backward. This exchanges extra computation
+for lower memory use. It is unrelated to saving a model checkpoint to
+disk, despite the shared word. Use the implementation documented by the
+framework, and make the selected checkpointing mode explicit. <a href="../chapters/references.html#source-f05">F05</a></p>
+<p>Efficient attention can reduce attention-specific memory
+substantially. Its availability depends on model structure, hardware,
+dtype, and supported masks. A custom mask or unsupported shape may cause
+a slower fallback. Do not claim the memory behavior of a fused kernel
+until the actual run uses it.</p>
+<a id="measure-the-full-update-and-the-worst-example"></a>
+<h2>Measure the full
+update and the worst example</h2>
+<p>The first forward pass is insufficient as a memory test. Optimizer
+states may be created on the first update. Evaluation may use a
+different batch size. Saving or merging can allocate temporary copies.
+Generation can create a growing cache. A valid feasibility check
+includes representative training updates, evaluation, checkpoint save,
+reload, and the intended export path.</p>
+<p>Measure an intentionally long example or the maximum permitted shape,
+not just an average batch. A dataset with mostly short examples and
+occasional very long examples can run for an hour before failing.
+Bucketing by length can improve efficiency, but the maximum still has to
+be bounded.</p>
+<p>PyTorch exposes peak tensor allocation with max_memory_allocated and
+allocator reservation with max_memory_reserved. Reset peak counters
+before the measured region and synchronize when measuring GPU elapsed
+time. These metrics describe the current process's allocator view, so
+also inspect device-level usage and other processes. <a href="../chapters/references.html#source-f06">F06</a></p>
+<pre class="python"><code>torch.cuda.reset_peak_memory_stats()
+# Run several complete training updates here.
+torch.cuda.synchronize()
+print(torch.cuda.max_memory_allocated() / (1024 ** 3))
+print(torch.cuda.max_memory_reserved() / (1024 ** 3))</code></pre>
+<p>Calling empty_cache does not free live tensors that your program
+still references. Repeatedly invoking it is not a general cure for a
+model that fundamentally needs too much memory. Find what is retained,
+reduce a real cost, or change the training method. PyTorch distinguishes
+live allocation from cached reservation in its CUDA memory
+documentation. <a href="../chapters/references.html#source-f07">F07</a></p>
+<a id="compute-can-become-the-more-important-limit"></a>
+<h2>Compute can become
+the more important limit</h2>
+<p>Training time depends on measured throughput. If the run processes
+2,000 useful tokens per second and you plan to train on 100 million
+token presentations, raw training time is 50,000 seconds, about 13.9
+hours. Add evaluation, checkpointing, startup, data processing, and
+interruptions. The 2,000-token rate is an example input to the
+calculation, not a promised speed.</p>
+<p>Token presentations count repetitions. A dataset with 10 million
+tokens trained for three complete epochs presents roughly 30 million
+tokens, subject to packing, truncation, masking, and sampling. Ten
+million unique tokens and ten million repeated presentations have
+different implications for coverage and overfitting.</p>
+<p>A rough dense-transformer training-compute heuristic is about 6 times
+parameter count times training-token count in floating-point operations.
+It is useful for order-of-magnitude comparisons, not an exact profiler.
+Attention, vocabulary projection, checkpoint recomputation,
+architecture, and kernel efficiency alter the real cost. Scaling-law
+research shows why model size and data allocation must be considered
+together, but no single historical tokens-per-parameter ratio is a
+universal prescription for a small specialized model. <a href="../chapters/references.html#source-f08">F08</a></p>
+<p>A three-billion-parameter model trained on a tiny corpus may be badly
+undertrained even if a clever offload setup makes it run. Conversely, a
+ten-million-parameter model can be useful for a narrowly constrained
+task with good representations and representative data. Your job is to
+find evidence for the smallest adequate system, not to maximize the
+number printed in its name.</p>
+<a id="a-staged-budget-for-one-gpu"></a>
+<h2>A staged budget for one GPU</h2>
+<p>Reserve a first phase for correctness. Use dozens of examples, tiny
+shapes, and a few updates. You should learn whether the program and
+labels agree, whether gradients exist, and whether saving works. Reserve
+a second phase for feasibility. Use the intended shapes and a small but
+representative dataset to measure memory and throughput. Reserve a third
+phase for quality. Compare a baseline and one trained candidate under a
+fixed evaluation procedure.</p>
+<p>Only after those phases should you fund a longer run. Write an upper
+limit for training time, disk use, and checkpoint count. Define what
+result would cause you to stop early. If quality has not improved on the
+validation task after a justified trial, buying another ten hours of the
+same configuration is not automatically progress.</p>
+<p>For local electricity, multiply average system power in kilowatts by
+hours and your local price per kilowatt-hour. Do not use the GPU's
+advertised maximum power as if it were measured whole-system draw. For
+rented compute, include storage, idle time, transfers, and failed
+experiments. A plan with no allowance for debugging is not a realistic
+first-project budget.</p>
+<a id="exercises-9"></a>
+<h2>Exercises</h2>
+<p>Calculate persistent FP32 AdamW state for 250 million parameters
+under the sixteen-byte assumption. The answer is 4 GB, about 3.73 GiB,
+before activations. Explain why that result alone cannot establish that
+any 250-million-parameter job fits.</p>
+<p>A dataset has 40,000 examples averaging 500 supervised tokens. Two
+epochs present about 40 million supervised tokens. At a measured 1,250
+supervised tokens per second, pure processing time is about 8.9 hours.
+Explain why a logger counting all input tokens could produce a different
+throughput number.</p>
+<p>Write down three ways to reduce activation memory and three ways to
+reduce persistent training state. Do not list lowering the learning
+rate: it is usually a quality and stability control, not a major memory
+control.</p>
+</article><aside class="callout"><span class="eyebrow">Interactive companion</span><h2>Calculate persistent training-state memory</h2><p>Change one assumption in a small, transparent browser example.</p><a href="../labs.html#memory">Open the learning tool →</a></aside><nav class="pager" aria-label="Adjacent chapters"><a href="14.html"><small>← Previous</small>14  Make a run reproducible and recoverable</a><a href="16.html"><small>Next →</small>16  Project make related text easy to retrieve</a></nav></main><aside class="on-page"><h2>On this page</h2><a href="#begin-with-quantities-rather-than-model-names">Begin with
+quantities rather than model names</a><a href="#full-training-needs-more-than-weights">Full training needs more
+than weights</a><a href="#what-changes-when-most-parameters-are-frozen">What changes when
+most parameters are frozen</a><a href="#the-largest-memory-knobs-are-often-ordinary-ones">The largest
+memory knobs are often ordinary ones</a><a href="#measure-the-full-update-and-the-worst-example">Measure the full
+update and the worst example</a><a href="#compute-can-become-the-more-important-limit">Compute can become
+the more important limit</a><a href="#a-staged-budget-for-one-gpu">A staged budget for one GPU</a><a href="#exercises-9">Exercises</a></aside></div><footer class="footer"><div><strong>Training Your Own Models</strong><br>Vibe Authored by Dr.Puma · 2 October 2026</div><div><a href="../chapters/glossary.html">Glossary</a><a href="../chapters/references.html">References</a><a href="https://github.com/MrScripty/training-your-own-models">GitHub ↗</a></div></footer><script src="../assets/site.js" defer></script></body></html>

@@ -1,0 +1,236 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f6f3eb"><title>13  Read and control the training loop · Training Your Own Models</title><meta name="description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><link rel="canonical" href="https://mrscripty.github.io/training-your-own-models/chapters/13.html"><meta property="og:type" content="website"><meta property="og:site_name" content="Training Your Own Models"><meta property="og:title" content="13  Read and control the training loop · Training Your Own Models"><meta property="og:description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><meta property="og:url" content="https://mrscripty.github.io/training-your-own-models/chapters/13.html"><meta property="og:image" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta property="og:image:secure_url" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1280"><meta property="og:image:height" content="640"><meta property="og:image:alt" content="Training Your Own Models. On One 24 GB GPU. Vibe Authored by Dr.Puma. Cream, blue and orange scientific cover artwork."><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="13  Read and control the training loop · Training Your Own Models"><meta name="twitter:description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><meta name="twitter:image" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta name="twitter:image:alt" content="Training Your Own Models, Vibe Authored by Dr.Puma"><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/style.css"></head><body><a class="skip" href="#main">Skip to content</a><header class="topbar"><a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true">↗</span><span>Training Your<br>Own Models</span></a><nav aria-label="Main navigation"><a href="../chapters/start.html">Read the book</a><a href="../labs.html">Explore</a><a href="../search.html" aria-label="Search the book">Search</a><a href="../downloads.html">Downloads</a></nav></header><div class="reader"><aside class="sidebar"><nav aria-label="Book contents"><label class="nav-filter">Find a chapter<input type="search" class="chapter-filter" placeholder="Filter titles" aria-label="Filter chapter titles"></label><a class="chapter-link" href="../chapters/start.html"><span>→</span>Training Your Own Models on One 24 GB GPU</a><a class="chapter-link" href="../chapters/01.html"><span>1</span>Train your first model before learning the whole field</a><a class="chapter-link" href="../chapters/02.html"><span>2</span>Your computer and the training workspace</a><a class="chapter-link" href="../chapters/03.html"><span>3</span>Numbers tensors parameters and learning</a><a class="chapter-link" href="../chapters/04.html"><span>4</span>Project turn four sensor readings into a useful prediction</a><a class="chapter-link" href="../chapters/05.html"><span>5</span>Build a dataset that teaches the job</a><a class="chapter-link" href="../chapters/06.html"><span>6</span>Decide whether the model actually improved</a><a class="chapter-link" href="../chapters/07.html"><span>7</span>Move from feature columns to neural representations</a><a class="chapter-link" href="../chapters/08.html"><span>8</span>Project classify your own small image collection</a><a class="chapter-link" href="../chapters/09.html"><span>9</span>Project locate one object with a box</a><a class="chapter-link" href="../chapters/10.html"><span>10</span>Project predict a mask then extract an outline</a><a class="chapter-link" href="../chapters/11.html"><span>11</span>Train a miniature language model from random weights</a><a class="chapter-link" href="../chapters/12.html"><span>12</span>How a language model becomes a prediction machine</a><a class="chapter-link" href="../chapters/13.html" aria-current="page"><span>13</span>Read and control the training loop</a><a class="chapter-link" href="../chapters/14.html"><span>14</span>Make a run reproducible and recoverable</a><a class="chapter-link" href="../chapters/15.html"><span>15</span>The real memory and compute budget</a><a class="chapter-link" href="../chapters/16.html"><span>16</span>Project make related text easy to retrieve</a><a class="chapter-link" href="../chapters/17.html"><span>17</span>Choose a model by its actual structure and files</a><a class="chapter-link" href="../chapters/18.html"><span>18</span>Teach a small language model one useful behavior</a><a class="chapter-link" href="../chapters/19.html"><span>19</span>Repeat the project with every weight trainable</a><a class="chapter-link" href="../chapters/20.html"><span>20</span>Teach domain conventions without turning weights into a database</a><a class="chapter-link" href="../chapters/21.html"><span>21</span>Make a writing style reproducible without changing the facts</a><a class="chapter-link" href="../chapters/22.html"><span>22</span>Teach a tool decision and a complete tool interaction</a><a class="chapter-link" href="../chapters/23.html"><span>23</span>Study a small typed decision service</a><a class="chapter-link" href="../chapters/24.html"><span>24</span>From a language model to a decision model</a><a class="chapter-link" href="../chapters/25.html"><span>25</span>Add preferences and distillation only after supervised learning works</a><a class="chapter-link" href="../chapters/26.html"><span>26</span>Project teach an image generator a small visual style</a><a class="chapter-link" href="../chapters/27.html"><span>27</span>Speech recognition train a small model to hear your domain</a><a class="chapter-link" href="../chapters/28.html"><span>28</span>Project build a tiny sound generator from random weights</a><a class="chapter-link" href="../chapters/29.html"><span>29</span>Scale a working experiment toward one billion parameters</a><a class="chapter-link" href="../chapters/30.html"><span>30</span>Understand what a public training process really demonstrates</a><a class="chapter-link" href="../chapters/31.html"><span>31</span>Diagnose failures before making the model larger</a><a class="chapter-link" href="../chapters/32.html"><span>32</span>From small model to small device product</a><a class="chapter-link" href="../chapters/33.html"><span>33</span>Turn a checkpoint into a usable application</a><a class="chapter-link" href="../chapters/34.html"><span>34</span>Design your first independent model</a><a class="chapter-link" href="../chapters/35.html"><span>35</span>Understand larger models using the parts you already know</a><a class="chapter-link" href="../chapters/36.html"><span>36</span>Read MiMo GLM and other architecture families</a><a class="chapter-link" href="../chapters/37.html"><span>37</span>Connect architecture to data memory and deployment</a><a class="chapter-link" href="../chapters/38.html"><span>38</span>Learn from public training projects without copying their assumptions</a><a class="chapter-link" href="../chapters/39.html"><span>39</span>Exercise checkpoints and worked answers</a><a class="chapter-link" href="../chapters/40.html"><span>40</span>Companion guide and verification record</a><a class="chapter-link" href="../chapters/glossary.html"><span>A–Z</span>Glossary with links to explanations</a><a class="chapter-link" href="../chapters/references.html"><span>Ref</span>Works cited</a></nav></aside><main class="prose" id="main"><details class="mobile-toc"><summary>Browse the book</summary><nav aria-label="Book contents"><label class="nav-filter">Find a chapter<input type="search" class="chapter-filter" placeholder="Filter titles" aria-label="Filter chapter titles"></label><a class="chapter-link" href="../chapters/start.html"><span>→</span>Training Your Own Models on One 24 GB GPU</a><a class="chapter-link" href="../chapters/01.html"><span>1</span>Train your first model before learning the whole field</a><a class="chapter-link" href="../chapters/02.html"><span>2</span>Your computer and the training workspace</a><a class="chapter-link" href="../chapters/03.html"><span>3</span>Numbers tensors parameters and learning</a><a class="chapter-link" href="../chapters/04.html"><span>4</span>Project turn four sensor readings into a useful prediction</a><a class="chapter-link" href="../chapters/05.html"><span>5</span>Build a dataset that teaches the job</a><a class="chapter-link" href="../chapters/06.html"><span>6</span>Decide whether the model actually improved</a><a class="chapter-link" href="../chapters/07.html"><span>7</span>Move from feature columns to neural representations</a><a class="chapter-link" href="../chapters/08.html"><span>8</span>Project classify your own small image collection</a><a class="chapter-link" href="../chapters/09.html"><span>9</span>Project locate one object with a box</a><a class="chapter-link" href="../chapters/10.html"><span>10</span>Project predict a mask then extract an outline</a><a class="chapter-link" href="../chapters/11.html"><span>11</span>Train a miniature language model from random weights</a><a class="chapter-link" href="../chapters/12.html"><span>12</span>How a language model becomes a prediction machine</a><a class="chapter-link" href="../chapters/13.html" aria-current="page"><span>13</span>Read and control the training loop</a><a class="chapter-link" href="../chapters/14.html"><span>14</span>Make a run reproducible and recoverable</a><a class="chapter-link" href="../chapters/15.html"><span>15</span>The real memory and compute budget</a><a class="chapter-link" href="../chapters/16.html"><span>16</span>Project make related text easy to retrieve</a><a class="chapter-link" href="../chapters/17.html"><span>17</span>Choose a model by its actual structure and files</a><a class="chapter-link" href="../chapters/18.html"><span>18</span>Teach a small language model one useful behavior</a><a class="chapter-link" href="../chapters/19.html"><span>19</span>Repeat the project with every weight trainable</a><a class="chapter-link" href="../chapters/20.html"><span>20</span>Teach domain conventions without turning weights into a database</a><a class="chapter-link" href="../chapters/21.html"><span>21</span>Make a writing style reproducible without changing the facts</a><a class="chapter-link" href="../chapters/22.html"><span>22</span>Teach a tool decision and a complete tool interaction</a><a class="chapter-link" href="../chapters/23.html"><span>23</span>Study a small typed decision service</a><a class="chapter-link" href="../chapters/24.html"><span>24</span>From a language model to a decision model</a><a class="chapter-link" href="../chapters/25.html"><span>25</span>Add preferences and distillation only after supervised learning works</a><a class="chapter-link" href="../chapters/26.html"><span>26</span>Project teach an image generator a small visual style</a><a class="chapter-link" href="../chapters/27.html"><span>27</span>Speech recognition train a small model to hear your domain</a><a class="chapter-link" href="../chapters/28.html"><span>28</span>Project build a tiny sound generator from random weights</a><a class="chapter-link" href="../chapters/29.html"><span>29</span>Scale a working experiment toward one billion parameters</a><a class="chapter-link" href="../chapters/30.html"><span>30</span>Understand what a public training process really demonstrates</a><a class="chapter-link" href="../chapters/31.html"><span>31</span>Diagnose failures before making the model larger</a><a class="chapter-link" href="../chapters/32.html"><span>32</span>From small model to small device product</a><a class="chapter-link" href="../chapters/33.html"><span>33</span>Turn a checkpoint into a usable application</a><a class="chapter-link" href="../chapters/34.html"><span>34</span>Design your first independent model</a><a class="chapter-link" href="../chapters/35.html"><span>35</span>Understand larger models using the parts you already know</a><a class="chapter-link" href="../chapters/36.html"><span>36</span>Read MiMo GLM and other architecture families</a><a class="chapter-link" href="../chapters/37.html"><span>37</span>Connect architecture to data memory and deployment</a><a class="chapter-link" href="../chapters/38.html"><span>38</span>Learn from public training projects without copying their assumptions</a><a class="chapter-link" href="../chapters/39.html"><span>39</span>Exercise checkpoints and worked answers</a><a class="chapter-link" href="../chapters/40.html"><span>40</span>Companion guide and verification record</a><a class="chapter-link" href="../chapters/glossary.html"><span>A–Z</span>Glossary with links to explanations</a><a class="chapter-link" href="../chapters/references.html"><span>Ref</span>Works cited</a></nav></details><div class="chapter-meta"><span class="eyebrow">Chapter 13 / 40</span><span>9 min read</span></div><article class="manuscript"><a id="read-and-control-the-training-loop"></a>
+<h1>13 Read and control the
+training loop</h1>
+<a id="inspect-one-update-before-tuning-a-hundred-settings"></a>
+<h2>Inspect one
+update before tuning a hundred settings</h2>
+<p>After your first neural run, open its training loop. Find where the
+batch is created, where the model runs, where the loss is calculated,
+where backward is called, and where the optimizer updates weights. Print
+the shapes and dtypes once. Print how many parameters require gradients.
+Those few checks answer more useful questions than changing a dozen
+unfamiliar flags.</p>
+<p>The byte-transformer loop uses fixed-length windows, so each
+microbatch contains the same number of target positions. The loss is
+averaged over those positions. Dividing by the accumulation count makes
+the accumulated gradient an average across equal-size microbatches. This
+simple accounting becomes more subtle when sequence lengths and
+supervised-token counts differ.</p>
+<p>Suppose one microbatch contains 100 supervised tokens and another
+contains 1,000. Averaging their mean losses equally gives each
+microbatch equal influence, so each token in the shorter batch counts
+ten times as much. If your objective is an average over supervised
+tokens, accumulate summed losses with a correct total-token denominator
+or use a trainer whose normalization matches that objective. State what
+is being averaged.</p>
+<a id="batch-size-is-a-statistical-and-systems-choice"></a>
+<h2>Batch size is a
+statistical and systems choice</h2>
+<p>A batch is a group of examples used together. A microbatch is the
+group processed in one forward/backward pass. The effective batch is the
+group contributing to one parameter update. On one GPU with equal
+microbatches, effective examples = microbatch size times accumulation
+steps.</p>
+<p>For variable-length text, examples per update can be misleading.
+Record input tokens and supervised tokens as well. Two batches of eight
+examples can differ greatly if one contains short labels and the other
+contains long answers. Packing multiple short sequences into a longer
+block can improve utilization, but only if the boundary and attention
+behavior match the intended objective.</p>
+<p>A larger effective batch can make gradients less noisy, but it can
+also change optimization behavior and the number of updates at a fixed
+token budget. Do not increase batch size, learning rate, and training
+duration together and then attribute a change to one of them. Start with
+a feasible microbatch, choose an effective token budget per update, and
+compare controlled changes.</p>
+<a id="learning-rate-and-schedule"></a>
+<h2>Learning rate and schedule</h2>
+<p>The learning rate scales parameter updates. In a pretrained model,
+too large a rate can destroy useful behavior quickly. In a randomly
+initialized model, too small a rate can make learning inefficient. The
+appropriate range depends on architecture, optimizer, batch, numeric
+precision, initialization, data, and which parameters are trainable.</p>
+<p>Warmup gradually increases the learning rate during early updates. It
+can help avoid abrupt early changes while optimizer statistics develop.
+A schedule then changes the rate over time, such as linear decay or
+cosine decay. A schedule is usually defined over optimizer steps, not
+the number of microbatches. If you change accumulation, check whether
+the scheduler still covers the intended number of updates.</p>
+<p>A resume must preserve scheduler position and its original total-step
+plan if exact continuation is intended. Extending a run from 1,000 to
+2,000 steps while recomputing a cosine schedule can change the rate at
+the same nominal step. That may be a valid new experiment, but it is not
+an invisible continuation of the old one.</p>
+<p>Do a short learning-rate comparison using a fixed validation
+procedure. If loss becomes nonfinite or jumps sharply, stop and inspect
+rather than allowing the run to continue indefinitely. A smaller rate
+may help, but first rule out malformed inputs, empty supervision, bad
+masks, or numeric problems.</p>
+<a id="optimizer-parameters"></a>
+<h2>Optimizer parameters</h2>
+<p>AdamW's beta1 controls the smoothing of the first-moment estimate, a
+running estimate related to gradient direction. beta2 controls smoothing
+of the second-moment estimate, related to squared gradient magnitude.
+Values close to one retain longer history. epsilon is a small
+stabilizing term in the denominator. These values affect update
+behavior; they are not accuracy thresholds.</p>
+<p>Weight decay applies a shrinking tendency to parameters. It can act
+as regularization, but its effect depends on learning rate and which
+parameters receive it. Many recipes exclude bias and normalization
+parameters from decay. Copying only the headline decay value while
+changing parameter groups is not the same experiment.</p>
+<p>Gradient clipping limits the norm or magnitude of a gradient before
+the update. Global-norm clipping preserves direction while reducing the
+size of an unusually large gradient vector. Log the norm before
+clipping; constant heavy clipping can signal an unstable setup. Clipping
+is a guardrail, not proof that an otherwise bad learning rate is
+safe.</p>
+<p>In FP16 mixed precision with a gradient scaler, unscale gradients
+before clipping. Keep scaling consistent across accumulated microbatches
+and update the scaler at effective-batch boundaries. PyTorch's AMP
+examples spell out these ordering requirements. BF16 often uses a
+different policy, so do not copy an FP16 scaler loop mechanically. <a href="../chapters/references.html#source-f12">F12</a></p>
+<a id="precision-policy-and-autocast"></a>
+<h2>Precision policy and
+autocast</h2>
+<p>Autocast chooses lower-precision computation for supported operations
+while preserving higher precision where the framework's policy requires
+it. It does not necessarily change the dtype of stored model parameters
+or optimizer state. The byte-transformer and pointer examples explicitly
+keep FP32 parameters and AdamW state while optionally using BF16
+autocast on compatible CUDA hardware.</p>
+<p>FP16 and BF16 both use two bytes, but divide their bits differently
+between range and precision. BF16 has a much wider exponent range than
+FP16 and lower significand precision. A model that works with one can
+fail or behave differently with the other. FP16 training often uses
+gradient scaling to keep small gradients representable; the scaler and
+clipping order must be correct. Do not assume a GPU supports a format
+merely because its model name contains RTX. Check the actual device and
+backend.</p>
+<p>A quantized four-bit frozen base is a separate storage strategy. It
+does not mean that all activations, adapters, gradients, or optimizer
+states are four-bit. Write down the dtype of each state category when
+budgeting or comparing recipes. <a href="../chapters/references.html#source-f12">F12</a></p>
+<a id="dropout-and-other-regularization"></a>
+<h2>Dropout and other
+regularization</h2>
+<p>Dropout randomly suppresses selected activations during training
+according to a probability. It should be disabled during ordinary
+evaluation. Its purpose is not to make outputs random at inference. A
+model with dropout left active can appear inconsistent even under
+deterministic decoding.</p>
+<p>Data augmentation creates modified training inputs that should
+preserve the intended target. Flipping an image may preserve an object
+label but invalidate left-versus-right labels. Cropping can remove the
+target object. Adding noise to audio may preserve event identity up to a
+point but destroy intelligibility. An augmentation is valid only when
+its label-preservation assumption is valid.</p>
+<p>Early stopping chooses a checkpoint when validation performance stops
+improving under a predefined rule. Patience is the number of evaluations
+tolerated without sufficient improvement. Choose the monitored metric
+and minimum meaningful change in advance. If your validation set is
+small and noisy, reacting to every tiny fluctuation can select unstable
+results.</p>
+<p>Regularization cannot compensate for a fundamentally incorrect
+target. A model trained on mislabeled masks will not learn the intended
+boundary because dropout is well chosen. Inspect data before making
+optimization more elaborate.</p>
+<a id="attention-masks-and-loss-masks-solve-different-problems"></a>
+<h2>Attention
+masks and loss masks solve different problems</h2>
+<p>An attention mask controls which input positions can influence each
+representation. A causal mask prevents future-token access. A padding
+mask excludes nonexistent padded input positions from attention. A
+custom branch mask may isolate independent questions sharing a
+context.</p>
+<p>A loss mask controls which predictions contribute to the training
+objective. In assistant-only fine-tuning, prompt positions may be
+visible to attention while excluded from loss. Padding targets are
+commonly assigned an ignore index such as -100 for cross-entropy. That
+value is a convention of the loss implementation, not a token that
+should be inserted into the actual input vocabulary. <a href="../chapters/references.html#source-f13">F13</a></p>
+<p>A training batch can have a correct attention mask and an incorrect
+loss mask. For example, it may teach the model to reproduce user prompts
+rather than only the assistant response. It can also contain no
+supervised tokens after truncation, producing meaningless or nonfinite
+loss. Count valid target positions and inspect decoded supervised
+spans.</p>
+<p>Do not blindly set all occurrences of an end-of-sequence token to
+ignored when padding uses the same ID. Real end-of-sequence targets may
+then disappear from supervision, weakening stopping behavior. Construct
+masks from actual padding positions and the intended response spans, not
+from a simplistic equality test that erases legitimate tokens.</p>
+<a id="packing-and-truncation-are-modeling-decisions"></a>
+<h2>Packing and
+truncation are modeling decisions</h2>
+<p>Packing combines short examples to use a context window efficiently.
+If unrelated examples can attend to each other, the training
+distribution includes cross-example context that may not exist in
+deployment. Some objectives allow a continuous stream; others need
+boundaries or block-diagonal attention. Know which your trainer
+implements.</p>
+<p>Truncation discards tokens beyond a length limit. It can remove the
+answer, the tool schema, or the evidence needed to answer. A model
+trained on such examples may appear to learn impossible tasks. Log how
+many records are truncated, from which side, and how many supervised
+tokens remain. Reject or deliberately transform examples when the task
+would no longer make sense.</p>
+<p>Padding extends shorter sequences to a common length with placeholder
+positions. It adds computation unless the implementation handles
+variable lengths efficiently. Bucketing similar lengths can reduce
+waste. However, a padding optimization is not worth a silent change to
+target semantics.</p>
+<a id="epochs-steps-and-stopping"></a>
+<h2>Epochs steps and stopping</h2>
+<p>An epoch means one pass through a defined dataset, usually after
+shuffling. Streaming or weighted sampling may not have a simple epoch
+interpretation. Steps count parameter updates. Samples and tokens count
+presentations. Report the quantities that actually define your
+experiment.</p>
+<p>If a dataset has 10,000 examples and an effective batch of 20 with no
+dropped remainder, one epoch is about 500 updates. With different-length
+examples, the token count per epoch is another useful quantity. If
+sampling with replacement, a given example may appear more than once
+before another is seen.</p>
+<p>More epochs can improve fit and then worsen generalization. A small
+instruction dataset repeated many times can teach formatting quickly
+while causing memorization or forgetting. Preserve checkpoints and
+compare outputs. Do not assume the last checkpoint is best because it
+consumed the most computation.</p>
+<a id="a-controlled-tuning-sequence"></a>
+<h2>A controlled tuning sequence</h2>
+<p>First verify one-batch overfitting on a tiny clean subset. The model
+should be able to reduce loss substantially when repeatedly shown the
+same examples, unless the objective or architecture makes that
+impossible. Failure here points to pipeline, gradient, target, or
+capacity issues. Success proves only that the model can fit those
+examples.</p>
+<p>Next run a short representative baseline configuration. Change one
+major factor at a time: learning rate, data quality, number of updates,
+trainable modules, or context length. Record the hypothesis for each
+change. Prefer a small number of interpretable comparisons over a large
+blind sweep that you cannot afford to evaluate properly.</p>
+<p>Finally select the candidate using validation metrics and guardrails,
+then run the final test once. Save the failed experiments' summaries
+too. Knowing which assumptions failed is part of the reusable
+result.</p>
+<a id="exercises-7"></a>
+<h2>Exercises</h2>
+<p>A run has microbatch size 2 and accumulation 8. It logs 300 optimizer
+steps. How many example presentations occurred if every microbatch is
+full? The answer is 4,800. Explain why that does not tell you the number
+of unique examples.</p>
+<p>Create two artificial microbatches with different numbers of
+supervised tokens. Calculate the difference between averaging their mean
+losses and averaging all token losses. Decide which objective your
+project intends.</p>
+<p>Print one example's attention mask and supervised target positions.
+Explain why the model may attend to a user question while receiving no
+loss for reproducing that question.</p>
+</article><nav class="pager" aria-label="Adjacent chapters"><a href="12.html"><small>← Previous</small>12  How a language model becomes a prediction machine</a><a href="14.html"><small>Next →</small>14  Make a run reproducible and recoverable</a></nav></main><aside class="on-page"><h2>On this page</h2><a href="#inspect-one-update-before-tuning-a-hundred-settings">Inspect one
+update before tuning a hundred settings</a><a href="#batch-size-is-a-statistical-and-systems-choice">Batch size is a
+statistical and systems choice</a><a href="#learning-rate-and-schedule">Learning rate and schedule</a><a href="#optimizer-parameters">Optimizer parameters</a><a href="#precision-policy-and-autocast">Precision policy and
+autocast</a><a href="#dropout-and-other-regularization">Dropout and other
+regularization</a><a href="#attention-masks-and-loss-masks-solve-different-problems">Attention
+masks and loss masks solve different problems</a><a href="#packing-and-truncation-are-modeling-decisions">Packing and
+truncation are modeling decisions</a><a href="#epochs-steps-and-stopping">Epochs steps and stopping</a><a href="#a-controlled-tuning-sequence">A controlled tuning sequence</a><a href="#exercises-7">Exercises</a></aside></div><footer class="footer"><div><strong>Training Your Own Models</strong><br>Vibe Authored by Dr.Puma · 2 October 2026</div><div><a href="../chapters/glossary.html">Glossary</a><a href="../chapters/references.html">References</a><a href="https://github.com/MrScripty/training-your-own-models">GitHub ↗</a></div></footer><script src="../assets/site.js" defer></script></body></html>

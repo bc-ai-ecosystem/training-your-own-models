@@ -1,0 +1,585 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f6f3eb"><title>28  Project build a tiny sound generator from random weights · Training Your Own Models</title><meta name="description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><link rel="canonical" href="https://mrscripty.github.io/training-your-own-models/chapters/28.html"><meta property="og:type" content="website"><meta property="og:site_name" content="Training Your Own Models"><meta property="og:title" content="28  Project build a tiny sound generator from random weights · Training Your Own Models"><meta property="og:description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><meta property="og:url" content="https://mrscripty.github.io/training-your-own-models/chapters/28.html"><meta property="og:image" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta property="og:image:secure_url" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1280"><meta property="og:image:height" content="640"><meta property="og:image:alt" content="Training Your Own Models. On One 24 GB GPU. Vibe Authored by Dr.Puma. Cream, blue and orange scientific cover artwork."><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="28  Project build a tiny sound generator from random weights · Training Your Own Models"><meta name="twitter:description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><meta name="twitter:image" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta name="twitter:image:alt" content="Training Your Own Models, Vibe Authored by Dr.Puma"><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/style.css"></head><body><a class="skip" href="#main">Skip to content</a><header class="topbar"><a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true">↗</span><span>Training Your<br>Own Models</span></a><nav aria-label="Main navigation"><a href="../chapters/start.html">Read the book</a><a href="../labs.html">Explore</a><a href="../search.html" aria-label="Search the book">Search</a><a href="../downloads.html">Downloads</a></nav></header><div class="reader"><aside class="sidebar"><nav aria-label="Book contents"><label class="nav-filter">Find a chapter<input type="search" class="chapter-filter" placeholder="Filter titles" aria-label="Filter chapter titles"></label><a class="chapter-link" href="../chapters/start.html"><span>→</span>Training Your Own Models on One 24 GB GPU</a><a class="chapter-link" href="../chapters/01.html"><span>1</span>Train your first model before learning the whole field</a><a class="chapter-link" href="../chapters/02.html"><span>2</span>Your computer and the training workspace</a><a class="chapter-link" href="../chapters/03.html"><span>3</span>Numbers tensors parameters and learning</a><a class="chapter-link" href="../chapters/04.html"><span>4</span>Project turn four sensor readings into a useful prediction</a><a class="chapter-link" href="../chapters/05.html"><span>5</span>Build a dataset that teaches the job</a><a class="chapter-link" href="../chapters/06.html"><span>6</span>Decide whether the model actually improved</a><a class="chapter-link" href="../chapters/07.html"><span>7</span>Move from feature columns to neural representations</a><a class="chapter-link" href="../chapters/08.html"><span>8</span>Project classify your own small image collection</a><a class="chapter-link" href="../chapters/09.html"><span>9</span>Project locate one object with a box</a><a class="chapter-link" href="../chapters/10.html"><span>10</span>Project predict a mask then extract an outline</a><a class="chapter-link" href="../chapters/11.html"><span>11</span>Train a miniature language model from random weights</a><a class="chapter-link" href="../chapters/12.html"><span>12</span>How a language model becomes a prediction machine</a><a class="chapter-link" href="../chapters/13.html"><span>13</span>Read and control the training loop</a><a class="chapter-link" href="../chapters/14.html"><span>14</span>Make a run reproducible and recoverable</a><a class="chapter-link" href="../chapters/15.html"><span>15</span>The real memory and compute budget</a><a class="chapter-link" href="../chapters/16.html"><span>16</span>Project make related text easy to retrieve</a><a class="chapter-link" href="../chapters/17.html"><span>17</span>Choose a model by its actual structure and files</a><a class="chapter-link" href="../chapters/18.html"><span>18</span>Teach a small language model one useful behavior</a><a class="chapter-link" href="../chapters/19.html"><span>19</span>Repeat the project with every weight trainable</a><a class="chapter-link" href="../chapters/20.html"><span>20</span>Teach domain conventions without turning weights into a database</a><a class="chapter-link" href="../chapters/21.html"><span>21</span>Make a writing style reproducible without changing the facts</a><a class="chapter-link" href="../chapters/22.html"><span>22</span>Teach a tool decision and a complete tool interaction</a><a class="chapter-link" href="../chapters/23.html"><span>23</span>Study a small typed decision service</a><a class="chapter-link" href="../chapters/24.html"><span>24</span>From a language model to a decision model</a><a class="chapter-link" href="../chapters/25.html"><span>25</span>Add preferences and distillation only after supervised learning works</a><a class="chapter-link" href="../chapters/26.html"><span>26</span>Project teach an image generator a small visual style</a><a class="chapter-link" href="../chapters/27.html"><span>27</span>Speech recognition train a small model to hear your domain</a><a class="chapter-link" href="../chapters/28.html" aria-current="page"><span>28</span>Project build a tiny sound generator from random weights</a><a class="chapter-link" href="../chapters/29.html"><span>29</span>Scale a working experiment toward one billion parameters</a><a class="chapter-link" href="../chapters/30.html"><span>30</span>Understand what a public training process really demonstrates</a><a class="chapter-link" href="../chapters/31.html"><span>31</span>Diagnose failures before making the model larger</a><a class="chapter-link" href="../chapters/32.html"><span>32</span>From small model to small device product</a><a class="chapter-link" href="../chapters/33.html"><span>33</span>Turn a checkpoint into a usable application</a><a class="chapter-link" href="../chapters/34.html"><span>34</span>Design your first independent model</a><a class="chapter-link" href="../chapters/35.html"><span>35</span>Understand larger models using the parts you already know</a><a class="chapter-link" href="../chapters/36.html"><span>36</span>Read MiMo GLM and other architecture families</a><a class="chapter-link" href="../chapters/37.html"><span>37</span>Connect architecture to data memory and deployment</a><a class="chapter-link" href="../chapters/38.html"><span>38</span>Learn from public training projects without copying their assumptions</a><a class="chapter-link" href="../chapters/39.html"><span>39</span>Exercise checkpoints and worked answers</a><a class="chapter-link" href="../chapters/40.html"><span>40</span>Companion guide and verification record</a><a class="chapter-link" href="../chapters/glossary.html"><span>A–Z</span>Glossary with links to explanations</a><a class="chapter-link" href="../chapters/references.html"><span>Ref</span>Works cited</a></nav></aside><main class="prose" id="main"><details class="mobile-toc"><summary>Browse the book</summary><nav aria-label="Book contents"><label class="nav-filter">Find a chapter<input type="search" class="chapter-filter" placeholder="Filter titles" aria-label="Filter chapter titles"></label><a class="chapter-link" href="../chapters/start.html"><span>→</span>Training Your Own Models on One 24 GB GPU</a><a class="chapter-link" href="../chapters/01.html"><span>1</span>Train your first model before learning the whole field</a><a class="chapter-link" href="../chapters/02.html"><span>2</span>Your computer and the training workspace</a><a class="chapter-link" href="../chapters/03.html"><span>3</span>Numbers tensors parameters and learning</a><a class="chapter-link" href="../chapters/04.html"><span>4</span>Project turn four sensor readings into a useful prediction</a><a class="chapter-link" href="../chapters/05.html"><span>5</span>Build a dataset that teaches the job</a><a class="chapter-link" href="../chapters/06.html"><span>6</span>Decide whether the model actually improved</a><a class="chapter-link" href="../chapters/07.html"><span>7</span>Move from feature columns to neural representations</a><a class="chapter-link" href="../chapters/08.html"><span>8</span>Project classify your own small image collection</a><a class="chapter-link" href="../chapters/09.html"><span>9</span>Project locate one object with a box</a><a class="chapter-link" href="../chapters/10.html"><span>10</span>Project predict a mask then extract an outline</a><a class="chapter-link" href="../chapters/11.html"><span>11</span>Train a miniature language model from random weights</a><a class="chapter-link" href="../chapters/12.html"><span>12</span>How a language model becomes a prediction machine</a><a class="chapter-link" href="../chapters/13.html"><span>13</span>Read and control the training loop</a><a class="chapter-link" href="../chapters/14.html"><span>14</span>Make a run reproducible and recoverable</a><a class="chapter-link" href="../chapters/15.html"><span>15</span>The real memory and compute budget</a><a class="chapter-link" href="../chapters/16.html"><span>16</span>Project make related text easy to retrieve</a><a class="chapter-link" href="../chapters/17.html"><span>17</span>Choose a model by its actual structure and files</a><a class="chapter-link" href="../chapters/18.html"><span>18</span>Teach a small language model one useful behavior</a><a class="chapter-link" href="../chapters/19.html"><span>19</span>Repeat the project with every weight trainable</a><a class="chapter-link" href="../chapters/20.html"><span>20</span>Teach domain conventions without turning weights into a database</a><a class="chapter-link" href="../chapters/21.html"><span>21</span>Make a writing style reproducible without changing the facts</a><a class="chapter-link" href="../chapters/22.html"><span>22</span>Teach a tool decision and a complete tool interaction</a><a class="chapter-link" href="../chapters/23.html"><span>23</span>Study a small typed decision service</a><a class="chapter-link" href="../chapters/24.html"><span>24</span>From a language model to a decision model</a><a class="chapter-link" href="../chapters/25.html"><span>25</span>Add preferences and distillation only after supervised learning works</a><a class="chapter-link" href="../chapters/26.html"><span>26</span>Project teach an image generator a small visual style</a><a class="chapter-link" href="../chapters/27.html"><span>27</span>Speech recognition train a small model to hear your domain</a><a class="chapter-link" href="../chapters/28.html" aria-current="page"><span>28</span>Project build a tiny sound generator from random weights</a><a class="chapter-link" href="../chapters/29.html"><span>29</span>Scale a working experiment toward one billion parameters</a><a class="chapter-link" href="../chapters/30.html"><span>30</span>Understand what a public training process really demonstrates</a><a class="chapter-link" href="../chapters/31.html"><span>31</span>Diagnose failures before making the model larger</a><a class="chapter-link" href="../chapters/32.html"><span>32</span>From small model to small device product</a><a class="chapter-link" href="../chapters/33.html"><span>33</span>Turn a checkpoint into a usable application</a><a class="chapter-link" href="../chapters/34.html"><span>34</span>Design your first independent model</a><a class="chapter-link" href="../chapters/35.html"><span>35</span>Understand larger models using the parts you already know</a><a class="chapter-link" href="../chapters/36.html"><span>36</span>Read MiMo GLM and other architecture families</a><a class="chapter-link" href="../chapters/37.html"><span>37</span>Connect architecture to data memory and deployment</a><a class="chapter-link" href="../chapters/38.html"><span>38</span>Learn from public training projects without copying their assumptions</a><a class="chapter-link" href="../chapters/39.html"><span>39</span>Exercise checkpoints and worked answers</a><a class="chapter-link" href="../chapters/40.html"><span>40</span>Companion guide and verification record</a><a class="chapter-link" href="../chapters/glossary.html"><span>A–Z</span>Glossary with links to explanations</a><a class="chapter-link" href="../chapters/references.html"><span>Ref</span>Works cited</a></nav></details><div class="chapter-meta"><span class="eyebrow">Chapter 28 / 40</span><span>21 min read</span></div><article class="manuscript"><a id="project-build-a-tiny-sound-generator-from-random-weights"></a>
+<h1>28
+Project build a tiny sound generator from random weights</h1>
+<p>Audio diffusion generates a waveform, an acoustic representation or a
+compressed audio latent by iterative refinement. Depending on its
+training and conditioning, it can create effects, ambience, music, or
+components of a speech system. A model trained on short sound effects
+should not be treated as a text-to-speech engine. If the task is
+transcription, classification, speaker verification or onset detection,
+choose a model trained for that discriminative or recognition task
+instead.</p>
+<p>Useful application patterns include:</p>
+<ul>
+<li><strong>Prompt plus duration → sound-effect candidates.</strong>
+Return WAV files with explicit sample rate, channels, duration, seed and
+model version. Audition candidates before placing them in a game or
+video; check event timing and tails, not just timbre.</li>
+<li><strong>Class ID → a narrow family of variations.</strong> For
+example, generate alternative UI pings or percussion hits. This is the
+educational project below. A class ID is a finite choice; it does not
+understand arbitrary sentences.</li>
+<li><strong>Existing audio plus a mask or context →
+repair/continuation.</strong> This requires a model explicitly trained
+for the input contract. Preserve timing, inspect transitions and make
+the provenance of generated regions visible. The tiny class-conditioned
+model below does not support this by itself.</li>
+<li><strong>Acoustic features → waveform.</strong> A conditional
+diffusion vocoder can render mel features produced elsewhere. Feature
+extraction parameters and vocoder expectations must match exactly; this
+is not the same input contract as text-to-audio.</li>
+</ul>
+<p>For an application, put generation in a job with a cancel path, store
+the requested duration and model settings, and return a playable file
+rather than an unlabeled tensor. Keep the original source recording and
+generated result separate. Apply a deliberate playback-level policy and
+never begin auditioning unverified output at high volume. Quality gates
+should include clipping, silence, audible artifacts, content adherence
+and consent/provenance. The first project chooses finite sound classes
+and very short mono waveforms so each part of the contract is
+inspectable.</p>
+<p><strong>What you will make.</strong> A small model that generates
+half-second thumps, pings and hisses when given a class label. The
+sounds are synthesized by our own code, not scraped recordings. This is
+a deliberately bounded audio task: it will not produce intelligible
+speech, human-quality music, arbitrary text-to-audio, or realistic room
+acoustics.</p>
+<p><strong>Why this follows the image adapter.</strong> You have already
+seen corrupt-data training and iterative generation. Here the whole
+neural network is trained, so there is no pretrained visual or audio
+knowledge hiding most of the work. The short waveform and simple classes
+make the experiment manageable and the failure modes understandable.</p>
+<a id="audio-project-step-1-listen-to-the-training-problem"></a>
+<h2>Audio
+project step 1 listen to the training problem</h2>
+<p>Return to the companion-script folder before this project. If you
+opened a new terminal, set <code>DIFFUSION_EXAMPLES</code> to the actual
+absolute folder path again. If the image virtual environment is active,
+run <code>deactivate</code> first. Use a separate audio environment so
+its libraries cannot silently replace the image project's
+dependencies.</p>
+<p>The commands below install the CUDA wheel for the intended GPU. For a
+CPU-only smoke test, replace the PyTorch installation line with
+<code>python -m pip install torch==2.7.1 --index-url https://download.pytorch.org/whl/cpu</code>,
+and add <code>--device cpu</code> to training, sampling and evaluation
+commands. CPU training is a mechanics check, not a practical substitute
+for the planned GPU run.</p>
+<pre class="bash"><code>cd "$DIFFUSION_EXAMPLES"
+python3.11 -m venv .venv-audio
+source .venv-audio/bin/activate
+python -m pip install --upgrade pip
+python -m pip install torch==2.7.1 --index-url https://download.pytorch.org/whl/cu126
+python -m pip install numpy==1.26.4 scipy==1.15.3
+python -m pip check
+python make_tiny_sfx.py --out data/tiny_sfx --per-class 800</code></pre>
+<p>You now have 2,400 mono WAV files: 1,920 training, 240 validation and
+240 test. Open several files at low playback volume. You should hear
+clearly different families, with variations in frequency, onset, decay
+and amplitude. If you cannot identify the intended classes reliably, fix
+the data before asking a model to learn them.</p>
+<a id="waveform-sample-rate-channels-and-duration"></a>
+<h3>Waveform sample rate
+channels and duration</h3>
+<p>A <strong>waveform</strong> is a sequence of amplitude samples over
+time. A <strong>sample rate</strong> of 16,000 Hz means 16,000 amplitude
+measurements per second per channel; it is not the number of training
+examples. <strong>Mono</strong> has one channel; stereo has two. For
+this project the tensor shape for one example is <code>[1, 8192]</code>:
+one channel, 8,192 values. Its duration is
+<code>8192 / 16000 = 0.512</code> seconds.</p>
+<p>The file stores signed 16-bit PCM. Loading converts those integers to
+floating-point numbers approximately in <code>[-1, 1]</code>. “16-bit
+audio” describes file quantization; “FP16 training” describes arithmetic
+precision inside the model. They are different decisions.</p>
+<p>Changing only a WAV header from 44.1 kHz to 16 kHz changes playback
+speed and pitch. Proper <strong>resampling</strong> creates a new
+sequence with filtering. Frequencies above half the destination sample
+rate need suitable attenuation to avoid aliasing. Our generated data are
+created directly at 16 kHz, so the first project does not need
+resampling at all.</p>
+<p>Longer audio is a real size increase. A 10-second stereo 44.1 kHz
+waveform contains 882,000 values, about 108 times as many as this mono
+half-second example. It is not a harmless setting change. In an
+attention model the token-cost increase can be even less forgiving.</p>
+<p>One manifest record is:</p>
+<pre class="text"><code>path,label,split,group,source,rights,sha256
+ping/ping_0000.wav,ping,train,ping_0000,synthetic_book_generator_seed_123,generated_locally_no_recorded_people,&lt;actual checksum&gt;</code></pre>
+<p>The actual generator writes the checksum. Preserve source and rights
+fields when replacing synthetic sounds. A real recording session,
+speaker, musician or original long file may define a group. All
+overlapping windows from the same original belong to the same split.
+Otherwise the validation set may be a slightly shifted version of
+training audio.</p>
+<a id="audio-project-step-2-the-smallest-useful-full-training-loop"></a>
+<h2>Audio
+project step 2 the smallest useful full training loop</h2>
+<p>The complete implementation is <code>tiny_audio_ddpm.py</code>. First
+test one update, saving and loading:</p>
+<pre class="bash"><code>python tiny_audio_ddpm.py train --data data/tiny_sfx \
+  --out runs/audio-smoke --steps 1 --batch 1 \
+  --log-every 1 --save-every 1
+python tiny_audio_ddpm.py sample --checkpoint runs/audio-smoke/step-1.pt \
+  --class-name ping --n 1 --out samples/audio-smoke</code></pre>
+<p>The resulting sample should not be expected to sound good. Its
+purpose is to prove that model input and output shapes match, the
+checkpoint is readable and the sampler produces a valid WAV file. A
+CPU-only mechanics check can use <code>--device cpu</code>; sampling
+still invokes the network hundreds of times and may be slow.</p>
+<p>Then run a measured pilot:</p>
+<pre class="bash"><code>python tiny_audio_ddpm.py train --data data/tiny_sfx \
+  --out runs/audio-pilot --steps 200 --batch 4 \
+  --log-every 50 --save-every 200</code></pre>
+<p>Inspect <code>metrics.jsonl</code>, which records training MSE,
+fixed-noise validation MSE, elapsed seconds, and CUDA peak
+allocated/reserved GiB when using CUDA. The code prints the actual
+parameter count. It uses float32 rather than hiding numerical details
+behind a mixed-precision wrapper; the model is deliberately small. On a
+24 GB card this is a conservative candidate workload, not a GPU-memory
+measurement made by the author.</p>
+<p>If it runs cleanly, continue the same run to a 10,000-update
+experiment:</p>
+<pre class="bash"><code>python tiny_audio_ddpm.py train --data data/tiny_sfx \
+  --out runs/audio-pilot --resume runs/audio-pilot/step-200.pt \
+  --steps 10000 --batch 4 --log-every 100 --save-every 1000</code></pre>
+<p>The checkpoint includes network, exponential-moving-average network,
+optimizer, diffusion-step count, random-generator state and a material
+run configuration. Every WAV is checked against its manifest SHA-256
+before use. Resume requires the original output directory, its latest
+saved checkpoint, unchanged data, source code, batch, accumulation,
+learning rate, seed, training device, numerical precision, schedule and
+library versions. Increasing the total step target or changing
+log/checkpoint frequency is allowed, as in this pilot-to-long example.
+To change a material training setting, start a deliberately new
+experiment. CPU inference remains possible for a CUDA-trained
+checkpoint; this strict same-device rule applies to continuation of
+optimization. The initial <code>run.json</code> is retained rather than
+overwritten. Each continuation appends an invocation record with its
+actual optimizer learning rate; metrics include an invocation ID, so
+replayed steps after a crash are distinguishable. A fresh run refuses a
+nonempty output directory. The supplied file format is intended for
+checkpoints you created or trust; it uses
+<code>torch.load(..., weights_only=True)</code> and should not be
+changed to unrestricted loading to silence errors from an unknown
+file.</p>
+<a id="read-the-audio-training-loop-in-ordinary-language"></a>
+<h3>Read the
+audio training loop in ordinary language</h3>
+<p>This time we use DDPM noise prediction, rather than Sana's flow
+target. For clean waveform <code>x0</code>, Gaussian noise
+<code>epsilon</code> and a timestep with retained signal power
+<code>alpha_bar[t]</code>, the corruption is:</p>
+<pre class="text"><code>xt = sqrt(alpha_bar[t]) * x0 + sqrt(1 - alpha_bar[t]) * epsilon
+training target = epsilon</code></pre>
+<p>The square-root factors control signal and noise power. The network
+gets <code>xt</code>, time and class, then estimates the actual added
+noise. This differs from predicting <code>epsilon - z0</code> along
+Sana's straight path. Both produce a generator, but their loss targets
+and reverse updates must not be mixed <a href="../chapters/references.html#source-d01">D01</a>.</p>
+<p>For every optimizer update, the script performs these operations:</p>
+<ol type="1">
+<li>Select a small batch of clean waveforms and class IDs.</li>
+<li>Draw a timestep independently for each waveform.</li>
+<li>Draw fresh Gaussian noise of exactly the same shape as the
+waveform.</li>
+<li>Mix clean audio with noise according to the selected noise
+level.</li>
+<li>Drop the class label for roughly 10% of examples, substituting a
+learned null label.</li>
+<li>Ask the network to predict the added noise.</li>
+<li>Compare prediction and noise with mean squared error, backpropagate,
+clip gradients, and update the weights.</li>
+<li>Update a slowly moving copy of the weights for evaluation and
+sampling.</li>
+</ol>
+<p>The class label is conditioning; the target is still noise. The
+training pairs are not “hiss goes in, ping comes out.” At high noise
+levels all three classes look noise-like. The condition helps identify
+which clean distribution the reverse process should favor.</p>
+<p>The model is a small 1D U-Net: convolutions operate along time
+instead of across image width and height. It reduces the temporal length
+by factors of four three times, processes the compressed features, then
+upsamples while using skip connections. Time and class embeddings modify
+intermediate features. This is an original educational implementation,
+not the released DiffWave architecture. DiffWave is a primary example of
+applying diffusion directly to waveforms <a href="../chapters/references.html#source-d18">D18</a>.</p>
+<a id="why-these-audio-hyperparameters-are-small"></a>
+<h3>Why these audio
+hyperparameters are small</h3>
+<ul>
+<li><strong>8,192 samples:</strong> enough for a short transient but not
+for phrases, melodies or long room reverberation.</li>
+<li><strong>Batch 4:</strong> a conservative initial batch. Reduce to 1
+if you need to diagnose memory; use <code>--accum 4</code> if you want
+roughly the same effective batch afterward.</li>
+<li><strong>Learning rate 0.0002:</strong> a starting value for this
+newly initialized small network. It is not a recommended rate for an
+arbitrary pretrained audio transformer.</li>
+<li><strong>256 diffusion levels:</strong> the discretization used by
+both training and the simple ancestral sampler. It does not mean 256
+optimizer steps.</li>
+<li><strong>Cosine noise schedule:</strong> brings the terminal signal
+close to pure noise while distributing intermediate signal levels. The
+cumulative signal-power curve is converted into per-step noise amounts.
+This follows the schedule idea in Improved DDPM rather than silently
+reusing a thousand-step linear schedule at 256 steps <a href="../chapters/references.html#source-d17">D17</a>.</li>
+<li><strong>0.1 condition dropout:</strong> teaches a null-conditioned
+case, enabling ordinary classifier-free guidance later.</li>
+<li><strong>EMA factor 0.999:</strong> the evaluation copy retains most
+of its previous value and incorporates 0.1% of the current weights each
+update. Early in a short run it lags considerably; do not judge a
+one-step EMA sample as a trained model.</li>
+<li><strong>10,000 updates:</strong> a bounded experiment. At batch 4,
+it is 40,000 waveform presentations, about 20.8 average passes over the
+1,920 training examples. Training uses random sampling with replacement,
+so these are average exposures, not exact complete epochs.</li>
+</ul>
+<p>The code does not include every production optimization. This is
+useful: you can inspect the loss, forward noising and reverse update
+without disentangling several frameworks. If the experiment is too slow,
+measure where time goes before adding mixed precision, compilation,
+larger batches or a different sampler.</p>
+<a id="audio-project-step-3-generate-and-compare-every-class"></a>
+<h2>Audio
+project step 3 generate and compare every class</h2>
+<pre class="bash"><code>for CLASS in thump ping hiss; do
+  python tiny_audio_ddpm.py sample \
+    --checkpoint runs/audio-pilot/step-10000.pt \
+    --class-name "$CLASS" --n 16 --seed 17 --cfg 1 \
+    --out samples/audio-10000
+ done
+python audit_audio.py --data data/tiny_sfx --samples samples/audio-10000
+python tiny_audio_ddpm.py evaluate --data data/tiny_sfx \
+  --checkpoint runs/audio-pilot/step-10000.pt --split val</code></pre>
+<p>The sampler starts with a new noise waveform, evaluates the denoiser
+at decreasing noise levels and applies the matching DDPM posterior
+update. Its final clean estimate is bounded to the waveform range. The
+file writer preserves generated relative amplitude instead of
+peak-normalizing every clip. That makes loudness and clipping defects
+visible in the diagnostics.</p>
+<p>At first, use <code>--cfg 1</code>, which gives the conditional
+prediction without extrapolation under our formula. Then make a separate
+comparison with <code>--cfg 2</code>. Increasing guidance must not be
+the only way to make classes recognizable; it can amplify harshness and
+reduce variation. The two prediction calls used by guidance add
+inference work. They do not retrain the model.</p>
+<p>Listen quietly first. A bad generator can output unexpectedly loud
+noise, tones or clicks. Never judge sound quality only by looking at an
+attractive spectrogram.</p>
+<a id="audio-inference-on-gpu-and-cpu"></a>
+<h3>Audio inference on GPU and
+CPU</h3>
+<p>Training and inference use the same class order, waveform length and
+sample rate. The checkpoint records these values and the cosine schedule
+identity; the loader rejects mismatches. Inference restores the EMA
+weights, creates the matching schedule and changes only the device. Both
+CPU and CUDA paths in this small implementation use float32. There is no
+tokenizer, text encoder, latent codec or vocoder to substitute:
+conditioning is the stored class vocabulary, and the generated tensor
+already is a waveform.</p>
+<p>To generate one sample on CPU:</p>
+<pre class="bash"><code>python tiny_audio_ddpm.py sample \
+  --checkpoint runs/audio-pilot/step-10000.pt \
+  --class-name ping --n 1 --seed 17 --cfg 1 --device cpu \
+  --out samples/audio-cpu</code></pre>
+<p>CPU generation is implemented but still requires 256 network
+evaluations per unguided sample; guidance above 1 uses two predictions
+per step. It is appropriate for a functionality check or occasional
+output, not a claimed real-time engine. GPU and CPU outputs need not be
+numerically identical. The writer clips to the valid range and quantizes
+to mono PCM16 at 16 kHz; it does not resample or peak-normalize each
+sample. Thus the saved half-second duration and relative amplitude
+retain the training contract. For evaluation on either device, the
+real-input loader uses the same PCM-to-float conversion as training.</p>
+<p>The source-code hash and data-manifest hash are stored in training
+checkpoints. Retain the code and manifest that produced a checkpoint.
+Increasing duration, changing class order or swapping the noise schedule
+without retraining is not a portable inference optimization.</p>
+<a id="an-audio-evaluation-sheet-that-answers-the-task"></a>
+<h3>An audio
+evaluation sheet that answers the task</h3>
+<p>For each checkpoint, generate the same class/seed combinations.
+Rename or shuffle files before listening so that knowing the checkpoint
+does not bias your score. Evaluate:</p>
+<ul>
+<li><strong>Class correctness:</strong> can a listener distinguish
+thump, ping and hiss without seeing the filename?</li>
+<li><strong>Signal integrity:</strong> unexpected DC offset,
+near-full-scale samples, clicks at boundaries, persistent noise, abrupt
+truncation or unwanted silence.</li>
+<li><strong>Diversity:</strong> varied valid frequencies, decays and
+onsets within each class. Listen to several outputs in sequence.</li>
+<li><strong>Distribution match:</strong> compare ranges of duration,
+amplitude, spectral centroid and envelope with held-out real/synthetic
+examples. A model that always emits the loudest ping has not captured
+the distribution.</li>
+<li><strong>Memorization:</strong> compare suspicious samples with
+nearest training sounds. The included audit uses log-magnitude
+short-time Fourier features to screen for spectral neighbors. It is a
+review aid, not proof that an output is or is not a copy.</li>
+</ul>
+<p>MSE on newly noised held-out waveforms is a useful learning
+diagnostic, especially with fixed noise and timesteps for checkpoint
+comparisons. It is not a listening score. Waveform MSE between two
+independently generated sounds is usually not a meaningful quality
+metric: a tiny phase shift can produce a large pointwise error while
+sounding similar.</p>
+<p>A <strong>spectrogram</strong> shows energy at frequencies over time,
+computed from short overlapping waveform windows. A <strong>mel
+spectrogram</strong> pools those frequencies on a perceptually motivated
+scale. Both are representations, not automatically playable audio. A
+spectrogram-generating model needs a reconstruction process or vocoder,
+and its settings must match that decoder. A <strong>vocoder</strong>
+turns acoustic features into a waveform; it is another model or
+algorithm to train, acquire and evaluate. Our project uses waveforms
+directly so there is no hidden vocoder.</p>
+<p>For larger text-to-audio work, embedding-based audio
+quality/distribution measures and audio-text similarity may be
+informative when computed with a documented protocol and enough
+examples. They can be fooled by background cues or domain mismatch. Do
+not use a single audio-text similarity score as a substitute for
+checking clicks, intelligibility, rhythmic continuity or whether a
+prompted event actually occurs.</p>
+<p>Only after choosing the checkpoint using validation should you
+run:</p>
+<pre class="bash"><code>python tiny_audio_ddpm.py evaluate --data data/tiny_sfx \
+  --checkpoint runs/audio-pilot/step-10000.pt --split test</code></pre>
+<p>If an earlier checkpoint is better, change the checkpoint path. The
+objective is a defensible selection, not necessarily using the largest
+step number.</p>
+<a id="audio-project-step-4-replace-synthesized-clips-carefully"></a>
+<h2>Audio
+project step 4 replace synthesized clips carefully</h2>
+<p>A safe next experiment is a narrow collection of your own non-vocal
+sounds: keyboard clicks, hand percussion, doors, small tools, or foley
+props. A directory of random songs is a much harder task with different
+rights and temporal structure.</p>
+<p>Start by preparing files offline to the exact format the educational
+loader accepts: mono PCM16 WAV, 16 kHz, exactly 8,192 samples. The
+loader intentionally rejects other formats so that a sample-rate mistake
+cannot silently train the wrong task. Create a new manifest and matching
+class set; editing <code>CLASSES</code> changes the model's label
+vocabulary and makes old checkpoints incompatible.</p>
+<p>For real recordings:</p>
+<ol type="1">
+<li>Keep the original audio unchanged, with provenance and permission
+records.</li>
+<li>Decode to floating point and inspect channel layout. Do not blindly
+average stereo: oppositely phased channels can cancel.</li>
+<li>Resample with an actual resampler. Document the original and final
+sample rates.</li>
+<li>Choose event-centered windows for transients. Random cropping may
+turn a useful sound into silence.</li>
+<li>Pad only when necessary, track true length, and decide whether
+padding should contribute to the loss. The tiny fixed-length example
+assumes every position is part of the example; a serious variable-length
+trainer needs masks or other explicit length handling.</li>
+<li>Remove corrupt and heavily clipped examples. Do not normalize silent
+clips by dividing by a near-zero peak.</li>
+<li>Use sensible common gain or a documented loudness policy. Per-clip
+peak normalization can erase meaningful loudness variation and raise
+background noise.</li>
+<li>Split by original recording/session before extracting windows, and
+listen to the final processed files.</li>
+</ol>
+<p>A half-second mono 16 kHz model has a limited frequency range and
+context. If your target includes cymbal shimmer, stereo space or several
+seconds of decay, acknowledge that this representation is insufficient.
+Choose the correct duration, bandwidth and channel layout before a long
+run, then remeasure memory.</p>
+<p>For text-conditioned datasets, a sidecar or manifest caption should
+describe the actual audible event, texture, environment and sequence,
+not tags copied from an unrelated image. “Three close dry wooden taps,
+with a short pause before the last” conveys more useful structure than
+“excellent quality sound.” Captions cannot make timing controllable if
+the architecture never receives timing information or the examples
+contradict it.</p>
+<a id="voice-music-and-dataset-provenance"></a>
+<h3>Voice music and dataset
+provenance</h3>
+<p>Recorded voices may identify people even when filenames do not.
+Obtain explicit informed permission for the intended voice-model
+training and generation, including scope of use and retention, and be
+able to separate or delete that person's source records when required.
+Owning a recording device or finding a public video does not establish
+permission to clone the speaker. Do not impersonate someone or imply
+that they said generated words.</p>
+<p>For music and effects, the recording, composition, performance and
+dataset license can involve different rights. Record the source URL or
+original filename, creator, exact license/version, attribution
+requirements, acquisition date, transformations and intended use. A
+repository's software license does not automatically license its
+training audio. Model licenses are a separate layer. Inspect the actual
+current terms rather than treating “Creative Commons,” “open,” or
+“research” as interchangeable legal categories.</p>
+<p>Synthetic examples in this project avoid recorded voices and borrowed
+artwork. That makes the first experiment easier to audit; it does not
+establish blanket rights for future datasets or guarantee that every
+pretrained model's outputs are risk-free.</p>
+<a id="after-the-tiny-project-pretrained-audio-adaptation"></a>
+<h2>After the
+tiny project pretrained audio adaptation</h2>
+<p>A realistic text-to-audio system commonly uses a pretrained waveform
+autoencoder, a text encoder and a latent denoiser. This parallels the
+image pipeline, but the compression rate, frequency fidelity, stereo
+handling and long-range temporal structure are different. Before
+adapting the denoiser, test autoencoder reconstruction on your target
+sounds: metallic transients and unusual textures can reveal
+representation failures.</p>
+<p><strong>Stable Audio Open 1.0</strong> is an established official
+option: its card describes text-conditioned stereo generation at 44.1
+kHz up to 47 seconds, using an autoencoder, a T5-based text
+representation and a latent DiT. The official
+<code>stable-audio-tools</code> repository contains training machinery,
+but a model-card inference snippet is not by itself a verified
+fine-tuning configuration <a href="../chapters/references.html#source-d19">D19</a> <a href="../chapters/references.html#source-d21">D21</a>.</p>
+<p><strong>Stable Audio Open Small</strong> is a different model: its
+card specifies up to 11 seconds, stereo 44.1 kHz, and a short distilled
+inference recipe. Do not assume that ordinary noise-prediction
+fine-tuning preserves the behavior of a distilled model or that any LoRA
+trainer supports it. Check the exact model, objective, sampler and
+trainer together <a href="../chapters/references.html#source-d20">D20</a>.</p>
+<p><strong>Stable Audio 3</strong> now has an explicit official
+adaptation path. Its repository distinguishes base checkpoints for
+training from post-trained inference checkpoints, and the inspected
+<code>train_lora.py</code> accepts only base-model names. It supports
+raw audio with same-stem <code>.txt</code> captions or pre-encoded
+latents, and exposes duration, batch, rank, learning rate and local CSV
+logging. This is a genuine current route to investigate, rather than an
+invented Stable Audio Open LoRA flag <a href="../chapters/references.html#source-d22">D22</a> <a href="../chapters/references.html#source-d24">D24</a>.</p>
+<p>A cautious upgrade procedure is:</p>
+<ol type="1">
+<li>Use a separate checkout/environment. Read the official model license
+and download-access terms. Stable Audio 3 Small SFX also names Gemma
+terms for its text-conditioning component; a single umbrella “open
+weights” label is insufficient <a href="../chapters/references.html#source-d26">D26</a>.</li>
+<li>Record the repository commit, model revision and resolved
+<code>uv.lock</code>. The inspected project pins PyTorch 2.7.1; its own
+dependency environment is substantially different from our small script
+<a href="../chapters/references.html#source-d25">D25</a>.</li>
+<li>Inspect <code>python scripts/train_lora.py --help</code> at that
+commit and select one of its actual base-model names. Do not substitute
+an inference model just because its filename is similar.</li>
+<li>Start with a few seconds of audio, batch 1 and a small adapter, and
+keep demonstrations bounded. In the inspected script, the demonstration
+callback uses the model configuration's sample size, which can differ
+from the training crop duration. A short training crop alone is not
+proof that demo generation will be small.</li>
+<li>Run a very short optimization-and-reload test before budgeting a
+full run. Measure preprocessing, first backward pass, optimizer state
+allocation, checkpointing and demonstration peaks separately.</li>
+<li>Compare generated audio against the unchanged base under identical
+prompts, durations, seeds and sampling settings. Test content outside
+your adaptation domain to detect degradation.</li>
+</ol>
+<p><strong>Do not promote uncertain VRAM figures into a
+guarantee.</strong> Stable Audio 3's README labels its table as
+inference measurements on an H200. Its LoRA guide contains lower
+approximate memory entries but also a “medium on about 16 GB” example
+without a uniform duration/batch measurement protocol. These do not
+establish the peak VRAM of your 24 GB training run. The guide confirms
+support, not a benchmark reproduced in this book <a href="../chapters/references.html#source-d22">D22</a> <a href="../chapters/references.html#source-d23">D23</a>. The tiny
+waveform project above is supplied in full precisely so your first audio
+training experiment does not depend on an unverified pretrained-model
+stack.</p>
+<a id="revisit-the-theory-noise-prediction-score-prediction-and-flow-matching"></a>
+<h2>Revisit
+the theory noise prediction score prediction and flow matching</h2>
+<p>Now that you have trained both an adapter and a full small network,
+the terminology should connect to code rather than remain a list of
+names.</p>
+<p><strong>Noise prediction</strong> asks for the particular Gaussian
+noise used to corrupt an example. <strong>Clean-data prediction</strong>
+asks for the original clean tensor. A <strong>velocity
+parameterization</strong>, often named <code>v_prediction</code>,
+predicts a schedule-dependent combination such as
+<code>v = alpha * epsilon - sigma * x0</code>, with
+<code>alpha² + sigma² = 1</code> for this convention. These targets can
+be converted under the corresponding schedule, but their raw outputs are
+not interchangeable. The training target, model output and sampler
+interpretation must agree.</p>
+<p>A <strong>score</strong> is the gradient of the log density of noisy
+data with respect to the noisy tensor. It points toward higher density
+locally; it is not a human quality score. For Gaussian corruption with
+noise standard deviation <code>sigma</code>, the optimal noise predictor
+and score have a known scaling relationship,
+<code>score ≈ -predicted_noise / sigma</code>. Score-based formulations
+describe reverse stochastic or deterministic dynamics using this
+quantity <a href="../chapters/references.html#source-d02">D02</a>.</p>
+<p><strong>Flow matching</strong> trains a time-dependent vector field
+along a chosen probability path. A simple illustrative path from noise
+<code>z</code> at time 0 to data <code>x</code> at time 1 is
+<code>x_t = (1-t)z + t x</code>, with conditional target velocity
+<code>x-z</code>. The network predicts a movement vector and an ODE
+solver follows it. Real systems may use different paths, weightings,
+time parameterizations and coupling schemes. Flow matching includes a
+wider family of paths than this one example; it is related to diffusion
+but is not merely renaming an epsilon-prediction loss <a href="../chapters/references.html#source-d03">D03</a>.</p>
+<p>Be especially careful with the word “velocity”: diffusion
+<code>v_prediction</code> and a rectified-flow vector field can use
+different definitions. Copying a loss from one into the other while
+retaining the original sampler is a silent conceptual bug.</p>
+<p>There are at least three different schedules in a training
+project:</p>
+<ul>
+<li><strong>Learning-rate schedule:</strong> how optimizer step sizes
+change during training.</li>
+<li><strong>Noise/path schedule and timestep sampling:</strong> how
+corrupted examples and targets are constructed and which regions of the
+path receive training weight.</li>
+<li><strong>Sampling schedule:</strong> which noise/time levels and
+solver updates are used to generate an example after training.</li>
+</ul>
+<p>Fewer sampling steps can speed inference without reducing the number
+of learned parameters. It can also reduce quality or require
+distillation. Changing the training noise schedule for a pretrained
+checkpoint is not a free speed optimization; it changes the problem the
+network sees. Start with the base model's objective and schedule, and
+change one component only when you can explain and test the
+consequences.</p>
+<a id="end-of-project-checklist"></a>
+<h2>End of project checklist</h2>
+<p>You are ready to move on when you can answer these questions without
+memorizing a model list:</p>
+<ol type="1">
+<li>What is the shape and numeric range of a clean example?</li>
+<li>What condition is given to the network, and what exact target does
+its loss compare against?</li>
+<li>Which components are frozen and which are optimized?</li>
+<li>What does one optimizer step mean, and how many examples does it
+represent?</li>
+<li>Which noise schedule and sampling rule interpret the network's
+outputs?</li>
+<li>What can the validation experiment establish, and what remains
+untested?</li>
+<li>What are the source rights and consent for the data?</li>
+<li>What is the measured peak memory of the actual configuration,
+including evaluation?</li>
+<li>Can you load a saved artifact in a fresh process and reproduce the
+evaluation setup?</li>
+<li>Does the model do something useful beyond reproducing training
+examples?</li>
+</ol>
+<p>If you can answer those, the next model family is a controlled
+engineering change rather than a new collection of unexplained
+flags.</p>
+<a id="read-a-public-training-process-after-building-your-own"></a>
+<h2>Read a
+public training process after building your own</h2>
+<p>Open the original DDPM repository beside the paper and find the
+functions that construct noisy data, define the prediction target and
+update a sample. Its TensorFlow 1.15/TPU environment is historical; use
+it to understand the published process rather than replacing this book's
+environment with its old requirements <a href="../chapters/references.html#source-d28">D28</a>.
+Then compare the DiffWave repository's waveform and mel-conditioning
+paths with our finite class labels. Trace where its conditioning enters,
+what its preprocessing saves and how inference obtains a waveform <a href="../chapters/references.html#source-d29">D29</a>. The exercise is to identify the
+data-model-loss-sampler contract in real code, not to assume that a
+paper's released configuration will fit your card.</p>
+</article><nav class="pager" aria-label="Adjacent chapters"><a href="27.html"><small>← Previous</small>27  Speech recognition train a small model to hear your domain</a><a href="29.html"><small>Next →</small>29  Scale a working experiment toward one billion parameters</a></nav></main><aside class="on-page"><h2>On this page</h2><a href="#audio-project-step-1-listen-to-the-training-problem">Audio
+project step 1 listen to the training problem</a><a href="#audio-project-step-2-the-smallest-useful-full-training-loop">Audio
+project step 2 the smallest useful full training loop</a><a href="#audio-project-step-3-generate-and-compare-every-class">Audio
+project step 3 generate and compare every class</a><a href="#audio-project-step-4-replace-synthesized-clips-carefully">Audio
+project step 4 replace synthesized clips carefully</a><a href="#after-the-tiny-project-pretrained-audio-adaptation">After the
+tiny project pretrained audio adaptation</a><a href="#revisit-the-theory-noise-prediction-score-prediction-and-flow-matching">Revisit
+the theory noise prediction score prediction and flow matching</a><a href="#end-of-project-checklist">End of project checklist</a><a href="#read-a-public-training-process-after-building-your-own">Read a
+public training process after building your own</a></aside></div><footer class="footer"><div><strong>Training Your Own Models</strong><br>Vibe Authored by Dr.Puma · 2 October 2026</div><div><a href="../chapters/glossary.html">Glossary</a><a href="../chapters/references.html">References</a><a href="https://github.com/MrScripty/training-your-own-models">GitHub ↗</a></div></footer><script src="../assets/site.js" defer></script></body></html>

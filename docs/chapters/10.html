@@ -1,0 +1,346 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f6f3eb"><title>10  Project predict a mask then extract an outline · Training Your Own Models</title><meta name="description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><link rel="canonical" href="https://mrscripty.github.io/training-your-own-models/chapters/10.html"><meta property="og:type" content="website"><meta property="og:site_name" content="Training Your Own Models"><meta property="og:title" content="10  Project predict a mask then extract an outline · Training Your Own Models"><meta property="og:description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><meta property="og:url" content="https://mrscripty.github.io/training-your-own-models/chapters/10.html"><meta property="og:image" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta property="og:image:secure_url" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1280"><meta property="og:image:height" content="640"><meta property="og:image:alt" content="Training Your Own Models. On One 24 GB GPU. Vibe Authored by Dr.Puma. Cream, blue and orange scientific cover artwork."><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="10  Project predict a mask then extract an outline · Training Your Own Models"><meta name="twitter:description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><meta name="twitter:image" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta name="twitter:image:alt" content="Training Your Own Models, Vibe Authored by Dr.Puma"><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/style.css"></head><body><a class="skip" href="#main">Skip to content</a><header class="topbar"><a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true">↗</span><span>Training Your<br>Own Models</span></a><nav aria-label="Main navigation"><a href="../chapters/start.html">Read the book</a><a href="../labs.html">Explore</a><a href="../search.html" aria-label="Search the book">Search</a><a href="../downloads.html">Downloads</a></nav></header><div class="reader"><aside class="sidebar"><nav aria-label="Book contents"><label class="nav-filter">Find a chapter<input type="search" class="chapter-filter" placeholder="Filter titles" aria-label="Filter chapter titles"></label><a class="chapter-link" href="../chapters/start.html"><span>→</span>Training Your Own Models on One 24 GB GPU</a><a class="chapter-link" href="../chapters/01.html"><span>1</span>Train your first model before learning the whole field</a><a class="chapter-link" href="../chapters/02.html"><span>2</span>Your computer and the training workspace</a><a class="chapter-link" href="../chapters/03.html"><span>3</span>Numbers tensors parameters and learning</a><a class="chapter-link" href="../chapters/04.html"><span>4</span>Project turn four sensor readings into a useful prediction</a><a class="chapter-link" href="../chapters/05.html"><span>5</span>Build a dataset that teaches the job</a><a class="chapter-link" href="../chapters/06.html"><span>6</span>Decide whether the model actually improved</a><a class="chapter-link" href="../chapters/07.html"><span>7</span>Move from feature columns to neural representations</a><a class="chapter-link" href="../chapters/08.html"><span>8</span>Project classify your own small image collection</a><a class="chapter-link" href="../chapters/09.html"><span>9</span>Project locate one object with a box</a><a class="chapter-link" href="../chapters/10.html" aria-current="page"><span>10</span>Project predict a mask then extract an outline</a><a class="chapter-link" href="../chapters/11.html"><span>11</span>Train a miniature language model from random weights</a><a class="chapter-link" href="../chapters/12.html"><span>12</span>How a language model becomes a prediction machine</a><a class="chapter-link" href="../chapters/13.html"><span>13</span>Read and control the training loop</a><a class="chapter-link" href="../chapters/14.html"><span>14</span>Make a run reproducible and recoverable</a><a class="chapter-link" href="../chapters/15.html"><span>15</span>The real memory and compute budget</a><a class="chapter-link" href="../chapters/16.html"><span>16</span>Project make related text easy to retrieve</a><a class="chapter-link" href="../chapters/17.html"><span>17</span>Choose a model by its actual structure and files</a><a class="chapter-link" href="../chapters/18.html"><span>18</span>Teach a small language model one useful behavior</a><a class="chapter-link" href="../chapters/19.html"><span>19</span>Repeat the project with every weight trainable</a><a class="chapter-link" href="../chapters/20.html"><span>20</span>Teach domain conventions without turning weights into a database</a><a class="chapter-link" href="../chapters/21.html"><span>21</span>Make a writing style reproducible without changing the facts</a><a class="chapter-link" href="../chapters/22.html"><span>22</span>Teach a tool decision and a complete tool interaction</a><a class="chapter-link" href="../chapters/23.html"><span>23</span>Study a small typed decision service</a><a class="chapter-link" href="../chapters/24.html"><span>24</span>From a language model to a decision model</a><a class="chapter-link" href="../chapters/25.html"><span>25</span>Add preferences and distillation only after supervised learning works</a><a class="chapter-link" href="../chapters/26.html"><span>26</span>Project teach an image generator a small visual style</a><a class="chapter-link" href="../chapters/27.html"><span>27</span>Speech recognition train a small model to hear your domain</a><a class="chapter-link" href="../chapters/28.html"><span>28</span>Project build a tiny sound generator from random weights</a><a class="chapter-link" href="../chapters/29.html"><span>29</span>Scale a working experiment toward one billion parameters</a><a class="chapter-link" href="../chapters/30.html"><span>30</span>Understand what a public training process really demonstrates</a><a class="chapter-link" href="../chapters/31.html"><span>31</span>Diagnose failures before making the model larger</a><a class="chapter-link" href="../chapters/32.html"><span>32</span>From small model to small device product</a><a class="chapter-link" href="../chapters/33.html"><span>33</span>Turn a checkpoint into a usable application</a><a class="chapter-link" href="../chapters/34.html"><span>34</span>Design your first independent model</a><a class="chapter-link" href="../chapters/35.html"><span>35</span>Understand larger models using the parts you already know</a><a class="chapter-link" href="../chapters/36.html"><span>36</span>Read MiMo GLM and other architecture families</a><a class="chapter-link" href="../chapters/37.html"><span>37</span>Connect architecture to data memory and deployment</a><a class="chapter-link" href="../chapters/38.html"><span>38</span>Learn from public training projects without copying their assumptions</a><a class="chapter-link" href="../chapters/39.html"><span>39</span>Exercise checkpoints and worked answers</a><a class="chapter-link" href="../chapters/40.html"><span>40</span>Companion guide and verification record</a><a class="chapter-link" href="../chapters/glossary.html"><span>A–Z</span>Glossary with links to explanations</a><a class="chapter-link" href="../chapters/references.html"><span>Ref</span>Works cited</a></nav></aside><main class="prose" id="main"><details class="mobile-toc"><summary>Browse the book</summary><nav aria-label="Book contents"><label class="nav-filter">Find a chapter<input type="search" class="chapter-filter" placeholder="Filter titles" aria-label="Filter chapter titles"></label><a class="chapter-link" href="../chapters/start.html"><span>→</span>Training Your Own Models on One 24 GB GPU</a><a class="chapter-link" href="../chapters/01.html"><span>1</span>Train your first model before learning the whole field</a><a class="chapter-link" href="../chapters/02.html"><span>2</span>Your computer and the training workspace</a><a class="chapter-link" href="../chapters/03.html"><span>3</span>Numbers tensors parameters and learning</a><a class="chapter-link" href="../chapters/04.html"><span>4</span>Project turn four sensor readings into a useful prediction</a><a class="chapter-link" href="../chapters/05.html"><span>5</span>Build a dataset that teaches the job</a><a class="chapter-link" href="../chapters/06.html"><span>6</span>Decide whether the model actually improved</a><a class="chapter-link" href="../chapters/07.html"><span>7</span>Move from feature columns to neural representations</a><a class="chapter-link" href="../chapters/08.html"><span>8</span>Project classify your own small image collection</a><a class="chapter-link" href="../chapters/09.html"><span>9</span>Project locate one object with a box</a><a class="chapter-link" href="../chapters/10.html" aria-current="page"><span>10</span>Project predict a mask then extract an outline</a><a class="chapter-link" href="../chapters/11.html"><span>11</span>Train a miniature language model from random weights</a><a class="chapter-link" href="../chapters/12.html"><span>12</span>How a language model becomes a prediction machine</a><a class="chapter-link" href="../chapters/13.html"><span>13</span>Read and control the training loop</a><a class="chapter-link" href="../chapters/14.html"><span>14</span>Make a run reproducible and recoverable</a><a class="chapter-link" href="../chapters/15.html"><span>15</span>The real memory and compute budget</a><a class="chapter-link" href="../chapters/16.html"><span>16</span>Project make related text easy to retrieve</a><a class="chapter-link" href="../chapters/17.html"><span>17</span>Choose a model by its actual structure and files</a><a class="chapter-link" href="../chapters/18.html"><span>18</span>Teach a small language model one useful behavior</a><a class="chapter-link" href="../chapters/19.html"><span>19</span>Repeat the project with every weight trainable</a><a class="chapter-link" href="../chapters/20.html"><span>20</span>Teach domain conventions without turning weights into a database</a><a class="chapter-link" href="../chapters/21.html"><span>21</span>Make a writing style reproducible without changing the facts</a><a class="chapter-link" href="../chapters/22.html"><span>22</span>Teach a tool decision and a complete tool interaction</a><a class="chapter-link" href="../chapters/23.html"><span>23</span>Study a small typed decision service</a><a class="chapter-link" href="../chapters/24.html"><span>24</span>From a language model to a decision model</a><a class="chapter-link" href="../chapters/25.html"><span>25</span>Add preferences and distillation only after supervised learning works</a><a class="chapter-link" href="../chapters/26.html"><span>26</span>Project teach an image generator a small visual style</a><a class="chapter-link" href="../chapters/27.html"><span>27</span>Speech recognition train a small model to hear your domain</a><a class="chapter-link" href="../chapters/28.html"><span>28</span>Project build a tiny sound generator from random weights</a><a class="chapter-link" href="../chapters/29.html"><span>29</span>Scale a working experiment toward one billion parameters</a><a class="chapter-link" href="../chapters/30.html"><span>30</span>Understand what a public training process really demonstrates</a><a class="chapter-link" href="../chapters/31.html"><span>31</span>Diagnose failures before making the model larger</a><a class="chapter-link" href="../chapters/32.html"><span>32</span>From small model to small device product</a><a class="chapter-link" href="../chapters/33.html"><span>33</span>Turn a checkpoint into a usable application</a><a class="chapter-link" href="../chapters/34.html"><span>34</span>Design your first independent model</a><a class="chapter-link" href="../chapters/35.html"><span>35</span>Understand larger models using the parts you already know</a><a class="chapter-link" href="../chapters/36.html"><span>36</span>Read MiMo GLM and other architecture families</a><a class="chapter-link" href="../chapters/37.html"><span>37</span>Connect architecture to data memory and deployment</a><a class="chapter-link" href="../chapters/38.html"><span>38</span>Learn from public training projects without copying their assumptions</a><a class="chapter-link" href="../chapters/39.html"><span>39</span>Exercise checkpoints and worked answers</a><a class="chapter-link" href="../chapters/40.html"><span>40</span>Companion guide and verification record</a><a class="chapter-link" href="../chapters/glossary.html"><span>A–Z</span>Glossary with links to explanations</a><a class="chapter-link" href="../chapters/references.html"><span>Ref</span>Works cited</a></nav></details><div class="chapter-meta"><span class="eyebrow">Chapter 10 / 40</span><span>10 min read</span></div><article class="manuscript"><a id="project-predict-a-mask-then-extract-an-outline"></a>
+<h1>10 Project
+predict a mask then extract an outline</h1>
+<p>Now the input is still an image, but “what kind of image is this?” is
+no longer enough. You want the foreground's shape. The output must
+retain spatial information.</p>
+<p>The synthetic exercise draws irregular foreground regions, occasional
+holes, varying illumination, and noise. It deliberately supplies a
+learnable color cue. Open a fresh terminal at the companion root, run
+<code>cd examples/tiny-ml</code>, and activate the neural environment
+you checked in the image-classification project. If you skipped that
+project, complete its explicit installation block first. Then run:</p>
+<pre class="bash"><code>python make_shapes.py --out data/shapes --size 128 \
+  --train 256 --val 64 --test 64 --seed 42
+python mask_metrics.py
+python train_segmenter.py --data data/shapes --out runs/segmenter-smoke \
+  --epochs 1 --batch-size 2 --width 16 --device cpu
+# After checking save and reload, use a new longer run:
+python train_segmenter.py --data data/shapes --out runs/segmenter \
+  --epochs 15 --batch-size 8 --width 16 --device cpu</code></pre>
+<p>For an installed compatible GPU environment, replace the last
+command's device with <code>--device cuda --amp</code>. Begin with a
+one-epoch smoke run and inspect the saved images before spending time on
+a longer run. The generator and mask-metric unit checks were executed on
+CPU; the neural training command was not executed in the authoring
+environment.</p>
+<a id="classification-detection-semantic-segmentation-and-instances"></a>
+<h2>Classification
+detection semantic segmentation and instances</h2>
+<p>These outputs are not interchangeable:</p>
+<ul>
+<li><strong>Classification:</strong> one label or set of labels for the
+whole image</li>
+<li><strong>Object detection:</strong> an object class and a bounding
+box for each detected object; it localizes objects approximately</li>
+<li><strong>Semantic segmentation:</strong> a class at each pixel; two
+touching objects of the same class may form one region</li>
+<li><strong>Instance segmentation:</strong> a separate mask and identity
+for each object, even when neighboring objects share a class</li>
+<li><strong>Contour extraction:</strong> convert an existing region
+boundary into a curve or polygon; this is often postprocessing of a
+mask</li>
+</ul>
+<p>A box says where an object lies, not which pixels belong to it. It
+cannot recover an exact silhouette by itself. Semantic segmentation also
+cannot guarantee separate identities for touching foreground objects. If
+you need to count overlapping identical parts, label instances and
+choose an instance-capable model or a justified separation
+procedure.</p>
+<p>The exercise is binary semantic segmentation: target values are
+background 0 and foreground 1. Files encode them as 0 and 255, but the
+dataset loader converts them back to floating-point 0 and 1. Each
+batch's target shape is <code>[batch, 1, height, width]</code>. The
+one-channel model output has the same shape, containing logits rather
+than binary masks.</p>
+<a id="a-tiny-encoder-decoder-with-skip-connections"></a>
+<h2>A tiny encoder
+decoder with skip connections</h2>
+<p><code>TinyUNet</code> downsamples twice to learn broader context,
+then upsamples twice to return to the original resolution. At each
+upsampling stage, a <strong>skip connection</strong> concatenates
+higher-resolution features from the encoder. These features help retain
+location information lost during downsampling. This is a deliberately
+smaller U-Net-like teaching network, not a reimplementation of the
+original paper's exact architecture. <a href="../chapters/references.html#source-m07">M07</a></p>
+<p>At width 16, the channel progression is 16, 32, and 64.
+<code>--width</code> scales that capacity. Doubling width roughly
+quadruples many convolution weight and compute costs because both input
+and output channel counts grow. Increasing image width and height
+together increases pixel count quadratically. Training memory also
+stores intermediate activations and gradients; a small parameter count
+does not imply small high-resolution activation memory.</p>
+<p>Bilinear upsampling uses <code>align_corners=False</code>, and its
+target size comes from the corresponding skip tensor. This makes tensor
+sizes match rather than relying on a fragile assumption about division
+rounding. The final 1 × 1 convolution maps features to one foreground
+logit per pixel.</p>
+<a id="what-a-segmentation-architecture-needs-from-its-labels"></a>
+<h2>What a
+segmentation architecture needs from its labels</h2>
+<p>The scratch network needs aligned pixel labels, not only image-level
+class names or bounding boxes. A box-supervised task requires a
+different method; pretending every pixel inside a box is foreground
+teaches a different target. A pretrained encoder can reduce the amount
+of visual feature learning, but it does not supply your target's
+boundary convention. Fine structures, touching objects, holes, and
+difficult backgrounds must appear in labeled examples if they matter in
+deployment.</p>
+<p>More layers may enlarge the receptive field but cannot recover
+omitted labels or distinguish instances when all instance identities
+were collapsed into one semantic mask. Higher resolution is often a more
+appropriate experiment than a much deeper network when the failure is a
+narrow edge. Estimate data needs through learning curves and labeled
+error slices, with independent scenes as the counting unit.</p>
+<a id="choose-a-pixel-loss-that-does-not-reward-empty-predictions"></a>
+<h2>Choose a
+pixel loss that does not reward empty predictions</h2>
+<p>The example adds two terms:</p>
+<pre class="text"><code>loss = binary_cross_entropy_with_logits(logits, target)
+       + mean_per_image_soft_dice_loss</code></pre>
+<p>Binary cross entropy penalizes incorrect pixel-level probability
+assignments. Its logits variant combines the sigmoid and logarithmic
+calculation stably. <strong>Soft Dice</strong> uses probabilities to
+measure foreground overlap before thresholding. In the script:</p>
+<pre class="text"><code>Dice = (2 × sum(probability × target) + 1)
+       / (sum(probability) + sum(target) + 1)
+Dice loss = 1 − Dice</code></pre>
+<p>The sums are per image, then averaged. The smoothing constant 1 keeps
+empty and tiny regions numerically manageable. It influences the loss
+more strongly for tiny objects; it is not a physical constant. Equal
+weighting of BCE and Dice is a starting choice. If foreground is
+extremely rare, compare suitable class weighting or focal-style
+objectives, but judge the result on actual foreground and boundary
+errors rather than the loss value alone. <a href="../chapters/references.html#source-m05">M05</a></p>
+<p>An all-background prediction can have excellent pixel accuracy when
+only 1% of pixels are foreground. Always include foreground overlap,
+empty-image behavior, and small-object errors. Include genuinely empty
+images in training and evaluation if the deployed camera will encounter
+them.</p>
+<p>For K mutually exclusive semantic classes, use K logits per pixel and
+integer target maps with values from zero to K−1. For overlapping
+labels, use independent binary channels instead. If some pixels are
+unlabeled, mask them out of the loss; do not silently relabel them as
+background.</p>
+<a id="keep-image-transformations-and-targets-aligned"></a>
+<h2>Keep image
+transformations and targets aligned</h2>
+<p>The dataset applies the same random horizontal flip and 90-degree
+rotation to image and mask. A transform applied to only one of them
+creates supervision for the wrong pixels. If you resize a categorical
+mask, nearest-neighbor interpolation preserves class IDs; bilinear
+interpolation invents fractional labels unless that soft-label behavior
+is explicitly intended. For an image, continuous interpolation is
+usually appropriate.</p>
+<p>Real segmentation datasets require a labeling convention: does an
+outline include anti-aliased edge pixels, shadows, transparent regions,
+holes, and occluded sections? Are you labeling visible extent or
+inferred complete shape? Two annotators may disagree even when both are
+careful. Measure disagreement on a small independently labeled subset
+before demanding one-pixel model accuracy.</p>
+<p>Split by original scene, video, subject, or acquisition session
+before making patches. Crops from the same original image should not
+leak across train and test. A giant image cut into thousands of adjacent
+tiles is not thousands of independent scenes.</p>
+<a id="high-iou-is-not-exact-outline-accuracy"></a>
+<h2>High IoU is not exact
+outline accuracy</h2>
+<p><strong>Intersection over union</strong>, or IoU, is overlapping
+foreground area divided by foreground area covered by either prediction
+or target. It is useful, but it is area-based. A one-pixel displacement
+of a 96 × 96 square gives IoU about 0.979. In an executed metric check,
+its exact-pixel boundary F1 was only 0.50. An application that needs a
+precise cutting outline should not call that “98% correct boundary.”</p>
+<p>The supplied <code>mask_metrics.py</code> reports both IoU and a
+symmetric boundary F1. It extracts boundary pixels, measures how many
+predicted boundary pixels fall within a tolerance of a true boundary,
+measures the reverse fraction, and combines the two. Tolerance 2 means a
+two-pixel neighborhood under a square, Chebyshev-distance structuring
+element. This is not Euclidean distance and is not the paper's
+separately defined Boundary IoU metric. Both-empty masks score one;
+exactly one empty mask scores zero. Report that convention because
+datasets with many empty images can inflate mean scores. The Boundary
+IoU paper explains why boundary-sensitive evaluation complements
+regional overlap. <a href="../chapters/references.html#source-m08">M08</a></p>
+<p>For a real outline product, report error in the coordinate system
+that matters: original-image pixels, millimeters after calibration, or
+another physical unit. Add boundary distance summaries, small-object
+stratification, and checks for disconnected fragments and holes when
+relevant. A large region can dominate an aggregate metric while a narrow
+critical feature is missing.</p>
+<a id="from-probability-map-to-polygon"></a>
+<h2>From probability map to
+polygon</h2>
+<p>After training:</p>
+<pre class="bash"><code>python predict_segmenter.py runs/segmenter/best.pt my_image.png \
+  --out prediction --threshold 0.5
+python contours.py prediction/mask.png --epsilon-px 1 \
+  --out prediction/contours.json</code></pre>
+<p>Add <code>--device cuda</code> to <code>predict_segmenter.py</code>
+for GPU inference; the default is CPU. Both load the same state
+dictionary and saved width, convert the image to RGB float32 divided by
+255, run evaluation/inference mode, sigmoid the output, and apply the
+requested threshold. The CUDA path moves inputs and weights to CUDA and
+returns the mask to CPU for PNG writing. Both inference paths remain
+FP32; the training <code>--amp</code> setting does not force inference
+precision.</p>
+<p>The first script writes a probability visualization and binary mask
+at original input resolution. It does not resize the image. Very large
+images can therefore need substantial RAM; use a validated tiled
+strategy if required. The contour script requires OpenCV and was
+syntax-checked only; it is an optional downstream recipe, not a
+dependency of training.</p>
+<p>Contour extraction uses <code>RETR_TREE</code> so the hierarchy can
+preserve holes, and <code>CHAIN_APPROX_NONE</code> before optional
+polygon simplification. Each output contour stores x/y points plus
+parent/child hierarchy. <code>epsilon-px=1</code> is the polygon
+approximation tolerance in mask pixels. It controls geometric
+simplification, not the neural model's uncertainty. Raising it removes
+vertices and can erase important details. <code>RETR_EXTERNAL</code>
+would discard interior holes. <a href="../chapters/references.html#source-m09">M09</a></p>
+<p>A practical pipeline is probability map → threshold → optional
+validated cleanup → contour extraction → optional simplification →
+coordinate mapping. Threshold, minimum component size, hole filling, and
+smoothing are model-selection choices: tune them on validation, then
+freeze them before final testing. Blind hole filling is wrong for
+objects that genuinely have holes. Keeping only the largest component is
+wrong when multiple objects are legitimate.</p>
+<p>If you resized, padded, or cropped an image, undo that geometry when
+returning the contour to the caller. A perfect mask in the wrong
+coordinate system is still a wrong result. A segmentation network also
+cannot restore subpixel detail that was destroyed by a low-resolution
+input.</p>
+<a id="understand-the-segmentation-controls-and-artifacts"></a>
+<h2>Understand
+the segmentation controls and artifacts</h2>
+<div aria-label="Scrollable table" class="table-scroll" role="region" tabindex="0"><table>
+<thead>
+<tr class="header">
+<th>Control</th>
+<th style="text-align: right;">Default</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>generator <code>--size</code></td>
+<td style="text-align: right;">128</td>
+<td>Image side length; at least 32, divisible by four</td>
+</tr>
+<tr class="even">
+<td>generator <code>--train/--val/--test</code></td>
+<td style="text-align: right;">256/64/64</td>
+<td>Independently generated examples in each split</td>
+</tr>
+<tr class="odd">
+<td><code>--seed</code></td>
+<td style="text-align: right;">42</td>
+<td>Reproducible generator or training random state</td>
+</tr>
+<tr class="even">
+<td>training <code>--epochs</code></td>
+<td style="text-align: right;">15</td>
+<td>Maximum passes through training images</td>
+</tr>
+<tr class="odd">
+<td><code>--batch-size</code></td>
+<td style="text-align: right;">8</td>
+<td>Images contributing to each update; lower first if out of
+memory</td>
+</tr>
+<tr class="even">
+<td><code>--width</code></td>
+<td style="text-align: right;">16</td>
+<td>Base number of feature channels</td>
+</tr>
+<tr class="odd">
+<td><code>--lr</code></td>
+<td style="text-align: right;">0.001</td>
+<td>AdamW learning rate</td>
+</tr>
+<tr class="even">
+<td><code>--weight-decay</code></td>
+<td style="text-align: right;">0.0001</td>
+<td>Decoupled weight regularization</td>
+</tr>
+<tr class="odd">
+<td><code>--device</code></td>
+<td style="text-align: right;">cpu</td>
+<td>CPU or CUDA execution</td>
+</tr>
+<tr class="even">
+<td><code>--amp</code></td>
+<td style="text-align: right;">off</td>
+<td>CUDA FP16 autocast plus gradient scaling; supported only with CUDA
+here</td>
+</tr>
+<tr class="odd">
+<td>inference <code>--threshold</code></td>
+<td style="text-align: right;">0.5</td>
+<td>Probability cutoff for foreground</td>
+</tr>
+<tr class="even">
+<td>contour <code>--epsilon-px</code></td>
+<td style="text-align: right;">1</td>
+<td>Polygon simplification tolerance</td>
+</tr>
+</tbody>
+</table></div>
+<p>The loop zeroes gradients, runs the forward pass, computes the loss,
+backpropagates, clips the gradient norm to 1, and updates with AdamW. In
+AMP mode, it unscales gradients before clipping. PyTorch's current
+namespace for the pinned API is <code>torch.amp.GradScaler</code>; the
+example avoids older deprecated <code>torch.cuda.amp</code> calls. <a href="../chapters/references.html#source-m12">M12</a></p>
+<p><code>best.pt</code> holds the lowest-validation-loss state
+dictionary and network width. <code>metrics.json</code> contains
+configuration, parameter count, training history, test metrics, elapsed
+time, and peak allocated CUDA memory if applicable. Eight
+input/probability/prediction/target groups support visual inspection.
+Allocated CUDA memory is not the complete device footprint; compare it
+with system-level observations before claiming a fit.</p>
+<p>Training examples are procedural and much simpler than real camera
+data. Their purpose is to expose tensor shapes, paired transforms,
+output decoding, and evaluation. A strong synthetic score does not
+establish robustness to new lenses, reflections, clutter, textures,
+occlusion, or unknown classes.</p>
+<a id="when-a-detector-or-pretrained-segmenter-is-the-right-next-step"></a>
+<h2>When
+a detector or pretrained segmenter is the right next step</h2>
+<p>If your requested output is a class and rectangle for each object,
+use a detector. If it is a separate mask for each object, use an
+instance segmenter. The official torchvision detection tutorial
+demonstrates the dataset contract and fine-tuning a Mask R-CNN model;
+its example dataset is educational, not an automatic commercial data
+license. <a href="../chapters/references.html#source-m10">M10</a></p>
+<p>A custom detection sample returns an image and a target dictionary
+containing boxes in <code>[x_min, y_min, x_max, y_max]</code> format,
+labels, and, for instance segmentation, per-instance masks. Preserve the
+model's conventions: torchvision detectors reserve label zero for
+background. Empty scenes need valid empty tensors, not invented
+background boxes. Detection training usually returns a dictionary of
+losses; sum the intended components and inspect each rather than
+assuming it behaves like image classification.</p>
+<p><code>fasterrcnn_mobilenet_v3_large_320_fpn</code> is an official
+compact-backbone option for a box-detection experiment. The API is
+versioned and the detection module's stability warnings should be read
+before production use. Start with a very small batch and representative
+resolutions on a 24 GB GPU; proposal counts and image content affect
+memory. Review pretrained-weight terms independently of the permissive
+torchvision source-code license. <a href="../chapters/references.html#source-m25">M25</a> <a href="../chapters/references.html#source-m11">M11</a></p>
+<p>Detection average precision depends on class, confidence ranking, and
+matching at specified IoU thresholds. AP at IoU 0.5 is not equivalent to
+COCO-style AP averaged over multiple thresholds, and neither proves
+exact edges. For segmentation transfer learning, a small pretrained
+encoder can be useful; retaining its normalization and adapting its
+output head is essential. Compare a frozen encoder, partial fine-tuning,
+and the scratch baseline before increasing model size.</p>
+</article><nav class="pager" aria-label="Adjacent chapters"><a href="09.html"><small>← Previous</small>9  Project locate one object with a box</a><a href="11.html"><small>Next →</small>11  Train a miniature language model from random weights</a></nav></main><aside class="on-page"><h2>On this page</h2><a href="#classification-detection-semantic-segmentation-and-instances">Classification
+detection semantic segmentation and instances</a><a href="#a-tiny-encoder-decoder-with-skip-connections">A tiny encoder
+decoder with skip connections</a><a href="#what-a-segmentation-architecture-needs-from-its-labels">What a
+segmentation architecture needs from its labels</a><a href="#choose-a-pixel-loss-that-does-not-reward-empty-predictions">Choose a
+pixel loss that does not reward empty predictions</a><a href="#keep-image-transformations-and-targets-aligned">Keep image
+transformations and targets aligned</a><a href="#high-iou-is-not-exact-outline-accuracy">High IoU is not exact
+outline accuracy</a><a href="#from-probability-map-to-polygon">From probability map to
+polygon</a><a href="#understand-the-segmentation-controls-and-artifacts">Understand
+the segmentation controls and artifacts</a><a href="#when-a-detector-or-pretrained-segmenter-is-the-right-next-step">When
+a detector or pretrained segmenter is the right next step</a></aside></div><footer class="footer"><div><strong>Training Your Own Models</strong><br>Vibe Authored by Dr.Puma · 2 October 2026</div><div><a href="../chapters/glossary.html">Glossary</a><a href="../chapters/references.html">References</a><a href="https://github.com/MrScripty/training-your-own-models">GitHub ↗</a></div></footer><script src="../assets/site.js" defer></script></body></html>

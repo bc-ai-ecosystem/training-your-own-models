@@ -1,0 +1,363 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f6f3eb"><title>35  Understand larger models using the parts you already know · Training Your Own Models</title><meta name="description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><link rel="canonical" href="https://mrscripty.github.io/training-your-own-models/chapters/35.html"><meta property="og:type" content="website"><meta property="og:site_name" content="Training Your Own Models"><meta property="og:title" content="35  Understand larger models using the parts you already know · Training Your Own Models"><meta property="og:description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><meta property="og:url" content="https://mrscripty.github.io/training-your-own-models/chapters/35.html"><meta property="og:image" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta property="og:image:secure_url" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1280"><meta property="og:image:height" content="640"><meta property="og:image:alt" content="Training Your Own Models. On One 24 GB GPU. Vibe Authored by Dr.Puma. Cream, blue and orange scientific cover artwork."><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="35  Understand larger models using the parts you already know · Training Your Own Models"><meta name="twitter:description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><meta name="twitter:image" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta name="twitter:image:alt" content="Training Your Own Models, Vibe Authored by Dr.Puma"><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/style.css"></head><body><a class="skip" href="#main">Skip to content</a><header class="topbar"><a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true">↗</span><span>Training Your<br>Own Models</span></a><nav aria-label="Main navigation"><a href="../chapters/start.html">Read the book</a><a href="../labs.html">Explore</a><a href="../search.html" aria-label="Search the book">Search</a><a href="../downloads.html">Downloads</a></nav></header><div class="reader"><aside class="sidebar"><nav aria-label="Book contents"><label class="nav-filter">Find a chapter<input type="search" class="chapter-filter" placeholder="Filter titles" aria-label="Filter chapter titles"></label><a class="chapter-link" href="../chapters/start.html"><span>→</span>Training Your Own Models on One 24 GB GPU</a><a class="chapter-link" href="../chapters/01.html"><span>1</span>Train your first model before learning the whole field</a><a class="chapter-link" href="../chapters/02.html"><span>2</span>Your computer and the training workspace</a><a class="chapter-link" href="../chapters/03.html"><span>3</span>Numbers tensors parameters and learning</a><a class="chapter-link" href="../chapters/04.html"><span>4</span>Project turn four sensor readings into a useful prediction</a><a class="chapter-link" href="../chapters/05.html"><span>5</span>Build a dataset that teaches the job</a><a class="chapter-link" href="../chapters/06.html"><span>6</span>Decide whether the model actually improved</a><a class="chapter-link" href="../chapters/07.html"><span>7</span>Move from feature columns to neural representations</a><a class="chapter-link" href="../chapters/08.html"><span>8</span>Project classify your own small image collection</a><a class="chapter-link" href="../chapters/09.html"><span>9</span>Project locate one object with a box</a><a class="chapter-link" href="../chapters/10.html"><span>10</span>Project predict a mask then extract an outline</a><a class="chapter-link" href="../chapters/11.html"><span>11</span>Train a miniature language model from random weights</a><a class="chapter-link" href="../chapters/12.html"><span>12</span>How a language model becomes a prediction machine</a><a class="chapter-link" href="../chapters/13.html"><span>13</span>Read and control the training loop</a><a class="chapter-link" href="../chapters/14.html"><span>14</span>Make a run reproducible and recoverable</a><a class="chapter-link" href="../chapters/15.html"><span>15</span>The real memory and compute budget</a><a class="chapter-link" href="../chapters/16.html"><span>16</span>Project make related text easy to retrieve</a><a class="chapter-link" href="../chapters/17.html"><span>17</span>Choose a model by its actual structure and files</a><a class="chapter-link" href="../chapters/18.html"><span>18</span>Teach a small language model one useful behavior</a><a class="chapter-link" href="../chapters/19.html"><span>19</span>Repeat the project with every weight trainable</a><a class="chapter-link" href="../chapters/20.html"><span>20</span>Teach domain conventions without turning weights into a database</a><a class="chapter-link" href="../chapters/21.html"><span>21</span>Make a writing style reproducible without changing the facts</a><a class="chapter-link" href="../chapters/22.html"><span>22</span>Teach a tool decision and a complete tool interaction</a><a class="chapter-link" href="../chapters/23.html"><span>23</span>Study a small typed decision service</a><a class="chapter-link" href="../chapters/24.html"><span>24</span>From a language model to a decision model</a><a class="chapter-link" href="../chapters/25.html"><span>25</span>Add preferences and distillation only after supervised learning works</a><a class="chapter-link" href="../chapters/26.html"><span>26</span>Project teach an image generator a small visual style</a><a class="chapter-link" href="../chapters/27.html"><span>27</span>Speech recognition train a small model to hear your domain</a><a class="chapter-link" href="../chapters/28.html"><span>28</span>Project build a tiny sound generator from random weights</a><a class="chapter-link" href="../chapters/29.html"><span>29</span>Scale a working experiment toward one billion parameters</a><a class="chapter-link" href="../chapters/30.html"><span>30</span>Understand what a public training process really demonstrates</a><a class="chapter-link" href="../chapters/31.html"><span>31</span>Diagnose failures before making the model larger</a><a class="chapter-link" href="../chapters/32.html"><span>32</span>From small model to small device product</a><a class="chapter-link" href="../chapters/33.html"><span>33</span>Turn a checkpoint into a usable application</a><a class="chapter-link" href="../chapters/34.html"><span>34</span>Design your first independent model</a><a class="chapter-link" href="../chapters/35.html" aria-current="page"><span>35</span>Understand larger models using the parts you already know</a><a class="chapter-link" href="../chapters/36.html"><span>36</span>Read MiMo GLM and other architecture families</a><a class="chapter-link" href="../chapters/37.html"><span>37</span>Connect architecture to data memory and deployment</a><a class="chapter-link" href="../chapters/38.html"><span>38</span>Learn from public training projects without copying their assumptions</a><a class="chapter-link" href="../chapters/39.html"><span>39</span>Exercise checkpoints and worked answers</a><a class="chapter-link" href="../chapters/40.html"><span>40</span>Companion guide and verification record</a><a class="chapter-link" href="../chapters/glossary.html"><span>A–Z</span>Glossary with links to explanations</a><a class="chapter-link" href="../chapters/references.html"><span>Ref</span>Works cited</a></nav></aside><main class="prose" id="main"><details class="mobile-toc"><summary>Browse the book</summary><nav aria-label="Book contents"><label class="nav-filter">Find a chapter<input type="search" class="chapter-filter" placeholder="Filter titles" aria-label="Filter chapter titles"></label><a class="chapter-link" href="../chapters/start.html"><span>→</span>Training Your Own Models on One 24 GB GPU</a><a class="chapter-link" href="../chapters/01.html"><span>1</span>Train your first model before learning the whole field</a><a class="chapter-link" href="../chapters/02.html"><span>2</span>Your computer and the training workspace</a><a class="chapter-link" href="../chapters/03.html"><span>3</span>Numbers tensors parameters and learning</a><a class="chapter-link" href="../chapters/04.html"><span>4</span>Project turn four sensor readings into a useful prediction</a><a class="chapter-link" href="../chapters/05.html"><span>5</span>Build a dataset that teaches the job</a><a class="chapter-link" href="../chapters/06.html"><span>6</span>Decide whether the model actually improved</a><a class="chapter-link" href="../chapters/07.html"><span>7</span>Move from feature columns to neural representations</a><a class="chapter-link" href="../chapters/08.html"><span>8</span>Project classify your own small image collection</a><a class="chapter-link" href="../chapters/09.html"><span>9</span>Project locate one object with a box</a><a class="chapter-link" href="../chapters/10.html"><span>10</span>Project predict a mask then extract an outline</a><a class="chapter-link" href="../chapters/11.html"><span>11</span>Train a miniature language model from random weights</a><a class="chapter-link" href="../chapters/12.html"><span>12</span>How a language model becomes a prediction machine</a><a class="chapter-link" href="../chapters/13.html"><span>13</span>Read and control the training loop</a><a class="chapter-link" href="../chapters/14.html"><span>14</span>Make a run reproducible and recoverable</a><a class="chapter-link" href="../chapters/15.html"><span>15</span>The real memory and compute budget</a><a class="chapter-link" href="../chapters/16.html"><span>16</span>Project make related text easy to retrieve</a><a class="chapter-link" href="../chapters/17.html"><span>17</span>Choose a model by its actual structure and files</a><a class="chapter-link" href="../chapters/18.html"><span>18</span>Teach a small language model one useful behavior</a><a class="chapter-link" href="../chapters/19.html"><span>19</span>Repeat the project with every weight trainable</a><a class="chapter-link" href="../chapters/20.html"><span>20</span>Teach domain conventions without turning weights into a database</a><a class="chapter-link" href="../chapters/21.html"><span>21</span>Make a writing style reproducible without changing the facts</a><a class="chapter-link" href="../chapters/22.html"><span>22</span>Teach a tool decision and a complete tool interaction</a><a class="chapter-link" href="../chapters/23.html"><span>23</span>Study a small typed decision service</a><a class="chapter-link" href="../chapters/24.html"><span>24</span>From a language model to a decision model</a><a class="chapter-link" href="../chapters/25.html"><span>25</span>Add preferences and distillation only after supervised learning works</a><a class="chapter-link" href="../chapters/26.html"><span>26</span>Project teach an image generator a small visual style</a><a class="chapter-link" href="../chapters/27.html"><span>27</span>Speech recognition train a small model to hear your domain</a><a class="chapter-link" href="../chapters/28.html"><span>28</span>Project build a tiny sound generator from random weights</a><a class="chapter-link" href="../chapters/29.html"><span>29</span>Scale a working experiment toward one billion parameters</a><a class="chapter-link" href="../chapters/30.html"><span>30</span>Understand what a public training process really demonstrates</a><a class="chapter-link" href="../chapters/31.html"><span>31</span>Diagnose failures before making the model larger</a><a class="chapter-link" href="../chapters/32.html"><span>32</span>From small model to small device product</a><a class="chapter-link" href="../chapters/33.html"><span>33</span>Turn a checkpoint into a usable application</a><a class="chapter-link" href="../chapters/34.html"><span>34</span>Design your first independent model</a><a class="chapter-link" href="../chapters/35.html" aria-current="page"><span>35</span>Understand larger models using the parts you already know</a><a class="chapter-link" href="../chapters/36.html"><span>36</span>Read MiMo GLM and other architecture families</a><a class="chapter-link" href="../chapters/37.html"><span>37</span>Connect architecture to data memory and deployment</a><a class="chapter-link" href="../chapters/38.html"><span>38</span>Learn from public training projects without copying their assumptions</a><a class="chapter-link" href="../chapters/39.html"><span>39</span>Exercise checkpoints and worked answers</a><a class="chapter-link" href="../chapters/40.html"><span>40</span>Companion guide and verification record</a><a class="chapter-link" href="../chapters/glossary.html"><span>A–Z</span>Glossary with links to explanations</a><a class="chapter-link" href="../chapters/references.html"><span>Ref</span>Works cited</a></nav></details><div class="chapter-meta"><span class="eyebrow">Chapter 35 / 40</span><span>14 min read</span></div><article class="manuscript"><a id="understand-larger-models-using-the-parts-you-already-know"></a>
+<h1>35
+Understand larger models using the parts you already know</h1>
+<p>You can understand a model that needs a data center without owning
+that data center. The earlier projects taught the pieces: a classifier
+turned features into scores; an embedding model learned representations;
+the tiny transformer mixed information across tokens; the image and
+audio projects turned signals into tensors; fine-tuning changed a useful
+behavior. Large architectures reorganize and scale these pieces.</p>
+<p>This final part is an architectural study, after the practical
+projects. Its purpose is to help you read a model card, follow a
+configuration file, predict what data a design needs, and recognize the
+system cost hidden behind a model name. The hands-on training path
+remains centered on models below one billion parameters, with a broader
+adaptation and comparison range up to three billion unique parameters;
+any rounded boundary model must be identified explicitly. The
+hundreds-of-billions-parameter examples here are not one-card training
+recipes. No large checkpoint was downloaded or executed for this
+book.</p>
+<p>The case studies were checked against primary model cards,
+configuration files and implementation code on 2 October 2026. They
+include the requested MiMo-V2.6 and GLM-5.3-Flash, plus selected
+reference designs that make their choices easier to understand. “Flash,”
+“active,” “hybrid” and “open” each need a precise explanation. None is a
+hardware budget by itself.</p>
+<a id="six-questions-that-make-a-model-card-readable"></a>
+<h2>Six questions
+that make a model card readable</h2>
+<p>For any unfamiliar model, ask these questions in order.</p>
+<ol type="1">
+<li><strong>What enters and leaves?</strong> Text tokens, image patches,
+audio features or several kinds of input? Does the model output text,
+images, audio or action tokens? An audio input encoder does not imply a
+speech output decoder.</li>
+<li><strong>What mixes positions?</strong> Full attention, local
+attention, recurrent state, convolution or a layer-by-layer
+mixture?</li>
+<li><strong>What transforms each position?</strong> One feed-forward
+network or a routed selection of experts?</li>
+<li><strong>What persists during inference?</strong> Weights, a growing
+key/value cache, a fixed-size recurrent state, a short convolution
+buffer or several of these?</li>
+<li><strong>How was it taught?</strong> Prediction targets,
+demonstrations, preferences, teacher outputs, interactive rewards, and
+the data formats that make those losses meaningful?</li>
+<li><strong>What did the release actually include?</strong> Weights,
+tokenizer, processor, inference code, training code, data descriptions,
+data itself and an applicable license are separate items.</li>
+</ol>
+<p>The architecture is a program with learned numbers. The checkpoint is
+a particular set of those numbers. A training recipe explains how they
+were obtained. The serving system implements that program efficiently
+for requests. When one item is public, do not assume that the others are
+complete.</p>
+<a id="the-feed-forward-network-becomes-a-mixture-of-experts"></a>
+<h2>The feed
+forward network becomes a mixture of experts</h2>
+<p>In the tiny transformer, each token representation passes through the
+same feed-forward network, or FFN. This is a <strong>dense</strong>
+model in the usual language-model sense: the same major parameter blocks
+participate for every token. An embedding lookup still selects rows, so
+“dense” is a convention about the network, not a claim that every scalar
+is read on every operation.</p>
+<p>A <strong>mixture of experts</strong>, or MoE, replaces some FFNs
+with several FFNs and a learned <strong>router</strong>. An expert is a
+neural subnetwork. It is not a separate chatbot, a human specialist or
+necessarily an interpretable topic module. The router reads a token's
+current representation, computes expert scores and chooses a small
+number of experts for that token. The selected outputs are combined. The
+next token can choose differently. DeepSeek's released inference
+implementation makes this separation visible in its <code>Gate</code>,
+<code>Expert</code> and <code>MoE</code> classes. <a href="../chapters/references.html#source-a01">A01</a></p>
+<p>An original four-expert example is small enough to do by hand.
+Suppose the scores for one token are 0.50, 0.30, 0.15 and 0.05. With
+<strong>top-2 routing</strong>, choose experts 0 and 1. Normalize their
+selected scores by their sum, 0.80. Their mixing weights become 0.625
+and 0.375. If their output vectors are [2, 0] and [0, 4], the result
+is:</p>
+<pre class="text"><code>0.625 × [2, 0] + 0.375 × [0, 4] = [1.25, 1.50]
+
+                         ┌─ expert 0 ── [2, 0] ── ×0.625 ─┐
+token → router → top 2 ──┤                                ├→ sum
+                         └─ expert 1 ── [0, 4] ── ×0.375 ─┘
+
+experts 2 and 3 exist, but do not process this token</code></pre>
+<p>This example starts with supplied scores; it does not implement the
+production router's learned logits, sigmoid, balancing corrections or
+grouped selection. Those choices differ across models. In MiMo's
+inspected code, a correction bias affects expert selection, while the
+combination weights come from the uncorrected selected scores. “Take
+softmax and select a few experts” is therefore an incomplete description
+of that checkpoint. <a href="../chapters/references.html#source-a02">A02</a></p>
+<p>For a batch with B sequences, T tokens per sequence and
+representation width D, the input shape is [B, T, D]. Flattening the
+first two axes gives [B×T, D]. With E experts, routing scores have shape
+[B×T, E]. Selecting k experts gives expert indices and mixing weights of
+shape [B×T, k]. A dispatch operation gathers the appropriate token rows
+for each expert; a combine operation returns their weighted outputs to
+the original token positions.</p>
+<p><strong>Resident parameters</strong> are the weights that must be
+stored somewhere for the complete model to be available. <strong>Active
+parameters</strong> describe the subset used in a particular token's
+forward computation under the publisher's counting convention. Active
+count is useful for rough compute reasoning. Resident count determines
+the basic weight-storage requirement. Neither includes all cache,
+activation, workspace or communication costs.</p>
+<p>Imagine eight experts with ten million parameters each and a
+ten-million-parameter shared backbone. Top-2 routing gives 90 million
+resident parameters and roughly 30 million active parameters for a
+token. Across many different tokens, every expert can be used. Keeping
+only the two most recently selected experts on a GPU requires fetching
+missing experts later; it does not delete the other sixty million expert
+parameters.</p>
+<p>A <strong>shared expert</strong> is used for every token in addition
+to the routed experts. Some designs include one; MiMo-V2.6's routed FFNs
+do not. A shared expert can learn broadly useful transformations while
+routed experts supply extra conditional capacity. This is a design
+choice to test, not proof that the router has discovered neat human
+categories.</p>
+<a id="what-changes-during-moe-training"></a>
+<h3>What changes during MoE
+training</h3>
+<p>The input data can still be ordinary next-token language-modeling
+sequences. It does not require a human-written “send this word to expert
+7” label. The training problem gains an allocation problem: some experts
+may receive too many tokens while others receive too few. <strong>Load
+balancing</strong> encourages usable distribution. A capacity limit can
+bound how many token assignments an expert processes, but dropping or
+rerouting overflow changes the learning calculation. A release's actual
+method matters.</p>
+<p>Log the expert assignment histogram, the fraction of overflowed
+assignments if applicable, and loss by data source. The global average
+loss can hide a collapsed router or an expert that rarely trains. A
+token-level top-k choice is discrete; a training implementation must
+specify how gradients, balancing signals and routing decisions interact.
+Reading an inference forward pass alone does not establish a correct
+training algorithm.</p>
+<p>On a GPU, a small dense matrix operation can be easier to execute
+efficiently than many tiny expert operations. On a CPU, dispatch and
+irregular memory access also cost time. MoE improves a particular
+balance of capacity and computation; it does not guarantee that every
+small batch runs faster than a smaller dense model.</p>
+<a id="attention-choices-solve-different-problems"></a>
+<h2>Attention choices
+solve different problems</h2>
+<p><strong>Attention</strong> compares a query with available keys and
+uses the resulting weights to combine values. Queries and keys answer
+“which positions should influence this position?” Values supply the
+information to combine. The earlier transformer already did this with a
+causal mask so future tokens were unavailable.</p>
+<a id="full-attention-and-the-growing-cache"></a>
+<h3>Full attention and the
+growing cache</h3>
+<p>During a prompt's <strong>prefill</strong>, many token positions are
+processed together. In ordinary full causal attention, position t may
+attend to all previous positions and itself. The total number of allowed
+position pairs grows approximately with T squared. During
+<strong>decode</strong>, the model typically generates one new token per
+active sequence. A <strong>KV cache</strong> stores prior key and value
+vectors so that the entire prefix does not have to be projected again at
+every step. The new query still has to interact with the relevant cached
+history.</p>
+<p>A cache is working memory for a particular request. It is not newly
+learned model knowledge. A longer cache consumes memory even when the
+weights never change. An application's stored conversation history, a
+search index and the neural KV cache are three different kinds of
+memory.</p>
+<p><strong>Multi-head attention</strong> has several query/key/value
+heads. <strong>Multi-query attention</strong>, or MQA, shares one
+key/value head across query heads. <strong>Grouped-query
+attention</strong>, or GQA, shares key/value heads within groups of
+query heads. Reducing KV heads reduces cached vectors and memory
+traffic; query heads can remain numerous. This sharing is part of the
+learned architecture, so arbitrarily changing a pretrained checkpoint's
+head counts is not a lossless runtime setting. <a href="../chapters/references.html#source-a03">A03</a></p>
+<p>For a teaching configuration with 12 layers, 4 KV heads, 64 key
+coordinates, 64 value coordinates, 4,096 tokens, batch size 1 and two
+bytes per cached number:</p>
+<pre class="text"><code>cache bytes = batch × tokens × layers × KV heads
+              × (key width + value width) × bytes per number
+
+            = 1 × 4096 × 12 × 4 × (64 + 64) × 2
+            = 50,331,648 bytes = 48 MiB</code></pre>
+<p>Using eight KV heads would double this payload to 96 MiB. This is
+cache arithmetic, not total inference memory. Allocator overhead,
+temporary tensors and the weights still exist.</p>
+<a id="sliding-windows-and-selected-positions"></a>
+<h3>Sliding windows and
+selected positions</h3>
+<p><strong>Sliding-window attention</strong>, or SWA, keeps each query's
+direct attention local to a recent window. With a fixed window W, local
+attention's position-pair count grows approximately with T×W instead of
+T squared. An efficient rolling cache can discard older keys and values
+for that local layer. Several local layers expand the effective
+receptive field, and occasional global layers allow direct long-range
+communication.</p>
+<p><strong>Sparse attention</strong> instead selects a subset of
+historical positions or blocks according to a pattern or learned
+selection mechanism. A learned indexer can look for useful distant
+positions that a fixed recent window would omit. It also introduces its
+own scores, state, computation and possible selection errors. Sparse
+attention is sparsity over token connections; MoE is sparsity over
+parameter blocks. A model can use both.</p>
+<p>Sparse selection does not automatically create a constant-size cache.
+If a future query might select any past position, the system needs a way
+to retain, compress or recover the corresponding information. Masking
+most entries of a dense attention matrix is mathematically sparse, but
+can still allocate and compute like a dense implementation.
+Hardware-efficient sparsity requires a suitable kernel and cache
+layout.</p>
+<a id="latent-attention-and-exact-kernels"></a>
+<h3>Latent attention and exact
+kernels</h3>
+<p><strong>Multi-head latent attention</strong>, or MLA, stores a
+compressed representation from which the needed key/value information
+can be obtained. Think of retaining a shorter learned code instead of a
+separate full key and value for every head. DeepSeek-V3's official
+inference code exposes both a direct path and an optimized absorbed
+path; the latter maintains latent and positional caches. The choice of
+algebra and kernel is part of whether the memory advantage appears in
+practice. The <code>kv_lora_rank</code> configuration name here
+describes a low-rank attention projection, not a separately trained user
+LoRA adapter. <a href="../chapters/references.html#source-a01">A01</a> <a href="../chapters/references.html#source-a04">A04</a></p>
+<p><strong>FlashAttention</strong> addresses a different level of the
+system. It computes exact attention with a more memory-efficient
+execution order, tiling the work to reduce transfers between memory
+levels. It does not, merely by being enabled, replace full attention
+with a local window or a recurrent state, and it does not make the
+full-attention pair count linear. Numerical rounding can differ between
+kernels. <a href="../chapters/references.html#source-a05">A05</a></p>
+<p>This distinction is useful when a model called “Flash” is discussed.
+A product suffix, FlashAttention, an FP8 checkpoint and a sparse
+attention pattern are four separate facts to verify.</p>
+<a id="recurrent-state-and-short-convolution"></a>
+<h2>Recurrent state and short
+convolution</h2>
+<p>A <strong>recurrent</strong> layer updates a state as tokens arrive.
+In a simplified notation, the new state is a function of the previous
+state and current token. The output reads from the new state. Its state
+can remain fixed in size as the sequence grows. That is a strong
+inference-memory advantage, but the state must summarize history rather
+than preserve arbitrary past token vectors separately.</p>
+<p>A <strong>state-space model</strong>, or SSM, gives that state update
+a structured parameterization. Modern selective SSMs make parts of the
+update depend on the input. Mamba-2 is a useful reference because the
+original paper relates structured state-space computations to attention
+and explains efficient sequence algorithms. Its implementation contains
+convolution state, SSM state and separate sequence-processing and
+single-step paths. It is not simply a conventional transformer with a
+smaller KV cache. <a href="../chapters/references.html#source-a06">A06</a> <a href="../chapters/references.html#source-a07">A07</a></p>
+<p><strong>Linear attention</strong> refers to sequence-mixing
+formulations whose main sequence cost avoids the usual quadratic
+attention matrix. Some can be expressed as recurrent matrix updates. A
+schematic associative state is a matrix S that accumulates associations
+between key and value vectors; a query reads from S. A delta-rule-style
+update can correct an existing association rather than only add another
+one. Gating controls what is retained or forgotten. Kimi Delta
+Attention, or KDA, develops a finer-grained gated update in this family.
+<a href="../chapters/references.html#source-a08">A08</a></p>
+<p>This is a conceptual analogy, not the exact KDA equation. Do not
+substitute a simple sum of key/value outer products for a production KDA
+implementation and call the result equivalent. Normalization, gates,
+delta corrections, chunking and numerical precision all matter.</p>
+<p>A <strong>short convolution</strong> mixes a token with a fixed
+number of nearby positions using learned filters. A causal width-four
+convolution needs only a short recent buffer for incremental operation.
+A <strong>depthwise</strong> convolution applies a filter independently
+within each channel rather than combining every channel with every other
+one at that step. Other projections can still mix channels. Short
+convolution offers useful local processing; by itself it does not create
+unbounded long-range recall.</p>
+<p>The earlier Liquid LFM comparison belongs here conceptually: its
+inspected small models mix gated short-convolution blocks with attention
+blocks. The brand name “Liquid” does not mean that every checkpoint uses
+the same continuous-time differential-equation architecture. Read the
+specific LFM version's block list. That small-model chapter supplies the
+practical comparison; there is no second large-model Liquid training
+recipe here.</p>
+<a id="why-hybrid-models-keep-some-attention"></a>
+<h3>Why hybrid models keep
+some attention</h3>
+<p>A <strong>hybrid</strong> model alternates or combines different
+sequence mixers. It may let recurrent or local layers do most of the
+repeated work while a smaller number of attention layers retain direct
+access to the past.</p>
+<pre class="text"><code>Example A   local → local → local → global → repeat
+Example B   recurrent → recurrent → recurrent → sparse attention → repeat
+Example C   short convolution → attention → short convolution → …</code></pre>
+<p>These diagrams are patterns, not interchangeable checkpoint
+definitions. They explain the design tension: compressed history can be
+cheap; direct retrieval from history can be precise; both consume
+compute and memory in different ways. Evaluate a hybrid on exact
+copying, retrieval among distractors, long-range dependencies and the
+real downstream task. A short next-token loss alone cannot establish
+useful long-context behavior.</p>
+<a id="multimodality-connects-encoders-to-a-sequence-model"></a>
+<h2>Multimodality
+connects encoders to a sequence model</h2>
+<p>A <strong>modality</strong> is a kind of input or output, such as
+text, images or audio. An <strong>encoder</strong> converts a signal
+into learned features. A <strong>projector</strong> maps those features
+to the representation width expected by the language backbone. A
+vision-language model can then process text embeddings and projected
+visual features in a common sequence.</p>
+<pre class="text"><code>text → tokenizer → token embeddings ──────────┐
+image/video → patch encoder → projector ──────┼→ sequence backbone → output head
+audio → audio encoder → projector ────────────┘</code></pre>
+<p>This original diagram describes a common input-fusion pattern. It
+does not imply that every family has all three branches or that one
+output head generates every modality. For image or audio generation,
+inspect the decoder, output representation and training objective
+separately.</p>
+<p>A <strong>patch</strong> is a small image region or a group of nearby
+signal elements treated as one input unit. A 224×224 image divided into
+16×16 patches gives 14×14 = 196 spatial patches before extra tokens or
+merging. A <strong>patch merger</strong> combines neighboring features
+to reduce the sequence length passed downstream. That reduces cost but
+also changes the detail the language backbone receives.</p>
+<p>Video adds a time axis. Frame sampling, patch size, temporal grouping
+and image resizing all affect the token budget. Audio may be represented
+as spectrogram features, learned continuous embeddings or discrete codec
+tokens. A <strong>residual vector quantizer</strong>, or RVQ, uses
+several codebooks in sequence to represent a signal with discrete
+indices. Those indices are learned audio representations, not ordinary
+word-token IDs.</p>
+<p>The correct data follows the desired cross-modal relationship. Image
+captioning needs image/text pairs. Document reading needs legible visual
+text and corresponding answers. Speech recognition needs audio with
+transcripts. Sound-event description needs audio with grounded
+descriptions. A pile of unpaired images and a pile of unrelated
+sentences does not, by itself, specify which sentence describes which
+image. Check alignment, time stamps, resolution, consent and splits by
+source recording or document.</p>
+<a id="residual-connections-can-have-several-streams"></a>
+<h2>Residual
+connections can have several streams</h2>
+<p>In the tiny transformer, a residual connection added a sublayer's
+output back to its input. <strong>Hyper-connections</strong> generalize
+the route through a deep network by maintaining several representation
+streams and learning how to read, write and mix them.
+<strong>Manifold-constrained hyper-connections</strong>, or mHC,
+constrain the stream-mixing operation to help control signal growth. The
+original work uses approximately doubly stochastic mixing: nonnegative
+entries with rows and columns normalized toward sums of one. <a href="../chapters/references.html#source-a09">A09</a></p>
+<p>For intuition, two scalar streams [2, 10] mixed by rows [0.75, 0.25]
+and [0.25, 0.75] become [4, 8]. Their mean is preserved. That example
+explains constrained mixing; it does not prove the stability or
+usefulness of an entire trained network. The sublayers add learned
+information too, and finite normalization iterations introduce numerical
+approximation.</p>
+<p>With four streams, a representation changes from [B, T, D] to [B, T,
+4, D]. The sublayer can still operate on a collapsed [B, T, D]
+representation, then write back into the streams. More streams increase
+activation and memory-traffic costs even if the main expert width stays
+the same. GLM-5.3-Flash provides a concrete inspected implementation
+below.</p>
+</article><nav class="pager" aria-label="Adjacent chapters"><a href="34.html"><small>← Previous</small>34  Design your first independent model</a><a href="36.html"><small>Next →</small>36  Read MiMo GLM and other architecture families</a></nav></main><aside class="on-page"><h2>On this page</h2><a href="#six-questions-that-make-a-model-card-readable">Six questions
+that make a model card readable</a><a href="#the-feed-forward-network-becomes-a-mixture-of-experts">The feed
+forward network becomes a mixture of experts</a><a href="#attention-choices-solve-different-problems">Attention choices
+solve different problems</a><a href="#recurrent-state-and-short-convolution">Recurrent state and short
+convolution</a><a href="#multimodality-connects-encoders-to-a-sequence-model">Multimodality
+connects encoders to a sequence model</a><a href="#residual-connections-can-have-several-streams">Residual
+connections can have several streams</a></aside></div><footer class="footer"><div><strong>Training Your Own Models</strong><br>Vibe Authored by Dr.Puma · 2 October 2026</div><div><a href="../chapters/glossary.html">Glossary</a><a href="../chapters/references.html">References</a><a href="https://github.com/MrScripty/training-your-own-models">GitHub ↗</a></div></footer><script src="../assets/site.js" defer></script></body></html>

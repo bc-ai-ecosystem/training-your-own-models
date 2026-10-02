@@ -1,0 +1,116 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f6f3eb"><title>34  Design your first independent model · Training Your Own Models</title><meta name="description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><link rel="canonical" href="https://mrscripty.github.io/training-your-own-models/chapters/34.html"><meta property="og:type" content="website"><meta property="og:site_name" content="Training Your Own Models"><meta property="og:title" content="34  Design your first independent model · Training Your Own Models"><meta property="og:description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><meta property="og:url" content="https://mrscripty.github.io/training-your-own-models/chapters/34.html"><meta property="og:image" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta property="og:image:secure_url" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1280"><meta property="og:image:height" content="640"><meta property="og:image:alt" content="Training Your Own Models. On One 24 GB GPU. Vibe Authored by Dr.Puma. Cream, blue and orange scientific cover artwork."><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="34  Design your first independent model · Training Your Own Models"><meta name="twitter:description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><meta name="twitter:image" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta name="twitter:image:alt" content="Training Your Own Models, Vibe Authored by Dr.Puma"><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/style.css"></head><body><a class="skip" href="#main">Skip to content</a><header class="topbar"><a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true">↗</span><span>Training Your<br>Own Models</span></a><nav aria-label="Main navigation"><a href="../chapters/start.html">Read the book</a><a href="../labs.html">Explore</a><a href="../search.html" aria-label="Search the book">Search</a><a href="../downloads.html">Downloads</a></nav></header><div class="reader"><aside class="sidebar"><nav aria-label="Book contents"><label class="nav-filter">Find a chapter<input type="search" class="chapter-filter" placeholder="Filter titles" aria-label="Filter chapter titles"></label><a class="chapter-link" href="../chapters/start.html"><span>→</span>Training Your Own Models on One 24 GB GPU</a><a class="chapter-link" href="../chapters/01.html"><span>1</span>Train your first model before learning the whole field</a><a class="chapter-link" href="../chapters/02.html"><span>2</span>Your computer and the training workspace</a><a class="chapter-link" href="../chapters/03.html"><span>3</span>Numbers tensors parameters and learning</a><a class="chapter-link" href="../chapters/04.html"><span>4</span>Project turn four sensor readings into a useful prediction</a><a class="chapter-link" href="../chapters/05.html"><span>5</span>Build a dataset that teaches the job</a><a class="chapter-link" href="../chapters/06.html"><span>6</span>Decide whether the model actually improved</a><a class="chapter-link" href="../chapters/07.html"><span>7</span>Move from feature columns to neural representations</a><a class="chapter-link" href="../chapters/08.html"><span>8</span>Project classify your own small image collection</a><a class="chapter-link" href="../chapters/09.html"><span>9</span>Project locate one object with a box</a><a class="chapter-link" href="../chapters/10.html"><span>10</span>Project predict a mask then extract an outline</a><a class="chapter-link" href="../chapters/11.html"><span>11</span>Train a miniature language model from random weights</a><a class="chapter-link" href="../chapters/12.html"><span>12</span>How a language model becomes a prediction machine</a><a class="chapter-link" href="../chapters/13.html"><span>13</span>Read and control the training loop</a><a class="chapter-link" href="../chapters/14.html"><span>14</span>Make a run reproducible and recoverable</a><a class="chapter-link" href="../chapters/15.html"><span>15</span>The real memory and compute budget</a><a class="chapter-link" href="../chapters/16.html"><span>16</span>Project make related text easy to retrieve</a><a class="chapter-link" href="../chapters/17.html"><span>17</span>Choose a model by its actual structure and files</a><a class="chapter-link" href="../chapters/18.html"><span>18</span>Teach a small language model one useful behavior</a><a class="chapter-link" href="../chapters/19.html"><span>19</span>Repeat the project with every weight trainable</a><a class="chapter-link" href="../chapters/20.html"><span>20</span>Teach domain conventions without turning weights into a database</a><a class="chapter-link" href="../chapters/21.html"><span>21</span>Make a writing style reproducible without changing the facts</a><a class="chapter-link" href="../chapters/22.html"><span>22</span>Teach a tool decision and a complete tool interaction</a><a class="chapter-link" href="../chapters/23.html"><span>23</span>Study a small typed decision service</a><a class="chapter-link" href="../chapters/24.html"><span>24</span>From a language model to a decision model</a><a class="chapter-link" href="../chapters/25.html"><span>25</span>Add preferences and distillation only after supervised learning works</a><a class="chapter-link" href="../chapters/26.html"><span>26</span>Project teach an image generator a small visual style</a><a class="chapter-link" href="../chapters/27.html"><span>27</span>Speech recognition train a small model to hear your domain</a><a class="chapter-link" href="../chapters/28.html"><span>28</span>Project build a tiny sound generator from random weights</a><a class="chapter-link" href="../chapters/29.html"><span>29</span>Scale a working experiment toward one billion parameters</a><a class="chapter-link" href="../chapters/30.html"><span>30</span>Understand what a public training process really demonstrates</a><a class="chapter-link" href="../chapters/31.html"><span>31</span>Diagnose failures before making the model larger</a><a class="chapter-link" href="../chapters/32.html"><span>32</span>From small model to small device product</a><a class="chapter-link" href="../chapters/33.html"><span>33</span>Turn a checkpoint into a usable application</a><a class="chapter-link" href="../chapters/34.html" aria-current="page"><span>34</span>Design your first independent model</a><a class="chapter-link" href="../chapters/35.html"><span>35</span>Understand larger models using the parts you already know</a><a class="chapter-link" href="../chapters/36.html"><span>36</span>Read MiMo GLM and other architecture families</a><a class="chapter-link" href="../chapters/37.html"><span>37</span>Connect architecture to data memory and deployment</a><a class="chapter-link" href="../chapters/38.html"><span>38</span>Learn from public training projects without copying their assumptions</a><a class="chapter-link" href="../chapters/39.html"><span>39</span>Exercise checkpoints and worked answers</a><a class="chapter-link" href="../chapters/40.html"><span>40</span>Companion guide and verification record</a><a class="chapter-link" href="../chapters/glossary.html"><span>A–Z</span>Glossary with links to explanations</a><a class="chapter-link" href="../chapters/references.html"><span>Ref</span>Works cited</a></nav></aside><main class="prose" id="main"><details class="mobile-toc"><summary>Browse the book</summary><nav aria-label="Book contents"><label class="nav-filter">Find a chapter<input type="search" class="chapter-filter" placeholder="Filter titles" aria-label="Filter chapter titles"></label><a class="chapter-link" href="../chapters/start.html"><span>→</span>Training Your Own Models on One 24 GB GPU</a><a class="chapter-link" href="../chapters/01.html"><span>1</span>Train your first model before learning the whole field</a><a class="chapter-link" href="../chapters/02.html"><span>2</span>Your computer and the training workspace</a><a class="chapter-link" href="../chapters/03.html"><span>3</span>Numbers tensors parameters and learning</a><a class="chapter-link" href="../chapters/04.html"><span>4</span>Project turn four sensor readings into a useful prediction</a><a class="chapter-link" href="../chapters/05.html"><span>5</span>Build a dataset that teaches the job</a><a class="chapter-link" href="../chapters/06.html"><span>6</span>Decide whether the model actually improved</a><a class="chapter-link" href="../chapters/07.html"><span>7</span>Move from feature columns to neural representations</a><a class="chapter-link" href="../chapters/08.html"><span>8</span>Project classify your own small image collection</a><a class="chapter-link" href="../chapters/09.html"><span>9</span>Project locate one object with a box</a><a class="chapter-link" href="../chapters/10.html"><span>10</span>Project predict a mask then extract an outline</a><a class="chapter-link" href="../chapters/11.html"><span>11</span>Train a miniature language model from random weights</a><a class="chapter-link" href="../chapters/12.html"><span>12</span>How a language model becomes a prediction machine</a><a class="chapter-link" href="../chapters/13.html"><span>13</span>Read and control the training loop</a><a class="chapter-link" href="../chapters/14.html"><span>14</span>Make a run reproducible and recoverable</a><a class="chapter-link" href="../chapters/15.html"><span>15</span>The real memory and compute budget</a><a class="chapter-link" href="../chapters/16.html"><span>16</span>Project make related text easy to retrieve</a><a class="chapter-link" href="../chapters/17.html"><span>17</span>Choose a model by its actual structure and files</a><a class="chapter-link" href="../chapters/18.html"><span>18</span>Teach a small language model one useful behavior</a><a class="chapter-link" href="../chapters/19.html"><span>19</span>Repeat the project with every weight trainable</a><a class="chapter-link" href="../chapters/20.html"><span>20</span>Teach domain conventions without turning weights into a database</a><a class="chapter-link" href="../chapters/21.html"><span>21</span>Make a writing style reproducible without changing the facts</a><a class="chapter-link" href="../chapters/22.html"><span>22</span>Teach a tool decision and a complete tool interaction</a><a class="chapter-link" href="../chapters/23.html"><span>23</span>Study a small typed decision service</a><a class="chapter-link" href="../chapters/24.html"><span>24</span>From a language model to a decision model</a><a class="chapter-link" href="../chapters/25.html"><span>25</span>Add preferences and distillation only after supervised learning works</a><a class="chapter-link" href="../chapters/26.html"><span>26</span>Project teach an image generator a small visual style</a><a class="chapter-link" href="../chapters/27.html"><span>27</span>Speech recognition train a small model to hear your domain</a><a class="chapter-link" href="../chapters/28.html"><span>28</span>Project build a tiny sound generator from random weights</a><a class="chapter-link" href="../chapters/29.html"><span>29</span>Scale a working experiment toward one billion parameters</a><a class="chapter-link" href="../chapters/30.html"><span>30</span>Understand what a public training process really demonstrates</a><a class="chapter-link" href="../chapters/31.html"><span>31</span>Diagnose failures before making the model larger</a><a class="chapter-link" href="../chapters/32.html"><span>32</span>From small model to small device product</a><a class="chapter-link" href="../chapters/33.html"><span>33</span>Turn a checkpoint into a usable application</a><a class="chapter-link" href="../chapters/34.html" aria-current="page"><span>34</span>Design your first independent model</a><a class="chapter-link" href="../chapters/35.html"><span>35</span>Understand larger models using the parts you already know</a><a class="chapter-link" href="../chapters/36.html"><span>36</span>Read MiMo GLM and other architecture families</a><a class="chapter-link" href="../chapters/37.html"><span>37</span>Connect architecture to data memory and deployment</a><a class="chapter-link" href="../chapters/38.html"><span>38</span>Learn from public training projects without copying their assumptions</a><a class="chapter-link" href="../chapters/39.html"><span>39</span>Exercise checkpoints and worked answers</a><a class="chapter-link" href="../chapters/40.html"><span>40</span>Companion guide and verification record</a><a class="chapter-link" href="../chapters/glossary.html"><span>A–Z</span>Glossary with links to explanations</a><a class="chapter-link" href="../chapters/references.html"><span>Ref</span>Works cited</a></nav></details><div class="chapter-meta"><span class="eyebrow">Chapter 34 / 40</span><span>4 min read</span></div><article class="manuscript"><a id="design-your-first-independent-model"></a>
+<h1>34 Design your first
+independent model</h1>
+<a id="choose-a-job-small-enough-to-verify"></a>
+<h2>Choose a job small enough
+to verify</h2>
+<p>Your first independent project should have a clear input, a limited
+output, examples you can lawfully use, and a result you can inspect.
+'Build my own general assistant' contains too many unresolved tasks.
+'Route these five kinds of repair request and abstain when unsure' is a
+project. 'Answer questions from this manual with a cited passage' is a
+project. 'Generate short original machine sound effects in three
+categories' is a project.</p>
+<p>Choose a task where you can obtain correct targets and where mistakes
+are recoverable. Avoid making a first experiment responsible for
+medical, legal, financial, hiring, or other high-impact decisions.
+Learning the machinery and establishing real-world validity are separate
+obligations.</p>
+<a id="write-the-prediction-contract"></a>
+<h2>Write the prediction
+contract</h2>
+<p>Describe the exact input fields or file format, what is available at
+prediction time, the output format, the target policy, and the
+downstream action. State which outputs are valid and what happens when
+required information is missing. List examples outside the intended
+domain.</p>
+<p>Then identify the application pattern. A fixed decision suggests
+classification or a typed-decision model. A numeric quantity suggests
+regression. A ranked list suggests retrieval or ranking. A pixel mask
+suggests segmentation. Flexible text suggests conditional generation.
+Images or audio synthesized from conditions suggest an appropriate
+generative model. A deterministic transformation may need ordinary code
+rather than training.</p>
+<p>Do not force a problem into the category whose tutorial you most
+recently read. The input/output contract is the organizing
+principle.</p>
+<a id="build-a-baseline-and-a-small-evaluation-set"></a>
+<h2>Build a baseline
+and a small evaluation set</h2>
+<p>Create a baseline with the simplest plausible method. Save its
+outputs on a carefully selected initial evaluation set. Include common
+cases, costly errors, missing information, and domain boundaries. Define
+a primary metric, guardrails, and a stopping rule.</p>
+<p>The evaluation set should be large enough to expose important
+failures and small enough that you can review it. It can expand as the
+project matures. Preserve a final holdout that does not guide repeated
+choices. Record sources and grouping units from the beginning so later
+expansion does not create leakage.</p>
+<p>If the baseline already meets the requirement, deployment engineering
+may be more valuable than training. A model project succeeds when the
+user's problem is solved, even if the winning method is simpler than
+expected.</p>
+<a id="select-the-smallest-useful-intervention"></a>
+<h2>Select the smallest
+useful intervention</h2>
+<p>Try a better representation or prompt before a major weight update
+when appropriate. Try retrieval for changing factual knowledge. Try a
+small head or adapter when the pretrained representation is useful but
+the task interface differs. Try full fine-tuning when you have a reason
+to update the whole model and can afford the controlled experiment.
+Train from scratch when the objective, architecture, data ownership, or
+narrow task makes that justified.</p>
+<p>For every choice, write why the data should teach the architecture.
+If the model predicts next tokens, show how the desired behavior appears
+in target sequences. If it scores options, show positive choices and
+plausible alternatives. If it predicts masks, show aligned pixel labels.
+If it denoises audio, show consistent waveform preprocessing and
+conditioning.</p>
+<a id="use-four-gates"></a>
+<h2>Use four gates</h2>
+<p>The data gate requires a valid schema, clear targets, lawful
+provenance, representative coverage, and protected split boundaries. The
+correctness gate requires a tiny run, finite gradients, a parameter
+update, and save/load equivalence. The feasibility gate requires
+measured peak memory, throughput, storage, and recovery under
+representative shapes. The quality gate requires a held-out improvement
+over the baseline without unacceptable regressions.</p>
+<p>Do not skip a gate because the previous one was exciting. A clean
+dataset does not prove a trainer is correct. A working trainer does not
+prove the useful workload fits. A feasible run does not prove the result
+is good.</p>
+<a id="plan-the-next-experiment-from-errors"></a>
+<h2>Plan the next experiment
+from errors</h2>
+<p>After the first trained comparison, classify the failures. Missing
+evidence suggests input or retrieval changes. Ambiguous labels suggest
+annotation work. Format errors suggest target consistency or constrained
+decoding. Long-input failures suggest truncation or context design.
+Confident wrong decisions suggest calibration and abstention work.
+Systematic visual or audio artifacts suggest representation,
+preprocessing, or training-coverage problems.</p>
+<p>Choose one change that addresses the dominant error category. Write
+the predicted effect and how you will measure it. Preserve the prior
+artifact so you can compare or roll back. This creates a series of
+understandable experiments rather than a pile of increasingly
+complicated configurations.</p>
+<a id="a-final-handoff-to-yourself"></a>
+<h2>A final handoff to yourself</h2>
+<p>At the end, you should have an inference-ready artifact, a readable
+model card, a data card, a tested CPU or GPU deployment path, an
+evaluation report, an environment record, and a list of known
+limitations. You should also have one next decision: deploy within the
+stated boundary, improve a particular weakness, or stop because the
+approach is not worth its cost.</p>
+<p>The central skill is no longer knowing one command. It is connecting
+a desired behavior to evidence, representation, architecture,
+optimization, and evaluation. That skill transfers from three learned
+numbers to hundreds of millions of parameters, and it lets you read
+larger-model research without confusing an impressive architecture with
+a feasible personal project.</p>
+</article><nav class="pager" aria-label="Adjacent chapters"><a href="33.html"><small>← Previous</small>33  Turn a checkpoint into a usable application</a><a href="35.html"><small>Next →</small>35  Understand larger models using the parts you already know</a></nav></main><aside class="on-page"><h2>On this page</h2><a href="#choose-a-job-small-enough-to-verify">Choose a job small enough
+to verify</a><a href="#write-the-prediction-contract">Write the prediction
+contract</a><a href="#build-a-baseline-and-a-small-evaluation-set">Build a baseline
+and a small evaluation set</a><a href="#select-the-smallest-useful-intervention">Select the smallest
+useful intervention</a><a href="#use-four-gates">Use four gates</a><a href="#plan-the-next-experiment-from-errors">Plan the next experiment
+from errors</a><a href="#a-final-handoff-to-yourself">A final handoff to yourself</a></aside></div><footer class="footer"><div><strong>Training Your Own Models</strong><br>Vibe Authored by Dr.Puma · 2 October 2026</div><div><a href="../chapters/glossary.html">Glossary</a><a href="../chapters/references.html">References</a><a href="https://github.com/MrScripty/training-your-own-models">GitHub ↗</a></div></footer><script src="../assets/site.js" defer></script></body></html>

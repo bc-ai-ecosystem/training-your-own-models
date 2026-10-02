@@ -1,0 +1,183 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f6f3eb"><title>29  Scale a working experiment toward one billion parameters · Training Your Own Models</title><meta name="description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><link rel="canonical" href="https://mrscripty.github.io/training-your-own-models/chapters/29.html"><meta property="og:type" content="website"><meta property="og:site_name" content="Training Your Own Models"><meta property="og:title" content="29  Scale a working experiment toward one billion parameters · Training Your Own Models"><meta property="og:description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><meta property="og:url" content="https://mrscripty.github.io/training-your-own-models/chapters/29.html"><meta property="og:image" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta property="og:image:secure_url" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1280"><meta property="og:image:height" content="640"><meta property="og:image:alt" content="Training Your Own Models. On One 24 GB GPU. Vibe Authored by Dr.Puma. Cream, blue and orange scientific cover artwork."><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="29  Scale a working experiment toward one billion parameters · Training Your Own Models"><meta name="twitter:description" content="A project-first handbook by Dr.Puma: 40 chapters, 243 glossary terms, interactive learning tools, and a 57-script companion. Start small. Understand every training step."><meta name="twitter:image" content="https://mrscripty.github.io/training-your-own-models/assets/social-preview.jpg"><meta name="twitter:image:alt" content="Training Your Own Models, Vibe Authored by Dr.Puma"><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/style.css"></head><body><a class="skip" href="#main">Skip to content</a><header class="topbar"><a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true">↗</span><span>Training Your<br>Own Models</span></a><nav aria-label="Main navigation"><a href="../chapters/start.html">Read the book</a><a href="../labs.html">Explore</a><a href="../search.html" aria-label="Search the book">Search</a><a href="../downloads.html">Downloads</a></nav></header><div class="reader"><aside class="sidebar"><nav aria-label="Book contents"><label class="nav-filter">Find a chapter<input type="search" class="chapter-filter" placeholder="Filter titles" aria-label="Filter chapter titles"></label><a class="chapter-link" href="../chapters/start.html"><span>→</span>Training Your Own Models on One 24 GB GPU</a><a class="chapter-link" href="../chapters/01.html"><span>1</span>Train your first model before learning the whole field</a><a class="chapter-link" href="../chapters/02.html"><span>2</span>Your computer and the training workspace</a><a class="chapter-link" href="../chapters/03.html"><span>3</span>Numbers tensors parameters and learning</a><a class="chapter-link" href="../chapters/04.html"><span>4</span>Project turn four sensor readings into a useful prediction</a><a class="chapter-link" href="../chapters/05.html"><span>5</span>Build a dataset that teaches the job</a><a class="chapter-link" href="../chapters/06.html"><span>6</span>Decide whether the model actually improved</a><a class="chapter-link" href="../chapters/07.html"><span>7</span>Move from feature columns to neural representations</a><a class="chapter-link" href="../chapters/08.html"><span>8</span>Project classify your own small image collection</a><a class="chapter-link" href="../chapters/09.html"><span>9</span>Project locate one object with a box</a><a class="chapter-link" href="../chapters/10.html"><span>10</span>Project predict a mask then extract an outline</a><a class="chapter-link" href="../chapters/11.html"><span>11</span>Train a miniature language model from random weights</a><a class="chapter-link" href="../chapters/12.html"><span>12</span>How a language model becomes a prediction machine</a><a class="chapter-link" href="../chapters/13.html"><span>13</span>Read and control the training loop</a><a class="chapter-link" href="../chapters/14.html"><span>14</span>Make a run reproducible and recoverable</a><a class="chapter-link" href="../chapters/15.html"><span>15</span>The real memory and compute budget</a><a class="chapter-link" href="../chapters/16.html"><span>16</span>Project make related text easy to retrieve</a><a class="chapter-link" href="../chapters/17.html"><span>17</span>Choose a model by its actual structure and files</a><a class="chapter-link" href="../chapters/18.html"><span>18</span>Teach a small language model one useful behavior</a><a class="chapter-link" href="../chapters/19.html"><span>19</span>Repeat the project with every weight trainable</a><a class="chapter-link" href="../chapters/20.html"><span>20</span>Teach domain conventions without turning weights into a database</a><a class="chapter-link" href="../chapters/21.html"><span>21</span>Make a writing style reproducible without changing the facts</a><a class="chapter-link" href="../chapters/22.html"><span>22</span>Teach a tool decision and a complete tool interaction</a><a class="chapter-link" href="../chapters/23.html"><span>23</span>Study a small typed decision service</a><a class="chapter-link" href="../chapters/24.html"><span>24</span>From a language model to a decision model</a><a class="chapter-link" href="../chapters/25.html"><span>25</span>Add preferences and distillation only after supervised learning works</a><a class="chapter-link" href="../chapters/26.html"><span>26</span>Project teach an image generator a small visual style</a><a class="chapter-link" href="../chapters/27.html"><span>27</span>Speech recognition train a small model to hear your domain</a><a class="chapter-link" href="../chapters/28.html"><span>28</span>Project build a tiny sound generator from random weights</a><a class="chapter-link" href="../chapters/29.html" aria-current="page"><span>29</span>Scale a working experiment toward one billion parameters</a><a class="chapter-link" href="../chapters/30.html"><span>30</span>Understand what a public training process really demonstrates</a><a class="chapter-link" href="../chapters/31.html"><span>31</span>Diagnose failures before making the model larger</a><a class="chapter-link" href="../chapters/32.html"><span>32</span>From small model to small device product</a><a class="chapter-link" href="../chapters/33.html"><span>33</span>Turn a checkpoint into a usable application</a><a class="chapter-link" href="../chapters/34.html"><span>34</span>Design your first independent model</a><a class="chapter-link" href="../chapters/35.html"><span>35</span>Understand larger models using the parts you already know</a><a class="chapter-link" href="../chapters/36.html"><span>36</span>Read MiMo GLM and other architecture families</a><a class="chapter-link" href="../chapters/37.html"><span>37</span>Connect architecture to data memory and deployment</a><a class="chapter-link" href="../chapters/38.html"><span>38</span>Learn from public training projects without copying their assumptions</a><a class="chapter-link" href="../chapters/39.html"><span>39</span>Exercise checkpoints and worked answers</a><a class="chapter-link" href="../chapters/40.html"><span>40</span>Companion guide and verification record</a><a class="chapter-link" href="../chapters/glossary.html"><span>A–Z</span>Glossary with links to explanations</a><a class="chapter-link" href="../chapters/references.html"><span>Ref</span>Works cited</a></nav></aside><main class="prose" id="main"><details class="mobile-toc"><summary>Browse the book</summary><nav aria-label="Book contents"><label class="nav-filter">Find a chapter<input type="search" class="chapter-filter" placeholder="Filter titles" aria-label="Filter chapter titles"></label><a class="chapter-link" href="../chapters/start.html"><span>→</span>Training Your Own Models on One 24 GB GPU</a><a class="chapter-link" href="../chapters/01.html"><span>1</span>Train your first model before learning the whole field</a><a class="chapter-link" href="../chapters/02.html"><span>2</span>Your computer and the training workspace</a><a class="chapter-link" href="../chapters/03.html"><span>3</span>Numbers tensors parameters and learning</a><a class="chapter-link" href="../chapters/04.html"><span>4</span>Project turn four sensor readings into a useful prediction</a><a class="chapter-link" href="../chapters/05.html"><span>5</span>Build a dataset that teaches the job</a><a class="chapter-link" href="../chapters/06.html"><span>6</span>Decide whether the model actually improved</a><a class="chapter-link" href="../chapters/07.html"><span>7</span>Move from feature columns to neural representations</a><a class="chapter-link" href="../chapters/08.html"><span>8</span>Project classify your own small image collection</a><a class="chapter-link" href="../chapters/09.html"><span>9</span>Project locate one object with a box</a><a class="chapter-link" href="../chapters/10.html"><span>10</span>Project predict a mask then extract an outline</a><a class="chapter-link" href="../chapters/11.html"><span>11</span>Train a miniature language model from random weights</a><a class="chapter-link" href="../chapters/12.html"><span>12</span>How a language model becomes a prediction machine</a><a class="chapter-link" href="../chapters/13.html"><span>13</span>Read and control the training loop</a><a class="chapter-link" href="../chapters/14.html"><span>14</span>Make a run reproducible and recoverable</a><a class="chapter-link" href="../chapters/15.html"><span>15</span>The real memory and compute budget</a><a class="chapter-link" href="../chapters/16.html"><span>16</span>Project make related text easy to retrieve</a><a class="chapter-link" href="../chapters/17.html"><span>17</span>Choose a model by its actual structure and files</a><a class="chapter-link" href="../chapters/18.html"><span>18</span>Teach a small language model one useful behavior</a><a class="chapter-link" href="../chapters/19.html"><span>19</span>Repeat the project with every weight trainable</a><a class="chapter-link" href="../chapters/20.html"><span>20</span>Teach domain conventions without turning weights into a database</a><a class="chapter-link" href="../chapters/21.html"><span>21</span>Make a writing style reproducible without changing the facts</a><a class="chapter-link" href="../chapters/22.html"><span>22</span>Teach a tool decision and a complete tool interaction</a><a class="chapter-link" href="../chapters/23.html"><span>23</span>Study a small typed decision service</a><a class="chapter-link" href="../chapters/24.html"><span>24</span>From a language model to a decision model</a><a class="chapter-link" href="../chapters/25.html"><span>25</span>Add preferences and distillation only after supervised learning works</a><a class="chapter-link" href="../chapters/26.html"><span>26</span>Project teach an image generator a small visual style</a><a class="chapter-link" href="../chapters/27.html"><span>27</span>Speech recognition train a small model to hear your domain</a><a class="chapter-link" href="../chapters/28.html"><span>28</span>Project build a tiny sound generator from random weights</a><a class="chapter-link" href="../chapters/29.html" aria-current="page"><span>29</span>Scale a working experiment toward one billion parameters</a><a class="chapter-link" href="../chapters/30.html"><span>30</span>Understand what a public training process really demonstrates</a><a class="chapter-link" href="../chapters/31.html"><span>31</span>Diagnose failures before making the model larger</a><a class="chapter-link" href="../chapters/32.html"><span>32</span>From small model to small device product</a><a class="chapter-link" href="../chapters/33.html"><span>33</span>Turn a checkpoint into a usable application</a><a class="chapter-link" href="../chapters/34.html"><span>34</span>Design your first independent model</a><a class="chapter-link" href="../chapters/35.html"><span>35</span>Understand larger models using the parts you already know</a><a class="chapter-link" href="../chapters/36.html"><span>36</span>Read MiMo GLM and other architecture families</a><a class="chapter-link" href="../chapters/37.html"><span>37</span>Connect architecture to data memory and deployment</a><a class="chapter-link" href="../chapters/38.html"><span>38</span>Learn from public training projects without copying their assumptions</a><a class="chapter-link" href="../chapters/39.html"><span>39</span>Exercise checkpoints and worked answers</a><a class="chapter-link" href="../chapters/40.html"><span>40</span>Companion guide and verification record</a><a class="chapter-link" href="../chapters/glossary.html"><span>A–Z</span>Glossary with links to explanations</a><a class="chapter-link" href="../chapters/references.html"><span>Ref</span>Works cited</a></nav></details><div class="chapter-meta"><span class="eyebrow">Chapter 29 / 40</span><span>6 min read</span></div><article class="manuscript"><a id="scale-a-working-experiment-toward-one-billion-parameters"></a>
+<h1>29
+Scale a working experiment toward one billion parameters</h1>
+<a id="the-next-experiment-should-answer-one-question"></a>
+<h2>The next
+experiment should answer one question</h2>
+<p>After the tiny transformer works, the tempting next step is to make
+it a thousand times larger. A better next step asks a specific question:
+is the small model underpowered for a task whose data and evaluation are
+already trustworthy? If you cannot show that the task needs more
+capacity, increasing size mainly increases the cost of uncertainty.</p>
+<p>A useful scaling experiment keeps data processing, split definitions,
+and evaluation fixed while changing one capacity dimension. Compare a
+slightly wider model, a deeper model, or a longer training budget.
+Measure quality, memory, and throughput. The result should tell you
+whether another increase is justified.</p>
+<p>Before scaling, replace the toy corpus with sufficient lawful
+material for the intended task. Repeating 133,000 synthetic bytes
+millions of times does not create the linguistic coverage of a real
+pretraining corpus. You may obtain a model that memorizes the generator
+extremely well and generalizes poorly.</p>
+<a id="three-different-meanings-of-full-training"></a>
+<h2>Three different
+meanings of full training</h2>
+<p>Training from scratch initializes all learned parameters without a
+pretrained checkpoint and optimizes them on your data. Full-parameter
+fine-tuning starts from pretrained weights and allows all selected model
+parameters to change. Continued pretraining starts from pretrained
+weights and continues a broad self-supervised objective, often on domain
+text. These can all update every parameter, but their starting
+capability, data needs, and goals differ.</p>
+<p>If you fine-tune a 600-million-parameter pretrained model, you
+inherit the results of its original large-scale pretraining. A
+600-million-parameter model trained from scratch on your small dataset
+does not inherit that capability. Comparing their parameter counts
+without their data and training histories is misleading.</p>
+<p>Head-only training and adapter training update a subset of
+parameters. They are valuable techniques, but should not be described as
+full-parameter training. A model can have a billion total parameters and
+only a few million trainable parameters. Record both counts.</p>
+<a id="a-realistic-ladder-of-model-sizes"></a>
+<h2>A realistic ladder of model
+sizes</h2>
+<p>The educational byte transformer begins below one million parameters.
+Models in the low millions are suitable for learning mechanics,
+constrained synthetic tasks, and some genuinely narrow applications.
+Tens of millions allow more capacity while keeping many experiments
+relatively manageable. Hundreds of millions become a meaningful systems
+and data project. Near one billion, full training on 24 GB requires
+careful numeric, activation, optimizer, and sequence-length choices even
+when persistent state appears to fit.</p>
+<p>Do not read those categories as performance rankings. A compact
+classifier with the right features may outperform a much larger
+generative model on a fixed decision task. A pretrained
+350-million-parameter encoder or decoder may outperform a randomly
+initialized billion-parameter network because its representation already
+contains useful structure.</p>
+<p>The companion architecture is intentionally easy to count. With
+vocabulary V, context T, width d, and L blocks, its tied-embedding
+parameter count is approximately Vd + Td + L(12d squared + 9d) + 2d. The
+exact implementation determines the bias terms. The program prints the
+authoritative count from distinct parameter tensors.</p>
+<p>For illustration, width 768, twelve blocks, a 256-byte vocabulary,
+and context 512 give roughly 86 million parameters. Width 1,792 with
+twenty-four blocks and the same small vocabulary gives roughly 927
+million. These are shape calculations, not recommended pretrained
+architectures or measured 24 GB training configurations. A real subword
+vocabulary, different feed-forward ratio, untied output head, or
+grouped-query attention changes the count.</p>
+<a id="do-not-scale-all-costs-at-once"></a>
+<h2>Do not scale all costs at
+once</h2>
+<p>Increasing width changes many matrices quadratically. Increasing
+depth adds repeated blocks. Increasing vocabulary enlarges embedding and
+output layers. Increasing context raises activation and attention costs.
+Increasing batch raises concurrent activation cost. If you change all of
+them together, you lose the ability to diagnose the bottleneck.</p>
+<p>For a larger full-training feasibility test, start with microbatch
+one and a short but meaningful sequence. Run complete updates, including
+optimizer-state allocation. Then measure longer sequences and
+evaluation. Only after the full lifecycle works should you consider
+accumulation to reach a chosen effective batch.</p>
+<p>A short sequence can make a model fit while making the task
+impossible. If the input evidence and target depend on a 2,000-token
+document, a 128-token feasibility demonstration does not establish that
+the useful task fits. Resource constraints and task requirements must be
+reconciled honestly.</p>
+<a id="one-billion-is-a-project-boundary-rather-than-a-magic-number"></a>
+<h2>One
+billion is a project boundary rather than a magic number</h2>
+<p>Under the simple FP32 AdamW inventory, one billion trainable
+parameters require about 16 GB of persistent state before activations. A
+24 GB card may have enough remaining capacity for some short-context
+configurations, but not all. Mixed precision, optimizer implementation,
+attention kernels, output-logit materialization, and checkpointing
+determine the real peak.</p>
+<p>An efficient optimizer or CPU offload can move the boundary. It also
+changes numerical behavior, throughput, CPU RAM demand, and failure
+modes. A memory-saving flag should be accompanied by an explanation of
+which state it reduces and a new measured smoke test. If the
+implementation keeps an FP32 master copy, include it in the
+inventory.</p>
+<p>The practical full-training projects in this book stay at or below
+one billion parameters. The supplied from-scratch model is much smaller
+so the reader can understand and validate it. The pretrained
+full-fine-tuning project uses a small published checkpoint to
+demonstrate a useful adaptation path without pretending to reproduce its
+original pretraining.</p>
+<a id="what-the-three-billion-ceiling-actually-means"></a>
+<h2>What the three
+billion ceiling actually means</h2>
+<p>Three billion parameters is within the model-selection discussion,
+including adapter methods and specialized architectures. It is not a
+blanket promise of ordinary full-parameter training in 24 GB. In the
+simple FP32 AdamW case, the persistent training state alone is about 48
+GB. Lower-precision and offloaded methods must be assessed
+individually.</p>
+<p>A three-billion-parameter four-bit base may fit for adapter training
+because the frozen base has compressed storage and only a small subset
+needs optimizer state. That does not make three-billion-parameter full
+training equivalent. Likewise, a mixture-of-experts name mentioning
+three billion active parameters may have far more resident
+parameters.</p>
+<p>Pretraining from scratch adds a compute and data constraint even if
+memory can be solved. A model that sees too little varied text may never
+develop useful general language ability. A long run on inadequate data
+can be less useful than a much shorter adaptation of a well-chosen
+pretrained model.</p>
+<a id="build-a-measured-budget-before-committing"></a>
+<h2>Build a measured
+budget before committing</h2>
+<p>Measure useful tokens per second over a representative interval after
+startup. Include a separate end-to-end figure accounting for evaluation
+and checkpointing. Estimate total token presentations from data size,
+epochs or sampling plan, and masking. Divide by measured throughput,
+then add contingency for restarts and preprocessing.</p>
+<p>Write down the quality decision that will justify continuing. For
+example: after the first fixed budget, the larger model must beat the
+smaller model on held-out task accuracy without exceeding a latency
+limit. If it does not, inspect errors before spending more. Scaling can
+help with capacity; it cannot repair a mislabeled task or a missing
+input field.</p>
+<p>A sensible project budget also includes human work: reviewing data,
+defining labels, inspecting failures, and maintaining the resulting
+artifact. GPU time is only one part of the cost. For many personal
+projects, a day spent improving data and evaluation is more valuable
+than a day spent training a larger network.</p>
+<a id="a-scaling-experiment-worksheet"></a>
+<h2>A scaling experiment
+worksheet</h2>
+<p>Record the hypothesis, baseline configuration, proposed change, exact
+parameter count, trainable parameter count, numeric policy, estimated
+persistent state, measured peak state, sequence or image/audio shape,
+effective batch, data version, token or sample budget, measured
+throughput, estimated duration, stopping criteria, and evaluation
+result.</p>
+<p>Keep the first larger run deliberately bounded to feasibility and
+early learning. Do not interpret a successfully completed ten-step run
+as evidence of eventual quality. It answers a systems question. Quality
+needs a separate training budget and held-out evaluation.</p>
+<a id="exercises-10"></a>
+<h2>Exercises</h2>
+<p>Using the stated parameter formula, calculate how doubling width
+differs from doubling depth. Explain why width can make memory grow much
+faster than expected.</p>
+<p>Write two project plans for the same domain: one from-scratch tiny
+model and one pretrained full fine-tune. List which capability each
+starts with, what data it needs, and what result would justify its
+cost.</p>
+<p>A three-billion-parameter checkpoint loads successfully in four-bit
+inference. List the additional facts you need before claiming
+full-parameter training will fit: trainable dtypes, master copies,
+optimizer state, gradients, activations, context, batch, working
+buffers, and supported training kernels.</p>
+</article><nav class="pager" aria-label="Adjacent chapters"><a href="28.html"><small>← Previous</small>28  Project build a tiny sound generator from random weights</a><a href="30.html"><small>Next →</small>30  Understand what a public training process really demonstrates</a></nav></main><aside class="on-page"><h2>On this page</h2><a href="#the-next-experiment-should-answer-one-question">The next
+experiment should answer one question</a><a href="#three-different-meanings-of-full-training">Three different
+meanings of full training</a><a href="#a-realistic-ladder-of-model-sizes">A realistic ladder of model
+sizes</a><a href="#do-not-scale-all-costs-at-once">Do not scale all costs at
+once</a><a href="#one-billion-is-a-project-boundary-rather-than-a-magic-number">One
+billion is a project boundary rather than a magic number</a><a href="#what-the-three-billion-ceiling-actually-means">What the three
+billion ceiling actually means</a><a href="#build-a-measured-budget-before-committing">Build a measured
+budget before committing</a><a href="#a-scaling-experiment-worksheet">A scaling experiment
+worksheet</a><a href="#exercises-10">Exercises</a></aside></div><footer class="footer"><div><strong>Training Your Own Models</strong><br>Vibe Authored by Dr.Puma · 2 October 2026</div><div><a href="../chapters/glossary.html">Glossary</a><a href="../chapters/references.html">References</a><a href="https://github.com/MrScripty/training-your-own-models">GitHub ↗</a></div></footer><script src="../assets/site.js" defer></script></body></html>
