@@ -1,3 +1,5 @@
+> **Copied 2026-10-05.** An archive of this book draft now lives in the kk-kb monorepo at [`content/projects/02-bc-ai-ecosystem-nonprofit/publishing/training-your-own-models/`](https://github.com/WalksWithASwagger/kk-kb/tree/main/content/projects/02-bc-ai-ecosystem-nonprofit/publishing/training-your-own-models) (source commit `8764749cf633`). An improved version of the book exists elsewhere. This repo and its GitHub Pages site stay live for now; see PROVENANCE.md there.
+
 # Training Your Own Models on One 24 GB GPU
 
 Vibe Authored by Dr.Puma
